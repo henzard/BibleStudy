@@ -82,14 +82,14 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 | Source | Status | Priority | Setup needs | Notes |
 |--------|--------|----------|-------------|-------|
 | FRED News Monitor | ✅ Completed | - | Python script created | `scripts/fetch_fred_news.py` — tracks new data announcements |
+| FRED API (Economic Data) | ✅ Completed | - | API key obtained | `scripts/fetch_economic.py` — inflation, unemployment, GDP, trade |
 | World Bank News | ✅ Completed | - | Python script created | `scripts/fetch_worldbank_news.py` — poverty, disasters, economic crisis |
-| FRED API (Federal Reserve) | ⏳ Pending | **High** | Free API key | US + global indicators; authoritative |
 | World Bank Open Data API | ⏳ Pending | Medium | API (free) | Global poverty, famine proxies (raw data) |
 | IMF Financial Stability Report | ⏳ Pending | Low | Manual quarterly check | Crisis indicators |
 
 **Goal:** Map economic crises to H0 (Babylon/merchants); track inflation, supply chain disruptions, poverty increases.
 
-**Status:** FRED news + World Bank news monitors complete; API integrations require user setup
+**Status:** FRED news + FRED API + World Bank news complete; comprehensive economic tracking operational
 
 ---
 
@@ -151,7 +151,7 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 3. ✅ ~~Set up **FRED News Monitor**~~ — **COMPLETED** (`scripts/fetch_fred_news.py`)
 4. ✅ ~~Set up **World Bank News**~~ — **COMPLETED** (`scripts/fetch_worldbank_news.py`)
 5. ✅ ~~Set up **UN Peacekeeping**~~ — **COMPLETED** (`scripts/fetch_un_peacekeeping.py`)
-6. ⏳ Get **FRED API key** + create `fetch_economic.py` (requires user account)
+6. ✅ ~~Get **FRED API key** + create `fetch_economic.py`~~ — **COMPLETED** (API key obtained, script operational)
 7. ⏳ Subscribe to **EFF Blog RSS** (digital rights/surveillance)
 8. ⏳ Bookmark **Open Doors World Watch List** (monthly manual check)
 
@@ -202,8 +202,20 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
   - Auto-categorizes (Active Conflict, Casualties, Humanitarian Crisis)
   - Maps to node J0 (Matt 24:6-7 — wars and rumors of wars)
 
+- ✅ **`scripts/fetch_economic.py`** — FRED API economic data fetcher
+  - Inflation (CPI, PCE) with crisis thresholds
+  - Unemployment (U-3, U-6) with warning levels
+  - GDP growth rate tracking
+  - Trade balance deficit monitoring
+  - Automated assessment (Normal/Concern/Crisis)
+  - Maps to node H0 (Rev 17-18)
+
+- ✅ **`scripts/weekly_update.py`** — Master weekly update script
+  - Runs all 6 automation scripts in one command
+  - Compiles results into weekly review markdown
+  - Takes 30-60 seconds for complete update
+
 ### Planned
-- ⏳ `scripts/fetch_economic.py` — FRED API for actual economic data (requires API key from user)
 - ⏳ `scripts/fetch_persecution.py` — Parse Open Doors WWL + VOM alerts
 - ⏳ `scripts/fetch_spaceweather.py` — NOAA space weather alerts
 - ⏳ `scripts/fetch_biometric_news.py` — Biometric Update + EFF RSS

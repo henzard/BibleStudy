@@ -22,6 +22,7 @@ python scripts/weekly_update.py --days 7
 3. ✅ World Bank News (poverty, disasters, economic crisis)
 4. ✅ UN Peacekeeping (conflicts, casualties, humanitarian crises)
 5. ✅ FRED Economic News (data announcements)
+6. ✅ FRED Economic Data (inflation, unemployment, GDP, trade balance)
 
 **Example output:**
 - Summary statistics (scripts run, success/fail count)

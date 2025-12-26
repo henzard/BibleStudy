@@ -52,9 +52,15 @@ SCRIPTS = {
         'node': 'J0',
         'scripture': 'Matt 24:6-7'
     },
-    'fred': {
+    'fred_news': {
         'file': 'fetch_fred_news.py',
         'name': 'FRED Economic News',
+        'node': 'H0',
+        'scripture': 'Rev 17-18'
+    },
+    'economic': {
+        'file': 'fetch_economic.py',
+        'name': 'FRED Economic Data',
         'node': 'H0',
         'scripture': 'Rev 17-18'
     }
