@@ -68,14 +68,14 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 | Source | Status | Priority | Setup needs | Notes |
 |--------|--------|----------|-------------|-------|
 | FRED News Monitor | ✅ Completed | - | Python script created | `scripts/fetch_fred_news.py` — tracks new data announcements |
+| World Bank News | ✅ Completed | - | Python script created | `scripts/fetch_worldbank_news.py` — poverty, disasters, economic crisis |
 | FRED API (Federal Reserve) | ⏳ Pending | **High** | Free API key | US + global indicators; authoritative |
-| World Bank Open Data | ⏳ Pending | Medium | API (free) | Global poverty, famine proxies |
+| World Bank Open Data API | ⏳ Pending | Medium | API (free) | Global poverty, famine proxies (raw data) |
 | IMF Financial Stability Report | ⏳ Pending | Low | Manual quarterly check | Crisis indicators |
-| Trading Economics | ⏳ Pending | Low | Web (paid API) | Aggregates official stats |
 
-**Goal:** Map economic crises to H0 (Babylon/merchants); track inflation, supply chain disruptions.
+**Goal:** Map economic crises to H0 (Babylon/merchants); track inflation, supply chain disruptions, poverty increases.
 
-**Status:** FRED news monitor complete; API integration requires user to get API key
+**Status:** FRED news + World Bank news monitors complete; API integrations require user setup
 
 ---
 
@@ -135,14 +135,15 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 1. ✅ ~~Set up **USGS Earthquake API**~~ — **COMPLETED** (`scripts/fetch_earthquakes.py`)
 2. ✅ ~~Set up **GDACS**~~ — **COMPLETED** (`scripts/fetch_gdacs.py`)
 3. ✅ ~~Set up **FRED News Monitor**~~ — **COMPLETED** (`scripts/fetch_fred_news.py`)
-4. ⏳ Get **FRED API key** + create `fetch_economic.py` (requires user account)
-5. ⏳ Subscribe to **EFF Blog RSS** (digital rights/surveillance)
-6. ⏳ Bookmark **Open Doors World Watch List** (monthly manual check)
+4. ✅ ~~Set up **World Bank News**~~ — **COMPLETED** (`scripts/fetch_worldbank_news.py`)
+5. ⏳ Get **FRED API key** + create `fetch_economic.py` (requires user account)
+6. ⏳ Subscribe to **EFF Blog RSS** (digital rights/surveillance)
+7. ⏳ Bookmark **Open Doors World Watch List** (monthly manual check)
 
 ### Phase 2: Medium-Priority Sources (next month)
-7. ⏳ Integrate **ReliefWeb API** (humanitarian impact)
-8. ⏳ Subscribe to **NOAA Space Weather** alerts
-9. ⏳ Bookmark **World Food Programme** famine alerts
+8. ⏳ Integrate **ReliefWeb API** (humanitarian impact)
+9. ⏳ Subscribe to **NOAA Space Weather** alerts
+10. ⏳ Bookmark **World Food Programme** famine alerts
 
 ### Phase 3: Optional Enhancements (as needed)
 9. ⏳ Add **historical baseline tracking** rule (know "normal" vs "escalating")
@@ -171,6 +172,13 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
   - Tracks new FRED data series announcements
   - Flags relevant economic indicators
   - Maps to node H0 (Rev 17-18)
+
+- ✅ **`scripts/fetch_worldbank_news.py`** — World Bank news monitor
+  - Poverty forecasts + famine indicators
+  - Official disaster damage assessments
+  - Economic crisis reports
+  - Auto-classifies to J0 (disasters/poverty) or H0 (economic crisis)
+  - Maps to nodes J0 (Matt 24:7-8) + H0 (Rev 17-18)
 
 ### Planned
 - ⏳ `scripts/fetch_economic.py` — FRED API for actual economic data (requires API key from user)

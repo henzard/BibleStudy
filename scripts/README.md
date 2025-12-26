@@ -117,6 +117,49 @@ python scripts/fetch_fred_news.py --days 60
 
 ---
 
+### `fetch_worldbank_news.py`
+
+**Purpose:** Monitor World Bank news for poverty, disasters, and economic crisis reports.
+
+**Usage:**
+```bash
+# Default: past 7 days
+python scripts/fetch_worldbank_news.py
+
+# Custom time range
+python scripts/fetch_worldbank_news.py --days 14
+```
+
+**Output:**
+- Poverty forecasts and famine indicators
+- Official disaster damage assessments (with $ amounts)
+- Economic crisis reports by country
+- Pre-formatted rows for daily review classification table
+- Automatic classification by prophecy node (J0 for disasters/poverty, H0 for economic crisis)
+
+**Data source:** [World Bank](https://www.worldbank.org/) (via EIN News) — Tier 1
+
+**Maps to:** 
+- Node J0 (Beginning of sorrows — famines, disasters)
+- Node H0 (Babylon/merchants — economic patterns)
+
+**Scripture anchors:** 
+- Matthew 24:7-8 (famines, pestilences, earthquakes)
+- Revelation 17-18 (merchants/trade collapse)
+
+**Confidence levels:**
+- **High:** Disaster with $ damage figures or death toll
+- **Med:** Poverty forecasts, economic instability
+- **Low:** General aid/humanitarian projects
+
+**Why World Bank matters:**
+- Authoritative poverty data (official "famines" proxy)
+- Disaster damage assessments (verifiable $ amounts)
+- Economic crisis indicators by country
+- Tier 1 international organization
+
+---
+
 ### FRED API Integration (Planned)
 
 **Purpose:** Fetch actual economic indicator data (inflation, unemployment, GDP, trade deficits).
