@@ -1,15 +1,15 @@
 # Weekly Prophecy Tracking Review — 2025-12-26
 
 **Period:** Past 3 days
-**Generated:** 2025-12-26 12:07 UTC
-**Scripts run:** 5
+**Generated:** 2025-12-26 12:14 UTC
+**Scripts run:** 6
 
 ---
 
 ## 📊 Summary
 
-- **Scripts executed:** 5
-- **Successful:** 5
+- **Scripts executed:** 6
+- **Successful:** 6
 - **Failed:** 0
 
 ---
@@ -32,7 +32,6 @@
 | **5.6** | 99 km E of Yokohama, Japan | 2025-12-25 18:45 UTC | 41.2222, 142.418 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000rkqm) |
 | **5.6** | 38 km NNE of Port-Olry, Vanuatu | 2025-12-24 21:09 UTC | -14.7032, 167.1651 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000rkfp) |
 | **5.2** | south of the Fiji Islands | 2025-12-25 10:16 UTC | -26.4885, -176.3041 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000rkpt) |
-| **5.2** | 119 km NNW of Finschhafen, Papua New Guinea | 2025-12-23 10:12 UTC | -5.5727, 147.4108 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000rkbp) |
 | **5.2** | 163 km S of Ōyama, Japan | 2025-12-23 21:50 UTC | 33.1492, 137.9363 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000rkbm) |
 | **5.1** | Drake Passage | 2025-12-26 05:00 UTC | -60.1845, -62.0992 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000rkup) |
 | **5.1** | 226 km SW of Merizo Village, Guam | 2025-12-25 22:47 UTC | 11.7877, 143.2303 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000rkmf) |
@@ -69,11 +68,12 @@
 | **4.5** | south of the Fiji Islands | 2025-12-23 21:28 UTC | -25.0349, 179.7554 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000rkfn) |
 | **4.5** | 141 km WNW of Neiafu, Tonga | 2025-12-23 17:34 UTC | -17.9983, -175.135 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000rkcd) |
 | **4.5** | 72 km SE of Ambon, Indonesia | 2025-12-23 11:38 UTC | -4.1352, 128.6654 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000rkc0) |
-| **4.5** | 281 km WNW of Bandon, Oregon | 2025-12-25 10:07 UTC | 43.7845, -127.7688 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000rwbc) |
+| **4.5** | 281 km WNW of Bandon, Oregon | 2025-12-26 10:07 UTC | 43.7845, -127.7688 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000rwbc) |
 | **4.4** | 52 km NW of Calingasta, Argentina | 2025-12-26 07:52 UTC | -31.0095, -69.8194 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000rkuv) |
 | **4.4** | 17 km NNW of Yingjiang, China | 2025-12-25 17:05 UTC | 24.8622, 97.8918 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000rkqh) |
+| **4.4** | 51 km WSW of Atiquipa, Peru | 2025-12-25 12:26 UTC | -15.9267, -74.8234 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000rknz) |
 
-... (45 more lines)
+... (44 more lines)
 ```
 
 ---
@@ -93,10 +93,9 @@
 | 🟢 **Green** | Guam | 2025-12-24 15:00 UTC | Magnitude 5.7M, Depth:10km | 140 thousand in MMI III (143859 people) | [GDACS](https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1516540) |
 | 🟢 **Green** | Taiwan | 2025-12-24 09:47 UTC | Magnitude 6M, Depth:10km | 2 thousand (in MMI>=VII) (1743 people) | [GDACS](https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1516500) |
 | 🟢 **Green** | Vanuatu | 2025-12-23 20:41 UTC | Magnitude 5.6M, Depth:171km | 130 thousand in MMI III (129789 people) | [GDACS](https://www.gdacs.org/report.aspx?eventtype=EQ&eventid=1516422) |
-### Floods (2)
+### Floods (1)
 | Alert | Location | Date | Severity | Population | Link |
 |-------|----------|------|----------|------------|------|
-| 🟢 **Green** | South Africa | 2025-12-21 01:00 UTC | Magnitude 0  | 4 deaths  (4 people) | [GDACS](https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103674) |
 | 🟢 **Green** | Argentina | 2025-12-20 01:00 UTC | Magnitude 0  | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=FL&eventid=1103675) |
 ### Unknowns (37)
 | Alert | Location | Date | Severity | Population | Link |
@@ -134,8 +133,9 @@
 | 🟢 **Green** | Sudan | 2025-12-13 00:00 UTC | Green impact for forestfire in 5099 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1026437) |
 | 🟢 **Green** | Sudan | 2025-12-13 00:00 UTC | Green impact for forestfire in 6315 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1026436) |
 | 🟢 **Green** | Central African Republic | 2025-12-12 00:00 UTC | Green impact for forestfire in 5656 ha | 6 people affected in the area (6 people) | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1026438) |
+| 🟢 **Green** | India | 2025-12-12 00:00 UTC | Green impact for forestfire in 5553 ha | 15423 people affected in the area (15423 people) | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1026463) |
 
-... (27 more lines)
+... (26 more lines)
 ```
 
 ---
@@ -150,21 +150,21 @@
 ### Node J0: Beginning of Sorrows (Disasters/Famines) — 15 articles
 | Date | Headline | Keywords | Confidence | Link |
 |------|----------|----------|------------|------|
-| 2025-12-26 | **Cebu BRT stumbles: Completion at risk, says World Bank** | aid | Low | [Source](https://worldbank.einnews.com/article/878375633/DtJNlbkEqg3KnGFM?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-26 | **"Another 170,000 People". The World Bank Forecasts an Increa...** | poverty | Med | [Source](https://worldbank.einnews.com/article/878375471/Efk-lORnP34qL_TM?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-26 | **Palestinian economy faces critical downturn amid escalating ...** | aid | Med | [Source](https://worldbank.einnews.com/article/878390871/JNvY2OsUb--pZHA0?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-25 | **Private capital reshapes Chennai’s public bus services in th...** | aid | Low | [Source](https://worldbank.einnews.com/article/878269163/22LHr2UFP8ad1crO?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-24 | **World Bank approves 150.75 mln USD to help Bangladesh suppor...** | aid | Low | [Source](https://worldbank.einnews.com/article/878098706/iMkPh49MrybLPkZ5?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-24 | **World Bank Calls for Expanded Digital Access for Vulnerable ...** | vulnerable | Low | [Source](https://worldbank.einnews.com/article/878084519/JQ9YGQvbqzdR-BIN?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-24 | **World Bank approves $250 million to support refugee housing ...** | aid | Low | [Source](https://worldbank.einnews.com/article/878063558/6Rh2OtdFM_4UidSH?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-24 | **FG, World Bank partner on $500m programme to strengthen educ...** | aid | Low | [Source](https://worldbank.einnews.com/article/878022763/M2FuiTZkBHbPUOYs?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-24 | **Armenia to Improve Access to Affordable Housing for Refugees...** | aid | Low | [Source](https://worldbank.einnews.com/article/878015890/-sUw5pHtLX69Kmlc?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-24 | **World Bank approves $150.75m to boost jobs for low-income yo...** | aid | Low | [Source](https://worldbank.einnews.com/article/878008546/aj9DHlGqbEFgl_Zz?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-24 | **World Bank helps Bangladesh create economic opportunities fo...** | aid | Low | [Source](https://worldbank.einnews.com/article/878003812/n4Ha0vfFU2WErvPm?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-24 | **FG, World Bank launch $500 million programme to boost educat...** | aid | Low | [Source](https://worldbank.einnews.com/article/877969510/lMtx9fUwGYnuCAaG?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-23 | **FG to deploy $500m World Bank loan in education, healthcare ...** | aid | Low | [Source](https://worldbank.einnews.com/article/877917482/kWwCwTie-miFq2jk?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-23 | **FG, World Bank partner on $500 million programme to strength...** | aid | Low | [Source](https://worldbank.einnews.com/article/877913759/hdf7q6zSxe5jZpvM?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
-| 2025-12-23 | **FG, World Bank unveil $500m programme for education, healthc...** | aid | Low | [Source](https://worldbank.einnews.com/article/877845684/kxhARvO8a-zGw16_?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-26 | **Cebu BRT stumbles: Completion at risk, says World Bank** | aid | Low | [Source](https://worldbank.einnews.com/article/878375633/C0l135LfM8XtOD1Y?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-26 | **"Another 170,000 People". The World Bank Forecasts an Increa...** | poverty | Med | [Source](https://worldbank.einnews.com/article/878375471/7v1-m3u45CUdWqhC?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-26 | **Palestinian economy faces critical downturn amid escalating ...** | aid | Med | [Source](https://worldbank.einnews.com/article/878390871/EGI-SIA2N9vl1hom?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-25 | **Private capital reshapes Chennai’s public bus services in th...** | aid | Low | [Source](https://worldbank.einnews.com/article/878269163/X0QcyK2Yc1Dds3M7?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-24 | **World Bank approves 150.75 mln USD to help Bangladesh suppor...** | aid | Low | [Source](https://worldbank.einnews.com/article/878098706/Yf9e9nCFLBkWDjb4?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-24 | **World Bank Calls for Expanded Digital Access for Vulnerable ...** | vulnerable | Low | [Source](https://worldbank.einnews.com/article/878084519/SGgcKvlNBUIft9-B?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-24 | **World Bank approves $250 million to support refugee housing ...** | aid | Low | [Source](https://worldbank.einnews.com/article/878063558/f1nE63mAm8GlLxJR?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-24 | **FG, World Bank partner on $500m programme to strengthen educ...** | aid | Low | [Source](https://worldbank.einnews.com/article/878022763/QnupUP6pvHzIpRwz?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-24 | **Armenia to Improve Access to Affordable Housing for Refugees...** | aid | Low | [Source](https://worldbank.einnews.com/article/878015890/cWQuGXH4fhCH9U-2?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-24 | **World Bank approves $150.75m to boost jobs for low-income yo...** | aid | Low | [Source](https://worldbank.einnews.com/article/878008546/KTWrqlpzCW0Mcpro?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-24 | **World Bank helps Bangladesh create economic opportunities fo...** | aid | Low | [Source](https://worldbank.einnews.com/article/878003812/hkS7wM-s8GmMBZqD?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-24 | **FG, World Bank launch $500 million programme to boost educat...** | aid | Low | [Source](https://worldbank.einnews.com/article/877969510/6AnPG0awfRO1w2VZ?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-23 | **FG to deploy $500m World Bank loan in education, healthcare ...** | aid | Low | [Source](https://worldbank.einnews.com/article/877917482/6WfdJ9KEL6c02bn5?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-23 | **FG, World Bank partner on $500 million programme to strength...** | aid | Low | [Source](https://worldbank.einnews.com/article/877913759/BWCHuFUZ4TmIKHnh?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
+| 2025-12-23 | **FG, World Bank unveil $500m programme for education, healthc...** | aid | Low | [Source](https://worldbank.einnews.com/article/877845684/IWQ5l6yTBV5t7UVY?ref=rss&ecode=IqAfT-IC0N1ZHziI) |
 **Scripture anchor:** Matthew 24:7-8 — 'famines, pestilences, earthquakes… beginning of sorrows'
 **Total:** 15 relevant articles
 **Source:** World Bank (via EIN News) — Tier 1 (official WB projects/reports)
@@ -206,7 +206,7 @@
 ### Humanitarian Crisis (1)
 | Date | Headline | Key Data | Confidence | Link |
 |------|----------|----------|------------|------|
-| 2025-12-24 | **Historic vote looms in Central African Republic as UN u...** | 2.39 million, 1988 | Med | [UN PKO](https://peacekeeping.un.org/en/historic-vote-looms-central-african-republic-un-urges-peaceful-participation) |
+| 2025-12-24 | **Historic vote looms in Central African Republic as UN u...** | 1.14 million, 2019 | Med | [UN PKO](https://peacekeeping.un.org/en/historic-vote-looms-central-african-republic-un-urges-peaceful-participation) |
 **Total:** 1 relevant articles
 **Scripture anchor:** Matthew 24:6-7 — 'wars and rumours of wars… nation against nation'
 **Node ID:** J0 (Beginning of sorrows)
@@ -214,7 +214,7 @@
 **Note:** Tracks active conflicts, peacekeeping missions, civilian casualties
 ================================================================================
 ## For classification table (copy to daily review):
-| UN Peacekeeping: Historic vote looms in Central African Republ | Conflict Zone | J0 | Matt 24:6-7 | Humanitarian Crisis | Med | UN PKO Tier 1; 2.39 million, 1988 |
+| UN Peacekeeping: Historic vote looms in Central African Republ | Conflict Zone | J0 | Matt 24:6-7 | Humanitarian Crisis | Med | UN PKO Tier 1; 1.14 million, 2019 |
 ================================================================================
 ✅ 1 relevant UN Peacekeeping article(s) found
 💡 Why UN Peacekeeping matters:
@@ -238,6 +238,49 @@
 
 ```
 No FRED announcements in the specified period.
+```
+
+---
+
+### FRED Economic Data
+**Node:** H0 | **Scripture:** Rev 17-18
+
+✅ **Status:** Success
+
+```
+## FRED Economic Indicators — Node H0 (Babylon/Merchants Pattern)
+### Inflation
+| Indicator | Latest | Date | YoY Change | Status | Assessment |
+|-----------|--------|------|------------|--------|------------|
+| **Consumer Price Index (CPI-U)** | 325.03 | 2025-11-01 | N/A | ⚪ UNKNOWN | Insufficient data for YoY |
+| **Personal Consumption Expenditures Price Index** | 127.62 | 2025-09-01 | N/A | ⚪ UNKNOWN | Insufficient data for YoY |
+### Unemployment
+| Indicator | Latest | Date | YoY Change | Status | Assessment |
+|-----------|--------|------|------------|--------|------------|
+| **Unemployment Rate** | 4.60 | 2025-11-01 | N/A | 🟢 NORMAL | Normal range: 4.6% |
+| **Total Unemployed + Marginally Attached + Part-Time** | 8.70 | 2025-11-01 | N/A | 🟢 NORMAL | Normal range: 8.7% |
+### Gdp
+| Indicator | Latest | Date | YoY Change | Status | Assessment |
+|-----------|--------|------|------------|--------|------------|
+| **Gross Domestic Product** | 31095.09 | 2025-07-01 | N/A | ⚪ UNKNOWN | Insufficient data |
+| **Real GDP Growth Rate** | 4.30 | 2025-07-01 | N/A | ⚪ UNKNOWN | Insufficient data |
+### Trade
+| Indicator | Latest | Date | YoY Change | Status | Assessment |
+|-----------|--------|------|------------|--------|------------|
+| **Trade Balance: Goods and Services** | -52828.00 | 2025-09-01 | N/A | 🟢 NORMAL | Trade balance: $-52.8B/month |
+**Summary:** 0 CRISIS, 0 CONCERN indicators
+✅ **ASSESSMENT: Normal economic conditions (Low confidence for H0)**
+No significant crisis indicators. Continue monitoring.
+**Scripture anchor:** Revelation 17-18 — 'merchants weep… for no man buyeth their merchandise'
+**Node ID:** H0 (Babylon/merchants — economic/trade patterns)
+**Source:** FRED (Federal Reserve Economic Data) — Tier 1 (US government official data)
+================================================================================
+## For classification table (copy to daily review):
+(No CRISIS or CONCERN indicators to report)
+================================================================================
+💡 FRED API key detected and working!
+📊 Tracking: Inflation, Unemployment, GDP, Trade Balance
+🔄 Automatically included in weekly_update.py
 ```
 
 ---
