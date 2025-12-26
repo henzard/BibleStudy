@@ -37,6 +37,50 @@ python scripts/fetch_earthquakes.py --min-mag 4.5 --days 14
 
 **Scripture anchor:** Matthew 24:7-8
 
+---
+
+## Multi-Hazard Disaster Tracking
+
+### `fetch_gdacs.py`
+
+**Purpose:** Fetch and parse multi-hazard disaster alerts from GDACS; covers earthquakes, floods, cyclones, droughts, volcanoes.
+
+**Usage:**
+```bash
+# Default: Green+ alerts, past 30 days
+python scripts/fetch_gdacs.py
+
+# Only Orange and Red alerts (medium/severe)
+python scripts/fetch_gdacs.py --alert-level Orange
+
+# Only Red alerts (severe humanitarian impact)
+python scripts/fetch_gdacs.py --alert-level Red
+
+# Custom time range
+python scripts/fetch_gdacs.py --days 60
+
+# Combine options
+python scripts/fetch_gdacs.py --alert-level Orange --days 7
+```
+
+**Output:**
+- Markdown tables grouped by disaster type (Earthquake, Flood, Cyclone, Drought, Volcano)
+- Alert levels with emojis (🔴 Red, 🟠 Orange, 🟢 Green)
+- Population affected and severity descriptions
+- Pre-formatted rows for daily review classification table
+- Confidence assessment based on alert level
+
+**Data source:** [GDACS](https://www.gdacs.org/) (Global Disaster Alert and Coordination System, EC-JRC) — Tier 1
+
+**Maps to:** Node J0 (Beginning of sorrows — famines, pestilences, earthquakes)
+
+**Scripture anchor:** Matthew 24:7-8
+
+**Alert levels:**
+- **Red:** Severe humanitarian impact — HIGH confidence
+- **Orange:** Medium humanitarian impact — MEDIUM confidence
+- **Green:** Minor impact — LOW confidence
+
 **Requirements:**
 - Python 3.6+
 - No external dependencies (uses standard library only)

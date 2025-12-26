@@ -53,13 +53,13 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 | Source | Status | Priority | Setup needs | Notes |
 |--------|--------|----------|-------------|-------|
 | USGS Earthquake API | ✅ Completed | - | Python script created | `scripts/fetch_earthquakes.py` |
-| GDACS (Global Disaster Alert) | ⏳ Pending | **High** | RSS feed | Multi-hazard (earthquakes, floods, cyclones) |
+| GDACS (Global Disaster Alert) | ✅ Completed | - | Python script created | `scripts/fetch_gdacs.py` — multi-hazard (EQ, flood, cyclone, drought, volcano, wildfire) |
 | EMSC (Euro-Med Seismological) | ⏳ Pending | Medium | API or RSS | Faster than USGS for Europe/Asia |
 | ReliefWeb (UN OCHA) | ⏳ Pending | Medium | API or RSS | Humanitarian impact data |
 
 **Goal:** Automate daily checks for mag 4.0+ earthquakes; auto-add to review if 6.0+.
 
-**Status:** USGS integration complete with `scripts/fetch_earthquakes.py`
+**Status:** USGS + GDACS integration complete with automation scripts
 
 ---
 
@@ -130,15 +130,15 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 
 ### Phase 1: High-Priority Sources (next 1-2 weeks)
 1. ✅ ~~Set up **USGS Earthquake API**~~ — **COMPLETED** (`scripts/fetch_earthquakes.py`)
-2. ⏳ Subscribe to **EFF Blog RSS** (digital rights/surveillance)
-3. ⏳ Bookmark **Open Doors World Watch List** (monthly manual check)
-4. ⏳ Get **FRED API key** (economic indicators)
+2. ✅ ~~Set up **GDACS**~~ — **COMPLETED** (`scripts/fetch_gdacs.py`)
+3. ⏳ Subscribe to **EFF Blog RSS** (digital rights/surveillance)
+4. ⏳ Bookmark **Open Doors World Watch List** (monthly manual check)
+5. ⏳ Get **FRED API key** (economic indicators)
 
 ### Phase 2: Medium-Priority Sources (next month)
-5. ⏳ Set up **GDACS RSS** (multi-hazard disaster alerts)
-6. ⏳ Subscribe to **NOAA Space Weather** alerts
-7. ⏳ Bookmark **World Food Programme** famine alerts
-8. ⏳ Integrate **ReliefWeb API**
+6. ⏳ Integrate **ReliefWeb API** (humanitarian impact)
+7. ⏳ Subscribe to **NOAA Space Weather** alerts
+8. ⏳ Bookmark **World Food Programme** famine alerts
 
 ### Phase 3: Optional Enhancements (as needed)
 9. ⏳ Add **historical baseline tracking** rule (know "normal" vs "escalating")
@@ -155,6 +155,12 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
   - Fetches magnitude 4.0+ earthquakes
   - Outputs markdown-ready tables
   - Provides confidence assessment
+  - Maps to node J0 (Matt 24:7-8)
+
+- ✅ **`scripts/fetch_gdacs.py`** — GDACS multi-hazard alert parser
+  - Covers earthquakes, floods, cyclones, droughts, volcanoes, wildfires
+  - Alert levels: Red (severe), Orange (medium), Green (minor)
+  - Population affected + severity descriptions
   - Maps to node J0 (Matt 24:7-8)
 
 ### Planned
