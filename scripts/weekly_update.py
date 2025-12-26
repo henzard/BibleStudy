@@ -254,6 +254,28 @@ def main():
         
         print()
         print(f"📖 Next: Review {output_file} and update tracking files")
+        print()
+        
+        # Run Fig Tree Pattern Analysis
+        print("="*80)
+        print("RUNNING FIG TREE PATTERN ANALYSIS")
+        print("="*80)
+        print()
+        
+        fig_tree_script = SCRIPTS_DIR / 'analyze_fig_tree_pattern.py'
+        weeks = days // 7  # Convert days to weeks
+        
+        try:
+            result = subprocess.run(
+                [sys.executable, str(fig_tree_script), '--weeks', str(weeks)],
+                text=True,
+                encoding='utf-8',
+                timeout=30
+            )
+            print()
+            print("✅ Fig tree pattern analysis complete!")
+        except Exception as e:
+            print(f"⚠️  Fig tree analysis failed: {e}")
         
     except Exception as e:
         print(f"❌ Error saving weekly review: {e}", file=sys.stderr)
