@@ -49,10 +49,11 @@ This workspace contains:
 - **Bible-only (66 books) end-times prophecy tracking** derived from a comprehensive flowchart
 - **Daily/weekly news review system** that maps headlines to prophetic categories without claiming fulfillment
 - **11 Cursor project rules** that enforce Bible-only interpretation, multi-source verification, and AI honesty
-- **10 automation scripts** (Python) that fetch data from 6 Tier-1 sources (USGS, GDACS, FRED, World Bank, UN)
+- **11 automation scripts** (Python) that fetch data from 8 Tier-1 sources (USGS, GDACS, FRED, World Bank, UN, NOAA, EFF)
 - **SQLite database** for historical tracking and trend analysis
-- **TensorFlow integration** for ML-based predictions (optional, Week 4+)
-- **Weekly newsletters** using behavioral design principles (Hooked + Bang!)
+- **TensorFlow integration** for ML-based pattern recognition and trend forecasting
+- **Fig Tree Pattern Analysis** (Matt 24:33) - Multi-node intensity scoring across all prophecy categories
+- **Automated weekly newsletters** with pattern strength, seasonal metaphor, and Scripture focus
 
 We use:
 - **MCP (Model Context Protocol) tools** to search real-time news (Brave Search, Web Search)
@@ -114,13 +115,17 @@ BibleStudy/
 │   ├── README.md                               # Scripts documentation
 │   ├── init_database.py                        # ⭐ Create SQLite schema
 │   ├── ingest_data.py                          # ⭐ Populate database
-│   ├── predict_trends.py                       # ⭐ TensorFlow ML analysis (future)
-│   ├── weekly_update.py                        # MASTER SCRIPT - runs all automation
+│   ├── predict_trends.py                       # ⭐ TensorFlow ML trend forecasting
+│   ├── analyze_fig_tree_pattern.py             # ⭐ Multi-node pattern recognition (Matt 24:33)
+│   ├── generate_newsletter.py                  # ⭐ Automated newsletter with fig tree data
+│   ├── weekly_update.py                        # MASTER SCRIPT - runs all 10 steps
 │   ├── fetch_earthquakes.py                    # USGS earthquake feed parser
 │   ├── fetch_gdacs.py                          # GDACS multi-hazard parser
 │   ├── fetch_worldbank_news.py                 # World Bank news monitor
 │   ├── fetch_un_peacekeeping.py                # UN Peacekeeping operations monitor
 │   ├── fetch_economic.py                       # FRED API economic data
+│   ├── fetch_spaceweather.py                   # NOAA space weather alerts
+│   ├── fetch_eff_news.py                       # EFF digital rights monitor
 │   └── fetch_fred_news.py                      # FRED economic news feed
 ├── archive/                                     # Old/deprecated files
 └── .cursor/rules/                              # Project rules (auto-applied)
@@ -146,22 +151,28 @@ BibleStudy/
 python scripts/weekly_update.py --days 7
 ```
 
-This automatically:
-- Runs 5 automation scripts (USGS, GDACS, World Bank, UN Peacekeeping, FRED)
-- Compiles results into `tracking/weekly-reviews/YYYY-MM-DD_weekly_review.md`
-- Takes ~30-60 seconds
-- Provides pre-formatted classification tables ready for review
+**This automatically:**
+1. ✅ Runs 8 data collection scripts (USGS, GDACS, World Bank, UN, FRED, NOAA, EFF)
+2. ✅ Compiles raw data into `tracking/weekly-reviews/YYYY-MM-DD_weekly_review.md`
+3. ✅ Runs Fig Tree Pattern Analysis (Matt 24:33) — multi-node intensity scoring
+4. ✅ Generates newsletter in `tracking/newsletters/YYYY-MM-DD_weekly_watch.md`
+5. ⏱️ Takes ~60-90 seconds total
+
+**Output includes:**
+- **Pattern Strength:** 0-100 score across all nodes (J0 wars, J0 quakes, J0 famines, J6 cosmic, H0 economic, B2 digital)
+- **Seasonal Metaphor:** Winter/Early Spring/Mid Spring/Late Spring (fig tree parable)
+- **Public Newsletter:** Ready to share with compelling headline, Scripture focus, and ethical disclaimers
 
 **Then:**
-1. Open the generated weekly review file
-2. Cross-verify High confidence items with Reuters/BBC/AP News
-3. Copy verified items to `tracking/DAILY_NEWS_LOG.md`
-4. Update `tracking/END_TIMES_TODO.md` if criteria met
+1. Review the newsletter: `tracking/newsletters/[date]_weekly_watch.md`
+2. (Optional) Cross-verify High confidence items with Reuters/BBC/AP News
+3. Share newsletter or use for personal Bible study
+4. (Optional) Store historical data: `python scripts/ingest_data.py --days 7`
 
 ### **Manual workflow (if needed)**
 
 1. **Read current status**: `tracking/END_TIMES_TODO.md`
-2. **See latest news review**: `tracking/daily-reviews/[latest-date].md`
+2. **See latest newsletter**: `tracking/newsletters/[latest-date]_weekly_watch.md`
 3. **One-page workflow guide**: `reference/QUICK_REFERENCE.md` 📋 ← **Print this!**
 4. **All rules explained**: `.cursor/rules/README.md`
 5. **News methodology**: `.cursor/rules/news-methodology/RULE.md`
