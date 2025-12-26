@@ -222,6 +222,103 @@ BibleStudy/
 
 ---
 
+## 9. Newsletter Structure (`newsletter-structure/`)
+
+**Always applied:** ✅
+
+**Purpose:** Generate weekly newsletters that are attention-grabbing, scannable, and habit-forming while maintaining ethical guardrails.
+
+**Core principles:**
+- **Hooked Model:** Trigger → Action → Variable Reward → Investment
+- **Bang! Principles:** Cut through noise, memorable hooks, emotional connection, simplicity
+
+**Required sections:**
+1. Headline (attention-grabbing but honest)
+2. TL;DR (2-3 sentences)
+3. This Week's Highlights (bullet format with emojis)
+4. Scripture Focus
+5. "What Changed?" Tracker
+6. Current Phase Assessment
+7. Action Points (Prayer, Study, Watch)
+8. Closing Reminder (Matt 24:36)
+
+**Ethical guardrails:**
+- ❌ No date-setting
+- ❌ No fear-mongering
+- ❌ No clickbait
+- ❌ No speculation
+
+---
+
+## 10. Database Structure (`database-structure/`)
+
+**Always applied:** ✅
+
+**Purpose:** Define standards for SQLite database schema, data ingestion, and trend analysis.
+
+**7 Core tables:**
+- `earthquakes` (USGS data)
+- `disasters` (GDACS multi-hazard)
+- `conflicts` (UN Peacekeeping)
+- `economic_indicators` (FRED API)
+- `worldbank_news` (poverty/disasters)
+- `weekly_assessments` (manual reviews)
+- `trends` (ML predictions)
+
+**Data quality standards:**
+- Validate all inputs
+- UTC timestamps only
+- Source URL required
+- Confidence levels recorded
+
+---
+
+## 11. AI Thought Partner (`ai-thought-partner/`)
+
+**Always applied:** ✅
+
+**Purpose:** Encourage AI to challenge assumptions, ask clarifying questions, and push back constructively.
+
+**AI MUST challenge when:**
+- Date-setting attempted (Matt 24:36)
+- Speculation without Scripture
+- Source credibility low
+- Bible-only interpretation violated
+- Fear-mongering detected
+
+**AI SHOULD ask clarifying questions about:**
+- User intent ("What problem are you solving?")
+- Missing requirements ("Which prophecy node?")
+- Better alternatives ("Have you considered...?")
+
+---
+
+## 12. Public Repo Safety (`public-repo-safety/`) ⭐ NEW
+
+**Always applied:** ✅
+
+**Purpose:** Ensure repository remains safe for public sharing on GitHub by preventing accidental commits of secrets.
+
+**NEVER commit:**
+- ❌ API keys (OpenAI, FRED, etc.)
+- ❌ `.env` files
+- ❌ Personal information
+- ❌ Database files with personal data
+
+**REQUIRED practices:**
+- ✅ Store secrets in `.env` (gitignored)
+- ✅ Provide `.env.example` template
+- ✅ Use `python-dotenv` to load environment variables
+- ✅ Update `.gitignore` for all secret patterns
+
+**Pre-commit checklist:**
+- [ ] No hardcoded API keys in scripts
+- [ ] `.env` is in `.gitignore`
+- [ ] `.env.example` has placeholder values only
+- [ ] No personal information in code
+
+---
+
 ## Quick Reference Card
 
 | Rule | Purpose | Key requirement |
@@ -233,7 +330,11 @@ BibleStudy/
 | **Weekly review** | Systematic tracking | 7 categories; weekly cadence |
 | **No date-setting** | Prevent speculation | Matt 24:36 enforcement |
 | **Source credibility** | Quality control | Tier 1 sources preferred |
-| **Git workflow** ⭐ NEW | Version control | Commit + push after changes |
+| **Git workflow** | Version control | Commit + push after changes |
+| **Newsletter structure** | Engaging content | Hooked + Bang! principles |
+| **Database structure** | Data standards | 7 tables; UTC timestamps |
+| **AI thought partner** | Challenge assumptions | Push back on speculation |
+| **Public repo safety** ⭐ NEW | Security | Secrets in .env (gitignored) |
 
 ---
 
@@ -241,7 +342,7 @@ BibleStudy/
 
 When you chat with the AI in this project:
 
-1. **All 5 rules are automatically loaded** into the AI's context (because `alwaysApply: true`)
+1. **All 12 rules are automatically loaded** into the AI's context (because `alwaysApply: true`)
 2. The AI **must follow** these rules in every response
 3. If the AI violates a rule (e.g., cites single source, makes up data), you can reference this document to correct it
 4. Rules are **version-controlled** in `.cursor/rules/` and shared across all team members (if applicable)
@@ -270,5 +371,5 @@ To add a new rule:
 
 ---
 
-**Last updated:** 2025-12-26
+**Last updated:** 2025-12-26 (Added public-repo-safety rule #12)
 
