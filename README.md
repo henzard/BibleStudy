@@ -43,6 +43,7 @@ According to the text, the end comes AFTER:
 ```
 BibleStudy/
 ├── README.md                                    # You are here
+├── ROADMAP.md                                   # Public todo list
 ├── tracking/                                    # Active tracking files
 │   ├── END_TIMES_TODO.md                       # Master checklist (all nodes)
 │   ├── DAILY_NEWS_LOG.md                       # Append-only running log
@@ -51,13 +52,24 @@ BibleStudy/
 ├── templates/                                   # Reusable templates
 │   └── DAILY_NEWS_REVIEW_TEMPLATE.md           # Daily review template
 ├── reference/                                   # Source materials
-│   └── End_Of_Time_Chart.md                    # Original flowchart
+│   ├── End_Of_Time_Chart.md                    # Original flowchart
+│   ├── SOURCES_MASTER_LIST.md                  # 40+ sources (8 categories)
+│   ├── QUICK_REFERENCE.md                      # One-page workflow guide
+│   └── SETUP_COMPLETE.md                       # Setup documentation
+├── scripts/                                     # Automation tools
+│   ├── README.md                               # Scripts documentation
+│   └── fetch_earthquakes.py                   # USGS earthquake feed parser
 ├── archive/                                     # Old/deprecated files
 └── .cursor/rules/                              # Project rules (auto-applied)
+    ├── README.md                               # All rules explained
     ├── bible-only-66/                          # Bible-only interpretation
     ├── news-methodology/                       # Multi-source verification
     ├── ai-honesty/                             # No hallucination policy
-    └── folder-structure/                       # Organization standards
+    ├── folder-structure/                       # Organization standards
+    ├── weekly-review/                          # Systematic workflow
+    ├── no-date-setting/                        # Matt 24:36 enforcement
+    ├── source-credibility/                     # Quality control
+    └── git-workflow/                           # Version control
 ```
 
 ## 🚀 Quick start
