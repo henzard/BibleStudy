@@ -9,12 +9,16 @@ python scripts/weekly_update.py --days 7
 ```
 
 **What it does:**
-- Automatically runs all 5 data collection scripts
+- Automatically runs all 8 data collection scripts
 - Compiles results into a single markdown file
-- Generates classification tables ready for review
-- Takes ~30-60 seconds
+- Runs **Fig Tree Pattern Analysis** (Matt 24:33)
+- Generates **Weekly Newsletter** with pattern assessment
+- Takes ~60-90 seconds
 
-**Output:** `tracking/weekly-reviews/YYYY-MM-DD_weekly_review.md`
+**Output:**
+- `tracking/weekly-reviews/YYYY-MM-DD_weekly_review.md` (raw data compilation)
+- `tracking/newsletters/YYYY-MM-DD_weekly_watch.md` (public-ready newsletter)
+- Console: Fig Tree Pattern Analysis with seasonal assessment
 
 **Scripts included:**
 1. ✅ USGS Earthquakes (mag 4.0+)
@@ -23,11 +27,18 @@ python scripts/weekly_update.py --days 7
 4. ✅ UN Peacekeeping (conflicts, casualties, humanitarian crises)
 5. ✅ FRED Economic News (data announcements)
 6. ✅ FRED Economic Data (inflation, unemployment, GDP, trade balance)
+7. ✅ NOAA Space Weather (solar flares, geomagnetic storms, radiation)
+8. ✅ EFF Digital Rights (digital ID, biometrics, surveillance)
+9. ✅ Fig Tree Pattern Analysis (multi-node intensity scoring)
+10. ✅ Newsletter Generator (automated newsletter with fig tree data)
 
 **Example output:**
 - Summary statistics (scripts run, success/fail count)
 - Results organized by category with node IDs and Scripture anchors
 - Pre-formatted classification tables
+- Fig Tree Pattern Strength score (0-100)
+- Seasonal metaphor (Winter/Early Spring/Mid Spring/Late Spring)
+- Public-ready newsletter with compelling headline
 - Next steps checklist
 - Scripture reminders
 

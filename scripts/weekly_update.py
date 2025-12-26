@@ -263,7 +263,7 @@ def main():
         print()
         
         fig_tree_script = SCRIPTS_DIR / 'analyze_fig_tree_pattern.py'
-        weeks = days // 7  # Convert days to weeks
+        weeks = max(1, days // 7)  # Convert days to weeks (min 1)
         
         try:
             result = subprocess.run(
@@ -276,6 +276,30 @@ def main():
             print("✅ Fig tree pattern analysis complete!")
         except Exception as e:
             print(f"⚠️  Fig tree analysis failed: {e}")
+        
+        print()
+        
+        # Generate Newsletter with Fig Tree Analysis
+        print("="*80)
+        print("GENERATING WEEKLY NEWSLETTER")
+        print("="*80)
+        print()
+        
+        newsletter_script = SCRIPTS_DIR / 'generate_newsletter.py'
+        
+        try:
+            result = subprocess.run(
+                [sys.executable, str(newsletter_script), '--days', str(days)],
+                text=True,
+                encoding='utf-8',
+                timeout=30
+            )
+            print()
+            print("✅ Newsletter generation complete!")
+            print()
+            print("📬 Your weekly newsletter is ready in tracking/newsletters/")
+        except Exception as e:
+            print(f"⚠️  Newsletter generation failed: {e}")
         
     except Exception as e:
         print(f"❌ Error saving weekly review: {e}", file=sys.stderr)
