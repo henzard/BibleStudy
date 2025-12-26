@@ -111,11 +111,13 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 | Source | Status | Priority | Setup needs | Notes |
 |--------|--------|----------|-------------|-------|
 | Biometric Update | ✅ Completed | - | Already using via search | Trade publication; rollout tracking |
-| EFF (Electronic Frontier Foundation) | ⏳ Pending | **High** | RSS feed | Digital rights; surveillance alerts |
+| EFF (Electronic Frontier Foundation) | ✅ Completed | - | Python script created | `scripts/fetch_eff_news.py` — RSS feed tracking digital rights, age verification, surveillance |
 | IEEE Spectrum | ⏳ Pending | Medium | Manual or RSS | Emerging tech; AI; biometrics |
 | Privacy International | ⏳ Pending | Low | Reports (manual check) | Surveillance state tracking |
 
 **Goal:** Map to B2 (commerce control systems) with disclaimer: "NOT claiming this IS the mark."
+
+**Status:** EFF RSS integration complete; comprehensive B2 monitoring operational
 
 ---
 
@@ -123,11 +125,13 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 
 | Source | Status | Priority | Setup needs | Notes |
 |--------|--------|----------|-------------|-------|
-| NOAA Space Weather Prediction Center | ⏳ Pending | **High** | Alerts or RSS | Solar flares, geomagnetic storms |
+| NOAA Space Weather Prediction Center | ✅ Completed | - | Python script created | `scripts/fetch_spaceweather.py` — JSON API tracking solar flares, geomagnetic storms, electron flux |
 | NASA NEO (Near-Earth Objects) | ⏳ Pending | Low | API or manual | Asteroid close approaches |
 | Spaceweather.com | ⏳ Pending | Low | RSS or manual | Aurora, meteor showers, solar activity |
 
 **Goal:** Map to J6 (cosmic signs); be cautious — most solar activity is routine, not prophetic.
+
+**Status:** NOAA Space Weather integration complete; comprehensive J6 monitoring operational
 
 ---
 
@@ -152,13 +156,14 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 4. ✅ ~~Set up **World Bank News**~~ — **COMPLETED** (`scripts/fetch_worldbank_news.py`)
 5. ✅ ~~Set up **UN Peacekeeping**~~ — **COMPLETED** (`scripts/fetch_un_peacekeeping.py`)
 6. ✅ ~~Get **FRED API key** + create `fetch_economic.py`~~ — **COMPLETED** (API key obtained, script operational)
-7. ⏳ Subscribe to **EFF Blog RSS** (digital rights/surveillance)
-8. ⏳ Bookmark **Open Doors World Watch List** (monthly manual check)
+7. ✅ ~~Subscribe to **EFF Blog RSS**~~ — **COMPLETED** (`scripts/fetch_eff_news.py`)
+8. ✅ ~~Set up **NOAA Space Weather**~~ — **COMPLETED** (`scripts/fetch_spaceweather.py`)
+9. ⏳ Bookmark **Open Doors World Watch List** (monthly manual check)
 
 ### Phase 2: Medium-Priority Sources (next month)
-9. ⏳ Integrate **ReliefWeb API** (humanitarian impact)
-10. ⏳ Subscribe to **NOAA Space Weather** alerts
-11. ⏳ Bookmark **World Food Programme** famine alerts
+10. ⏳ Evaluate **ReliefWeb API** (check for data overlap with GDACS/World Bank)
+11. ⏳ Bookmark **World Food Programme** famine alerts (monthly manual check)
+12. ⏳ Bookmark **Open Doors World Watch List** (monthly manual check — manual for Jan 2026)
 
 ### Phase 3: Optional Enhancements (as needed)
 9. ⏳ Add **historical baseline tracking** rule (know "normal" vs "escalating")
@@ -210,15 +215,27 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
   - Automated assessment (Normal/Concern/Crisis)
   - Maps to node H0 (Rev 17-18)
 
+- ✅ **`scripts/fetch_spaceweather.py`** — NOAA space weather alert monitor
+  - Solar flares, geomagnetic storms, electron flux alerts
+  - Classifies by severity (G-scale, S-scale, R-scale)
+  - Filters prophetically relevant events (G3+, S3+, R3+)
+  - Automated assessment (Routine/MAJOR/SEVERE/CRITICAL)
+  - Maps to node J6 (Matt 24:29 / Luke 21:25)
+
+- ✅ **`scripts/fetch_eff_news.py`** — EFF digital rights blog RSS monitor
+  - Digital ID, age verification, biometrics, surveillance
+  - Payment systems (CBDC, cashless, digital wallets)
+  - Filters B2-relevant keywords
+  - Automated classification (Biometric/Digital ID/Payment/Surveillance)
+  - Maps to node B2 (Rev 13:16-17)
+
 - ✅ **`scripts/weekly_update.py`** — Master weekly update script
-  - Runs all 6 automation scripts in one command
+  - Runs all 8 automation scripts in one command
   - Compiles results into weekly review markdown
   - Takes 30-60 seconds for complete update
 
 ### Planned
-- ⏳ `scripts/fetch_persecution.py` — Parse Open Doors WWL + VOM alerts
-- ⏳ `scripts/fetch_spaceweather.py` — NOAA space weather alerts
-- ⏳ `scripts/fetch_biometric_news.py` — Biometric Update + EFF RSS
+- ⏳ `scripts/fetch_persecution.py` — Parse Open Doors WWL + VOM alerts (manual template for now)
 
 See `scripts/README.md` for usage instructions.
 

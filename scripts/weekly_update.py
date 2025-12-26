@@ -63,6 +63,18 @@ SCRIPTS = {
         'name': 'FRED Economic Data',
         'node': 'H0',
         'scripture': 'Rev 17-18'
+    },
+    'spaceweather': {
+        'file': 'fetch_spaceweather.py',
+        'name': 'NOAA Space Weather',
+        'node': 'J6',
+        'scripture': 'Matt 24:29 / Luke 21:25'
+    },
+    'eff_news': {
+        'file': 'fetch_eff_news.py',
+        'name': 'EFF Digital Rights',
+        'node': 'B2',
+        'scripture': 'Rev 13:16-17'
     }
 }
 
