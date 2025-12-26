@@ -48,6 +48,20 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 
 ---
 
+### Sources: Conflicts & Wars
+
+| Source | Status | Priority | Setup needs | Notes |
+|--------|--------|----------|-------------|-------|
+| UN Peacekeeping Operations | ✅ Completed | - | Python script created | `scripts/fetch_un_peacekeeping.py` — active conflicts, casualties |
+| ACLED (Armed Conflict Location) | ⏳ Pending | Medium | Free API | Detailed conflict event data |
+| Uppsala Conflict Data Program | ⏳ Pending | Low | Manual/API | Academic conflict database |
+
+**Goal:** Track "wars and rumors of wars" (Matt 24:6-7); monitor active conflicts with verifiable casualty data.
+
+**Status:** UN Peacekeeping integration complete with real-time conflict monitoring
+
+---
+
 ### Sources: Earthquake & Natural Disaster Tracking
 
 | Source | Status | Priority | Setup needs | Notes |
@@ -136,14 +150,15 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 2. ✅ ~~Set up **GDACS**~~ — **COMPLETED** (`scripts/fetch_gdacs.py`)
 3. ✅ ~~Set up **FRED News Monitor**~~ — **COMPLETED** (`scripts/fetch_fred_news.py`)
 4. ✅ ~~Set up **World Bank News**~~ — **COMPLETED** (`scripts/fetch_worldbank_news.py`)
-5. ⏳ Get **FRED API key** + create `fetch_economic.py` (requires user account)
-6. ⏳ Subscribe to **EFF Blog RSS** (digital rights/surveillance)
-7. ⏳ Bookmark **Open Doors World Watch List** (monthly manual check)
+5. ✅ ~~Set up **UN Peacekeeping**~~ — **COMPLETED** (`scripts/fetch_un_peacekeeping.py`)
+6. ⏳ Get **FRED API key** + create `fetch_economic.py` (requires user account)
+7. ⏳ Subscribe to **EFF Blog RSS** (digital rights/surveillance)
+8. ⏳ Bookmark **Open Doors World Watch List** (monthly manual check)
 
 ### Phase 2: Medium-Priority Sources (next month)
-8. ⏳ Integrate **ReliefWeb API** (humanitarian impact)
-9. ⏳ Subscribe to **NOAA Space Weather** alerts
-10. ⏳ Bookmark **World Food Programme** famine alerts
+9. ⏳ Integrate **ReliefWeb API** (humanitarian impact)
+10. ⏳ Subscribe to **NOAA Space Weather** alerts
+11. ⏳ Bookmark **World Food Programme** famine alerts
 
 ### Phase 3: Optional Enhancements (as needed)
 9. ⏳ Add **historical baseline tracking** rule (know "normal" vs "escalating")
@@ -179,6 +194,13 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
   - Economic crisis reports
   - Auto-classifies to J0 (disasters/poverty) or H0 (economic crisis)
   - Maps to nodes J0 (Matt 24:7-8) + H0 (Rev 17-18)
+
+- ✅ **`scripts/fetch_un_peacekeeping.py`** — UN Peacekeeping operations monitor
+  - Active conflict zones and peacekeeping operations
+  - Civilian and peacekeeping casualties (verifiable numbers)
+  - Humanitarian crises in conflict zones
+  - Auto-categorizes (Active Conflict, Casualties, Humanitarian Crisis)
+  - Maps to node J0 (Matt 24:6-7 — wars and rumors of wars)
 
 ### Planned
 - ⏳ `scripts/fetch_economic.py` — FRED API for actual economic data (requires API key from user)

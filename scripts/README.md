@@ -87,6 +87,53 @@ python scripts/fetch_gdacs.py --alert-level Orange --days 7
 
 ---
 
+## Conflict & War Tracking
+
+### `fetch_un_peacekeeping.py`
+
+**Purpose:** Monitor UN peacekeeping operations for active conflicts, casualties, and humanitarian crises.
+
+**Usage:**
+```bash
+# Default: past 30 days
+python scripts/fetch_un_peacekeeping.py
+
+# Custom time range
+python scripts/fetch_un_peacekeeping.py --days 60
+```
+
+**Output:**
+- Active conflict zones and peacekeeping operations
+- Civilian and peacekeeping casualties (with verifiable numbers)
+- Humanitarian crises in conflict zones
+- Pre-formatted rows for daily review classification table
+- Auto-categorized (Active Conflict, Casualties, Humanitarian Crisis)
+
+**Recent examples (past 30 days):**
+- **6,279 landmine casualties** (4-year high, 90% civilians, almost half children)
+- **6 peacekeepers killed** in Sudan drone attack
+- **DR Congo M23 offensives** (1.5 million displaced)
+- **Lebanon violations** following Israeli airstrikes
+
+**Data source:** [UN Peacekeeping Operations](https://peacekeeping.un.org/) — Tier 1
+
+**Maps to:** Node J0 (Beginning of sorrows — wars and rumors of wars)
+
+**Scripture anchor:** Matthew 24:6-7 — "wars and rumours of wars… nation shall rise against nation"
+
+**Confidence levels:**
+- **High:** Active conflict with casualties OR verifiable casualty numbers
+- **Med:** Humanitarian crisis with numbers OR ongoing conflict zones
+- **Low:** General peacekeeping updates
+
+**Why UN Peacekeeping matters:**
+- Official conflict zone monitoring (UN presence = verified conflict)
+- Verifiable casualty data (official reports)
+- Direct "wars and rumors of wars" tracking
+- Tier 1 international authority
+
+---
+
 ## Economic Indicators Tracking
 
 ### `fetch_fred_news.py`
