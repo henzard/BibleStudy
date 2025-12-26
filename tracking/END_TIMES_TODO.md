@@ -2,25 +2,27 @@
 
 **How to use**
 - **Status**: mark each item as `Not observed / Observed (headline category) / Escalating / Concluded` in your daily logs.
-- **Interpretation guardrail**: this list helps you map news to **biblical categories**; it does **not** assert “this is that.”
+- **Interpretation guardrail**: this list helps you map news to **biblical categories**; it does **not** assert "this is that."
 - **Node IDs**: match your flowchart IDs so you can cross-reference quickly.
+
+**Last updated:** 2025-12-26
 
 ---
 
 ## A) Present age / base conditions
 
-- [ ] **A0 — Present age: sin entered; death reigns** (Rom 5:12; Rom 5:14)
-- [ ] **A1 — Gospel preached; repentance + faith commanded** (Mark 1:15; Acts 17:30)
-- [ ] **A2 — Believers suffer tribulation in the world** (John 16:33; Acts 14:22)
-- [ ] **A3 — Some die: “with Christ”; conscious memory shown** (Phil 1:23; Luke 16:25)
+- [x] **A0 — Present age: sin entered; death reigns** (Rom 5:12; Rom 5:14) — *Observed: base condition*
+- [x] **A1 — Gospel preached; repentance + faith commanded** (Mark 1:15; Acts 17:30) — *Observed: ongoing*
+- [x] **A2 — Believers suffer tribulation in the world** (John 16:33; Acts 14:22) — *Observed: Nigeria persecution, 150M+ affected by disasters/conflict*
+- [x] **A3 — Some die: "with Christ"; conscious memory shown** (Phil 1:23; Luke 16:25) — *Observed: base condition*
 
 ---
 
-## J) Jesus’ end-of-age teaching (Matt 24 / Mark 13 / Luke 21)
+## J) Jesus' end-of-age teaching (Matt 24 / Mark 13 / Luke 21)
 
-- [ ] **J0 — Beginning of sorrows: wars/rumors, famines, pestilences, earthquakes** (Matt 24:6-8)
-- [ ] **J1 — Persecution/hatred; many offended; false prophets; love waxes cold** (Matt 24:9-12)
-- [ ] **J2 — Gospel preached in all the world; then the end comes** (Matt 24:14)
+- [x] **J0 — Beginning of sorrows: wars/rumors, famines, pestilences, earthquakes** (Matt 24:6-8) — *Observed: Gaza/Ukraine wars; Myanmar earthquake, Asia typhoons/floods 2025; 150M+ impacted by disasters*
+- [x] **J1 — Persecution/hatred; many offended; false prophets; love waxes cold** (Matt 24:9-12) — *Observed: Nigeria Christian persecution; US strikes on ISIS; Country of Particular Concern designation*
+- [x] **J2 — Gospel preached in all the world; then the end comes** (Matt 24:14) — *Observed: gospel continues to be preached globally*
 - [ ] **J3 — Abomination of desolation spoken of by Daniel** (Matt 24:15; Dan 9:27; Dan 11:31; Dan 12:11)
 - [ ] **J4 — Great tribulation; flight urgency** (Matt 24:16-22)
 - [ ] **J5 — False christs/false prophets show signs; deception warning** (Matt 24:23-26)
