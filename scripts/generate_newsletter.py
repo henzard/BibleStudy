@@ -374,21 +374,30 @@ def generate_newsletter(days: int = 7) -> str:
         earthquakes = get_earthquake_summary(conn, days)
         conflicts = get_conflicts_summary(conn, days)
         economics = get_economic_status(conn)
+        last_week = get_last_week_comparison(conn)
+        
+        # ⭐ Get OpenAI enhancements (20% polish)
+        print("🤖 Enhancing newsletter with OpenAI...")
+        ai_enhancements = enhance_with_openai(fig_tree, earthquakes, conflicts, economics)
         
         # Generate content
         today = datetime.now()
         date_str = today.strftime('%Y-%m-%d')
         formatted_date = today.strftime('%b %d, %Y')
         
-        # Create compelling headline based on fig tree pattern
-        if fig_tree['overall_intensity'] >= 70:
-            headline = f"Weekly Watch {formatted_date}: {fig_tree['emoji']} Multiple 'Beginning of Sorrows' Markers Elevated"
-        elif fig_tree['overall_intensity'] >= 50:
-            headline = f"Weekly Watch {formatted_date}: {fig_tree['emoji']} Clear 'Beginning of Sorrows' Patterns Observed"
-        elif earthquakes['total'] >= 50:
-            headline = f"Weekly Watch {formatted_date}: {earthquakes['total']} Earthquakes Signal 'Beginning of Sorrows'"
+        # Use AI-enhanced headline if available, otherwise fall back to template
+        if ai_enhancements['enhanced_headline']:
+            headline = ai_enhancements['enhanced_headline']
         else:
-            headline = f"Weekly Watch {formatted_date}: {fig_tree['emoji']} Watching and Waiting — Pattern Status Update"
+            # Template-based headline
+            if fig_tree['overall_intensity'] >= 70:
+                headline = f"Weekly Watch {formatted_date}: {fig_tree['emoji']} Multiple 'Beginning of Sorrows' Markers Elevated"
+            elif fig_tree['overall_intensity'] >= 50:
+                headline = f"Weekly Watch {formatted_date}: {fig_tree['emoji']} Clear 'Beginning of Sorrows' Patterns Observed"
+            elif earthquakes['total'] >= 50:
+                headline = f"Weekly Watch {formatted_date}: {earthquakes['total']} Earthquakes Signal 'Beginning of Sorrows'"
+            else:
+                headline = f"Weekly Watch {formatted_date}: {fig_tree['emoji']} Watching and Waiting — Pattern Status Update"
         
         content = [f"# {headline}\n"]
         content.append(f"**Date:** {formatted_date}")
@@ -420,6 +429,32 @@ def generate_newsletter(days: int = 7) -> str:
         tldr = ". ".join(tldr_parts) + "."
         
         content.append(f"{tldr} **Fig Tree Pattern Strength:** {fig_tree['overall_intensity']:.0f}/100 ({fig_tree['season']}). **Scripture focus:** Matthew 24:7-8 — 'beginning of sorrows' patterns observed. **The end is not yet** (Matt 24:6).\n")
+        content.append("---\n")
+        
+        # ⭐ "What Changed?" Tracker (NEW)
+        content.append("## 📊 What Changed? (Week-over-Week)\n")
+        
+        if last_week['earthquakes'] > 0:
+            quake_change = earthquakes['total'] - last_week['earthquakes']
+            quake_emoji = "📈" if quake_change > 0 else "📉" if quake_change < 0 else "➡️"
+            content.append(f"**Earthquakes:** {earthquakes['total']} this week vs {last_week['earthquakes']} last week {quake_emoji}")
+            if quake_change != 0:
+                content.append(f"  ({quake_change:+d} change)")
+        
+        if last_week['conflicts'] > 0:
+            conflict_change = conflicts['total_reports'] - last_week['conflicts']
+            conflict_emoji = "📈" if conflict_change > 0 else "📉" if conflict_change < 0 else "➡️"
+            content.append(f"**Conflicts:** {conflicts['total_reports']} reports vs {last_week['conflicts']} last week {conflict_emoji}")
+            if conflict_change != 0:
+                content.append(f"  ({conflict_change:+d} change)")
+        
+        content.append("\n")
+        
+        # ⭐ Surprise Finding (if AI generated one)
+        if ai_enhancements['surprise_finding']:
+            content.append("**💡 This Week's Notable Pattern:**\n")
+            content.append(f"{ai_enhancements['surprise_finding']}\n")
+        
         content.append("---\n")
         
         # Fig Tree Analysis Section
@@ -497,7 +532,11 @@ def generate_newsletter(days: int = 7) -> str:
         content.append("## 📖 This Week's Scripture Focus\n")
         content.append("> **Matthew 24:7-8** — 'For nation shall rise against nation, and kingdom against kingdom: and there shall be famines, and pestilences, and earthquakes, in divers places. **All these are the beginning of sorrows.**'\n")
         content.append("### Reflection:\n")
-        content.append("This week's data confirms what Jesus called the 'beginning of sorrows':\n")
+        
+        # ⭐ Use AI-enhanced reflection if available
+        content.append(f"{ai_enhancements['scripture_reflection']}\n")
+        
+        content.append("\nThis week's data breakdown:\n")
         content.append(f"- {'✅' if fig_tree['wars_intensity'] > 30 else '⏸️'} **Wars** — Intensity {fig_tree['wars_intensity']:.0f}/100")
         content.append(f"- {'✅' if fig_tree['quakes_intensity'] > 30 else '⏸️'} **Earthquakes** — Intensity {fig_tree['quakes_intensity']:.0f}/100")
         content.append(f"- {'✅' if fig_tree['famines_intensity'] > 30 else '⏸️'} **Famines** — Intensity {fig_tree['famines_intensity']:.0f}/100\n")
@@ -517,6 +556,11 @@ def generate_newsletter(days: int = 7) -> str:
         content.append("3. **Study** — Read Matthew 24 in full context")
         content.append("4. **Share** — Tell others about Jesus (the good news!)")
         content.append("5. **Live Ready** — 'Be ye also ready' (Matt 24:44)\n")
+        content.append("---\n")
+        
+        # ⭐ Shareable Quote (AI-enhanced)
+        content.append("## 📱 Shareable Quote\n")
+        content.append(f"{ai_enhancements['shareable_quote']}\n")
         content.append("---\n")
         
         # Disclaimers
