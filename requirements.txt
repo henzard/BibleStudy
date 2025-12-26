@@ -1,0 +1,21 @@
+# BibleStudy Project Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core dependencies
+feedparser>=6.0.0        # RSS/ATOM feed parsing
+requests>=2.31.0         # HTTP requests
+
+# Environment variables
+python-dotenv>=1.0.0     # Load .env files
+
+# Optional: AI enhancement for newsletters
+openai>=1.0.0           # OpenAI API (for newsletter polish)
+
+# Optional: Machine learning / analytics
+numpy>=1.24.0           # Numerical computing
+tensorflow>=2.15.0      # ML predictions (optional, large install)
+
+# Note: TensorFlow is optional and large (~500MB)
+# If you don't need ML predictions, you can skip installing tensorflow
+# Basic functionality works without it
+

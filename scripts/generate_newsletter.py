@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Newsletter Generator with Fig Tree Pattern Analysis
+Newsletter Generator with Fig Tree Pattern Analysis + OpenAI Enhancement
 Compiles weekly data + fig tree analysis into engaging newsletter format.
+
+80% Automated (data-driven structure)
+20% AI-enhanced (narrative, reflection, surprise findings)
 
 Usage:
     python generate_newsletter.py [--days 7]
@@ -13,6 +16,7 @@ import io
 import sqlite3
 import subprocess
 import traceback
+import os
 from pathlib import Path
 from datetime import datetime, timedelta
 
@@ -20,8 +24,37 @@ from datetime import datetime, timedelta
 if sys.stdout.encoding != 'utf-8':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
+# Load environment variables from .env file
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+    HAS_DOTENV = True
+except ImportError:
+    HAS_DOTENV = False
+    print("⚠️  python-dotenv not installed. Install with: pip install python-dotenv")
+    print("   Falling back to system environment variables\n")
+
+# Try to import OpenAI (optional enhancement)
+try:
+    from openai import OpenAI
+    HAS_OPENAI = True
+except ImportError:
+    HAS_OPENAI = False
+    print("⚠️  OpenAI not installed. Install with: pip install openai")
+    print("   Newsletter will use template-based content (still functional)\n")
+
 SCRIPTS_DIR = Path(__file__).parent
 DB_PATH = Path("data/prophecy_tracking.db")
+
+# Load API keys from environment variables (NOT hardcoded!)
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+FRED_API_KEY = os.getenv('FRED_API_KEY')
+
+# Validate API keys
+if HAS_OPENAI and not OPENAI_API_KEY:
+    print("⚠️  OPENAI_API_KEY not found in environment variables")
+    print("   Newsletter will use template-based content")
+    print("   To enable AI enhancement: Set OPENAI_API_KEY in .env file\n")
 
 
 def get_fig_tree_data(conn: sqlite3.Connection, weeks: int = 1) -> dict:
@@ -184,6 +217,145 @@ def get_economic_status(conn: sqlite3.Connection) -> dict:
         'has_crisis': crisis_count > 0,
         'crisis_count': crisis_count
     }
+
+
+def get_last_week_comparison(conn: sqlite3.Connection) -> dict:
+    """Get last week's data for 'What Changed?' tracker."""
+    cursor = conn.cursor()
+    
+    # Get data from 7-14 days ago (previous week)
+    start_date = (datetime.now() - timedelta(days=14)).strftime('%Y-%m-%d')
+    end_date = (datetime.now() - timedelta(days=7)).strftime('%Y-%m-%d')
+    
+    # Earthquakes last week
+    cursor.execute("""
+        SELECT COUNT(*) as total,
+               SUM(CASE WHEN magnitude >= 6.0 THEN 1 ELSE 0 END) as major
+        FROM earthquakes
+        WHERE date_utc >= ? AND date_utc < ?
+    """, (start_date, end_date))
+    last_quakes = cursor.fetchone()
+    
+    # Conflicts last week
+    cursor.execute("""
+        SELECT COUNT(*) as total
+        FROM conflicts
+        WHERE date >= ? AND date < ?
+    """, (start_date, end_date))
+    last_conflicts = cursor.fetchone()
+    
+    return {
+        'earthquakes': last_quakes[0] if last_quakes else 0,
+        'major_quakes': last_quakes[1] if last_quakes else 0,
+        'conflicts': last_conflicts[0] if last_conflicts else 0
+    }
+
+
+def enhance_with_openai(fig_tree: dict, earthquakes: dict, conflicts: dict, economics: dict) -> dict:
+    """Use OpenAI to enhance newsletter with narrative polish (20% augmentation)."""
+    
+    if not HAS_OPENAI or not OPENAI_API_KEY:
+        # Fallback to template-based content
+        return {
+            'enhanced_headline': None,
+            'scripture_reflection': "This week's data confirms Jesus' description of the 'beginning of sorrows.' We observe these patterns with sobriety, knowing 'the end is not yet' (Matt 24:6).",
+            'surprise_finding': None,
+            'shareable_quote': "\"When you see all these things, know that it is near.\" — Matthew 24:33\n\nWe're watching, not predicting. We're observing, not date-setting."
+        }
+    
+    try:
+        client = OpenAI(api_key=OPENAI_API_KEY)
+        
+        # Prepare context for OpenAI
+        context = f"""You are assisting with a Bible-focused end-times prophecy tracking newsletter.
+
+DATA SUMMARY:
+- Fig Tree Pattern Strength: {fig_tree['overall_intensity']:.0f}/100 ({fig_tree['season']})
+- Earthquakes: {earthquakes['total']} (mag 4.0+), {earthquakes['major_count']} major (6.0+)
+- Conflicts: {conflicts['total_reports']} UN reports, {conflicts['casualties']} casualties
+- Economics: {'CRISIS' if economics['has_crisis'] else 'STABLE'}
+- Wars intensity: {fig_tree['wars_intensity']:.0f}/100
+- Quakes intensity: {fig_tree['quakes_intensity']:.0f}/100
+- Famines intensity: {fig_tree['famines_intensity']:.0f}/100
+
+CRITICAL RULES (Bible-based guardrails):
+1. NO date-setting (Matt 24:36 - "no man knows the day or hour")
+2. NO fear-mongering (hope-focused, Luke 21:28)
+3. NO speculation beyond observed data
+4. MUST acknowledge "the end is not yet" (Matt 24:6)
+5. Pattern observation ≠ definitive fulfillment
+
+Your task: Provide brief, honest, Bible-grounded enhancements."""
+
+        # Task 1: Enhanced headline (if pattern strength warrants it)
+        enhanced_headline = None
+        if fig_tree['overall_intensity'] >= 40 or earthquakes['total'] >= 60:
+            headline_response = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[
+                    {"role": "system", "content": context},
+                    {"role": "user", "content": f"Create ONE compelling but honest headline for this week's newsletter. Format: 'Weekly Watch [Month Day]: [Finding]'. Must be specific to the data (e.g., '{earthquakes['total']} Earthquakes' or 'Pattern Strength {fig_tree['overall_intensity']:.0f}/100'). NO sensationalism, NO date-setting. Max 12 words."}
+                ],
+                max_tokens=50,
+                temperature=0.7
+            )
+            enhanced_headline = headline_response.choices[0].message.content.strip()
+        
+        # Task 2: Scripture reflection (2-3 sentences)
+        reflection_response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role": "system", "content": context},
+                {"role": "user", "content": "Write a 2-3 sentence reflection on Matthew 24:7-8 ('beginning of sorrows') based on this week's data. Be specific (mention earthquakes/conflicts/famines intensities). End with reminder that 'the end is not yet' (Matt 24:6). Biblical tone, no speculation."}
+            ],
+            max_tokens=100,
+            temperature=0.7
+        )
+        scripture_reflection = reflection_response.choices[0].message.content.strip()
+        
+        # Task 3: Surprise finding (optional - only if there's a notable pattern)
+        surprise_finding = None
+        if fig_tree['overall_intensity'] >= 30:
+            surprise_response = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[
+                    {"role": "system", "content": context},
+                    {"role": "user", "content": "Identify ONE unexpected or noteworthy pattern this week (e.g., 'Earthquakes concentrated in Pacific Ring of Fire' or 'Economic indicators stable despite conflicts'). 1-2 sentences max. If nothing notable, say 'Routine monitoring across all categories.' NO speculation."}
+                ],
+                max_tokens=60,
+                temperature=0.7
+            )
+            surprise_finding = surprise_response.choices[0].message.content.strip()
+        
+        # Task 4: Shareable quote for social media
+        quote_response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role": "system", "content": context},
+                {"role": "user", "content": "Create a shareable quote (2-3 lines) combining Matthew 24:33 with this week's fig tree pattern strength. Format for social media. Include emoji. Must include Matt 24:36 reminder (no date-setting). Biblical, hopeful tone."}
+            ],
+            max_tokens=80,
+            temperature=0.7
+        )
+        shareable_quote = quote_response.choices[0].message.content.strip()
+        
+        return {
+            'enhanced_headline': enhanced_headline,
+            'scripture_reflection': scripture_reflection,
+            'surprise_finding': surprise_finding,
+            'shareable_quote': shareable_quote
+        }
+        
+    except Exception as e:
+        print(f"⚠️  OpenAI enhancement failed: {e}")
+        print("   Using template-based content instead.\n")
+        # Fallback to templates
+        return {
+            'enhanced_headline': None,
+            'scripture_reflection': "This week's data confirms Jesus' description of the 'beginning of sorrows.' We observe these patterns with sobriety, knowing 'the end is not yet' (Matt 24:6).",
+            'surprise_finding': None,
+            'shareable_quote': "\"When you see all these things, know that it is near.\" — Matthew 24:33\n\nWe're watching, not predicting. We're observing, not date-setting."
+        }
 
 
 def generate_newsletter(days: int = 7) -> str:
