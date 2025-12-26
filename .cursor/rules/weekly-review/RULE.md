@@ -3,13 +3,75 @@ description: "Weekly news review schedule and workflow: systematic search across
 alwaysApply: true
 ---
 
+## 🚀 Quick Start: Single Command Weekly Update
+
+**Run this command for fully automated weekly update:**
+
+```bash
+python scripts/weekly_update.py --days 7
+```
+
+**What it does:**
+- Runs all 5 automation scripts (USGS, GDACS, World Bank, UN Peacekeeping, FRED)
+- Compiles results into `tracking/weekly-reviews/YYYY-MM-DD_weekly_review.md`
+- Shows summary statistics and classification tables
+- Takes ~30-60 seconds
+
+**Output:** A single markdown file with all results, ready for review and cross-verification.
+
+---
+
 ## Weekly review cadence
 
 **Recommended schedule:** Every **Friday** or **Monday** (user's choice)
 
-**Duration:** Allow 30-60 minutes for thorough multi-source verification
+**Duration:** 
+- Automated collection: ~1 minute (run `weekly_update.py`)
+- Manual review: 20-30 minutes (cross-verify High confidence items)
 
-## Weekly workflow (step-by-step)
+---
+
+## Automated Workflow (RECOMMENDED)
+
+### Step 1: Run weekly update script
+
+```bash
+cd C:\Project\BibleStudy
+python scripts/weekly_update.py --days 7
+```
+
+This automatically searches:
+- ✅ Earthquakes (USGS mag 4.0+)
+- ✅ Multi-hazard disasters (GDACS: floods, cyclones, droughts, wildfires)
+- ✅ Poverty/economic crisis (World Bank official reports)
+- ✅ Active conflicts/casualties (UN Peacekeeping operations)
+- ✅ Economic indicators (FRED data announcements)
+
+### Step 2: Review generated file
+
+Open: `tracking/weekly-reviews/YYYY-MM-DD_weekly_review.md`
+
+### Step 3: Cross-verify High confidence items
+
+For any item marked **High confidence**, verify with:
+1. **Reuters** (center/factual)
+2. **BBC World News** (center/international)
+3. **AP News** (center/wire service)
+
+Use MCP tools:
+```
+brave_news_search: "specific headline keywords"
+brave_web_search: "Reuters [event]"
+```
+
+### Step 4: Update tracking files
+
+- Copy verified items to `tracking/DAILY_NEWS_LOG.md`
+- Update `tracking/END_TIMES_TODO.md` if criteria met (only for High confidence, cross-verified)
+
+---
+
+## Manual Workflow (if automation scripts unavailable)
 
 ### Step 1: Search across categories (use all tools)
 

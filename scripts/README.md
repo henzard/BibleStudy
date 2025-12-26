@@ -1,5 +1,39 @@
 # Automation Scripts
 
+## 🚀 Quick Start: Weekly Update (RECOMMENDED)
+
+### Run All Scripts with One Command
+
+```bash
+python scripts/weekly_update.py --days 7
+```
+
+**What it does:**
+- Automatically runs all 5 data collection scripts
+- Compiles results into a single markdown file
+- Generates classification tables ready for review
+- Takes ~30-60 seconds
+
+**Output:** `tracking/weekly-reviews/YYYY-MM-DD_weekly_review.md`
+
+**Scripts included:**
+1. ✅ USGS Earthquakes (mag 4.0+)
+2. ✅ GDACS Multi-Hazard (EQ, flood, cyclone, drought, volcano, wildfire)
+3. ✅ World Bank News (poverty, disasters, economic crisis)
+4. ✅ UN Peacekeeping (conflicts, casualties, humanitarian crises)
+5. ✅ FRED Economic News (data announcements)
+
+**Example output:**
+- Summary statistics (scripts run, success/fail count)
+- Results organized by category with node IDs and Scripture anchors
+- Pre-formatted classification tables
+- Next steps checklist
+- Scripture reminders
+
+---
+
+## Individual Scripts (for manual/targeted queries)
+
 Scripts for fetching and parsing data from various sources to assist with weekly news reviews.
 
 ---
