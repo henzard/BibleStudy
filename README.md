@@ -1,15 +1,63 @@
-# BibleStudy
+# BibleStudy: Discover Jesus While Learning AI
 
-**Personal project (just for fun!)** — tracking end-times prophecy against daily news using AI + MCP tools.
+> **"But grow in grace, and in the knowledge of our Lord and Saviour Jesus Christ."** — 2 Peter 3:18
+
+## 🎯 Dual Mission
+
+This project has two equally important goals:
+
+1. **📖 Spiritual Growth:** Track end-times prophecy systematically using **Bible-only** interpretation (66 books, no speculation, no date-setting)
+2. **🤖 AI Education:** Learn to build "agentic AI systems" through a real-world project that honors God
+
+**My prayer:** That you might **discover Jesus** while learning AI alongside me.
+
+---
+
+## 🌟 What Makes This Different
+
+**Not just a prophecy tracker.** Not just an AI tutorial.
+
+This is a **living example** of:
+- ✝️ How to use AI for Bible study **without compromising Scripture**
+- 🛡️ How to build **guardrails** that prevent AI hallucination
+- 🚀 How to create **automated systems** that augment (not replace) human discernment
+- 📚 How to **document your learning** so others can follow
+
+**Personal + Educational + Evangelistic** = This repo.
+
+---
+
+## 🚀 Quick Start (Choose Your Path)
+
+### **Path 1: Learn AI (Start Here if New)**
+👉 Read [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md) — Step-by-step for beginners
+
+### **Path 2: Understand the Journey**
+👉 Read [`docs/AI_JOURNEY.md`](docs/AI_JOURNEY.md) — My story from "curious" to "building systems"
+
+### **Path 3: Use the System**
+👉 Jump to [Quick start](#-quick-start) below — Run the automation
+
+### **Path 4: Understand the Framework**
+👉 Read [`docs/AI_EMPOWERMENT_FRAMEWORK.md`](docs/AI_EMPOWERMENT_FRAMEWORK.md) — Where are you on the curve?
+
+---
 
 ## What this project does
 
-This workspace contains a **Bible-only (66 books) end-times prophecy tracking checklist** derived from a comprehensive flowchart, plus a **daily news review system** that maps headlines to relevant prophetic categories without claiming definitive fulfillment.
+This workspace contains:
+- **Bible-only (66 books) end-times prophecy tracking** derived from a comprehensive flowchart
+- **Daily/weekly news review system** that maps headlines to prophetic categories without claiming fulfillment
+- **11 Cursor project rules** that enforce Bible-only interpretation, multi-source verification, and AI honesty
+- **10 automation scripts** (Python) that fetch data from 6 Tier-1 sources (USGS, GDACS, FRED, World Bank, UN)
+- **SQLite database** for historical tracking and trend analysis
+- **TensorFlow integration** for ML-based predictions (optional, Week 4+)
+- **Weekly newsletters** using behavioral design principles (Hooked + Bang!)
 
 We use:
-- **MCP (Model Context Protocol) tools** to search real-time news (Brave News Search)
-- **Cursor project rules** (`.cursor/rules/bible-only-66/`) to enforce Bible-only interpretation (no tradition, no speculation)
-- **AI assistance** to help classify headlines, map them to Scripture nodes, and maintain restraint
+- **MCP (Model Context Protocol) tools** to search real-time news (Brave Search, Web Search)
+- **Cursor project rules** (`.cursor/rules/`) to enforce Bible-only interpretation and AI guardrails
+- **AI as thought partner** to challenge assumptions, ask clarifying questions, and suggest alternatives
 
 ## How close is "the end"? (Bible-only assessment)
 
