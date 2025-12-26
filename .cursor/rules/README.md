@@ -192,6 +192,34 @@ BibleStudy/
 
 **AI enforcement:** Will assess source credibility before citing; will warn if only Tier 2/3 available; will refuse to cite Tier 4.
 
+## 8. Git Workflow (`git-workflow/`)
+
+**Always applied:** ✅
+
+**Core principle:** Every file change → Commit → Push
+
+**When to commit:**
+- ✅ After creating/editing any project file
+- ✅ After completing daily/weekly news review
+- ✅ After adding/updating rules
+- ✅ After adding sources to master list
+
+**Commit message format:**
+```
+<type>: <short description>
+
+<optional details>
+```
+
+**Types:**
+- `feat:` New feature
+- `update:` Update existing content
+- `fix:` Bug fix
+- `docs:` Documentation
+- `version:` Version bump
+
+**AI enforcement:** Will automatically commit and push after completing file operations; will use proper commit message format.
+
 ---
 
 ## Quick Reference Card
@@ -203,8 +231,9 @@ BibleStudy/
 | **AI honesty** | Anti-hallucination | "I don't know" is acceptable |
 | **Folder structure** | Organization | Root = README only |
 | **Weekly review** | Systematic tracking | 7 categories; weekly cadence |
-| **No date-setting** ⭐ NEW | Prevent speculation | Matt 24:36 enforcement |
-| **Source credibility** ⭐ NEW | Quality control | Tier 1 sources preferred |
+| **No date-setting** | Prevent speculation | Matt 24:36 enforcement |
+| **Source credibility** | Quality control | Tier 1 sources preferred |
+| **Git workflow** ⭐ NEW | Version control | Commit + push after changes |
 
 ---
 

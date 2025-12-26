@@ -136,6 +136,15 @@ See **`ROADMAP.md`** for planned features, source integrations, and enhancement 
 
 ## 📌 Version History
 
+### v2.1.0 — 2025-12-26
+**Minor update: Git workflow automation**
+
+**Added:**
+- ✅ `git-workflow/` rule — Automatic commit and push after file changes; standardized commit messages
+
+**Changed:**
+- ✅ Now 8 project rules total (added to rules README)
+
 ### v2.0.0 — 2025-12-26
 **Major update: Comprehensive rules system + source roadmap**
 

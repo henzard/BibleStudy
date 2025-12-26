@@ -29,6 +29,7 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 | Weekly review workflow | ✅ Completed | - | 7 categories; systematic |
 | Date-setting prevention (Matt 24:36) | ✅ Completed | - | Forbids date predictions |
 | Source credibility assessment | ✅ Completed | - | 4-tier system; reject fake news |
+| Git workflow automation | ✅ Completed | - | Commit + push after changes; standardized messages |
 | Historical baseline tracking | ⏳ Pending | Low | Track "normal" vs "escalating" frequency |
 | Image/video verification | ⏳ Pending | Low | Deepfake/AI-generated detection |
 
