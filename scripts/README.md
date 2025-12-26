@@ -87,7 +87,63 @@ python scripts/fetch_gdacs.py --alert-level Orange --days 7
 
 ---
 
-## Installation
+## Economic Indicators Tracking
+
+### `fetch_fred_news.py`
+
+**Purpose:** Monitor FRED (Federal Reserve Economic Data) announcements for new economic data series.
+
+**Usage:**
+```bash
+# Default: past 30 days
+python scripts/fetch_fred_news.py
+
+# Custom time range
+python scripts/fetch_fred_news.py --days 60
+```
+
+**Output:**
+- List of FRED announcements
+- Flags relevant economic indicators (inflation, unemployment, GDP, trade)
+- Links to new data series
+
+**Data source:** [FRED (St. Louis Fed)](https://fred.stlouisfed.org/) — Tier 1
+
+**Maps to:** Node H0 (Babylon-like trade/economic patterns)
+
+**Scripture anchor:** Revelation 17-18 (merchants/trade)
+
+**Note:** This monitors **announcements** about new data. For actual economic data, use FRED API (see below).
+
+---
+
+### FRED API Integration (Planned)
+
+**Purpose:** Fetch actual economic indicator data (inflation, unemployment, GDP, trade deficits).
+
+**Status:** ⏳ Pending — requires API key
+
+**Setup:**
+1. Create free FRED account: https://fredaccount.stlouisfed.org/
+2. Request API key (free)
+3. Store key in `.env` file (not committed to git)
+
+**Planned indicators to track:**
+- **Inflation:** CPI-U (Consumer Price Index), PCE (Personal Consumption Expenditures)
+- **Unemployment:** U-3 official rate, U-6 broader measure
+- **GDP:** Real GDP growth rate, GDP per capita
+- **Trade:** Trade deficit/surplus, imports/exports
+- **Supply chain:** Supply Chain Pressure Index
+- **Debt:** Federal debt, deficit as % of GDP
+
+**Maps to:** Node H0 — economic crisis indicators for "Babylon/merchants" pattern
+
+**Confidence threshold:**
+- **High:** Multiple indicators show crisis (e.g., high inflation + recession)
+- **Med:** Single indicator elevated
+- **Low:** Normal fluctuations
+
+**Scripture anchor:** Revelation 18:11-19 — "merchants weep and mourn… no man buyeth their merchandise"
 
 No installation required. Scripts use Python standard library only.
 

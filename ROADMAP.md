@@ -67,12 +67,15 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 
 | Source | Status | Priority | Setup needs | Notes |
 |--------|--------|----------|-------------|-------|
+| FRED News Monitor | ✅ Completed | - | Python script created | `scripts/fetch_fred_news.py` — tracks new data announcements |
 | FRED API (Federal Reserve) | ⏳ Pending | **High** | Free API key | US + global indicators; authoritative |
 | World Bank Open Data | ⏳ Pending | Medium | API (free) | Global poverty, famine proxies |
 | IMF Financial Stability Report | ⏳ Pending | Low | Manual quarterly check | Crisis indicators |
 | Trading Economics | ⏳ Pending | Low | Web (paid API) | Aggregates official stats |
 
 **Goal:** Map economic crises to H0 (Babylon/merchants); track inflation, supply chain disruptions.
+
+**Status:** FRED news monitor complete; API integration requires user to get API key
 
 ---
 
@@ -131,14 +134,15 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
 ### Phase 1: High-Priority Sources (next 1-2 weeks)
 1. ✅ ~~Set up **USGS Earthquake API**~~ — **COMPLETED** (`scripts/fetch_earthquakes.py`)
 2. ✅ ~~Set up **GDACS**~~ — **COMPLETED** (`scripts/fetch_gdacs.py`)
-3. ⏳ Subscribe to **EFF Blog RSS** (digital rights/surveillance)
-4. ⏳ Bookmark **Open Doors World Watch List** (monthly manual check)
-5. ⏳ Get **FRED API key** (economic indicators)
+3. ✅ ~~Set up **FRED News Monitor**~~ — **COMPLETED** (`scripts/fetch_fred_news.py`)
+4. ⏳ Get **FRED API key** + create `fetch_economic.py` (requires user account)
+5. ⏳ Subscribe to **EFF Blog RSS** (digital rights/surveillance)
+6. ⏳ Bookmark **Open Doors World Watch List** (monthly manual check)
 
 ### Phase 2: Medium-Priority Sources (next month)
-6. ⏳ Integrate **ReliefWeb API** (humanitarian impact)
-7. ⏳ Subscribe to **NOAA Space Weather** alerts
-8. ⏳ Bookmark **World Food Programme** famine alerts
+7. ⏳ Integrate **ReliefWeb API** (humanitarian impact)
+8. ⏳ Subscribe to **NOAA Space Weather** alerts
+9. ⏳ Bookmark **World Food Programme** famine alerts
 
 ### Phase 3: Optional Enhancements (as needed)
 9. ⏳ Add **historical baseline tracking** rule (know "normal" vs "escalating")
@@ -163,9 +167,14 @@ We have a comprehensive rule system (7 rules). Next priority: integrate speciali
   - Population affected + severity descriptions
   - Maps to node J0 (Matt 24:7-8)
 
+- ✅ **`scripts/fetch_fred_news.py`** — FRED economic data announcements monitor
+  - Tracks new FRED data series announcements
+  - Flags relevant economic indicators
+  - Maps to node H0 (Rev 17-18)
+
 ### Planned
+- ⏳ `scripts/fetch_economic.py` — FRED API for actual economic data (requires API key from user)
 - ⏳ `scripts/fetch_persecution.py` — Parse Open Doors WWL + VOM alerts
-- ⏳ `scripts/fetch_economic.py` — FRED API for economic indicators
 - ⏳ `scripts/fetch_spaceweather.py` — NOAA space weather alerts
 - ⏳ `scripts/fetch_biometric_news.py` — Biometric Update + EFF RSS
 
