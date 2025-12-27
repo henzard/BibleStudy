@@ -11,6 +11,7 @@ Usage:
 
 import sys
 import io
+import os
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from typing import List, Dict
@@ -22,8 +23,22 @@ import re
 if sys.stdout.encoding != 'utf-8':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
+# Load environment variables
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # dotenv not required, will use system env vars
+
 # World Bank news RSS feed (EIN News aggregator)
-WB_NEWS_FEED = "https://worldbank.einnews.com/rss/YOUR_EINNEWS_KEY_HERE"
+# Load key from environment variable (secure)
+EINNEWS_RSS_KEY = os.getenv('EINNEWS_RSS_KEY')
+if not EINNEWS_RSS_KEY:
+    print("⚠️  EINNEWS_RSS_KEY not found in environment variables")
+    print("   Set in .env file or use default (may be rate-limited)")
+    EINNEWS_RSS_KEY = "YOUR_EINNEWS_KEY_HERE"  # Fallback for backward compatibility
+
+WB_NEWS_FEED = f"https://worldbank.einnews.com/rss/{EINNEWS_RSS_KEY}"
 
 # Keywords for different prophecy nodes
 POVERTY_KEYWORDS = [

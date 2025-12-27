@@ -8,7 +8,7 @@ Tracks inflation, unemployment, GDP, trade deficits, and economic crisis indicat
 Usage:
     python fetch_economic.py [--months 12]
     
-API Key: Set FRED_API_KEY environment variable or pass via --api-key
+API Key: Set FRED_API_KEY environment variable in .env file
 """
 
 import sys
@@ -25,9 +25,23 @@ import os
 if sys.stdout.encoding != 'utf-8':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
+# Load environment variables
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # dotenv not required, will use system env vars
+
 # FRED API Configuration
 FRED_API_BASE = "https://api.stlouisfed.org/fred"
-FRED_API_KEY = "YOUR_FRED_API_KEY_HERE"  # User's API key
+
+# Load API key from environment variable (secure)
+FRED_API_KEY = os.getenv('FRED_API_KEY')
+if not FRED_API_KEY:
+    print("❌ FRED_API_KEY not found in environment variables")
+    print("   Please set FRED_API_KEY in .env file")
+    print("   Get your key from: https://fred.stlouisfed.org/docs/api/api_key.html")
+    sys.exit(1)
 
 # Economic indicators to track (Series IDs)
 INDICATORS = {
