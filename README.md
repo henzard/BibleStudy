@@ -1,0 +1,293 @@
+# BibleStudy: Discover Jesus While Learning AI
+
+> **"But grow in grace, and in the knowledge of our Lord and Saviour Jesus Christ."** — 2 Peter 3:18
+
+## 🎯 Dual Mission
+
+This project has two equally important goals:
+
+1. **📖 Spiritual Growth:** Track end-times prophecy systematically using **Bible-only** interpretation (66 books, no speculation, no date-setting)
+2. **🤖 AI Education:** Learn to build "agentic AI systems" through a real-world project that honors God
+
+**My prayer:** That you might **discover Jesus** while learning AI alongside me.
+
+---
+
+## 🌟 What Makes This Different
+
+**Not just a prophecy tracker.** Not just an AI tutorial.
+
+This is a **living example** of:
+- ✝️ How to use AI for Bible study **without compromising Scripture**
+- 🛡️ How to build **guardrails** that prevent AI hallucination
+- 🚀 How to create **automated systems** that augment (not replace) human discernment
+- 📚 How to **document your learning** so others can follow
+
+**Personal + Educational + Evangelistic** = This repo.
+
+---
+
+## 🚀 Quick Start (Choose Your Path)
+
+### **Path 1: Learn AI (Start Here if New)**
+👉 Read [`docs/GETTING_STARTED.md`](docs/GETTING_STARTED.md) — Step-by-step for beginners
+
+### **Path 2: Understand the Journey**
+👉 Read [`docs/AI_JOURNEY.md`](docs/AI_JOURNEY.md) — My story from "curious" to "building systems"
+
+### **Path 3: Use the System**
+👉 Jump to [Quick start](#-quick-start) below — Run the automation
+
+### **Path 4: Understand the Framework**
+👉 Read [`docs/AI_EMPOWERMENT_FRAMEWORK.md`](docs/AI_EMPOWERMENT_FRAMEWORK.md) — Where are you on the curve?
+
+---
+
+## What this project does
+
+This workspace contains:
+- **Bible-only (66 books) end-times prophecy tracking** derived from a comprehensive flowchart
+- **Daily/weekly news review system** that maps headlines to prophetic categories without claiming fulfillment
+- **11 Cursor project rules** that enforce Bible-only interpretation, multi-source verification, and AI honesty
+- **11 automation scripts** (Python) that fetch data from 8 Tier-1 sources (USGS, GDACS, FRED, World Bank, UN, NOAA, EFF)
+- **SQLite database** for historical tracking and trend analysis
+- **TensorFlow integration** for ML-based pattern recognition and trend forecasting
+- **Fig Tree Pattern Analysis** (Matt 24:33) - Multi-node intensity scoring across all prophecy categories
+- **Automated weekly newsletters** with pattern strength, seasonal metaphor, and Scripture focus
+
+We use:
+- **MCP (Model Context Protocol) tools** to search real-time news (Brave Search, Web Search)
+- **Cursor project rules** (`.cursor/rules/`) to enforce Bible-only interpretation and AI guardrails
+- **AI as thought partner** to challenge assumptions, ask clarifying questions, and suggest alternatives
+
+## How close is "the end"? (Bible-only assessment)
+
+Based on current tracking (as of Dec 26, 2025):
+
+### ✅ What we're observing (Matthew 24 markers)
+- **J0 — Beginning of sorrows**: Wars/rumors (Gaza, Ukraine), earthquakes (Myanmar, Asia), famines/disasters (150M+ affected) ✅
+- **J1 — Persecution/hatred**: Christian persecution (Nigeria) ✅
+- **J2 — Gospel preached**: Ongoing globally ✅
+
+### ❌ What we have NOT observed yet (still future)
+- **J3 — Abomination of desolation** (Dan 9:27; Matt 24:15) ❌
+- **J4 — Great tribulation** (Matt 24:16-22) ❌
+- **J6 — Cosmic signs** (sun darkened, etc.) ❌
+- **J7 — Son of Man appears** (Matt 24:30-31) ❌
+
+### 📍 Current phase
+**"Beginning of sorrows"** (Matt 24:8) — Jesus explicitly said: *"all these are the beginning of sorrows"* and *"the end is not yet"* (Matt 24:6).
+
+According to the text, the end comes AFTER:
+1. Gospel preached in all the world (Matt 24:14) — ongoing ✅
+2. Abomination of desolation (Matt 24:15) — not observed ❌
+3. Great tribulation (Matt 24:21-22) — not observed ❌
+4. Cosmic signs (Matt 24:29) — not observed ❌
+5. THEN the Son of Man appears (Matt 24:30) — not observed ❌
+
+**Honest assessment**: We're in the early warning phase. Major markers (J3–J7) remain future.
+
+## 📁 Folder structure
+
+```
+BibleStudy/
+├── README.md                                    # You are here
+├── ROADMAP.md                                   # Public todo list
+├── data/                                        # ⭐ Database & backups
+│   └── prophecy_tracking.db                    # SQLite historical data
+├── tracking/                                    # Active tracking files
+│   ├── END_TIMES_TODO.md                       # Master checklist (all nodes)
+│   ├── DAILY_NEWS_LOG.md                       # Append-only running log
+│   ├── daily-reviews/                          # Individual daily reviews
+│   │   └── 2025-12-26.md                       # (example)
+│   ├── weekly-reviews/                         # ⭐ Automated weekly compilations
+│   │   └── 2025-12-26_weekly_review.md         # (generated by weekly_update.py)
+│   └── newsletters/                            # ⭐ Published weekly newsletters
+│       └── 2025-12-26_weekly_watch.md          # Behavioral design + Scripture
+├── templates/                                   # Reusable templates
+│   └── DAILY_NEWS_REVIEW_TEMPLATE.md           # Daily review template
+├── reference/                                   # Source materials
+│   ├── End_Of_Time_Chart.md                    # Original flowchart
+│   ├── SOURCES_MASTER_LIST.md                  # 40+ sources (8 categories)
+│   ├── QUICK_REFERENCE.md                      # One-page workflow guide
+│   └── SETUP_COMPLETE.md                       # Setup documentation
+├── scripts/                                     # Automation tools
+│   ├── README.md                               # Scripts documentation
+│   ├── init_database.py                        # ⭐ Create SQLite schema
+│   ├── ingest_data.py                          # ⭐ Populate database
+│   ├── predict_trends.py                       # ⭐ TensorFlow ML trend forecasting
+│   ├── analyze_fig_tree_pattern.py             # ⭐ Multi-node pattern recognition (Matt 24:33)
+│   ├── generate_newsletter.py                  # ⭐ Automated newsletter with fig tree data
+│   ├── weekly_update.py                        # MASTER SCRIPT - runs all 10 steps
+│   ├── fetch_earthquakes.py                    # USGS earthquake feed parser
+│   ├── fetch_gdacs.py                          # GDACS multi-hazard parser
+│   ├── fetch_worldbank_news.py                 # World Bank news monitor
+│   ├── fetch_un_peacekeeping.py                # UN Peacekeeping operations monitor
+│   ├── fetch_economic.py                       # FRED API economic data
+│   ├── fetch_spaceweather.py                   # NOAA space weather alerts
+│   ├── fetch_eff_news.py                       # EFF digital rights monitor
+│   └── fetch_fred_news.py                      # FRED economic news feed
+├── archive/                                     # Old/deprecated files
+└── .cursor/rules/                              # Project rules (auto-applied)
+    ├── README.md                               # All rules explained
+    ├── bible-only-66/                          # Bible-only interpretation
+    ├── news-methodology/                       # Multi-source verification
+    ├── ai-honesty/                             # No hallucination policy
+    ├── ai-thought-partner/                     # ⭐ Challenge assumptions, ask "why"
+    ├── folder-structure/                       # Organization standards
+    ├── weekly-review/                          # Systematic workflow
+    ├── no-date-setting/                        # Matt 24:36 enforcement
+    ├── source-credibility/                     # Quality control
+    ├── newsletter-structure/                   # Hooked + Bang! principles
+    ├── database-structure/                     # ⭐ SQLite schema & standards
+    └── git-workflow/                           # Version control
+```
+
+## 🚀 Quick start
+
+### **Single Command Weekly Update (RECOMMENDED)**
+
+```bash
+python scripts/weekly_update.py --days 7
+```
+
+**This automatically:**
+1. ✅ Runs 8 data collection scripts (USGS, GDACS, World Bank, UN, FRED, NOAA, EFF)
+2. ✅ Compiles raw data into `tracking/weekly-reviews/YYYY-MM-DD_weekly_review.md`
+3. ✅ Runs Fig Tree Pattern Analysis (Matt 24:33) — multi-node intensity scoring
+4. ✅ Generates newsletter in `tracking/newsletters/YYYY-MM-DD_weekly_watch.md`
+5. ⏱️ Takes ~60-90 seconds total
+
+**Output includes:**
+- **Pattern Strength:** 0-100 score across all nodes (J0 wars, J0 quakes, J0 famines, J6 cosmic, H0 economic, B2 digital)
+- **Seasonal Metaphor:** Winter/Early Spring/Mid Spring/Late Spring (fig tree parable)
+- **Public Newsletter:** Ready to share with compelling headline, Scripture focus, and ethical disclaimers
+
+**Then:**
+1. Review the newsletter: `tracking/newsletters/[date]_weekly_watch.md`
+2. (Optional) Cross-verify High confidence items with Reuters/BBC/AP News
+3. Share newsletter or use for personal Bible study
+4. (Optional) Store historical data: `python scripts/ingest_data.py --days 7`
+
+### **Manual workflow (if needed)**
+
+1. **Read current status**: `tracking/END_TIMES_TODO.md`
+2. **See latest newsletter**: `tracking/newsletters/[latest-date]_weekly_watch.md`
+3. **One-page workflow guide**: `reference/QUICK_REFERENCE.md` 📋 ← **Print this!**
+4. **All rules explained**: `.cursor/rules/README.md`
+5. **News methodology**: `.cursor/rules/news-methodology/RULE.md`
+
+## 🔧 How to use this project
+
+1. **Weekly news gathering** (recommended: every Friday or Monday)
+   - Run searches using MCP tools: `brave_news_search`, `brave_web_search`, `web_search`
+   - Search across 7 categories: wars, disasters, persecution, economy, digital ID, cosmic events, temple news
+   - Verify with 3+ sources (left + right + center spectrum)
+
+2. **Daily review creation**
+   - Copy template: `templates/DAILY_NEWS_REVIEW_TEMPLATE.md`
+   - Fill classification table with verified headlines
+   - Map to node IDs from `tracking/END_TIMES_TODO.md`
+   - Save as `tracking/daily-reviews/YYYY-MM-DD.md`
+
+3. **Update master checklist**
+   - Open `tracking/END_TIMES_TODO.md`
+   - Mark nodes as "Observed" only if Med/High confidence
+   - Add date + brief note to each marked item
+
+4. **Append to running log**
+   - Copy one section from daily review
+   - Paste into `tracking/DAILY_NEWS_LOG.md` (append-only)
+
+**AI assistance:** The AI will help search news, classify headlines, and enforce Bible-only guardrails automatically.
+
+## Guardrails (Bible-only honesty)
+
+### 🛡️ Core rules (enforced by AI)
+
+1. **No "this is that" claims** — we map headlines to *categories*, not fulfillment
+2. **66 books only** — no tradition, no extra-biblical symbolism
+3. **Scripture compares with Scripture** (Isa 28:10) — line upon line
+4. **Multi-source verification** — minimum 3 sources, cross-spectrum (left + right + center)
+5. **"I don't know" is acceptable** — uncertainty is honest and biblical (Deut 29:29)
+6. **Confidence levels required** — Low/Med/High for every headline
+7. **No hallucination** — AI must search real data; cannot make up sources or verses
+
+### 📰 News verification standards
+
+**To mark a prophecy node as "Observed":**
+- ✅ Minimum **3 independent sources**
+- ✅ **Cross-spectrum verification** (at least one left-leaning AND one right-leaning source)
+- ✅ **Factual consistency** across sources
+- ✅ **Confidence: Med or High**
+
+**News tools used:**
+- `web_search`, `brave_web_search`, `brave_news_search`, `brave_local_search`, `brave_summarizer`
+
+### 🤖 AI honesty policy
+
+The AI assistant will:
+- ✅ Always search for current data before claiming news exists
+- ✅ Say "I don't know" when Scripture is silent or sources are insufficient
+- ✅ Distinguish "what the text says" from "what it might mean"
+- ✅ Correct errors immediately when discovered
+- ✅ Never use forbidden phrases like "scholars agree" or "it's well-known"
+
+See `.cursor/rules/ai-honesty/RULE.md` for full policy.
+
+---
+
+## 📋 Project Roadmap
+
+See **`ROADMAP.md`** for planned features, source integrations, and enhancement priorities.
+
+---
+
+## 📌 Version History
+
+### v2.1.0 — 2025-12-26
+**Minor update: Git workflow automation**
+
+**Added:**
+- ✅ `git-workflow/` rule — Automatic commit and push after file changes; standardized commit messages
+
+**Changed:**
+- ✅ Now 8 project rules total (added to rules README)
+
+### v2.0.0 — 2025-12-26
+**Major update: Comprehensive rules system + source roadmap**
+
+**Added:**
+- ✅ 5 new project rules (7 total):
+  - `news-methodology/` — Multi-source verification (3+ sources, cross-spectrum)
+  - `ai-honesty/` — Anti-hallucination ("I don't know" is acceptable)
+  - `folder-structure/` — Organization standards (root = README only)
+  - `weekly-review/` — Systematic workflow (7 categories)
+  - `no-date-setting/` — Matt 24:36 enforcement (forbid date predictions)
+  - `source-credibility/` — 4-tier credibility system (Tier 1 sources preferred)
+- ✅ Reorganized folder structure (clean root; subdirectories: tracking, templates, reference, archive)
+- ✅ `reference/SOURCES_MASTER_LIST.md` — Comprehensive source tracking (8 categories, 40+ sources)
+- ✅ `reference/QUICK_REFERENCE.md` — One-page visual workflow guide
+- ✅ `ROADMAP.md` — Public todo list and feature roadmap
+
+**Changed:**
+- Moved all tracking files to `tracking/` subdirectory
+- Moved all templates to `templates/` subdirectory
+- Moved all reference materials to `reference/` subdirectory
+- Renamed files for consistency (e.g., `End Of time Chart.md` → `End_Of_Time_Chart.md`)
+
+### v1.0.0 — 2025-12-26
+**Initial release: Bible-only prophecy tracking system**
+
+**Added:**
+- ✅ `END_TIMES_TODO.md` — Master checklist (all prophecy nodes A–N, IS, M)
+- ✅ `DAILY_NEWS_LOG.md` — Append-only running log
+- ✅ `DAILY_NEWS_REVIEW_TEMPLATE.md` — Daily news classification template
+- ✅ `.cursor/rules/bible-only-66/` — Bible-only interpretation rule (66 books, no tradition)
+- ✅ First daily review (2025-12-26) with this week's news mapped to node IDs
+- ✅ MCP tools integration: `brave_news_search`, `brave_web_search`, `web_search`, `brave_local_search`, `brave_summarizer`
+
+---
+
+*Disclaimer: This is a personal, exploratory project for learning and reflection. It is not authoritative teaching and should not be used to set dates or make predictions. "But of that day and hour knoweth no man" (Matt 24:36).*
+
