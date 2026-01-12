@@ -48,7 +48,8 @@ Ensure this repository remains safe for public sharing on GitHub by:
 ```bash
 # .env (NEVER commit this file!)
 OPENAI_API_KEY=sk-proj-abc123...
-FRED_API_KEY=242c60f5c903478ad189e60070a2666d
+<<<<<<< HEAD
+FRED_API_KEY=your_actual_fred_api_key_here
 ```
 
 ### 2. .env.example Template

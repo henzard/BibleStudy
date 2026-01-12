@@ -549,6 +549,7 @@ def generate_newsletter(days: int = 7) -> str:
         content.append("**Honest assessment:** We're in the early warning phase, not the final countdown.\n")
         content.append("---\n")
         
+<<<<<<< HEAD
         # ⭐ NEW: Temple Mount & Antichrist Pattern Monitoring
         content.append("## 🕍 NEW: Temple Mount & Antichrist Pattern Monitoring\n")
         content.append("**Bible-Only Approach:** We now monitor Temple Mount/Middle East news and observable Antichrist characteristics.\n")

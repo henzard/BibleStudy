@@ -75,6 +75,7 @@ SCRIPTS = {
         'name': 'EFF Digital Rights',
         'node': 'B2',
         'scripture': 'Rev 13:16-17'
+<<<<<<< HEAD
     },
     'temple_mount': {
         'file': 'fetch_temple_mount_news.py',
