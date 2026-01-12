@@ -75,6 +75,18 @@ SCRIPTS = {
         'name': 'EFF Digital Rights',
         'node': 'B2',
         'scripture': 'Rev 13:16-17'
+    },
+    'temple_mount': {
+        'file': 'fetch_temple_mount_news.py',
+        'name': 'Temple Mount & Middle East',
+        'node': 'J3/MS0',
+        'scripture': 'Dan 9:27; Matt 24:15; 2 Thess 2:3-4'
+    },
+    'antichrist_patterns': {
+        'file': 'monitor_antichrist_patterns.py',
+        'name': 'Antichrist Pattern Monitor',
+        'node': 'MS0/MS1/AC0/B1/B2',
+        'scripture': '2 Thess 2:3-4, 2:9-12; 1 John 2:18, 2:22, 4:3; Rev 13'
     }
 }
 

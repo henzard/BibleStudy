@@ -403,7 +403,7 @@ def generate_newsletter(days: int = 7) -> str:
         content.append(f"**Date:** {formatted_date}")
         content.append(f"**Period:** Past {days} days")
         content.append(f"**Pattern Phase:** {fig_tree['phase']} ({fig_tree['season']})")
-        content.append(f"**Sources:** USGS, UN, FRED, World Bank, NOAA, EFF\n")
+        content.append(f"**Sources:** USGS, UN, FRED, World Bank, NOAA, EFF, Temple Mount/Middle East, Antichrist Patterns\n")
         content.append("---\n")
         
         # TL;DR
@@ -549,6 +549,23 @@ def generate_newsletter(days: int = 7) -> str:
         content.append("**Honest assessment:** We're in the early warning phase, not the final countdown.\n")
         content.append("---\n")
         
+        # ⭐ NEW: Temple Mount & Antichrist Pattern Monitoring
+        content.append("## 🕍 NEW: Temple Mount & Antichrist Pattern Monitoring\n")
+        content.append("**Bible-Only Approach:** We now monitor Temple Mount/Middle East news and observable Antichrist characteristics.\n")
+        content.append("\n### Temple Mount Monitoring (Node J3):\n")
+        content.append("- **Scripture:** Dan 9:27; Matt 24:15 — Abomination of desolation")
+        content.append("- **What we track:** Temple Mount access, conflicts, political developments")
+        content.append("- **Sources:** Times of Israel, Jerusalem Post, Al Jazeera, Middle East Monitor")
+        content.append("- **Note:** Observing patterns, NOT claiming fulfillment\n")
+        content.append("\n### Antichrist Pattern Monitoring (Nodes MS0/MS1/AC0/B1/B2):\n")
+        content.append("- **Scripture:** 2 Thess 2:3-4, 2:9-12; 1 John 2:18, 2:22, 4:3; Rev 13")
+        content.append("- **What we track:** Observable characteristics (exalts himself, sits in temple, denies Father/Son, etc.)")
+        content.append("- **Approach:** Monitor patterns, NOT identify individuals")
+        content.append("- **Note:** 'Could be consistent with' ≠ 'This is that'\n")
+        content.append("**📋 For detailed Temple Mount and Antichrist pattern data, see:** `tracking/weekly-reviews/[date]_weekly_review.md`\n")
+        content.append("**📚 Full documentation:** `docs/ANTICHRIST_MONITORING.md`\n")
+        content.append("---\n")
+        
         # Action Points
         content.append("## ✅ Action Points for This Week\n")
         content.append("1. **Watch** — Continue monitoring J0 patterns (wars, earthquakes, famines)")
@@ -572,7 +589,7 @@ def generate_newsletter(days: int = 7) -> str:
         content.append("---\n")
         
         # Footer
-        content.append("_Generated automatically by BibleStudy AI system. Data from USGS, UN, FRED, World Bank, NOAA, EFF._")
+        content.append("_Generated automatically by BibleStudy AI system. Data from USGS, UN, FRED, World Bank, NOAA, EFF, Temple Mount/Middle East, Antichrist Patterns._")
         content.append(f"_[GitHub Repository](https://github.com/henzard/BibleStudy) | [Learn AI + Bible Study](https://github.com/henzard/BibleStudy/docs)_")
         
         return '\n'.join(content)
