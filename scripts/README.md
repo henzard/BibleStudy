@@ -365,5 +365,26 @@ When adding new scripts:
 
 ---
 
-**Last updated:** 2025-12-26
+---
+
+## Ark-SA Daily Threat Monitor
+
+### `ark_sa_daily_monitor.py`
+
+**Purpose:** Daily South Africa failed-state / emergency-preparedness review for Bloemfontein and the Bloemfontein→Mossel Bay route. Produces structured JSON and a markdown report under `reports/ark-sa/`.
+
+**Usage:**
+```bash
+python scripts/ark_sa_daily_monitor.py
+```
+
+**Output:**
+- JSON to stdout (threat_score, threat_level, confidence, unsafe, domains, category_signals)
+- `reports/ark-sa/YYYY-MM-DD.md` (human-readable summary)
+
+**Slack:** Alerts only when `unsafe=true` (RED/BLACK or score ≥70).
+
+---
+
+**Last updated:** 2026-06-28
 
