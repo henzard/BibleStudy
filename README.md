@@ -169,6 +169,32 @@ python scripts/weekly_update.py --days 7
 3. Share newsletter or use for personal Bible study
 4. (Optional) Store historical data: `python scripts/ingest_data.py --days 7`
 
+### **Multi-agent early-warning pipeline (NEW)**
+
+A staged, evidence-driven pipeline (`earlywarning/` package) that replaces the
+old "scrape each script's stdout" flow with: collect → normalize → dedupe →
+evidence graph → **parallel specialist research agents** → threat scoring →
+trend memory → executive report → delivery channels.
+
+```bash
+python scripts/ingest_data.py --days 7      # refresh the SQLite store first
+python scripts/run_pipeline.py --days 7     # run the pipeline (report to stdout)
+python scripts/run_pipeline.py --json       # machine-readable summary
+```
+
+- **Provider-agnostic LLM:** uses Anthropic *or* OpenAI when a key is set, and
+  otherwise runs on a deterministic offline backend — **no key or network
+  required**. Configure via `LLM_PROVIDER` / `ANTHROPIC_API_KEY` /
+  `OPENAI_API_KEY` in `.env` (see `.env.example`).
+- **Cross-validation:** confidence is capped unless multiple independent
+  sources corroborate.
+- **Delivery:** writes a markdown report + dashboard JSON locally; Slack /
+  Telegram / email are opt-in and off by default (`ALERTS_DRY_RUN=true`).
+- See **`docs/EARLY_WARNING_ARCHITECTURE.md`** for the full design and the
+  rationale behind it.
+
+Run the test suite with `python -m pytest`.
+
 ### **Manual workflow (if needed)**
 
 1. **Read current status**: `tracking/END_TIMES_TODO.md`
