@@ -24,7 +24,7 @@ import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass, field
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
@@ -215,8 +215,9 @@ def build_category_signals(gdacs_hits: list[str]) -> list[CategorySignal]:
                 "widespread unrest yet; R600m security deployment underway."
             ),
             sources=[
-                "SAnews.gov.za",
-                "EWN / Defence Minister Motshekga briefing",
+                "AP News (immigration protests, Jun 2026)",
+                "SAnews.gov.za / IOL (30 Jun declared normal working day)",
+                "EWN explainer on June 30 mobilisation",
                 "TimesLIVE / DefenceWeb on Free State arrests",
             ],
         ),
@@ -285,14 +286,14 @@ def build_category_signals(gdacs_hits: list[str]) -> list[CategorySignal]:
             score=45,
             confidence="MEDIUM",
             summary=(
-                "Primary N1/N2 corridors Bloemfontein→Garden Route generally passable but many "
-                "scenic/secondary Garden Route roads remain closed from Jun flood damage "
-                "(Prince Alfred Pass, Meiringspoort, Seven Passes sections, etc.). "
-                "Check WC Government/SANRAL updates before departure; avoid flooded crossings."
+                "Primary N1/N2 corridors Bloemfontein→Garden Route generally passable. "
+                "~70% of storm-damaged WC roads reopened (22 Jun); many scenic/secondary routes "
+                "still closed (Meiringspoort, Swartberg Pass, Seven Passes sections, etc.). "
+                "Verify WC Government/SANRAL status before departure; avoid closed passes."
             ),
             sources=[
-                "Mossel Bay Advertiser road closure list (18 Jun)",
-                "Western Cape Government infrastructure updates",
+                "IOL / Western Cape disaster recovery update (22 Jun)",
+                "George Herald / Western Cape Government road bulletins (18 Jun)",
                 "SANRAL Western Cape advisories",
             ],
         ),
@@ -394,6 +395,44 @@ def build_domain_assessments(signals: list[CategorySignal]) -> dict[str, DomainA
     }
 
 
+def load_previous_assessment(report_date: str) -> dict[str, Any] | None:
+    """Load the most recent prior-day JSON snapshot if available."""
+    try:
+        prior = datetime.strptime(report_date, "%Y-%m-%d").date() - timedelta(days=1)
+    except ValueError:
+        return None
+    path = REPORTS_DIR / f"{prior.isoformat()}.json"
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
+def changes_since_yesterday(current: dict[str, Any], previous: dict[str, Any] | None) -> str:
+    if previous is None:
+        return "No prior report in reports/ark-sa/ — baseline established today."
+
+    parts: list[str] = []
+    for field in ("threat_level", "threat_score", "decision", "unsafe"):
+        old, new = previous.get(field), current.get(field)
+        if old != new:
+            parts.append(f"{field}: {old} → {new}")
+
+    if not parts:
+        return "Unchanged overall — same threat level, score, and decision as yesterday."
+
+    return "; ".join(parts)
+
+
+def save_json_snapshot(assessment: dict[str, Any]) -> Path:
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    path = REPORTS_DIR / f"{assessment['report_date']}.json"
+    path.write_text(json.dumps(assessment, indent=2, ensure_ascii=False), encoding="utf-8")
+    return path
+
+
 def build_assessment(now: datetime | None = None) -> dict[str, Any]:
     now = now or datetime.now(SAST)
     gdacs_hits = check_gdacs_sa_mentions()
@@ -436,6 +475,7 @@ def build_assessment(now: datetime | None = None) -> dict[str, Any]:
         | {
             "Eskom.co.za",
             "SAnews.gov.za",
+            "AP News",
             "GDACS RSS",
             "WHO Afro",
             "Stats SA / Daily Maverick",
@@ -443,11 +483,15 @@ def build_assessment(now: datetime | None = None) -> dict[str, Any]:
         }
     )
 
-    return {
+    report_date = now.strftime("%Y-%m-%d")
+    previous = load_previous_assessment(report_date)
+
+    assessment = {
         "threat_score": threat_score,
         "threat_level": threat_level,
         "confidence": confidence,
         "unsafe": unsafe,
+        "decision": action,
         "recommendation": action,
         "top_reasons": top_reasons[:7],
         "recommended_actions": recommended_actions[:7],
@@ -455,11 +499,21 @@ def build_assessment(now: datetime | None = None) -> dict[str, Any]:
         "local_focus": "Bloemfontein, Free State, South Africa",
         "route_focus": "Bloemfontein to Mossel Bay / Garden Route",
         "timestamp_sast": now.strftime("%Y-%m-%dT%H:%M:%S%z"),
-        "report_date": now.strftime("%Y-%m-%d"),
+        "report_date": report_date,
+        "changes_since_yesterday": changes_since_yesterday(
+            {
+                "threat_level": threat_level,
+                "threat_score": threat_score,
+                "decision": action,
+                "unsafe": unsafe,
+            },
+            previous,
+        ),
         "domains": {k: asdict(v) for k, v in domains.items()},
         "category_signals": [asdict(s) for s in signals],
         "gdacs_sa_mentions": gdacs_hits,
     }
+    return assessment
 
 
 def write_markdown_report(assessment: dict[str, Any]) -> Path:
@@ -474,7 +528,9 @@ def write_markdown_report(assessment: dict[str, Any]) -> Path:
         f"**Timestamp (SAST):** {assessment['timestamp_sast']}",
         f"**Threat level:** {assessment['threat_level']} | **Score:** {assessment['threat_score']}/100",
         f"**Confidence:** {assessment['confidence']} | **Unsafe alert:** {assessment['unsafe']}",
-        f"**Recommendation:** {assessment['recommendation']}",
+        f"**Decision:** {assessment['decision']}",
+        "",
+        f"**Changes since yesterday:** {assessment.get('changes_since_yesterday', 'unknown')}",
         "",
         "---",
         "",
@@ -540,7 +596,9 @@ def main() -> int:
 
         if not args.stdout_only:
             report_path = write_markdown_report(assessment)
+            json_path = save_json_snapshot(assessment)
             print(f"\nReport written: {report_path}", file=sys.stderr)
+            print(f"JSON snapshot: {json_path}", file=sys.stderr)
 
         return 0
     except Exception as exc:

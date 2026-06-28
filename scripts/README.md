@@ -365,8 +365,6 @@ When adding new scripts:
 
 ---
 
----
-
 ## Ark-SA Daily Threat Monitor
 
 ### `ark_sa_daily_monitor.py`
@@ -379,10 +377,11 @@ python scripts/ark_sa_daily_monitor.py
 ```
 
 **Output:**
-- JSON to stdout (threat_score, threat_level, confidence, unsafe, domains, category_signals)
+- JSON to stdout (`threat_score`, `threat_level`, `confidence`, `decision`, `unsafe`, domains, category_signals)
 - `reports/ark-sa/YYYY-MM-DD.md` (human-readable summary)
+- `reports/ark-sa/YYYY-MM-DD.json` (snapshot for day-over-day comparison)
 
-**Slack:** Alerts only when `unsafe=true` (RED/BLACK or score ≥70).
+**Slack:** Daily report every run; urgent title when `unsafe=true` (RED/BLACK or score ≥70).
 
 ---
 
