@@ -1,15 +1,15 @@
-# Weekly Watch Jun 29, 2026: 🟢 Watching and Waiting — Pattern Status Update
+# Weekly Watch Jun 29, 2026: 161 Earthquakes Signal 'Beginning of Sorrows'
 
 **Date:** Jun 29, 2026
 **Period:** Past 7 days
-**Pattern Phase:** MONITORING Phase (WINTER)
+**Pattern Phase:** EARLY Beginning of Sorrows (EARLY SPRING)
 **Sources:** USGS, UN, FRED, World Bank, NOAA, EFF, Temple Mount/Middle East, Antichrist Patterns
 
 ---
 
 ## 📖 TL;DR (30-Second Read)
 
-**Economic indicators stable**. **Fig Tree Pattern Strength:** 12/100 (WINTER). **Scripture focus:** Matthew 24:7-8 — 'beginning of sorrows' patterns observed. **The end is not yet** (Matt 24:6).
+**161 earthquakes** (mag 4.0+). including **5 major** (6.0+). **Economic indicators stable**. **Fig Tree Pattern Strength:** 32/100 (EARLY SPRING). **Scripture focus:** Matthew 24:7-8 — 'beginning of sorrows' patterns observed. **The end is not yet** (Matt 24:6).
 
 ---
 
@@ -21,16 +21,16 @@
 
 ## 🌳 FIG TREE PATTERN ANALYSIS (Matt 24:33)
 
-### 🟢 Overall Pattern Strength: 12/100
+### 🟡 Overall Pattern Strength: 32/100
 
-**Phase:** MONITORING Phase
+**Phase:** EARLY Beginning of Sorrows
 
-**Seasonal Metaphor:** WINTER
+**Seasonal Metaphor:** EARLY SPRING
 
 #### Pattern Breakdown:
 
 - **J0 Wars & Conflicts:** 0/100
-- **J0 Earthquakes:** 0/100
+- **J0 Earthquakes:** 100/100
 - **J0 Famines/Poverty:** 30/100
 - **J6 Cosmic Signs:** 5/100
 - **H0 Economic:** 20/100
@@ -38,11 +38,23 @@
 
 #### What This Means:
 
-🍂 **The fig tree is mostly dormant.** Routine activity, no significant budding. Watching and waiting.
+🌿 **The fig tree shows early buds.** Some 'beginning of sorrows' markers present. Summer (J3-J7 events) is still distant.
 
 ---
 
 ## 🌍 This Week's Highlights
+
+### Earthquakes & Natural Disasters (Node J0) 🔴 High Confidence
+
+**161 Earthquakes This Week (Mag 4.0+)**
+
+- 🔴 **5 major earthquakes** (6.0+)
+- 🟠 Peak magnitude: **7.5**
+
+**Source:** [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/) (Tier 1)
+**Scripture:** Matthew 24:7 — 'earthquakes in divers places'
+
+---
 
 ## 📖 This Week's Scripture Focus
 
@@ -56,7 +68,7 @@ This week's data confirms Jesus' description of the 'beginning of sorrows.' We o
 This week's data breakdown:
 
 - ⏸️ **Wars** — Intensity 0/100
-- ⏸️ **Earthquakes** — Intensity 0/100
+- ✅ **Earthquakes** — Intensity 100/100
 - ⏸️ **Famines** — Intensity 30/100
 
 **Key phrase:** 'All these are the **beginning** of sorrows' — Jesus explicitly said this is the **start**, not the end. The text requires several major events BEFORE the end:

@@ -1,7 +1,7 @@
 # Weekly Prophecy Tracking Review — 2026-06-29
 
 **Period:** Past 7 days
-**Generated:** 2026-06-29 03:02 UTC
+**Generated:** 2026-06-29 05:52 UTC
 **Scripts run:** 10
 
 ---
@@ -25,7 +25,7 @@
 ## Earthquakes (magnitude 4.0+) — Node J0
 | Magnitude | Location | Date (UTC) | Coordinates | Link |
 |-----------|----------|------------|-------------|------|
-| **7.5** | 28 km SE of Yumare, Venezuela | 2026-06-29 02:27 UTC | 10.4351, -68.4716 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7zp) |
+| **7.5** | 28 km SE of Yumare, Venezuela | 2026-06-29 05:01 UTC | 10.4351, -68.4716 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7zp) |
 | **7.2** | 23 km SE of Yumare, Venezuela | 2026-06-29 02:25 UTC | 10.436, -68.5277 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7zc) |
 | **6.9** | 30 km ENE of Kuji, Japan | 2026-06-26 17:59 UTC | 40.2912, 142.0981 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7zq) |
 | **6.5** | 34 km WSW of Sarangani, Philippines | 2026-06-28 11:20 UTC | 5.2392, 125.1965 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8ec) |
@@ -37,8 +37,10 @@
 | **5.6** | 11 km N of Redwood Valley, CA | 2026-06-28 21:17 UTC | 39.362333333333, -123.22883333333 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/nc75382936) |
 | **5.5** | 73 km E of Kokopo, Papua New Guinea | 2026-06-26 06:47 UTC | -4.3413, 152.9318 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t81q) |
 | **5.4** | 63 km NNE of Barkhan, Pakistan | 2026-06-28 03:30 UTC | 30.4545, 69.6859 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8le) |
+| **5.3** | 35 km SSW of Cordova, Alaska | 2026-06-29 05:51 UTC | 60.237, -145.91 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/aka2026msxacu) |
 | **5.3** | 120 km S of Isangel, Vanuatu | 2026-06-23 17:16 UTC | -20.6302, 169.2307 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7lb) |
 | **5.3** | Kermadec Islands region | 2026-06-23 03:43 UTC | -27.1921, -177.7691 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7iy) |
+| **5.2** | 107 km SSW of Sarangani, Philippines | 2026-06-29 04:42 UTC | 4.4724, 125.1893 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8x8) |
 | **5.2** | 8 km WNW of Changning, China | 2026-06-28 23:12 UTC | 28.6031, 104.8416 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8u3) |
 | **5.2** | 45 km NE of Port-Olry, Vanuatu | 2026-06-28 07:22 UTC | -14.7852, 167.4024 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8sl) |
 | **5.2** | 139 km E of Kirakira, Solomon Islands | 2026-06-27 11:40 UTC | -10.655, 163.1809 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8ny) |
@@ -60,6 +62,8 @@
 | **5.0** | 93 km E of Union, Philippines | 2026-06-25 23:13 UTC | 9.8919, 126.9518 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8al) |
 | **5.0** | 71 km WNW of Catuday, Philippines | 2026-06-24 02:21 UTC | 16.5122, 119.1731 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7rx) |
 | **5.0** | 174 km E of Hihifo, Tonga | 2026-06-23 08:13 UTC | -16.1772, -172.1796 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7k4) |
+| **4.9** | 90 km S of Sarangani, Philippines | 2026-06-29 04:53 UTC | 4.5908, 125.4036 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8x6) |
+| **4.9** | Kermadec Islands region | 2026-06-29 03:33 UTC | -31.2186, -177.6455 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8wr) |
 | **4.9** | 173 km S of Lembar, Indonesia | 2026-06-29 01:32 UTC | -10.2969, 116.1434 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8vm) |
 | **4.9** | 20 km NW of Finschhafen, Papua New Guinea | 2026-06-28 03:19 UTC | -6.4393, 147.7078 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8s6) |
 | **4.9** | 13 km SSE of Clam Gulch, Alaska | 2026-06-29 02:00 UTC | 60.13, -151.273 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/aka2026mpakbo) |
@@ -68,12 +72,8 @@
 | **4.9** | 1 km E of El Palmarcito, Mexico | 2026-06-24 12:33 UTC | 15.4949, -93.197 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7uf) |
 | **4.9** | 28 km SE of Fry, Greece | 2026-06-24 17:33 UTC | 35.2481, 27.1649 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7tc) |
 | **4.9** | 64 km WNW of Catuday, Philippines | 2026-06-24 01:47 UTC | 16.5023, 119.2436 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7rq) |
-| **4.9** | 171 km WNW of Tobelo, Indonesia | 2026-06-23 05:09 UTC | 2.4816, 126.6655 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7jl) |
-| **4.9** | Mid-Indian Ridge | 2026-06-28 13:15 UTC | -33.1924, 78.043 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us6000t7fr) |
-| **4.9** | 260 km SSW of ‘Ohonua, Tonga | 2026-06-22 12:59 UTC | -23.5868, -175.6973 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000sv75) |
-| **4.9** | 68 km WNW of Tobelo, Indonesia | 2026-06-22 05:45 UTC | 1.8734, 127.4146 | [USGS](https://earthquake.usgs.gov/earthquakes/eventpage/us7000sv3q) |
 
-... (132 more lines)
+... (130 more lines)
 ```
 
 ---
@@ -106,13 +106,13 @@
 | Alert | Location | Date | Severity | Population | Link |
 |-------|----------|------|----------|------------|------|
 | 🟢 **Green** | Japan, Northern Mariana Islands, Guam | 2026-06-22 12:00 UTC | Tropical Storm (maximum wind speed of 83 km/h) | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=TC&eventid=1001278) |
-### Unknowns (147)
+### Unknowns (151)
 | Alert | Location | Date | Severity | Population | Link |
 |-------|----------|------|----------|------------|------|
 | 🟢 **Green** | United States | 2026-06-28 00:00 UTC | Green impact for forestfire in 7385 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029143) |
 | 🟢 **Green** | United States | 2026-06-27 00:00 UTC | Green impact for forestfire in 5922 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029144) |
 | 🟢 **Green** | United States | 2026-06-27 00:00 UTC | Green impact for forestfire in 12791 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029145) |
-| 🟢 **Green** | Canada | 2026-06-27 00:00 UTC | Green impact for forestfire in 5914 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029156) |
+| 🟢 **Green** | Canada | 2026-06-27 00:00 UTC | Green impact for forestfire in 6339 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029156) |
 | 🟢 **Green** | United States | 2026-06-27 00:00 UTC | Green impact for forestfire in 8468 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029113) |
 | 🟢 **Green** | Australia | 2026-06-26 00:00 UTC | Green impact for forestfire in 6384 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029096) |
 | 🟢 **Green** | Canada | 2026-06-26 00:00 UTC | Green impact for forestfire in 7012 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029138) |
@@ -122,20 +122,20 @@
 | 🟢 **Green** | Canada | 2026-06-26 00:00 UTC | Green impact for forestfire in 5294 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029165) |
 | 🟢 **Green** | Canada | 2026-06-26 00:00 UTC | Green impact for forestfire in 5291 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029166) |
 | 🟢 **Green** | Canada | 2026-06-26 00:00 UTC | Green impact for forestfire in 5104 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029167) |
+| 🟢 **Green** | Canada | 2026-06-26 00:00 UTC | Green impact for forestfire in 5073 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029171) |
+| 🟢 **Green** | Canada | 2026-06-25 00:00 UTC | Green impact for forestfire in 5241 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029172) |
 | 🟢 **Green** | Canada | 2026-06-25 00:00 UTC | Green impact for forestfire in 5658 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029168) |
 | 🟢 **Green** | The Democratic Republic of Congo | 2026-06-25 00:00 UTC | Green impact for forestfire in 6027 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029112) |
-| 🟢 **Green** | Canada | 2026-06-25 00:00 UTC | Green impact for forestfire in 9326 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029147) |
+| 🟢 **Green** | Canada | 2026-06-25 00:00 UTC | Green impact for forestfire in 9319 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029147) |
 | 🟢 **Green** | Australia | 2026-06-25 00:00 UTC | Green impact for forestfire in 5404 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029148) |
 | 🟢 **Green** | Tanzania | 2026-06-25 00:00 UTC | Green impact for forestfire in 5238 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029157) |
-| 🟢 **Green** | Canada | 2026-06-25 00:00 UTC | Green impact for forestfire in 6464 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029160) |
+| 🟢 **Green** | Canada | 2026-06-25 00:00 UTC | Green impact for forestfire in 7088 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029160) |
 | 🟢 **Green** | The Democratic Republic of Congo | 2026-06-25 00:00 UTC | Green impact for forestfire in 7166 ha | 83 people affected in the area (83 people) | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029121) |
-| 🟢 **Green** | Canada | 2026-06-25 00:00 UTC | Green impact for forestfire in 9298 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029139) |
-| 🟢 **Green** | Canada | 2026-06-25 00:00 UTC | Green impact for forestfire in 9724 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029140) |
+| 🟢 **Green** | Canada | 2026-06-25 00:00 UTC | Green impact for forestfire in 9300 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029139) |
+| 🟢 **Green** | Canada | 2026-06-25 00:00 UTC | Green impact for forestfire in 9739 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029140) |
 | 🟢 **Green** | Australia | 2026-06-25 00:00 UTC | Green impact for forestfire in 6236 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029114) |
-| 🟢 **Green** | Australia | 2026-06-24 00:00 UTC | Green impact for forestfire in 9157 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029070) |
-| 🟢 **Green** | Angola | 2026-06-24 00:00 UTC | Green impact for forestfire in 6466 ha | Unknown | [GDACS](https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1029075) |
 
-... (146 more lines)
+... (150 more lines)
 ```
 
 ---
@@ -185,10 +185,11 @@ No FRED announcements in the specified period.
 ```
 ## NOAA Space Weather Alerts — Node J6 (Cosmic Signs)
 **Period:** Past 7 days
-**Alerts found:** 16
-### MINOR Alerts (16)
+**Alerts found:** 17
+### MINOR Alerts (17)
 | Date | Type | Description | Confidence | Prophetic Relevance |
 |------|------|-------------|------------|---------------------|
+| 2026-06-29 05:02:33 | MINOR | Electron flux alert | Low | 🟢 Routine space weather (not prophetic marker) |
 | 2026-06-28 10:41:25 | MINOR | G1 Minor geomagnetic storm | Low | 🟢 Routine space weather (not prophetic marker) |
 | 2026-06-28 05:07:19 | MINOR | Electron flux alert | Low | 🟢 Routine space weather (not prophetic marker) |
 | 2026-06-27 07:13:20 | MINOR | Electron flux alert | Low | 🟢 Routine space weather (not prophetic marker) |
@@ -283,28 +284,27 @@ No FRED announcements in the specified period.
 ```
   Found 0 relevant articles
   Found 0 relevant articles
-  Found 3 relevant articles
+  Found 2 relevant articles
   Found 0 relevant articles
 ================================================================================
 ## Temple Mount & Middle East News
 **BIBLE-ONLY APPROACH:** Observing events that *resemble* biblical categories. NOT claiming fulfillment.
-### J0 — Matt 24:6-7 (2)
+### J0 — Matt 24:6-7 (1)
 | Date | Headline | Category | Confidence | Source | Link |
 |------|----------|----------|------------|--------|------|
 | 2026-06-29 | **Israeli forces bulldoze olive groves in the occupi...** | Middle East Conflict | Med | Al Jazeera | [Link](https://www.aljazeera.com/video/newsfeed/2026/6/28/israeli-forces-bulldoze-olive-groves-in-the-occupied-west-bank?traffic_source=rss) |
-| 2026-06-29 | **In Lebanon, framework agreement signed with Israel...** | Middle East Conflict | Med | Al Jazeera | [Link](https://www.aljazeera.com/features/2026/6/28/in-lebanon-framework-agreement-signed-with-israel-spurs-protest-criticism?traffic_source=rss) |
 ### J3 — Matt 24:15; Dan 9:27 (1)
 | Date | Headline | Category | Confidence | Source | Link |
 |------|----------|----------|------------|--------|------|
 | 2026-06-29 | **Israel kills four Palestinians in Gaza as attacks ...** | Temple Mount | Med | Al Jazeera | [Link](https://www.aljazeera.com/news/2026/6/28/israel-kills-three-palestinians-in-gaza-as-attacks-on-tents-continue?traffic_source=rss) |
-**Total:** 3 relevant articles
+**Total:** 2 relevant articles
 **Scripture anchors:**
 - **J3:** Dan 9:27; Matt 24:15 — Abomination of desolation
 - **MS0:** 2 Thess 2:3-4 — Man of sin characteristics
 - **MS1:** 2 Thess 2:9-12 — Lying signs and wonders
 **Note:** Cross-spectrum verification required (Tier 2 sources). Verify with Reuters, AP, BBC.
 ================================================================================
-✅ 3 relevant Temple Mount / Middle East article(s) found
+✅ 2 relevant Temple Mount / Middle East article(s) found
 💡 Why this matters (Bible-only perspective):
    - J3 (Abomination): Dan 9:27 mentions 'abomination' in context of temple/sacrifice
    - MS0 (Man of sin): 2 Thess 2:3-4 describes one who 'sits in temple of God'

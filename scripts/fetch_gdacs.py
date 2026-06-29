@@ -60,6 +60,22 @@ def fetch_feed(feed_url: str) -> str:
         sys.exit(1)
 
 
+def fetch_raw(feed_url: str = GDACS_FEED) -> str:
+    """Perform the network request and return raw GDACS RSS feed text."""
+    return fetch_feed(feed_url)
+
+
+def parse(raw: str, min_alert_level: str = 'Green', days_back: int = 30) -> List[Dict]:
+    """Pure function: parse raw GDACS RSS text into disaster record dicts."""
+    return parse_disasters(raw, min_alert_level, days_back)
+
+
+def collect(days: int = 30, min_alert_level: str = 'Green',
+            feed_url: str = GDACS_FEED) -> List[Dict]:
+    """Convenience: fetch the GDACS feed and parse it into disaster records."""
+    return parse(fetch_raw(feed_url), min_alert_level=min_alert_level, days_back=days)
+
+
 def parse_disasters(xml_content: str, min_alert_level: str = 'Green', days_back: int = 30) -> List[Dict]:
     """Parse GDACS RSS feed and filter by alert level and date."""
     root = ET.fromstring(xml_content)
@@ -241,8 +257,8 @@ def main():
     print(f"Fetching GDACS alerts ({min_alert}+ level, past {days} days)...\n")
     
     # Fetch and parse
-    xml_content = fetch_feed(GDACS_FEED)
-    disasters = parse_disasters(xml_content, min_alert, days)
+    xml_content = fetch_raw(GDACS_FEED)
+    disasters = parse(xml_content, min_alert, days)
     
     # Output results
     print(format_for_daily_review(disasters))

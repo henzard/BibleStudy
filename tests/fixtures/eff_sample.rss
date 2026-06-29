@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>EFF Deeplinks Blog</title>
+    <link>https://www.eff.org/rss/updates.xml</link>
+    <description>EFF's Deeplinks Blog</description>
+    <item>
+      <title>New Federal Mandate Pushes Biometric Facial Recognition at Borders</title>
+      <link>https://www.eff.org/deeplinks/2026/06/biometric-mandate</link>
+      <pubDate>Sun, 28 Jun 2026 17:38:50 +0000</pubDate>
+      <description>A new federal regulation would require biometric facial recognition and fingerprint collection for all travelers, raising serious surveillance concerns.</description>
+    </item>
+    <item>
+      <title>Age Verification Laws Expand Digital ID Requirements Online</title>
+      <link>https://www.eff.org/deeplinks/2026/06/digital-id-age-verification</link>
+      <pubDate>Sat, 27 Jun 2026 10:12:00 +0000</pubDate>
+      <description>State governments are mandating digital identity and age verification systems, requiring authentication that could enable broad tracking of users.</description>
+    </item>
+    <item>
+      <title>CBDC Pilot Raises Cashless Payment System Concerns</title>
+      <link>https://www.eff.org/deeplinks/2026/06/cbdc-cashless</link>
+      <pubDate>Fri, 26 Jun 2026 08:00:00 +0000</pubDate>
+      <description>A new central bank digital currency (CBDC) pilot moves toward a cashless payment system, with implications for financial surveillance and compliance.</description>
+    </item>
+  </channel>
+</rss>

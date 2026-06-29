@@ -76,13 +76,26 @@ PROPHECY_RELEVANT_KEYWORDS = [
 
 
 def fetch_feed(feed_url: str) -> str:
-    """Fetch RSS feed."""
+    """Fetch a single RSS feed (network I/O only)."""
     try:
         with urllib.request.urlopen(feed_url, timeout=10) as response:
             return response.read().decode('utf-8')
     except urllib.error.URLError as e:
         print(f"Error fetching feed {feed_url}: {e}", file=sys.stderr)
         return ""
+
+
+def fetch_raw(sources: Dict = None) -> Dict[str, str]:
+    """Fetch raw RSS text for all configured sources (network I/O only).
+
+    Returns a mapping of source display name -> raw feed text.
+    """
+    if sources is None:
+        sources = SOURCES
+    raw = {}
+    for source_info in sources.values():
+        raw[source_info['name']] = fetch_feed(source_info['url'])
+    return raw
 
 
 def clean_html(text: str) -> str:
@@ -246,6 +259,35 @@ def parse_news(xml_content: str, source_name: str, days_back: int = 7) -> List[D
     # Sort by date (newest first)
     articles.sort(key=lambda x: x['date'], reverse=True)
     return articles
+
+
+def parse(raw: str, source: str = "Unknown", days: int = 7) -> List[Dict]:
+    """Pure parse of ONE feed's RSS text into relevant article dicts.
+
+    Fields per article: title, description, date, url, source, node,
+    scripture, category, confidence, keywords.
+    """
+    return parse_news(raw, source, days)
+
+
+def collect(days: int = 7) -> List[Dict]:
+    """Fetch + parse + dedupe across all configured sources."""
+    all_articles = []
+    for source_info in SOURCES.values():
+        xml_content = fetch_feed(source_info['url'])
+        all_articles.extend(parse_news(xml_content, source_info['name'], days))
+
+    # Remove duplicates (same title/URL)
+    seen = set()
+    unique_articles = []
+    for a in all_articles:
+        key = (a['title'].lower(), a['url'])
+        if key not in seen:
+            seen.add(key)
+            unique_articles.append(a)
+
+    unique_articles.sort(key=lambda x: x['date'], reverse=True)
+    return unique_articles
 
 
 def format_for_daily_review(articles: List[Dict]) -> str:

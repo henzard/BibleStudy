@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:georss="http://www.georss.org/georss">
+  <title>USGS Magnitude 4.5+ Earthquakes, Past Week</title>
+  <updated>2099-01-01T00:00:00.000Z</updated>
+  <entry>
+    <id>urn:earthquake-usgs-gov:us:aaaa1111</id>
+    <title>M 6.5 - 10 km S of Somewhere, Chile</title>
+    <updated>2099-01-01T00:00:00.000Z</updated>
+    <link rel="alternate" type="text/html" href="https://earthquake.usgs.gov/earthquakes/eventpage/us_aaaa1111"/>
+    <georss:point>-23.6500 -70.4000</georss:point>
+  </entry>
+  <entry>
+    <id>urn:earthquake-usgs-gov:us:bbbb2222</id>
+    <title>M 5.2 - 25 km NE of Elsewhere, Japan</title>
+    <updated>2099-01-01T00:00:00.000Z</updated>
+    <link rel="alternate" type="text/html" href="https://earthquake.usgs.gov/earthquakes/eventpage/us_bbbb2222"/>
+    <georss:point>38.2970 142.3730</georss:point>
+  </entry>
+  <entry>
+    <id>urn:earthquake-usgs-gov:us:cccc3333</id>
+    <title>M 4.1 - 5 km W of Tinytown, Indonesia</title>
+    <updated>2099-01-01T00:00:00.000Z</updated>
+    <link rel="alternate" type="text/html" href="https://earthquake.usgs.gov/earthquakes/eventpage/us_cccc3333"/>
+    <georss:point>-6.2000 106.8166</georss:point>
+  </entry>
+</feed>

@@ -1,0 +1,17 @@
+[
+  {
+    "product_id": "K04A",
+    "issue_datetime": "2026-06-28 14:30:00.000",
+    "message": "Space Weather Message Code: WARK04\nSerial Number: 1234\nWATCH: Geomagnetic Storm Category G4 Predicted\nNOAA Scale: G4 - Severe\nWARNING: A G4 SEVERE geomagnetic storm is expected due to an incoming CME."
+  },
+  {
+    "product_id": "S2EF",
+    "issue_datetime": "2026-06-27 09:15:00.000",
+    "message": "Space Weather Message Code: ALTEF3\nSerial Number: 5678\nALERT: Electron 2MeV Integral Flux exceeded 1000pfu\nMaximum 2MeV Flux: 8651 pfu\nContinuation of high electron flux conditions."
+  },
+  {
+    "product_id": "GINF",
+    "issue_datetime": "2026-06-26 03:00:00.000",
+    "message": "Space Weather Message Code: SUMSUM\nSerial Number: 9012\nSUMMARY: Routine daily summary, no significant activity observed."
+  }
+]
