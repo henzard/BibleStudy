@@ -61,7 +61,8 @@ flowchart TD
 | Scoring | `scoring.py` | Per prophecy-node intensity (0–100) + cross-validated confidence + overall phase |
 | Trends | `trends.py` | Recent activity vs trailing baseline (escalating / steady / easing) |
 | Report | `report.py` | Executive summary (LLM or deterministic) + guardrail footer |
-| Outputs | `outputs/` | Local artefacts always; Slack/Telegram/email opt-in |
+| Dashboard | `dashboard.py` | Self-contained HTML UI (gauge, node bars, finding cards, sparklines) |
+| Outputs | `outputs/` | Local artefacts always (markdown, JSON, HTML); Slack/Telegram/email opt-in |
 
 ### Separation of ingestion and analysis
 

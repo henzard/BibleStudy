@@ -180,5 +180,6 @@ class PipelineResult:
             "threat": asdict(self.threat),
             "trends": self.trends,
             "report_title": self.report.title,
+            "report_summary": self.report.summary,
             "delivered": self.delivered,
         }

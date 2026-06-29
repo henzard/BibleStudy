@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import List
 
 from ..config import OutputConfig
+from ..dashboard import render_html, render_shell
 from ..models import PipelineResult
 
 
@@ -41,13 +42,26 @@ def _write_markdown(result: PipelineResult, out_dir: Path) -> str:
     return f"markdown:{path}"
 
 
+def _write_html_snapshot(result: PipelineResult, out_dir: Path) -> str:
+    """A self-contained HTML report (data embedded) that opens with no server."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    day = result.generated_at.split(" ")[0]
+    path = out_dir / f"{day}_early_warning.html"
+    path.write_text(render_html(result.to_dict()), encoding="utf-8")
+    return f"html:{path}"
+
+
 def _write_dashboard(result: PipelineResult, dashboard_path: str) -> str:
+    """Write latest.json plus an index.html shell (live dashboard when served)."""
     path = Path(dashboard_path)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
         json.dumps(result.to_dict(), indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
+    index = path.parent / "index.html"
+    if not index.exists():
+        index.write_text(render_shell(), encoding="utf-8")
     return f"dashboard:{path}"
 
 
@@ -90,6 +104,10 @@ def deliver(result: PipelineResult, cfg: OutputConfig,
 
     # Local artefacts are always written.
     delivered.append(_write_markdown(result, out_dir))
+    try:
+        delivered.append(_write_html_snapshot(result, out_dir))
+    except OSError:
+        pass
     try:
         delivered.append(_write_dashboard(result, cfg.dashboard_path))
     except OSError:

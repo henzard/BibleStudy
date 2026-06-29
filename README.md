@@ -189,7 +189,12 @@ python scripts/run_pipeline.py --json       # machine-readable summary
   `OPENAI_API_KEY` in `.env` (see `.env.example`).
 - **Cross-validation:** confidence is capped unless multiple independent
   sources corroborate.
-- **Delivery:** writes a markdown report + dashboard JSON locally; Slack /
+- **Dashboard UI:** every run writes a self-contained HTML report
+  (`tracking/early-warning/<date>_early_warning.html`, opens in any browser) and
+  a live dashboard (`tracking/dashboard/`). Serve it with
+  `python scripts/serve_dashboard.py` → http://127.0.0.1:8000/. See
+  `dashboard/README.md`.
+- **Delivery:** writes a markdown report + dashboard JSON/HTML locally; Slack /
   Telegram / email are opt-in and off by default (`ALERTS_DRY_RUN=true`).
 - See **`docs/EARLY_WARNING_ARCHITECTURE.md`** for the full design and the
   rationale behind it.
