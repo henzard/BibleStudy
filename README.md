@@ -169,6 +169,38 @@ python scripts/weekly_update.py --days 7
 3. Share newsletter or use for personal Bible study
 4. (Optional) Store historical data: `python scripts/ingest_data.py --days 7`
 
+### **Multi-agent early-warning pipeline (NEW)**
+
+A staged, evidence-driven pipeline (`earlywarning/` package) that replaces the
+old "scrape each script's stdout" flow with: collect → normalize → dedupe →
+evidence graph → **parallel specialist research agents** → threat scoring →
+trend memory → executive report → delivery channels.
+
+```bash
+python scripts/ingest_data.py --days 7      # fetch ALL sources, persist to SQLite
+python scripts/run_pipeline.py --days 7     # offline replay + analysis (report to stdout)
+python scripts/run_pipeline.py --days 7 --live   # fetch fresh, persist, then analyse
+python scripts/run_pipeline.py --json       # machine-readable summary
+```
+
+- **Provider-agnostic LLM:** uses Anthropic *or* OpenAI when a key is set, and
+  otherwise runs on a deterministic offline backend — **no key or network
+  required**. Configure via `LLM_PROVIDER` / `ANTHROPIC_API_KEY` /
+  `OPENAI_API_KEY` in `.env` (see `.env.example`).
+- **Cross-validation:** confidence is capped unless multiple independent
+  sources corroborate.
+- **Dashboard UI:** every run writes a self-contained HTML report
+  (`tracking/early-warning/<date>_early_warning.html`, opens in any browser) and
+  a live dashboard (`tracking/dashboard/`). Serve it with
+  `python scripts/serve_dashboard.py` → http://127.0.0.1:8000/. See
+  `dashboard/README.md`.
+- **Delivery:** writes a markdown report + dashboard JSON/HTML locally; Slack /
+  Telegram / email are opt-in and off by default (`ALERTS_DRY_RUN=true`).
+- See **`docs/EARLY_WARNING_ARCHITECTURE.md`** for the full design and the
+  rationale behind it.
+
+Run the test suite with `python -m pytest`.
+
 ### **Manual workflow (if needed)**
 
 1. **Read current status**: `tracking/END_TIMES_TODO.md`
