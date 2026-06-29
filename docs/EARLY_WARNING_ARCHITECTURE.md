@@ -65,13 +65,40 @@ flowchart TD
 
 ### Separation of ingestion and analysis
 
-The network-facing `fetch_*.py` scripts remain the **ingestion layer** that
+The network-facing `fetch_*.py` scripts are the **ingestion layer** that
 populates `data/prophecy_tracking.db`. The pipeline **reads** that store, so all
 analysis is deterministic, offline, and unit-testable. Refresh data first:
 
 ```bash
-python scripts/ingest_data.py --days 7
-python scripts/run_pipeline.py --days 7
+python scripts/ingest_data.py --days 7      # fetch every source, persist to DB
+python scripts/run_pipeline.py --days 7     # offline replay + analysis
+```
+
+### Hybrid live mode
+
+Each `fetch_*.py` is split into a pure `parse()` (fixture-tested, offline) and a
+network `fetch()`/`collect()`. Two ways the pipeline gets data:
+
+* **Offline (default):** `collect_all()` reads the SQLite tables. Deterministic.
+* **Live (`--live`):** `collect_live()` runs every `fetch_*.py` `collect()` over
+  the network, maps results to `RawSignal`s, **persists them** to the DB
+  (`earlywarning/persist.py`), then analyses the fresh data. Every later offline
+  run replays what was persisted.
+
+```bash
+python scripts/run_pipeline.py --days 7 --live   # fetch + persist + analyse
+```
+
+`ingest_data.py` uses the same live-collect + persist path, so it now ingests
+**all** sources (earthquakes, disasters, conflicts, economic indicators, World
+Bank, space weather, EFF/digital-rights, Temple-Mount, FRED news) — not just
+earthquakes as before.
+
+```mermaid
+flowchart LR
+    F[fetch_*.py collect] --> M[live mappers] --> P[(SQLite store)]
+    P --> R[DB collectors] --> Pipe[pipeline]
+    M -.live run feeds pipeline directly.-> Pipe
 ```
 
 ---
@@ -133,11 +160,14 @@ python -m pytest
 
 ## 6. Status / honest limitations
 
-* Collectors currently cover the tables that are actually populated today
-  (earthquakes, conflicts, disasters, economic indicators, World Bank news).
-  Space-weather, EFF, Temple-Mount, and antichrist-pattern sources do not yet
-  persist to the DB; their domains will activate automatically once those
-  `fetch_*.py` scripts write rows (add the matching collector + table).
+* **All nine sources now persist and activate** their domains (war, disaster,
+  famine, financial, cosmic, digital-control, middle-east). Run with `--live`
+  (or `ingest_data.py`) once to populate, then offline runs replay them. The
+  `antichrist_patterns` monitor remains a framework with no live feed and is
+  intentionally not wired to a collector.
+* Live collection depends on the external feeds being reachable and on the
+  relevant API keys (`FRED_API_KEY`, `EINNEWS_RSS_KEY`); a source that errors or
+  is unkeyed simply contributes nothing that cycle (it never breaks the run).
 * The heuristic backend produces structured, honest summaries but no genuine
   narrative reasoning — wire a real LLM key for that.
 * This is research/watch tooling. It is intentionally conservative about

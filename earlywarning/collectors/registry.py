@@ -39,3 +39,18 @@ def collect_all(db_path: Path, lookback_days: int = 7,
         return signals
     finally:
         conn.close()
+
+
+def collect_live(lookback_days: int = 7) -> List[RawSignal]:
+    """Run the live (network) collectors and return their raw signals.
+
+    Imported lazily so the network-facing fetch modules are only loaded when
+    live mode is actually requested.
+    """
+    from .live import build_live_collectors
+
+    ctx = CollectorContext(conn=None, lookback_days=lookback_days)
+    signals: List[RawSignal] = []
+    for collector in build_live_collectors():
+        signals.extend(collector.safe_collect(ctx))
+    return signals

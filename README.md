@@ -177,8 +177,9 @@ evidence graph → **parallel specialist research agents** → threat scoring �
 trend memory → executive report → delivery channels.
 
 ```bash
-python scripts/ingest_data.py --days 7      # refresh the SQLite store first
-python scripts/run_pipeline.py --days 7     # run the pipeline (report to stdout)
+python scripts/ingest_data.py --days 7      # fetch ALL sources, persist to SQLite
+python scripts/run_pipeline.py --days 7     # offline replay + analysis (report to stdout)
+python scripts/run_pipeline.py --days 7 --live   # fetch fresh, persist, then analyse
 python scripts/run_pipeline.py --json       # machine-readable summary
 ```
 

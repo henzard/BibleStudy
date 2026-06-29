@@ -53,6 +53,11 @@ def fetch_feed(feed_url: str) -> str:
         sys.exit(1)
 
 
+def fetch_raw(feed_url: str = UN_PKO_FEED) -> str:
+    """Perform the network request and return raw feed text."""
+    return fetch_feed(feed_url)
+
+
 def clean_html(text: str) -> str:
     """Remove HTML tags and entities from text."""
     if text is None:
@@ -202,6 +207,20 @@ def parse_news(xml_content: str, days_back: int = 30) -> List[Dict]:
     # Sort by date (newest first)
     articles.sort(key=lambda x: x['date'], reverse=True)
     return articles
+
+
+def parse(raw: str, days_back: int = 30) -> List[Dict]:
+    """Pure parse: turn raw feed text into the list of record dicts.
+
+    No network I/O. Fields: title, description, date, url, keywords,
+    numbers, confidence, category.
+    """
+    return parse_news(raw, days_back)
+
+
+def collect(days: int = 30, feed_url: str = UN_PKO_FEED) -> List[Dict]:
+    """Convenience: parse(fetch_raw())."""
+    return parse(fetch_raw(feed_url), days)
 
 
 def format_for_daily_review(articles: List[Dict]) -> str:

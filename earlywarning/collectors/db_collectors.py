@@ -209,10 +209,160 @@ class WorldBankCollector(Collector):
         return signals
 
 
+class SpaceWeatherCollector(Collector):
+    name = "spaceweather"
+    node_id = "J6"
+    scripture = "Matt 24:29; Luke 21:25"
+
+    def collect(self, ctx: CollectorContext) -> List[RawSignal]:
+        if not self.table_exists(ctx.conn, "space_weather"):
+            return []
+        rows = ctx.conn.execute(
+            """
+            SELECT event_id, date, severity, description, confidence, source_url
+            FROM space_weather
+            WHERE date >= ?
+            ORDER BY date DESC
+            """,
+            (ctx.cutoff_date,),
+        ).fetchall()
+        signals = []
+        for event_id, date, severity, desc, conf, url in rows:
+            signals.append(
+                RawSignal(
+                    source=self.name,
+                    title=f"Space weather: {severity}",
+                    summary=desc or "",
+                    occurred_at=date,
+                    url=url or "",
+                    node_id=self.node_id,
+                    scripture=self.scripture,
+                    confidence=(conf or "Low").title(),
+                    extra={"event_id": event_id, "severity": severity},
+                )
+            )
+        return signals
+
+
+class DigitalRightsCollector(Collector):
+    name = "eff"
+    node_id = "B2"
+    scripture = "Rev 13:16-17"
+
+    def collect(self, ctx: CollectorContext) -> List[RawSignal]:
+        if not self.table_exists(ctx.conn, "digital_rights"):
+            return []
+        rows = ctx.conn.execute(
+            """
+            SELECT event_id, date, title, description, category, keywords,
+                   confidence, source_url
+            FROM digital_rights
+            WHERE date >= ?
+            ORDER BY date DESC
+            """,
+            (ctx.cutoff_date,),
+        ).fetchall()
+        signals = []
+        for event_id, date, title, desc, category, keywords, conf, url in rows:
+            signals.append(
+                RawSignal(
+                    source=self.name,
+                    title=title or "Digital rights update",
+                    summary=desc or "",
+                    occurred_at=date,
+                    url=url or "",
+                    node_id=self.node_id,
+                    scripture=self.scripture,
+                    confidence=(conf or "Low").title(),
+                    extra={"event_id": event_id, "category": category,
+                           "keywords": keywords},
+                )
+            )
+        return signals
+
+
+class TempleMountCollector(Collector):
+    name = "temple_mount"
+    node_id = "J3"
+    scripture = "Dan 9:27; Matt 24:15; 2 Thess 2:3-4"
+
+    def collect(self, ctx: CollectorContext) -> List[RawSignal]:
+        if not self.table_exists(ctx.conn, "temple_mount_news"):
+            return []
+        rows = ctx.conn.execute(
+            """
+            SELECT event_id, date, title, description, source, category,
+                   keywords, confidence, scripture, source_url, node_id
+            FROM temple_mount_news
+            WHERE date >= ?
+            ORDER BY date DESC
+            """,
+            (ctx.cutoff_date,),
+        ).fetchall()
+        signals = []
+        for (event_id, date, title, desc, source, category, keywords, conf,
+             scripture, url, node) in rows:
+            signals.append(
+                RawSignal(
+                    source=self.name,
+                    title=title or "Middle East update",
+                    summary=desc or "",
+                    occurred_at=date,
+                    url=url or "",
+                    node_id=node or self.node_id,
+                    scripture=scripture or self.scripture,
+                    confidence=(conf or "Low").title(),
+                    extra={"event_id": event_id, "source": source,
+                           "category": category, "keywords": keywords},
+                )
+            )
+        return signals
+
+
+class FredNewsCollector(Collector):
+    name = "fred_news"
+    node_id = "H0"
+    scripture = "Rev 17-18"
+
+    def collect(self, ctx: CollectorContext) -> List[RawSignal]:
+        if not self.table_exists(ctx.conn, "fred_news"):
+            return []
+        rows = ctx.conn.execute(
+            """
+            SELECT event_id, date, title, description, category, confidence,
+                   source_url
+            FROM fred_news
+            WHERE date >= ?
+            ORDER BY date DESC
+            """,
+            (ctx.cutoff_date,),
+        ).fetchall()
+        signals = []
+        for event_id, date, title, desc, category, conf, url in rows:
+            signals.append(
+                RawSignal(
+                    source=self.name,
+                    title=title or "FRED announcement",
+                    summary=desc or "",
+                    occurred_at=date,
+                    url=url or "",
+                    node_id=self.node_id,
+                    scripture=self.scripture,
+                    confidence=(conf or "Low").title(),
+                    extra={"event_id": event_id, "category": category},
+                )
+            )
+        return signals
+
+
 ALL_DB_COLLECTORS = [
     EarthquakeCollector,
     DisasterCollector,
     ConflictCollector,
     EconomicCollector,
     WorldBankCollector,
+    SpaceWeatherCollector,
+    DigitalRightsCollector,
+    TempleMountCollector,
+    FredNewsCollector,
 ]

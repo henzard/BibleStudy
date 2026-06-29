@@ -46,6 +46,30 @@ def fetch_feed(feed_url: str) -> str:
         sys.exit(1)
 
 
+def _feed_url_for_days(days: int) -> str:
+    """Select the appropriate USGS feed URL based on the lookback window."""
+    if days <= 1:
+        return FEEDS['day']
+    elif days <= 7:
+        return FEEDS['week']
+    return FEEDS['month']
+
+
+def fetch_raw(days: int = 7) -> str:
+    """Perform the network request and return raw ATOM feed text."""
+    return fetch_feed(_feed_url_for_days(days))
+
+
+def parse(raw: str, min_magnitude: float = 4.0, days_back: int = 7) -> List[Dict]:
+    """Pure function: parse raw ATOM feed text into earthquake record dicts."""
+    return parse_earthquakes(raw, min_magnitude, days_back)
+
+
+def collect(days: int = 7, min_magnitude: float = 4.0) -> List[Dict]:
+    """Convenience: fetch the feed and parse it into earthquake records."""
+    return parse(fetch_raw(days), min_magnitude=min_magnitude, days_back=days)
+
+
 def parse_magnitude(title: str) -> float:
     """Extract magnitude from title like 'M 4.4 - 15 km SSE of Fern Forest, Hawaii'"""
     try:
@@ -174,19 +198,11 @@ def main():
             print("Usage: python fetch_earthquakes.py [--min-mag 4.0] [--days 7]")
             sys.exit(1)
     
-    # Determine which feed to use
-    if days <= 1:
-        feed_url = FEEDS['day']
-    elif days <= 7:
-        feed_url = FEEDS['week']
-    else:
-        feed_url = FEEDS['month']
-    
     print(f"Fetching earthquakes (magnitude {min_mag}+, past {days} days)...\n")
-    
+
     # Fetch and parse
-    xml_content = fetch_feed(feed_url)
-    earthquakes = parse_earthquakes(xml_content, min_mag, days)
+    xml_content = fetch_raw(days)
+    earthquakes = parse(xml_content, min_mag, days)
     
     # Output results
     print(format_for_daily_review(earthquakes))

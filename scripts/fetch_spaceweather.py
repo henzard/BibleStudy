@@ -27,28 +27,53 @@ NOAA_ALERTS_URL = "https://services.swpc.noaa.gov/products/alerts.json"
 NOAA_MAG_URL = "https://services.swpc.noaa.gov/products/solar-wind/mag-1-day.json"
 
 
+def fetch_raw():
+    """Fetch raw NOAA SWPC alerts JSON (network I/O only)."""
+    response = requests.get(NOAA_ALERTS_URL, timeout=10)
+    response.raise_for_status()
+    return response.json()
+
+
+def parse(alerts_json, days=7):
+    """Pure parse: filter NOAA alerts JSON to the past `days` days.
+
+    Takes already-fetched alerts JSON (list of dicts) and returns the
+    list of recent alert dicts, preserving each alert's original fields
+    (e.g. issue_datetime, message, product_id).
+    """
+    cutoff_date = datetime.now() - timedelta(days=days)
+    recent_alerts = []
+
+    for alert in alerts_json or []:
+        alert_date_str = alert.get('issue_datetime', '')
+        try:
+            alert_date = datetime.strptime(alert_date_str, '%Y-%m-%d %H:%M:%S.%f')
+        except ValueError:
+            continue  # Skip if date parsing fails
+        if alert_date < cutoff_date:
+            continue
+
+        # Enrich with classification while preserving all original
+        # NOAA fields (issue_datetime, message, product_id, ...).
+        severity, confidence, description = classify_alert_severity(alert)
+        enriched = dict(alert)
+        enriched['severity'] = severity
+        enriched['confidence'] = confidence
+        enriched['description'] = description
+        recent_alerts.append(enriched)
+
+    return recent_alerts
+
+
+def collect(days=7):
+    """Fetch + parse: return recent alerts for the past `days` days."""
+    return parse(fetch_raw(), days)
+
+
 def fetch_space_weather_alerts(days_ago=7):
-    """Fetch space weather alerts from NOAA."""
+    """Fetch space weather alerts from NOAA (backward-compatible wrapper)."""
     try:
-        response = requests.get(NOAA_ALERTS_URL, timeout=10)
-        response.raise_for_status()
-        alerts = response.json()
-        
-        # Filter by date
-        cutoff_date = datetime.now() - timedelta(days=days_ago)
-        recent_alerts = []
-        
-        for alert in alerts:
-            alert_date_str = alert.get('issue_datetime', '')
-            try:
-                alert_date = datetime.strptime(alert_date_str, '%Y-%m-%d %H:%M:%S.%f')
-                if alert_date >= cutoff_date:
-                    recent_alerts.append(alert)
-            except ValueError:
-                continue  # Skip if date parsing fails
-        
-        return recent_alerts
-    
+        return collect(days_ago)
     except requests.exceptions.RequestException as e:
         print(f"Error fetching space weather alerts: {e}")
         return []

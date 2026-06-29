@@ -7,16 +7,20 @@ from __future__ import annotations
 import sqlite3
 from dataclasses import dataclass
 from datetime import datetime, timedelta
-from typing import List
+from typing import List, Optional
 
 from ..models import RawSignal
 
 
 @dataclass
 class CollectorContext:
-    """Shared inputs passed to every collector run."""
+    """Shared inputs passed to every collector run.
 
-    conn: sqlite3.Connection
+    ``conn`` is required by DB-backed collectors but unused by live
+    (network) collectors, so it is optional.
+    """
+
+    conn: Optional[sqlite3.Connection] = None
     lookback_days: int = 7
 
     @property

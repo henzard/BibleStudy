@@ -16,7 +16,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Callable, Optional
 
-from .collectors import collect_all
+from .collectors import collect_all, collect_live
 from .config import PipelineConfig
 from .dedupe import deduplicate
 from .evidence_graph import build_clusters
@@ -24,6 +24,7 @@ from .llm import LLMClient
 from .models import PipelineResult
 from .normalize import normalize_all
 from .outputs import deliver
+from .persist import persist_signals
 from .report import build_report
 from .research import ResearchCoordinator
 from .scoring import score_threat
@@ -31,16 +32,26 @@ from .trends import analyze_trends
 
 
 def run_pipeline(config: Optional[PipelineConfig] = None,
-                 log: Optional[Callable[[str], None]] = None) -> PipelineResult:
+                 log: Optional[Callable[[str], None]] = None,
+                 live: bool = False) -> PipelineResult:
     cfg = config or PipelineConfig.from_env()
     emit = log or (lambda _m: None)
 
     llm = LLMClient.from_config(cfg.llm)
     emit(f"LLM backend: {llm.backend_name} (online={llm.online})")
 
-    # 1. Collect raw signals from the SQLite store.
-    raw = collect_all(cfg.db_path, cfg.lookback_days)
-    emit(f"Collected {len(raw)} raw signal(s)")
+    # 1. Collect raw signals.
+    if live:
+        # Hybrid mode: fetch from the network, persist for offline replay,
+        # then analyse the fresh data.
+        raw = collect_live(cfg.lookback_days)
+        inserted = persist_signals(cfg.db_path, raw)
+        emit(f"Live-collected {len(raw)} signal(s); persisted "
+             f"{sum(inserted.values())} new row(s)")
+    else:
+        # Offline mode: replay from the SQLite store.
+        raw = collect_all(cfg.db_path, cfg.lookback_days)
+        emit(f"Collected {len(raw)} raw signal(s) from store")
 
     # 2. Normalize -> 3. Deduplicate.
     events = normalize_all(raw)

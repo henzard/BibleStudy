@@ -42,6 +42,9 @@ def main() -> int:
                         help="path to the SQLite store")
     parser.add_argument("--json", action="store_true",
                         help="print machine-readable JSON summary instead of the report")
+    parser.add_argument("--live", action="store_true",
+                        help="fetch fresh data from the network, persist it, then "
+                             "analyse (default: replay from the SQLite store)")
     args = parser.parse_args()
 
     cfg = PipelineConfig.from_env(
@@ -49,7 +52,8 @@ def main() -> int:
         lookback_days=args.days,
     )
 
-    result = run_pipeline(cfg, log=lambda m: print(f"  · {m}", flush=True))
+    result = run_pipeline(cfg, log=lambda m: print(f"  · {m}", flush=True),
+                          live=args.live)
 
     print()
     if args.json:

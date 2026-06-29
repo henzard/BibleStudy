@@ -36,63 +36,89 @@ B2_KEYWORDS = [
 ]
 
 
-def fetch_eff_rss(days_ago=7):
-    """Fetch EFF blog RSS feed."""
+def fetch_raw():
+    """Fetch raw EFF blog RSS feed text (network I/O only)."""
+    response = requests.get(EFF_RSS_URL, timeout=10)
+    response.raise_for_status()
+    return response.text
+
+
+def parse(raw, days=7):
+    """Pure parse: extract B2-relevant articles from EFF RSS XML text.
+
+    Returns a list of dicts with fields: title, link, pub_date, keywords,
+    description, plus classification fields category, confidence, relevance.
+    """
     try:
-        response = requests.get(EFF_RSS_URL, timeout=10)
-        response.raise_for_status()
-        return response.text
+        root = ET.fromstring(raw)
+    except ET.ParseError as e:
+        print(f"Error parsing RSS XML: {e}")
+        return []
+
+    channel = root.find('channel')
+    items = channel.findall('item')
+
+    cutoff_date = datetime.now() - timedelta(days=days)
+    articles = []
+
+    for item in items:
+        title = item.find('title').text if item.find('title') is not None else 'N/A'
+        link = item.find('link').text if item.find('link') is not None else 'N/A'
+        pub_date_str = item.find('pubDate').text if item.find('pubDate') is not None else None
+        description_elem = item.find('description')
+        description = description_elem.text if description_elem is not None else ''
+
+        # Parse date (format: "Thu, 13 Nov 2025 17:38:50 +0000")
+        if pub_date_str:
+            try:
+                pub_date = datetime.strptime(pub_date_str, '%a, %d %b %Y %H:%M:%S %z')
+                pub_date = pub_date.replace(tzinfo=None)  # Remove timezone for comparison
+            except ValueError:
+                continue
+
+            if pub_date < cutoff_date:
+                continue
+
+        # Check for B2 relevance
+        content_lower = (title + ' ' + description).lower()
+        matched_keywords = [kw for kw in B2_KEYWORDS if kw in content_lower]
+
+        if matched_keywords:
+            truncated_desc = (description[:200] + '...'
+                              if len(description) > 200 else description)
+            category, confidence, relevance = classify_article(
+                title, matched_keywords, truncated_desc)
+            articles.append({
+                'title': title,
+                'link': link,
+                'pub_date': pub_date_str,
+                'keywords': matched_keywords,
+                'description': truncated_desc,
+                'category': category,
+                'confidence': confidence,
+                'relevance': relevance,
+            })
+
+    return articles
+
+
+def collect(days=7):
+    """Fetch + parse: return B2-relevant EFF articles for the past `days`."""
+    return parse(fetch_raw(), days)
+
+
+def fetch_eff_rss(days_ago=7):
+    """Fetch EFF blog RSS feed (backward-compatible wrapper)."""
+    try:
+        return fetch_raw()
     except requests.exceptions.RequestException as e:
         print(f"Error fetching EFF RSS: {e}")
         return None
 
 
 def parse_rss(xml_content, days_ago=7):
-    """Parse RSS XML and extract relevant articles."""
-    try:
-        root = ET.fromstring(xml_content)
-        channel = root.find('channel')
-        items = channel.findall('item')
-        
-        cutoff_date = datetime.now() - timedelta(days=days_ago)
-        articles = []
-        
-        for item in items:
-            title = item.find('title').text if item.find('title') is not None else 'N/A'
-            link = item.find('link').text if item.find('link') is not None else 'N/A'
-            pub_date_str = item.find('pubDate').text if item.find('pubDate') is not None else None
-            description_elem = item.find('description')
-            description = description_elem.text if description_elem is not None else ''
-            
-            # Parse date (format: "Thu, 13 Nov 2025 17:38:50 +0000")
-            if pub_date_str:
-                try:
-                    pub_date = datetime.strptime(pub_date_str, '%a, %d %b %Y %H:%M:%S %z')
-                    pub_date = pub_date.replace(tzinfo=None)  # Remove timezone for comparison
-                except ValueError:
-                    continue
-                
-                if pub_date < cutoff_date:
-                    continue
-            
-            # Check for B2 relevance
-            content_lower = (title + ' ' + description).lower()
-            matched_keywords = [kw for kw in B2_KEYWORDS if kw in content_lower]
-            
-            if matched_keywords:
-                articles.append({
-                    'title': title,
-                    'link': link,
-                    'pub_date': pub_date_str,
-                    'keywords': matched_keywords,
-                    'description': description[:200] + '...' if len(description) > 200 else description
-                })
-        
-        return articles
-    
-    except ET.ParseError as e:
-        print(f"Error parsing RSS XML: {e}")
-        return []
+    """Parse RSS XML and extract relevant articles (backward-compatible)."""
+    return parse(xml_content, days_ago)
 
 
 def classify_article(title, keywords, description):
