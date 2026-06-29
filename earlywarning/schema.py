@@ -211,6 +211,19 @@ CREATE TABLE IF NOT EXISTS fred_news (
 
 CREATE INDEX IF NOT EXISTS idx_fred_news_date ON fred_news(date);
 
+-- Pipeline run history (early-warning state for change detection)
+CREATE TABLE IF NOT EXISTS pipeline_runs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    generated_at TEXT NOT NULL,
+    alert_level TEXT NOT NULL,
+    overall_intensity REAL NOT NULL,
+    phase TEXT,
+    payload TEXT NOT NULL,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_pipeline_runs_at ON pipeline_runs(generated_at);
+
 -- Schema Version Tracking
 CREATE TABLE IF NOT EXISTS schema_version (
     version INTEGER PRIMARY KEY,
@@ -220,9 +233,10 @@ CREATE TABLE IF NOT EXISTS schema_version (
 """
 
 # Bump when SCHEMA changes in a way fresh installs should record.
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 SCHEMA_VERSION_DESCRIPTION = (
-    "Add space_weather, digital_rights, temple_mount_news, fred_news tables"
+    "Add space_weather, digital_rights, temple_mount_news, fred_news, "
+    "pipeline_runs tables"
 )
 
 

@@ -43,10 +43,14 @@ def test_pipeline_runs_offline_and_writes_artifacts(seeded_db, tmp_path):
 def test_pipeline_dry_run_does_not_send_outward(seeded_db, tmp_path):
     cfg = _config(seeded_db, tmp_path)
     cfg.outputs.slack_webhook = "https://hooks.example/x"
+    cfg.outputs.slack_min_level = "GREEN"   # ensure the channel is in scope
     cfg.outputs.dry_run = True
     result = run_pipeline(cfg)
-    assert "slack:dry-run" in result.delivered
+    # A configured channel is recorded but never actually sends in dry-run.
+    assert any(d.startswith("slack:") for d in result.delivered)
     assert not any(d.startswith("slack:sent") for d in result.delivered)
+    assert any(d.startswith("slack:would-send") or d.startswith("slack:suppressed")
+               for d in result.delivered)
 
 
 def test_pipeline_handles_empty_db(empty_db, tmp_path):

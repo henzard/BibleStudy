@@ -112,6 +112,19 @@ TEMPLATE = r"""<!DOCTYPE html>
     border: 1px solid var(--line); background: var(--panel2); color: var(--txt); cursor: pointer; }
   .section-title { margin: 8px 2px 2px; font-size: 13px; text-transform: uppercase;
     letter-spacing: 1.2px; color: var(--muted); font-weight: 700; }
+  .alertbar { border-radius: 14px; padding: 16px 18px; border: 1px solid var(--line);
+    display: flex; gap: 16px; align-items: flex-start; }
+  .alertbar .lvl { font-size: 22px; font-weight: 800; letter-spacing: .5px; white-space: nowrap; }
+  .alertbar .body { flex: 1; }
+  .alertbar .head { font-weight: 700; margin-bottom: 6px; }
+  .chg { margin: 0; padding-left: 18px; font-size: 13px; }
+  .chg li { margin: 3px 0; }
+  .chg .red { color: var(--red); } .chg .amber { color: var(--orange); }
+  .chg .watch { color: var(--yellow); } .chg .info { color: var(--muted); }
+  .fresh { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .fresh-chip { font-size: 11px; padding: 3px 9px; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--muted); }
+  .fresh-chip.stale { color: var(--red); border-color: var(--red); }
 </style>
 </head>
 <body>
@@ -194,6 +207,27 @@ function render(d){
 
   const app = document.getElementById('app');
   app.innerHTML = '';
+
+  // Alert banner: level + what changed since the previous run.
+  const LEVEL_COLOR = { GREEN:'--green', WATCH:'--yellow', AMBER:'--orange', RED:'--red' };
+  const lvl = d.alert_level || 'GREEN';
+  const lc = getCss(LEVEL_COLOR[lvl] || '--muted');
+  const ch = d.changes;
+  if (ch || d.alert_level){
+    const items = (ch && ch.changes || []).map(c =>
+      `<li class="${c.severity}">${esc(c.message)}</li>`).join('');
+    const bar = el('div', 'alertbar');
+    bar.style.borderColor = lc;
+    bar.style.background = hexFade(lc);
+    bar.innerHTML = `
+      <div class="lvl" style="color:${lc}">${esc(lvl)}</div>
+      <div class="body">
+        <div class="head">${esc((ch && ch.summary) || 'Current status')}</div>
+        <ul class="chg">${items}</ul>
+        ${freshnessChips(d.freshness)}
+      </div>`;
+    app.appendChild(bar);
+  }
 
   // Top row: gauge + summary
   const pct = Math.round(t.overall_intensity || 0);
@@ -302,6 +336,22 @@ function render(d){
   app.appendChild(g);
 }
 
+function hexFade(col){
+  // Render a translucent version of a hex colour for panel backgrounds.
+  const m = col.replace('#','').match(/.{1,2}/g);
+  if (!m || m.length < 3) return 'transparent';
+  const [r,g,b] = m.map(x => parseInt(x,16));
+  return `rgba(${r},${g},${b},0.10)`;
+}
+function freshnessChips(fr){
+  if (!fr || !fr.items || !fr.items.length) return '';
+  const chips = fr.items.map(it => {
+    const cls = it.stale ? 'fresh-chip stale' : 'fresh-chip';
+    const age = it.age_days==null ? 'no data' : it.age_days + 'd';
+    return `<span class="${cls}">${esc(it.source)}: ${age}</span>`;
+  }).join('');
+  return `<div class="fresh">${chips}</div>`;
+}
 function activeNodes(t){ return (t.nodes||[]).filter(n => (n.intensity||0) > 0).length; }
 function el(tag, cls){ const e = document.createElement(tag); if (cls) e.className = cls; return e; }
 function html(s){ const t = document.createElement('template'); t.innerHTML = s.trim(); return t.content.firstChild; }

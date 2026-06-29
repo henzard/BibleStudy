@@ -16,10 +16,12 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Callable, Optional
 
+from .changes import detect_changes
 from .collectors import collect_all, collect_live
 from .config import PipelineConfig
 from .dedupe import deduplicate
 from .evidence_graph import build_clusters
+from .freshness import analyze_freshness
 from .llm import LLMClient
 from .models import PipelineResult
 from .normalize import normalize_all
@@ -28,6 +30,7 @@ from .persist import persist_signals
 from .report import build_report
 from .research import ResearchCoordinator
 from .scoring import score_threat
+from .state import load_previous, save_run
 from .trends import analyze_trends
 
 
@@ -75,8 +78,17 @@ def run_pipeline(config: Optional[PipelineConfig] = None,
     # 7. Trend memory.
     trends = analyze_trends(cfg.db_path, cfg.trend_weeks)
 
-    # 8. Executive report.
-    report = build_report(threat, findings, trends, llm)
+    # 8. Change detection + source health (vs the previous stored run).
+    previous = load_previous(cfg.db_path)
+    changes = detect_changes(threat, findings, previous)
+    freshness = analyze_freshness(cfg.db_path)
+    emit(f"Alert level: {changes.level} — {changes.summary}")
+    if freshness.any_stale:
+        emit(f"Stale sources: {', '.join(freshness.stale_sources)}")
+
+    # 9. Executive report.
+    report = build_report(threat, findings, trends, llm,
+                          changes=changes, freshness=freshness)
 
     result = PipelineResult(
         generated_at=datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"),
@@ -86,10 +98,17 @@ def run_pipeline(config: Optional[PipelineConfig] = None,
         threat=threat,
         trends=trends,
         report=report,
+        alert_level=changes.level,
+        changes=changes,
+        freshness=freshness,
     )
 
-    # 9. Deliver.
-    result.delivered = deliver(result, cfg.outputs, cfg.output_dir)
+    # 10. Deliver (level/change/cooldown-aware routing).
+    result.delivered = deliver(result, cfg.outputs, cfg.output_dir, previous)
     emit(f"Delivered: {', '.join(result.delivered) or 'nothing'}")
+
+    # 11. Persist this run's state for the next comparison.
+    save_run(cfg.db_path, result.to_dict(), changes.level, result.generated_at,
+             threat.overall_intensity, threat.phase)
 
     return result

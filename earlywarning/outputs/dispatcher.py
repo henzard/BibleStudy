@@ -13,13 +13,14 @@ import json
 import smtplib
 import urllib.error
 import urllib.request
+from datetime import datetime
 from email.mime.text import MIMEText
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 from ..config import OutputConfig
 from ..dashboard import render_html, render_shell
-from ..models import PipelineResult
+from ..models import PipelineResult, ALERT_LEVEL_ORDER
 
 
 def _post_json(url: str, payload: dict, timeout: float = 10.0) -> bool:
@@ -67,10 +68,19 @@ def _write_dashboard(result: PipelineResult, dashboard_path: str) -> str:
 
 def _alert_text(result: PipelineResult) -> str:
     t = result.threat
-    return (
-        f"{t.emoji} Prophecy Early-Warning — {t.phase} "
-        f"({t.overall_intensity:.0f}/100)\n{result.report.summary}"
-    )
+    lines = [
+        f"{t.emoji} Prophecy Early-Warning — {result.alert_level} · {t.phase} "
+        f"({t.overall_intensity:.0f}/100)",
+    ]
+    if result.changes:
+        lines.append(result.changes.summary)
+        for ch in result.changes.changes[:6]:
+            if ch.severity in ("amber", "red", "watch"):
+                lines.append(f"• {ch.message}")
+    if result.freshness and result.freshness.any_stale:
+        lines.append(f"⚠️ Stale sources: {', '.join(result.freshness.stale_sources)}")
+    lines.append(result.report.summary)
+    return "\n".join(lines)
 
 
 def _send_slack(cfg: OutputConfig, text: str) -> bool:
@@ -98,8 +108,53 @@ def _send_email(cfg: OutputConfig, subject: str, body: str) -> bool:
         return False
 
 
-def deliver(result: PipelineResult, cfg: OutputConfig,
-            out_dir: Path) -> List[str]:
+_SEV_RANK = {"info": 0, "watch": 1, "amber": 2, "red": 3}
+_LEVEL_SEV_FLOOR = {"GREEN": 0, "WATCH": 1, "AMBER": 2, "RED": 3}
+
+
+def _within_cooldown(result: PipelineResult, previous: Optional[dict],
+                     cooldown_hours: float) -> bool:
+    """True if the previous run was at the same level within the cooldown."""
+    if not previous:
+        return False
+    if previous.get("alert_level") != result.alert_level:
+        return False
+    prev_at, cur_at = previous.get("generated_at"), result.generated_at
+    if not prev_at or not cur_at:
+        return False
+    try:
+        fmt = "%Y-%m-%d %H:%M UTC"
+        delta = datetime.strptime(cur_at, fmt) - datetime.strptime(prev_at, fmt)
+    except ValueError:
+        return False
+    return 0 <= delta.total_seconds() < cooldown_hours * 3600
+
+
+def _should_notify(result: PipelineResult, min_level: str,
+                   previous: Optional[dict], cfg: OutputConfig) -> bool:
+    """Decide whether an outward channel should fire for this run."""
+    level = result.alert_level
+    if ALERT_LEVEL_ORDER[level] < ALERT_LEVEL_ORDER[min_level]:
+        return False  # below the channel's threshold
+
+    ch = result.changes
+    rose = bool(ch and ch.rose)
+    first = bool(ch and ch.is_first_run)
+    # A fresh change at/above this channel's severity floor justifies a page.
+    floor = _LEVEL_SEV_FLOOR[min_level]
+    fresh_change = bool(ch and any(
+        _SEV_RANK.get(c.severity, 0) >= floor for c in ch.changes))
+
+    if cfg.notify_only_on_change and not (rose or first or fresh_change):
+        return False
+    # Debounce repeats at the same level, unless the level rose.
+    if not rose and _within_cooldown(result, previous, cfg.cooldown_hours):
+        return False
+    return True
+
+
+def deliver(result: PipelineResult, cfg: OutputConfig, out_dir: Path,
+            previous: Optional[dict] = None) -> List[str]:
     delivered: List[str] = []
 
     # Local artefacts are always written.
@@ -114,25 +169,30 @@ def deliver(result: PipelineResult, cfg: OutputConfig,
         pass
 
     text = _alert_text(result)
-    subject = f"Prophecy Early-Warning — {result.threat.phase}"
+    subject = (f"[{result.alert_level}] Prophecy Early-Warning — "
+               f"{result.threat.phase}")
 
-    # Outward channels: opt-in only.
-    if cfg.dry_run:
-        for name, configured in (
-            ("slack", bool(cfg.slack_webhook)),
-            ("telegram", bool(cfg.telegram_bot_token and cfg.telegram_chat_id)),
-            ("email", bool(cfg.email_smtp_host and cfg.email_to)),
-        ):
-            if configured:
-                delivered.append(f"{name}:dry-run")
-        return delivered
+    channels = [
+        ("slack", cfg.slack_min_level, bool(cfg.slack_webhook),
+         lambda: _send_slack(cfg, text)),
+        ("telegram", cfg.telegram_min_level,
+         bool(cfg.telegram_bot_token and cfg.telegram_chat_id),
+         lambda: _send_telegram(cfg, text)),
+        ("email", cfg.email_min_level,
+         bool(cfg.email_smtp_host and cfg.email_to),
+         lambda: _send_email(cfg, subject, text)),
+    ]
 
-    if cfg.slack_webhook and _send_slack(cfg, text):
-        delivered.append("slack:sent")
-    if (cfg.telegram_bot_token and cfg.telegram_chat_id
-            and _send_telegram(cfg, text)):
-        delivered.append("telegram:sent")
-    if cfg.email_smtp_host and cfg.email_to and _send_email(cfg, subject, text):
-        delivered.append("email:sent")
+    for name, min_level, configured, send in channels:
+        if not configured:
+            continue
+        if not _should_notify(result, min_level, previous, cfg):
+            delivered.append(f"{name}:suppressed({result.alert_level})")
+            continue
+        if cfg.dry_run:
+            delivered.append(f"{name}:would-send({result.alert_level})")
+            continue
+        delivered.append(f"{name}:sent" if send()
+                         else f"{name}:failed")
 
     return delivered

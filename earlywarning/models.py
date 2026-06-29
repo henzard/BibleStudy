@@ -146,6 +146,42 @@ class ThreatAssessment:
     cross_validation: Dict[str, int] = field(default_factory=dict)
 
 
+# Ordered alert levels (GREEN lowest). Used for routing and comparison.
+ALERT_LEVELS = ["GREEN", "WATCH", "AMBER", "RED"]
+ALERT_LEVEL_ORDER = {lvl: i for i, lvl in enumerate(ALERT_LEVELS)}
+
+
+@dataclass
+class AlertChange:
+    """A single notable change between this run and the previous one."""
+
+    kind: str               # node_crossing | phase_change | overall_delta | ...
+    severity: str           # info | watch | amber | red
+    message: str
+    node_id: str = ""
+
+
+@dataclass
+class ChangeReport:
+    """How this run differs from the previous one, plus the alert level."""
+
+    level: str                       # GREEN | WATCH | AMBER | RED
+    previous_level: Optional[str]
+    rose: bool                       # level increased vs previous
+    is_first_run: bool
+    changes: List[AlertChange]
+    summary: str
+
+
+@dataclass
+class FreshnessReport:
+    """Per-source data-staleness assessment (silent-failure detection)."""
+
+    items: List[Dict[str, Any]]      # [{source, latest, age_days, stale, tier}]
+    stale_sources: List[str]
+    any_stale: bool
+
+
 @dataclass
 class ExecutiveReport:
     """The human-facing synthesis written at the end of the pipeline."""
@@ -169,6 +205,9 @@ class PipelineResult:
     threat: ThreatAssessment
     trends: Dict[str, Any]
     report: ExecutiveReport
+    alert_level: str = "GREEN"
+    changes: Optional[ChangeReport] = None
+    freshness: Optional[FreshnessReport] = None
     delivered: List[str] = field(default_factory=list)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -179,6 +218,9 @@ class PipelineResult:
             "findings": [asdict(f) for f in self.findings],
             "threat": asdict(self.threat),
             "trends": self.trends,
+            "alert_level": self.alert_level,
+            "changes": asdict(self.changes) if self.changes else None,
+            "freshness": asdict(self.freshness) if self.freshness else None,
             "report_title": self.report.title,
             "report_summary": self.report.summary,
             "delivered": self.delivered,

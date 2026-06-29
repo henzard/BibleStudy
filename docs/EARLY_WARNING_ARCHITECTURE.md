@@ -61,8 +61,28 @@ flowchart TD
 | Scoring | `scoring.py` | Per prophecy-node intensity (0–100) + cross-validated confidence + overall phase |
 | Trends | `trends.py` | Recent activity vs trailing baseline (escalating / steady / easing) |
 | Report | `report.py` | Executive summary (LLM or deterministic) + guardrail footer |
-| Dashboard | `dashboard.py` | Self-contained HTML UI (gauge, node bars, finding cards, sparklines) |
-| Outputs | `outputs/` | Local artefacts always (markdown, JSON, HTML); Slack/Telegram/email opt-in |
+| Change detection | `changes.py` / `state.py` | Diff vs the previous run; alert level + threshold crossings; run history in `pipeline_runs` |
+| Source health | `freshness.py` | Flags stale source tables (silent-failure detection) |
+| Dashboard | `dashboard.py` | Self-contained HTML UI (alert banner, gauge, node bars, finding cards, sparklines) |
+| Outputs | `outputs/` | Local artefacts always (markdown, JSON, HTML); Slack/Telegram/email level-gated, change-gated, debounced |
+
+### Early-warning alerting (warn on change, not on snapshot)
+
+Each run is stored in `pipeline_runs`. The next run diffs against it
+(`changes.py`) to produce an **alert level** (GREEN/WATCH/AMBER/RED) and a list
+of specific changes — node band crossings, phase shifts, overall deltas, new
+escalations. Outward channels are then:
+
+* **Level-gated:** each channel has a minimum level (`SLACK_MIN_LEVEL`,
+  `TELEGRAM_MIN_LEVEL`, `EMAIL_MIN_LEVEL`).
+* **Change-gated:** with `ALERT_NOTIFY_ONLY_ON_CHANGE=true`, a channel fires
+  only when the level rose, it is the first run, or a fresh change at/above its
+  severity occurred.
+* **Debounced:** repeat notifications at the same level inside
+  `ALERT_COOLDOWN_HOURS` are suppressed (unless the level rose).
+
+`freshness.py` flags any source table that has gone stale beyond its expected
+cadence — a stale Tier-1 source (earthquakes, economic) is itself a warning.
 
 ### Separation of ingestion and analysis
 

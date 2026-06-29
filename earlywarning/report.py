@@ -80,7 +80,9 @@ def build_report(threat: ThreatAssessment,
                  findings: List[ResearchFinding],
                  trends: Dict,
                  llm: LLMClient,
-                 title: str = "Prophecy Early-Warning Report") -> ExecutiveReport:
+                 title: str = "Prophecy Early-Warning Report",
+                 changes=None,
+                 freshness=None) -> ExecutiveReport:
     now = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
     fallback = _deterministic_summary(threat, findings, trends)
     summary = fallback
@@ -91,6 +93,32 @@ def build_report(threat: ThreatAssessment,
         ).strip() or fallback
 
     sections: List[Dict[str, str]] = []
+
+    # What changed since the previous run (the early-warning headline).
+    if changes is not None:
+        chg_lines = [f"**Alert level: {changes.level}** — {changes.summary}"]
+        if changes.changes:
+            chg_lines.append("")
+            chg_lines.extend(
+                f"- _{c.severity.upper()}_ {c.message}" for c in changes.changes)
+        sections.append({"heading": "What Changed", "body": "\n".join(chg_lines)})
+
+    # Source health / freshness.
+    if freshness is not None:
+        if freshness.any_stale:
+            fr_lines = [f"⚠️ **Stale sources:** {', '.join(freshness.stale_sources)}",
+                        ""]
+        else:
+            fr_lines = ["✅ All sources within expected update windows.", ""]
+        fr_lines.append("| Source | Latest | Age (days) | Tier | Status |")
+        fr_lines.append("|--------|--------|-----------|------|--------|")
+        for it in freshness.items:
+            status = "🔴 stale" if it.get("stale") else "🟢 fresh"
+            fr_lines.append(
+                f"| {it['source']} | {it.get('latest') or '—'} | "
+                f"{it.get('age_days') if it.get('age_days') is not None else '—'} "
+                f"| T{it.get('tier', '?')} | {status} |")
+        sections.append({"heading": "Source Health", "body": "\n".join(fr_lines)})
 
     # Threat picture
     threat_lines = [

@@ -91,11 +91,26 @@ class OutputConfig:
     email_to: List[str] = field(default_factory=list)
     dashboard_path: str = ""
     dry_run: bool = True
+    # Minimum alert level that triggers each outward channel.
+    slack_min_level: str = "AMBER"
+    telegram_min_level: str = "RED"
+    email_min_level: str = "AMBER"
+    # Only notify outward when the level rose / a fresh change occurred.
+    notify_only_on_change: bool = True
+    # Suppress repeat notifications at the same level within this window.
+    cooldown_hours: float = 6.0
 
     @classmethod
     def from_env(cls) -> "OutputConfig":
         to_raw = _env("ALERT_EMAIL_TO")
         return cls(
+            slack_min_level=_env("SLACK_MIN_LEVEL", default="AMBER").upper(),
+            telegram_min_level=_env("TELEGRAM_MIN_LEVEL", default="RED").upper(),
+            email_min_level=_env("EMAIL_MIN_LEVEL", default="AMBER").upper(),
+            notify_only_on_change=_flag("ALERT_NOTIFY_ONLY_ON_CHANGE",
+                                        default=True),
+            cooldown_hours=float(_env("ALERT_COOLDOWN_HOURS",
+                                      default="6") or "6"),
             slack_webhook=_env("SLACK_WEBHOOK_URL"),
             telegram_bot_token=_env("TELEGRAM_BOT_TOKEN"),
             telegram_chat_id=_env("TELEGRAM_CHAT_ID"),
