@@ -36,12 +36,9 @@ except ImportError:
 FRED_API_BASE = "https://api.stlouisfed.org/fred"
 
 # Load API key from environment variable (secure)
+# NOTE: Read lazily (not validated at import time) so this module can be
+# imported for pure parsing/offline unit tests without an API key.
 FRED_API_KEY = os.getenv('FRED_API_KEY')
-if not FRED_API_KEY:
-    print("❌ FRED_API_KEY not found in environment variables")
-    print("   Please set FRED_API_KEY in .env file")
-    print("   Get your key from: https://fred.stlouisfed.org/docs/api/api_key.html")
-    sys.exit(1)
 
 # Economic indicators to track (Series IDs)
 INDICATORS = {
@@ -98,20 +95,24 @@ INDICATORS = {
 }
 
 
-def fetch_series_data(series_id: str, months_back: int = 12) -> Optional[dict]:
-    """Fetch data for a FRED series."""
+def fetch_raw(series_id: str, months_back: int = 12) -> Optional[dict]:
+    """Network I/O: fetch the raw FRED observations JSON for a series.
+
+    Returns the parsed JSON dict on success, or None on error. This is the
+    only function that performs network calls for a single series.
+    """
     # Calculate observation start date
     start_date = (datetime.now() - timedelta(days=months_back * 30)).strftime('%Y-%m-%d')
-    
+
     params = {
         'series_id': series_id,
         'api_key': FRED_API_KEY,
         'file_type': 'json',
         'observation_start': start_date
     }
-    
+
     url = f"{FRED_API_BASE}/series/observations?{urllib.parse.urlencode(params)}"
-    
+
     try:
         with urllib.request.urlopen(url, timeout=10) as response:
             data = json.loads(response.read().decode('utf-8'))
@@ -127,6 +128,10 @@ def fetch_series_data(series_id: str, months_back: int = 12) -> Optional[dict]:
         return None
 
 
+# Backward-compatible alias for the original network function name.
+fetch_series_data = fetch_raw
+
+
 def calculate_year_over_year_change(observations: List[dict]) -> Optional[float]:
     """Calculate year-over-year percentage change."""
     if len(observations) < 12:
@@ -140,8 +145,19 @@ def calculate_year_over_year_change(observations: List[dict]) -> Optional[float]
         return None
 
 
-def assess_indicator(series_id: str, data: dict, config: dict) -> dict:
-    """Assess an economic indicator and determine confidence level."""
+def parse_observations(json_obj: Optional[dict], series_id: str, config: dict) -> dict:
+    """PURE: turn a FRED observations JSON dict into an assessment dict.
+
+    No network I/O. Given the raw FRED observations JSON (as returned by
+    ``fetch_raw``) for ``series_id`` plus its ``config`` (name, description,
+    thresholds), compute status/confidence/latest_value/latest_date/
+    yoy_change/assessment. Safe to call offline on supplied JSON.
+
+    Returned dict fields: series_id, name, description, status, confidence,
+    latest_value, latest_date, yoy_change, assessment. (Error/empty cases omit
+    'description', matching the original behavior.)
+    """
+    data = json_obj
     if not data or 'observations' not in data:
         return {
             'series_id': series_id,
@@ -261,6 +277,29 @@ def assess_indicator(series_id: str, data: dict, config: dict) -> dict:
     }
 
 
+def assess_indicator(series_id: str, data: dict, config: dict) -> dict:
+    """Backward-compatible alias for the pure parser ``parse_observations``."""
+    return parse_observations(data, series_id, config)
+
+
+def collect(months: int = 12) -> List[dict]:
+    """Fetch + parse every tracked indicator into a flat list of assessments.
+
+    Returns one assessment dict per tracked indicator (across all categories).
+    Short-circuits to [] if FRED_API_KEY is unset (no network). The pure
+    ``parse_observations`` still works offline regardless of this guard.
+    """
+    if not FRED_API_KEY:
+        return []
+
+    assessments: List[dict] = []
+    for category, indicators in INDICATORS.items():
+        for series_id, config in indicators.items():
+            data = fetch_raw(series_id, months)
+            assessments.append(parse_observations(data, series_id, config))
+    return assessments
+
+
 def format_for_daily_review(results: Dict[str, List[dict]]) -> str:
     """Format economic indicators for daily review."""
     output = ["## FRED Economic Indicators — Node H0 (Babylon/Merchants Pattern)\n"]
@@ -318,8 +357,14 @@ def format_for_daily_review(results: Dict[str, List[dict]]) -> str:
 
 def main():
     """Main execution."""
+    if not FRED_API_KEY:
+        print("❌ FRED_API_KEY not found in environment variables")
+        print("   Please set FRED_API_KEY in .env file")
+        print("   Get your key from: https://fred.stlouisfed.org/docs/api/api_key.html")
+        sys.exit(1)
+
     months = 12
-    
+
     if '--months' in sys.argv:
         try:
             idx = sys.argv.index('--months')

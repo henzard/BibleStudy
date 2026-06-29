@@ -48,6 +48,11 @@ def fetch_feed(feed_url: str) -> str:
         sys.exit(1)
 
 
+def fetch_raw() -> str:
+    """Network I/O: fetch the raw FRED news RSS feed XML as a string."""
+    return fetch_feed(FRED_NEWS_FEED)
+
+
 def clean_html(text: str) -> str:
     """Remove HTML tags from text."""
     clean = re.sub('<.*?>', '', text)
@@ -112,6 +117,20 @@ def parse_announcements(xml_content: str, days_back: int = 30) -> List[Dict]:
     # Sort by date (newest first)
     announcements.sort(key=lambda x: x['date'], reverse=True)
     return announcements
+
+
+def parse(raw: str, days: int = 30) -> List[Dict]:
+    """PURE: parse raw RSS XML into a list of announcement dicts.
+
+    No network I/O. Each dict has fields: title, description, category, date,
+    url, relevant. Items older than ``days`` are filtered out.
+    """
+    return parse_announcements(raw, days)
+
+
+def collect(days: int = 30) -> List[Dict]:
+    """Fetch + parse the FRED news feed into a list of announcement dicts."""
+    return parse(fetch_raw(), days)
 
 
 def format_for_daily_review(announcements: List[Dict]) -> str:

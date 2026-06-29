@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>FRED News</title>
+    <link>https://news.research.stlouisfed.org/</link>
+    <description>St. Louis Fed economic data announcements</description>
+    <item>
+      <title>New Consumer Price Index (CPI) inflation series released</title>
+      <link>https://news.research.stlouisfed.org/2099/01/cpi-inflation/</link>
+      <description><![CDATA[<p>A new <b>inflation</b> measure tracking consumer price changes is now available.</p>]]></description>
+      <category>Inflation</category>
+      <pubDate>Mon, 05 Jan 2099 14:30:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Updated unemployment rate and jobs data</title>
+      <link>https://news.research.stlouisfed.org/2099/01/unemployment/</link>
+      <description><![CDATA[<p>Revised <b>unemployment</b> and employment figures for the labor market.</p>]]></description>
+      <category>Employment</category>
+      <pubDate>Sun, 04 Jan 2099 09:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Quarterly art and culture museum attendance report</title>
+      <link>https://news.research.stlouisfed.org/2099/01/museums/</link>
+      <description><![CDATA[<p>A non-economic dataset on regional museum attendance.</p>]]></description>
+      <category>General</category>
+      <pubDate>Sat, 03 Jan 2099 09:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

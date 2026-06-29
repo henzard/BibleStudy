@@ -8,8 +8,12 @@ requests>=2.31.0         # HTTP requests
 # Environment variables
 python-dotenv>=1.0.0     # Load .env files
 
-# Optional: AI enhancement for newsletters
-openai>=1.0.0           # OpenAI API (for newsletter polish)
+# Optional: AI enhancement (newsletters + early-warning pipeline)
+# The early-warning pipeline is provider-agnostic. Install whichever SDK you
+# plan to use; with neither installed it runs on a deterministic offline
+# heuristic backend (no network, no keys required).
+openai>=1.0.0           # OpenAI backend (and newsletter polish)
+# anthropic>=0.39.0     # Anthropic (Claude) backend — uncomment to enable
 
 # Optional: Machine learning / analytics
 numpy>=1.24.0           # Numerical computing
@@ -19,3 +23,5 @@ tensorflow>=2.15.0      # ML predictions (optional, large install)
 # If you don't need ML predictions, you can skip installing tensorflow
 # Basic functionality works without it
 
+# Development / testing
+pytest>=7.0.0           # Test suite (tests/)

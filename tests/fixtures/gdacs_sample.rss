@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:gdacs="http://www.gdacs.org"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:georss="http://www.georss.org/georss"
+     xmlns:glide="http://glidenumber.net">
+  <channel>
+    <title>GDACS RSS information</title>
+    <link>https://www.gdacs.org</link>
+    <description>Global Disaster Alert and Coordination System</description>
+    <item>
+      <title>Red earthquake alert (Magnitude 7.1M) in Chile</title>
+      <description>Earthquake of magnitude 7.1M in Chile on 27 Jun 2099.</description>
+      <link>https://www.gdacs.org/report.aspx?eventid=1100001&amp;eventtype=EQ</link>
+      <pubDate>Sat, 27 Jun 2099 12:00:00 GMT</pubDate>
+      <gdacs:eventtype>EQ</gdacs:eventtype>
+      <gdacs:alertlevel>Red</gdacs:alertlevel>
+      <gdacs:severity unit="M">Magnitude 7.1M, Depth 10km</gdacs:severity>
+      <gdacs:country>Chile</gdacs:country>
+      <gdacs:population value="1200000">1.2 million people</gdacs:population>
+      <gdacs:fromdate>Sat, 27 Jun 2099 12:00:00 GMT</gdacs:fromdate>
+    </item>
+    <item>
+      <title>Orange tropical cyclone alert in Philippines</title>
+      <description>Tropical cyclone with maximum wind speed of 150 km/h.</description>
+      <link>https://www.gdacs.org/report.aspx?eventid=1100002&amp;eventtype=TC</link>
+      <pubDate>Fri, 26 Jun 2099 06:00:00 GMT</pubDate>
+      <gdacs:eventtype>TC</gdacs:eventtype>
+      <gdacs:alertlevel>Orange</gdacs:alertlevel>
+      <gdacs:severity unit="kmh">Maximum wind speed 150 km/h</gdacs:severity>
+      <gdacs:country>Philippines</gdacs:country>
+      <gdacs:population value="350000">350 thousand people</gdacs:population>
+      <gdacs:fromdate>Fri, 26 Jun 2099 06:00:00 GMT</gdacs:fromdate>
+    </item>
+    <item>
+      <title>Green flood alert in Bangladesh</title>
+      <description>Flood event with minor humanitarian impact.</description>
+      <link>https://www.gdacs.org/report.aspx?eventid=1100003&amp;eventtype=FL</link>
+      <pubDate>Thu, 25 Jun 2099 18:00:00 GMT</pubDate>
+      <gdacs:eventtype>FL</gdacs:eventtype>
+      <gdacs:alertlevel>Green</gdacs:alertlevel>
+      <gdacs:severity unit="km2">Flood area 500 km2</gdacs:severity>
+      <gdacs:country>Bangladesh</gdacs:country>
+      <gdacs:population value="0">0</gdacs:population>
+      <gdacs:fromdate>Thu, 25 Jun 2099 18:00:00 GMT</gdacs:fromdate>
+    </item>
+  </channel>
+</rss>

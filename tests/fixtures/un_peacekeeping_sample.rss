@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>UN Peacekeeping News (sample)</title>
+    <link>https://peacekeeping.un.org/en</link>
+    <description>Sample feed for offline tests</description>
+    <item>
+      <title>Major offensive displaces 140,000 civilians in conflict zone</title>
+      <description>Heavy fighting and an armed group offensive have displaced 140,000 people, with reports of civilian casualties and deaths mounting.</description>
+      <link>https://peacekeeping.un.org/en/sample-offensive</link>
+      <pubDate>Wed, 24 Dec 2099 12:21:47 EST</pubDate>
+    </item>
+    <item>
+      <title>Peacekeepers report clashes and ceasefire violations</title>
+      <description>UN peacekeeping mission documents fresh clashes between rebel forces, with 2,500 displaced and a humanitarian crisis emerging.</description>
+      <link>https://peacekeeping.un.org/en/sample-clashes</link>
+      <pubDate>Tue, 23 Dec 2099 09:00:00 EST</pubDate>
+    </item>
+    <item>
+      <title>Attack on village leaves dozens killed</title>
+      <description>An attack left at least 45 people killed and many wounded; relief agencies warn of famine risk for refugees.</description>
+      <link>https://peacekeeping.un.org/en/sample-attack</link>
+      <pubDate>Mon, 22 Dec 2099 18:30:00 EST</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,23 @@
+{
+  "realtime_start": "2026-06-29",
+  "realtime_end": "2026-06-29",
+  "observation_start": "2025-01-01",
+  "observation_end": "9999-12-31",
+  "units": "lin",
+  "count": 13,
+  "observations": [
+    {"realtime_start": "2026-06-29", "realtime_end": "2026-06-29", "date": "2025-01-01", "value": "291.0"},
+    {"realtime_start": "2026-06-29", "realtime_end": "2026-06-29", "date": "2025-02-01", "value": "292.8"},
+    {"realtime_start": "2026-06-29", "realtime_end": "2026-06-29", "date": "2025-03-01", "value": "294.5"},
+    {"realtime_start": "2026-06-29", "realtime_end": "2026-06-29", "date": "2025-04-01", "value": "296.1"},
+    {"realtime_start": "2026-06-29", "realtime_end": "2026-06-29", "date": "2025-05-01", "value": "298.0"},
+    {"realtime_start": "2026-06-29", "realtime_end": "2026-06-29", "date": "2025-06-01", "value": "299.9"},
+    {"realtime_start": "2026-06-29", "realtime_end": "2026-06-29", "date": "2025-07-01", "value": "301.7"},
+    {"realtime_start": "2026-06-29", "realtime_end": "2026-06-29", "date": "2025-08-01", "value": "303.4"},
+    {"realtime_start": "2026-06-29", "realtime_end": "2026-06-29", "date": "2025-09-01", "value": "305.2"},
+    {"realtime_start": "2026-06-29", "realtime_end": "2026-06-29", "date": "2025-10-01", "value": "307.1"},
+    {"realtime_start": "2026-06-29", "realtime_end": "2026-06-29", "date": "2025-11-01", "value": "309.0"},
+    {"realtime_start": "2026-06-29", "realtime_end": "2026-06-29", "date": "2025-12-01", "value": "."},
+    {"realtime_start": "2026-06-29", "realtime_end": "2026-06-29", "date": "2026-01-01", "value": "312.5"}
+  ]
+}
