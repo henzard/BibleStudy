@@ -56,5 +56,9 @@ class Collector:
             return self.collect(ctx)
         except sqlite3.Error:
             return []
+        except SystemExit:
+            # fetch_*.py scripts call sys.exit() on network errors; treat as
+            # an empty source rather than aborting the whole pipeline sweep.
+            return []
         except Exception:
             return []

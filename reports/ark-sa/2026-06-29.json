@@ -60,9 +60,9 @@
   ],
   "local_focus": "Bloemfontein, Free State, South Africa",
   "route_focus": "Bloemfontein to Mossel Bay / Garden Route",
-  "timestamp_sast": "2026-06-28T17:19:32+0200",
-  "report_date": "2026-06-28",
-  "changes_since_yesterday": "No prior report in reports/ark-sa/ — baseline established today.",
+  "timestamp_sast": "2026-06-29T07:51:02+0200",
+  "report_date": "2026-06-29",
+  "changes_since_yesterday": "Unchanged overall — same threat level, score, and decision as yesterday.",
   "domains": {
     "bible_prophecy": {
       "label": "Bible / prophecy review",
