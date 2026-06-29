@@ -75,7 +75,6 @@ SCRIPTS = {
         'name': 'EFF Digital Rights',
         'node': 'B2',
         'scripture': 'Rev 13:16-17'
-<<<<<<< HEAD
     },
     'temple_mount': {
         'file': 'fetch_temple_mount_news.py',
@@ -267,6 +266,27 @@ def main():
         
         print()
         print(f"📖 Next: Review {output_file} and update tracking files")
+        print()
+        
+        # Ingest data into database for analysis
+        print("="*80)
+        print("INGESTING DATA INTO DATABASE")
+        print("="*80)
+        print()
+        
+        ingest_script = SCRIPTS_DIR / 'ingest_data.py'
+        try:
+            result = subprocess.run(
+                [sys.executable, str(ingest_script), '--days', str(days)],
+                text=True,
+                encoding='utf-8',
+                timeout=120
+            )
+            print()
+            print("✅ Database ingestion complete!")
+        except Exception as e:
+            print(f"⚠️  Database ingestion failed: {e}")
+        
         print()
         
         # Run Fig Tree Pattern Analysis
