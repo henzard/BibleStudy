@@ -60,6 +60,10 @@ def _extract_keywords(text: str, domain_key: str) -> List[str]:
     return found[:8]
 
 
+def _text(value: Optional[str]) -> str:
+    return (value or "").strip()
+
+
 def _extract_entities(text: str, location: str) -> List[str]:
     entities = []
     if location:
@@ -77,19 +81,21 @@ def normalize_signal(signal: RawSignal) -> NormalizedEvent:
     domain_key = domain_for_collector(signal.source)
     text = f"{signal.title} {signal.summary}"
     keywords = _extract_keywords(text, domain_key)
-    entities = _extract_entities(text, signal.location)
+    location = _text(signal.location)
+    title = _text(signal.title)
+    entities = _extract_entities(text, location)
     occurred = _parse_timestamp(signal.occurred_at)
     return NormalizedEvent(
-        event_id=NormalizedEvent.make_id(signal.source, signal.title, occurred),
+        event_id=NormalizedEvent.make_id(signal.source, title, occurred),
         source=signal.source,
-        title=signal.title.strip(),
-        summary=signal.summary.strip(),
+        title=title,
+        summary=_text(signal.summary),
         occurred_at=occurred,
-        location=signal.location.strip(),
-        url=signal.url.strip(),
-        node_id=signal.node_id or "",
-        scripture=signal.scripture or "",
-        confidence=signal.confidence or "Low",
+        location=location,
+        url=_text(signal.url),
+        node_id=_text(signal.node_id),
+        scripture=_text(signal.scripture),
+        confidence=_text(signal.confidence) or "Low",
         magnitude=signal.magnitude,
         domain=domain_key,
         keywords=keywords,
