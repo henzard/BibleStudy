@@ -77,16 +77,16 @@ def normalize_signal(signal: RawSignal) -> NormalizedEvent:
     domain_key = domain_for_collector(signal.source)
     text = f"{signal.title} {signal.summary}"
     keywords = _extract_keywords(text, domain_key)
-    entities = _extract_entities(text, signal.location)
+    entities = _extract_entities(text, signal.location or "")
     occurred = _parse_timestamp(signal.occurred_at)
     return NormalizedEvent(
         event_id=NormalizedEvent.make_id(signal.source, signal.title, occurred),
         source=signal.source,
-        title=signal.title.strip(),
-        summary=signal.summary.strip(),
+        title=(signal.title or "").strip(),
+        summary=(signal.summary or "").strip(),
         occurred_at=occurred,
-        location=signal.location.strip(),
-        url=signal.url.strip(),
+        location=(signal.location or "").strip(),
+        url=(signal.url or "").strip(),
         node_id=signal.node_id or "",
         scripture=signal.scripture or "",
         confidence=signal.confidence or "Low",
