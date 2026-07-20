@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-06-29 05:52 UTC",
-  "event_count": 134,
-  "cluster_count": 42,
+  "generated_at": "2026-07-20 03:02 UTC",
+  "event_count": 130,
+  "cluster_count": 37,
   "findings": [
     {
       "domain": "disaster",
-      "headline": "Earthquakes & Disasters: 120 event(s) across 32 situation(s) — steady",
-      "assessment": "Observed 120 normalized event(s) grouped into 32 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Earthquakes & Disasters: 119 event(s) across 29 situation(s) — escalating",
+      "assessment": "Observed 119 normalized event(s) grouped into 29 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as escalating. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Green: M7.5 earthquake: 28 km SE of Yumare, Venezuela [2026-06-29, 2 source(s)]",
-        "Alaska: M5.3 earthquake: 35 km SSW of Cordova, Alaska [2026-06-29, 1 source(s)]",
-        "Russia: M4.8 earthquake: 98 km S of Severo-Kuril’sk, Russia [2026-06-27, 1 source(s)]",
-        "Argentina: M4.5 earthquake: 50 km WSW of Abra Pampa, Argentina [2026-06-28, 1 source(s)]",
-        "Chile: M4.3 earthquake: 50 km WSW of Ollagüe, Chile [2026-06-27, 1 source(s)]"
+        "Green: M5.5 earthquake: 2 km WSW of Sicaya, Peru [2026-07-20, 2 source(s)]",
+        "Russia: M4.6 earthquake: 203 km ESE of Ozernovskiy, Russia [2026-07-20, 1 source(s)]",
+        "Alaska: M5.4 earthquake: 90 km SSE of False Pass, Alaska [2026-07-19, 1 source(s)]",
+        "Chile: M4.7 earthquake: 168 km WSW of San Antonio, Chile [2026-07-19, 1 source(s)]",
+        "Colombia: M4.6 earthquake: 3 km NE of Jordán, Colombia [2026-07-20, 1 source(s)]"
       ],
       "confidence": "Med",
-      "escalation": "steady",
+      "escalation": "escalating",
       "node_ids": [
         "J0"
       ],
@@ -48,10 +48,7 @@
         "disaster-25",
         "disaster-26",
         "disaster-27",
-        "disaster-28",
-        "disaster-29",
-        "disaster-30",
-        "disaster-31"
+        "disaster-28"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -61,7 +58,7 @@
       "headline": "Cosmic & Space Weather: 3 event(s) across 1 situation(s) — easing",
       "assessment": "Observed 3 normalized event(s) grouped into 1 corroboration cluster(s) for the Cosmic & Space Weather domain (nodes J6 Cosmic Signs). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Space: Space weather: MINOR [2026-06-29 00:00, 1 source(s)]"
+        "Space: Space weather: MINOR [2026-07-19 00:00, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -76,14 +73,14 @@
     },
     {
       "domain": "digital_control",
-      "headline": "Commerce Control & Digital ID: 9 event(s) across 8 situation(s) — easing",
-      "assessment": "Observed 9 normalized event(s) grouped into 8 corroboration cluster(s) for the Commerce Control & Digital ID domain (nodes B2 Commerce Control / Mark). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Commerce Control & Digital ID: 6 event(s) across 5 situation(s) — easing",
+      "assessment": "Observed 6 normalized event(s) grouped into 5 corroboration cluster(s) for the Commerce Control & Digital ID domain (nodes B2 Commerce Control / Mark). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "The: The FCC’s Spam Call Proposal Is Just a Data Collection Scheme [2026-06-25, 1 source(s)]",
-        "Grindr: EFF to Grindr: This Pride Month, Put Safety and Privacy Over Profits [2026-06-26, 1 source(s)]",
-        "Lawmakers Must Act: Lawmakers Must Act Now to Prevent Armed Police Drones [2026-06-26, 1 source(s)]",
-        "We Can Still: We Can Still Stop California’s 3D Printer Surveillance Scheme [2026-06-26, 1 source(s)]",
-        "Challenge Secrecy: EFF, TEDIC and CEJIL Challenge Secrecy in the Use of Face Recognition in Paraguay [2026-06-25, 1 source(s)]"
+        "Don: 🚫 Don't Let Congress Age-Gate the Internet | EFFector 38.13 [2026-07-15, 1 source(s)]",
+        "Victory: Victory! Flock Ends Rollout of Audio “Distress Detection” of Human Voices [2026-07-17, 1 source(s)]",
+        "How: How the Watch Dogs Video Game Series Mirrored and Predicted Real-World Digital Rights Issues [2026-07-17, 1 source(s)]",
+        "California Steps Back: California Steps Back From Dangerous Expansion of its Age-Gating Law [2026-07-15, 1 source(s)]",
+        "Most Smart Watches: Most Smart Watches, Rings, and Bands Lack Basic Transparency Reports and Key Privacy Features [2026-07-15, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -95,20 +92,18 @@
         "digital_control-1",
         "digital_control-2",
         "digital_control-3",
-        "digital_control-4",
-        "digital_control-5",
-        "digital_control-6",
-        "digital_control-7"
+        "digital_control-4"
       ],
       "source_backend": "heuristic",
       "caveats": []
     },
     {
       "domain": "middle_east",
-      "headline": "Middle East & Temple Mount: 2 event(s) across 1 situation(s) — easing",
-      "assessment": "Observed 2 normalized event(s) grouped into 1 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Middle East & Temple Mount: 2 event(s) across 2 situation(s) — easing",
+      "assessment": "Observed 2 normalized event(s) grouped into 2 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Israeli: Israel kills four Palestinians in Gaza as attacks on tents continue [2026-06-29, 1 source(s)]"
+        "Iraq: US soldier killed in Iraq during ‘controlled detonation’ of Iranian drone [2026-07-20, 1 source(s)]",
+        "Israeli: Israeli ministers join march to Gaza to demand return of settlements [2026-07-20, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -117,14 +112,15 @@
         "MS0"
       ],
       "cluster_ids": [
-        "middle_east-0"
+        "middle_east-0",
+        "middle_east-1"
       ],
       "source_backend": "heuristic",
       "caveats": []
     }
   ],
   "threat": {
-    "overall_intensity": 39.8,
+    "overall_intensity": 39.6,
     "phase": "EARLY Beginning of Sorrows",
     "emoji": "🟡",
     "note": "Some J0 markers present",
@@ -133,9 +129,9 @@
         "node_id": "J0",
         "label": "Beginning of Sorrows",
         "scripture": "Matt 24:6-8",
-        "intensity": 91.0,
+        "intensity": 100.0,
         "confidence": "Med",
-        "description": "122 event(s), 2 max independent source(s)",
+        "description": "121 event(s), 2 max independent source(s)",
         "contributing_domains": [
           "disaster"
         ]
@@ -144,9 +140,9 @@
         "node_id": "B2",
         "label": "Commerce Control / Mark",
         "scripture": "Rev 13:11-18",
-        "intensity": 67.0,
+        "intensity": 60.0,
         "confidence": "Low",
-        "description": "9 event(s), 1 max independent source(s)",
+        "description": "6 event(s), 1 max independent source(s)",
         "contributing_domains": [
           "digital_control"
         ]
@@ -166,9 +162,9 @@
         "node_id": "J3",
         "label": "Abomination of Desolation",
         "scripture": "Dan 9:27; Matt 24:15",
-        "intensity": 28.0,
+        "intensity": 0.0,
         "confidence": "Low",
-        "description": "2 event(s), 1 max independent source(s)",
+        "description": "No qualifying signals in window",
         "contributing_domains": [
           "middle_east"
         ]
@@ -241,7 +237,7 @@
     ],
     "cross_validation": {
       "J0": 2,
-      "J3": 1,
+      "J3": 0,
       "J4": 0,
       "J6": 1,
       "J7": 0,
@@ -264,14 +260,14 @@
           0,
           0,
           0,
+          145,
+          16,
           0,
-          0,
-          0,
-          145
+          221
         ],
-        "recent_week": 145,
-        "baseline_avg": 0.0,
-        "acceleration_pct": 0.0,
+        "recent_week": 221,
+        "baseline_avg": 23.0,
+        "acceleration_pct": 860.9,
         "direction": "escalating"
       },
       "conflicts": {
@@ -296,16 +292,16 @@
         "weekly_series": [
           0,
           0,
-          0,
-          0,
-          0,
           7,
           27,
-          39
+          39,
+          0,
+          1,
+          18
         ],
-        "recent_week": 39,
-        "baseline_avg": 4.86,
-        "acceleration_pct": 702.9,
+        "recent_week": 18,
+        "baseline_avg": 10.57,
+        "acceleration_pct": 70.3,
         "direction": "escalating"
       },
       "worldbank_news": {
@@ -335,33 +331,33 @@
   "alert_level": "AMBER",
   "changes": {
     "level": "AMBER",
-    "previous_level": null,
+    "previous_level": "AMBER",
     "rose": false,
-    "is_first_run": true,
+    "is_first_run": false,
     "changes": [
       {
-        "kind": "baseline",
-        "severity": "info",
-        "message": "First run — baseline established at AMBER (40/100).",
+        "kind": "new_escalation",
+        "severity": "watch",
+        "message": "disaster is now escalating.",
         "node_id": ""
       }
     ],
-    "summary": "Baseline established: AMBER."
+    "summary": "Update: AMBER (1 change(s))."
   },
   "freshness": {
     "items": [
       {
         "source": "earthquakes",
-        "latest": "2026-06-29 05:51",
-        "age_days": 0.2,
+        "latest": "2026-07-20 02:33",
+        "age_days": 0.1,
         "stale": false,
         "tier": 1,
         "max_age_days": 3
       },
       {
         "source": "disasters",
-        "latest": "2026-06-28 00:00",
-        "age_days": 1.2,
+        "latest": "2026-07-19 17:45",
+        "age_days": 1.1,
         "stale": false,
         "tier": 1,
         "max_age_days": 7
@@ -393,23 +389,23 @@
       {
         "source": "space_weather",
         "latest": "2026-06-29",
-        "age_days": 0.2,
-        "stale": false,
+        "age_days": 21.1,
+        "stale": true,
         "tier": 1,
         "max_age_days": 7
       },
       {
         "source": "digital_rights",
-        "latest": "2026-06-26 16:18",
-        "age_days": 3.2,
+        "latest": "2026-07-17 17:05",
+        "age_days": 3.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 21
       },
       {
         "source": "temple_mount_news",
-        "latest": "2026-06-29 00:00",
-        "age_days": 0.2,
+        "latest": "2026-07-20 00:00",
+        "age_days": 0.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 7
@@ -427,11 +423,12 @@
       "conflicts",
       "economic_indicators",
       "worldbank_news",
+      "space_weather",
       "fred_news"
     ],
     "any_stale": true
   },
   "report_title": "Prophecy Early-Warning Report",
-  "report_summary": "Overall pattern strength is 40/100 — EARLY Beginning of Sorrows. Some J0 markers present. No domain is clearly escalating. 2 metric(s) accelerating vs 8-week baseline. This is pattern observation only; timing is unknown (Matt 24:36).",
+  "report_summary": "Overall pattern strength is 40/100 — EARLY Beginning of Sorrows. Some J0 markers present. Escalating domains: disaster. 2 metric(s) accelerating vs 8-week baseline. This is pattern observation only; timing is unknown (Matt 24:36).",
   "delivered": []
 }
