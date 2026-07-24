@@ -26,6 +26,10 @@ _STOPWORDS = {
 }
 
 
+def _safe_str(value: Optional[str]) -> str:
+    return (value or "").strip()
+
+
 def _parse_timestamp(value: Optional[str]) -> Optional[str]:
     """Best-effort normalisation of varied timestamp strings to ISO date."""
     if not value:
@@ -77,16 +81,18 @@ def normalize_signal(signal: RawSignal) -> NormalizedEvent:
     domain_key = domain_for_collector(signal.source)
     text = f"{signal.title} {signal.summary}"
     keywords = _extract_keywords(text, domain_key)
-    entities = _extract_entities(text, signal.location)
+    location = _safe_str(signal.location)
+    entities = _extract_entities(text, location)
     occurred = _parse_timestamp(signal.occurred_at)
+    title = _safe_str(signal.title)
     return NormalizedEvent(
-        event_id=NormalizedEvent.make_id(signal.source, signal.title, occurred),
+        event_id=NormalizedEvent.make_id(signal.source, title, occurred),
         source=signal.source,
-        title=signal.title.strip(),
-        summary=signal.summary.strip(),
+        title=title,
+        summary=_safe_str(signal.summary),
         occurred_at=occurred,
-        location=signal.location.strip(),
-        url=signal.url.strip(),
+        location=location,
+        url=_safe_str(signal.url),
         node_id=signal.node_id or "",
         scripture=signal.scripture or "",
         confidence=signal.confidence or "Low",
