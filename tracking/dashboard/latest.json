@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-06-29 05:52 UTC",
-  "event_count": 134,
-  "cluster_count": 42,
+  "generated_at": "2026-07-25 00:17 UTC",
+  "event_count": 164,
+  "cluster_count": 38,
   "findings": [
     {
       "domain": "disaster",
-      "headline": "Earthquakes & Disasters: 120 event(s) across 32 situation(s) — steady",
-      "assessment": "Observed 120 normalized event(s) grouped into 32 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Earthquakes & Disasters: 147 event(s) across 32 situation(s) — steady",
+      "assessment": "Observed 147 normalized event(s) grouped into 32 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Green: M7.5 earthquake: 28 km SE of Yumare, Venezuela [2026-06-29, 2 source(s)]",
-        "Alaska: M5.3 earthquake: 35 km SSW of Cordova, Alaska [2026-06-29, 1 source(s)]",
-        "Russia: M4.8 earthquake: 98 km S of Severo-Kuril’sk, Russia [2026-06-27, 1 source(s)]",
-        "Argentina: M4.5 earthquake: 50 km WSW of Abra Pampa, Argentina [2026-06-28, 1 source(s)]",
-        "Chile: M4.3 earthquake: 50 km WSW of Ollagüe, Chile [2026-06-27, 1 source(s)]"
+        "Green: Tropical Cyclone (Green) — Marshall Islands [2026-07-27, 2 source(s)]",
+        "Argentina: M4.8 earthquake: 54 km NNW of San Antonio, Puerto Rico [2026-07-26, 1 source(s)]",
+        "Mexico: M5.1 earthquake: 43 km SW of Puerto Madero, Mexico [2026-07-25, 1 source(s)]",
+        "Tonga Magnitude: M5.1 earthquake: south of Tonga [2026-07-27, 1 source(s)]",
+        "Peru: M4.3 earthquake: 35 km ENE of Palca, Peru [2026-07-24, 1 source(s)]"
       ],
       "confidence": "Med",
       "escalation": "steady",
@@ -57,11 +57,30 @@
       "caveats": []
     },
     {
-      "domain": "cosmic",
-      "headline": "Cosmic & Space Weather: 3 event(s) across 1 situation(s) — easing",
-      "assessment": "Observed 3 normalized event(s) grouped into 1 corroboration cluster(s) for the Cosmic & Space Weather domain (nodes J6 Cosmic Signs). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "domain": "middle_east",
+      "headline": "Middle East & Temple Mount: 8 event(s) across 1 situation(s) — easing",
+      "assessment": "Observed 8 normalized event(s) grouped into 1 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Space: Space weather: MINOR [2026-06-29 00:00, 1 source(s)]"
+        "Israel: Lebanese return to homes of rubble left by Israel in so-called pilot zones [2026-07-25, 1 source(s)]"
+      ],
+      "confidence": "Low",
+      "escalation": "easing",
+      "node_ids": [
+        "J3",
+        "MS0"
+      ],
+      "cluster_ids": [
+        "middle_east-0"
+      ],
+      "source_backend": "heuristic",
+      "caveats": []
+    },
+    {
+      "domain": "cosmic",
+      "headline": "Cosmic & Space Weather: 5 event(s) across 1 situation(s) — easing",
+      "assessment": "Observed 5 normalized event(s) grouped into 1 corroboration cluster(s) for the Cosmic & Space Weather domain (nodes J6 Cosmic Signs). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "key_facts": [
+        "Space: Space weather: INFO [2026-07-26 00:00, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -75,15 +94,31 @@
       "caveats": []
     },
     {
-      "domain": "digital_control",
-      "headline": "Commerce Control & Digital ID: 9 event(s) across 8 situation(s) — easing",
-      "assessment": "Observed 9 normalized event(s) grouped into 8 corroboration cluster(s) for the Commerce Control & Digital ID domain (nodes B2 Commerce Control / Mark). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "domain": "financial",
+      "headline": "Economic Stress: 1 event(s) across 1 situation(s) — easing",
+      "assessment": "Observed 1 normalized event(s) grouped into 1 corroboration cluster(s) for the Economic Stress domain (nodes H0 Babylon / Economic). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "The: The FCC’s Spam Call Proposal Is Just a Data Collection Scheme [2026-06-25, 1 source(s)]",
-        "Grindr: EFF to Grindr: This Pride Month, Put Safety and Privacy Over Profits [2026-06-26, 1 source(s)]",
-        "Lawmakers Must Act: Lawmakers Must Act Now to Prevent Armed Police Drones [2026-06-26, 1 source(s)]",
-        "We Can Still: We Can Still Stop California’s 3D Printer Surveillance Scheme [2026-06-26, 1 source(s)]",
-        "Challenge Secrecy: EFF, TEDIC and CEJIL Challenge Secrecy in the Use of Face Recognition in Paraguay [2026-06-25, 1 source(s)]"
+        "Adds Data About: FRED Adds Data About the Adoption of Generative Artificial Intelligence [2026-07-24, 1 source(s)]"
+      ],
+      "confidence": "Low",
+      "escalation": "easing",
+      "node_ids": [
+        "H0"
+      ],
+      "cluster_ids": [
+        "financial-0"
+      ],
+      "source_backend": "heuristic",
+      "caveats": []
+    },
+    {
+      "domain": "digital_control",
+      "headline": "Commerce Control & Digital ID: 3 event(s) across 3 situation(s) — easing",
+      "assessment": "Observed 3 normalized event(s) grouped into 3 corroboration cluster(s) for the Commerce Control & Digital ID domain (nodes B2 Commerce Control / Mark). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "key_facts": [
+        "Hundreds: Hundreds of Drone-as-First-Responder Programs Could Soon Be Launched Across the Country [2026-07-23, 1 source(s)]",
+        "Protect Your Privacy: Protect Your Privacy with California's DROP Tool [2026-07-20, 1 source(s)]",
+        "An Explosion: An Explosion of Surveillance Towers is Coming to U.S. Borders, Costing Over $1 Billion [2026-07-20, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -93,38 +128,14 @@
       "cluster_ids": [
         "digital_control-0",
         "digital_control-1",
-        "digital_control-2",
-        "digital_control-3",
-        "digital_control-4",
-        "digital_control-5",
-        "digital_control-6",
-        "digital_control-7"
-      ],
-      "source_backend": "heuristic",
-      "caveats": []
-    },
-    {
-      "domain": "middle_east",
-      "headline": "Middle East & Temple Mount: 2 event(s) across 1 situation(s) — easing",
-      "assessment": "Observed 2 normalized event(s) grouped into 1 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
-      "key_facts": [
-        "Israeli: Israel kills four Palestinians in Gaza as attacks on tents continue [2026-06-29, 1 source(s)]"
-      ],
-      "confidence": "Low",
-      "escalation": "easing",
-      "node_ids": [
-        "J3",
-        "MS0"
-      ],
-      "cluster_ids": [
-        "middle_east-0"
+        "digital_control-2"
       ],
       "source_backend": "heuristic",
       "caveats": []
     }
   ],
   "threat": {
-    "overall_intensity": 39.8,
+    "overall_intensity": 39.1,
     "phase": "EARLY Beginning of Sorrows",
     "emoji": "🟡",
     "note": "Some J0 markers present",
@@ -135,40 +146,51 @@
         "scripture": "Matt 24:6-8",
         "intensity": 91.0,
         "confidence": "Med",
-        "description": "122 event(s), 2 max independent source(s)",
+        "description": "155 event(s), 2 max independent source(s)",
         "contributing_domains": [
           "disaster"
-        ]
-      },
-      {
-        "node_id": "B2",
-        "label": "Commerce Control / Mark",
-        "scripture": "Rev 13:11-18",
-        "intensity": 67.0,
-        "confidence": "Low",
-        "description": "9 event(s), 1 max independent source(s)",
-        "contributing_domains": [
-          "digital_control"
         ]
       },
       {
         "node_id": "J6",
         "label": "Cosmic Signs",
         "scripture": "Matt 24:29; Luke 21:25",
+        "intensity": 52.0,
+        "confidence": "Low",
+        "description": "5 event(s), 1 max independent source(s)",
+        "contributing_domains": [
+          "cosmic"
+        ]
+      },
+      {
+        "node_id": "B2",
+        "label": "Commerce Control / Mark",
+        "scripture": "Rev 13:11-18",
         "intensity": 36.0,
         "confidence": "Low",
         "description": "3 event(s), 1 max independent source(s)",
         "contributing_domains": [
-          "cosmic"
+          "digital_control"
+        ]
+      },
+      {
+        "node_id": "H0",
+        "label": "Babylon / Economic",
+        "scripture": "Rev 17-18",
+        "intensity": 20.0,
+        "confidence": "Low",
+        "description": "1 event(s), 1 max independent source(s)",
+        "contributing_domains": [
+          "financial"
         ]
       },
       {
         "node_id": "J3",
         "label": "Abomination of Desolation",
         "scripture": "Dan 9:27; Matt 24:15",
-        "intensity": 28.0,
+        "intensity": 0.0,
         "confidence": "Low",
-        "description": "2 event(s), 1 max independent source(s)",
+        "description": "No qualifying signals in window",
         "contributing_domains": [
           "middle_east"
         ]
@@ -186,15 +208,6 @@
         "node_id": "J7",
         "label": "Son of Man Appears",
         "scripture": "Matt 24:30-31",
-        "intensity": 0.0,
-        "confidence": "Low",
-        "description": "No qualifying signals in window",
-        "contributing_domains": []
-      },
-      {
-        "node_id": "H0",
-        "label": "Babylon / Economic",
-        "scripture": "Rev 17-18",
         "intensity": 0.0,
         "confidence": "Low",
         "description": "No qualifying signals in window",
@@ -241,11 +254,11 @@
     ],
     "cross_validation": {
       "J0": 2,
-      "J3": 1,
+      "J3": 0,
       "J4": 0,
       "J6": 1,
       "J7": 0,
-      "H0": 0,
+      "H0": 1,
       "B1": 0,
       "B2": 1,
       "MS0": 0,
@@ -263,15 +276,15 @@
           0,
           0,
           0,
+          70,
+          91,
           0,
           0,
-          0,
-          0,
-          145
+          131
         ],
-        "recent_week": 145,
-        "baseline_avg": 0.0,
-        "acceleration_pct": 0.0,
+        "recent_week": 131,
+        "baseline_avg": 23.0,
+        "acceleration_pct": 469.6,
         "direction": "escalating"
       },
       "conflicts": {
@@ -295,17 +308,17 @@
         "available": true,
         "weekly_series": [
           0,
+          4,
+          18,
+          45,
+          6,
           0,
-          0,
-          0,
-          0,
-          7,
-          27,
-          39
+          1,
+          84
         ],
-        "recent_week": 39,
-        "baseline_avg": 4.86,
-        "acceleration_pct": 702.9,
+        "recent_week": 84,
+        "baseline_avg": 10.57,
+        "acceleration_pct": 694.6,
         "direction": "escalating"
       },
       "worldbank_news": {
@@ -335,33 +348,39 @@
   "alert_level": "AMBER",
   "changes": {
     "level": "AMBER",
-    "previous_level": null,
+    "previous_level": "AMBER",
     "rose": false,
-    "is_first_run": true,
+    "is_first_run": false,
     "changes": [
       {
-        "kind": "baseline",
+        "kind": "node_crossing",
+        "severity": "amber",
+        "message": "J6 Cosmic Signs crossed up into AMBER (36 → 52).",
+        "node_id": "J6"
+      },
+      {
+        "kind": "node_crossing",
         "severity": "info",
-        "message": "First run — baseline established at AMBER (40/100).",
-        "node_id": ""
+        "message": "B2 Commerce Control / Mark eased to WATCH (67 → 36).",
+        "node_id": "B2"
       }
     ],
-    "summary": "Baseline established: AMBER."
+    "summary": "Update: AMBER (2 change(s))."
   },
   "freshness": {
     "items": [
       {
         "source": "earthquakes",
-        "latest": "2026-06-29 05:51",
-        "age_days": 0.2,
+        "latest": "2026-07-27 02:59",
+        "age_days": -2.0,
         "stale": false,
         "tier": 1,
         "max_age_days": 3
       },
       {
         "source": "disasters",
-        "latest": "2026-06-28 00:00",
-        "age_days": 1.2,
+        "latest": "2026-07-27 00:00",
+        "age_days": -2.0,
         "stale": false,
         "tier": 1,
         "max_age_days": 7
@@ -392,46 +411,45 @@
       },
       {
         "source": "space_weather",
-        "latest": "2026-06-29",
-        "age_days": 0.2,
+        "latest": "2026-07-26",
+        "age_days": -1.0,
         "stale": false,
         "tier": 1,
         "max_age_days": 7
       },
       {
         "source": "digital_rights",
-        "latest": "2026-06-26 16:18",
-        "age_days": 3.2,
+        "latest": "2026-07-23 22:00",
+        "age_days": 2.0,
         "stale": false,
         "tier": 2,
         "max_age_days": 21
       },
       {
         "source": "temple_mount_news",
-        "latest": "2026-06-29 00:00",
-        "age_days": 0.2,
+        "latest": "2026-07-25 00:00",
+        "age_days": 0.0,
         "stale": false,
         "tier": 2,
         "max_age_days": 7
       },
       {
         "source": "fred_news",
-        "latest": null,
-        "age_days": null,
-        "stale": true,
+        "latest": "2026-07-24 00:00",
+        "age_days": 1.0,
+        "stale": false,
         "tier": 2,
-        "reason": "no data"
+        "max_age_days": 14
       }
     ],
     "stale_sources": [
       "conflicts",
       "economic_indicators",
-      "worldbank_news",
-      "fred_news"
+      "worldbank_news"
     ],
     "any_stale": true
   },
   "report_title": "Prophecy Early-Warning Report",
-  "report_summary": "Overall pattern strength is 40/100 — EARLY Beginning of Sorrows. Some J0 markers present. No domain is clearly escalating. 2 metric(s) accelerating vs 8-week baseline. This is pattern observation only; timing is unknown (Matt 24:36).",
+  "report_summary": "Overall pattern strength is 39/100 — EARLY Beginning of Sorrows. Some J0 markers present. No domain is clearly escalating. 2 metric(s) accelerating vs 8-week baseline. This is pattern observation only; timing is unknown (Matt 24:36).",
   "delivered": []
 }
