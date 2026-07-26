@@ -1,0 +1,255 @@
+{
+  "threat_score": 42,
+  "threat_level": "WATCH",
+  "confidence": "MEDIUM",
+  "unsafe": false,
+  "decision": "PREPARE",
+  "recommendation": "PREPARE",
+  "top_reasons": [
+    "Nationwide anti-immigration protests scheduled 30 Jun 2026 with major SAPS deployment (R600m).",
+    "Recent looting in Mangaung (Bloemfontein metro) and Thembalihle, Free State — situation contained but tension persists.",
+    "Bloemfontein/Mangaung water supply disrupted by vandalism, ageing pipes, and planned maintenance outages.",
+    "Garden Route secondary roads still closed after early-June flood damage; primary highways need pre-trip verification.",
+    "National electricity grid stable (406+ days no load shedding) — positive offset.",
+    "Food inflation easing and expected July fuel price decreases — positive offset.",
+    "Southern Africa cholera surge in neighbours; SA on alert but no confirmed widespread local outbreak."
+  ],
+  "recommended_actions": [
+    "Fill drinking-water containers and check household filters before 30 Jun.",
+    "Top up vehicle fuel and keep cash plus a backup card/payment method.",
+    "Avoid non-essential travel through protest hotspots on 30 Jun; monitor SAPS/WC Gov road feeds if driving to Mossel Bay.",
+    "Refresh medicine stocks and charge power banks / two-way radios.",
+    "Secure home: lock gates, park vehicles off-street where possible during protest week.",
+    "If unrest spreads near Bloemfontein, limit movement to daylight hours on main roads only.",
+    "Re-check route status via Western Cape Government and SANRAL before any Garden Route departure."
+  ],
+  "sources_checked": [
+    "AP News",
+    "AP News (immigration protests, Jun 2026)",
+    "Ark-SA readiness checklist (derived from local signals above)",
+    "BloemNews Express",
+    "Bloemfontein Courant",
+    "Central Energy Fund projections via AutoTrader/IOL",
+    "EWN / Fuel Retailers Association",
+    "EWN explainer on June 30 mobilisation",
+    "Eskom official statements (eskom.co.za)",
+    "Eskom.co.za",
+    "GDACS RSS",
+    "Garden Route District Municipality MACC updates",
+    "George Herald / Western Cape Government road bulletins",
+    "George Herald / Western Cape Government road bulletins (18 Jun)",
+    "IOL / Investec El Niño outlook",
+    "IOL / Investec macro notes",
+    "IOL / Western Cape disaster recovery update (22 Jun)",
+    "IOL reporting on winter grid stability",
+    "IsDown incident logs for PayU/Payfast/Standard Bank",
+    "National Department of Health cholera info page",
+    "OFM / Mangaung Metro statements",
+    "ReliefWeb / Save the Children flood health note",
+    "ReliefWeb Southern Africa snapshot",
+    "SANRAL Western Cape advisories",
+    "SAnews.gov.za",
+    "SAnews.gov.za / IOL (30 Jun declared normal working day)",
+    "Stats SA / Daily Maverick",
+    "Stats SA via Daily Maverick analysis",
+    "TimesLIVE / DefenceWeb on Free State arrests",
+    "USGS/GDACS earthquake feeds",
+    "WHO Afro",
+    "WHO Afro regional bulletin",
+    "Western Cape Government road bulletins"
+  ],
+  "local_focus": "Bloemfontein, Free State, South Africa",
+  "route_focus": "Bloemfontein to Mossel Bay / Garden Route",
+  "timestamp_sast": "2026-07-24T18:36:24+0200",
+  "report_date": "2026-07-24",
+  "changes_since_yesterday": "No prior report in reports/ark-sa/ — baseline established today.",
+  "domains": {
+    "bible_prophecy": {
+      "label": "Bible / prophecy review",
+      "threat_level": "WATCH",
+      "score": 30,
+      "confidence": "MEDIUM",
+      "summary": "Global pattern resembles Matt 24:6–8 categories (wars/rumors, disasters, distress) without observing J3–J7 markers. No prophecy fulfillment claimed.",
+      "notes": [
+        "J0 (beginning of sorrows): active globally — conflicts, earthquakes, regional floods.",
+        "J3 abomination / J4 great tribulation / J6 cosmic signs: not observed.",
+        "SA unrest maps to general 'distress among nations' category only — cautious wording required."
+      ]
+    },
+    "operational_sa": {
+      "label": "South Africa operational risk",
+      "threat_level": "WATCH",
+      "score": 39,
+      "confidence": "MEDIUM",
+      "summary": "Grid and banking stable nationally; Bloemfontein water fragile; civil tension elevated ahead of 30 Jun with recent Free State looting contained by SAPS.",
+      "notes": [
+        "electricity_grid: National grid stable: Eskom reports 406+ consecutive days without load shedding (as of 26–27 Jun 2026). Localised load reduction continues in some high-risk feeders.",
+        "municipal_water: Bloemfontein/Mangaung water network under strain: vandalism on bulk pipelines, recurring outages in southern areas, and a planned 36-hour maintenance shutdown on 23–24 Jun. Supply restoration ongoing but fragile.",
+        "fuel_supply: National fuel supply reported stable by DMPR and Fuel Retailers Association. March–April saw localised dry pumps from panic buying; July 2026 price decreases expected as oil eases and rand strengthens (~R16.50/USD).",
+        "food_supply: Consumer food price inflation slowed to 1.6% (May 2026) with record grain harvest. El Niño developing — elevated drought risk for 2026/27 planting season; foot-and-mouth noted regionally.",
+        "civil_unrest: Nationwide anti-immigration demonstrations planned 30 Jun 2026 (2 days away). Recent Free State looting: 140+ arrests in Mangaung (Bloemfontein/Botshabelo) and 15+ spaza shops looted in Thembalihle (17 Jun). Government says no indication of widespread unrest yet; R600m security deployment underway.",
+        "banking_payments: No national banking outage. Isolated, resolved gateway degradations in June (Standard Bank Pay By Bank ~7h, PayU 3DSecure, Payfast ~1h).",
+        "health_disease: Southern Africa cholera surge in neighbours (Mozambique, Zambia, Malawi); South Africa on alert after Feb floods damaged WASH infrastructure but no confirmed widespread SA cholera outbreak on health.gov.za tracker.",
+        "weather_hazards: Garden Route severe flooding early Jun (200mm rain, fatalities, many district roads closed). As of 27 Jun, George/Knysna forecast mild/partly cloudy with 0% rain; new Yellow L4 rain warning for Cape Town/Winelands from 29 Jun.",
+        "global_shocks: Oil retreated to ~$73–80/bbl Brent after Middle East ceasefire framework; rand ~R16.50/USD. Venezuela M7.5 earthquake (24 Jun) — no direct SA impact. GDACS SA mentions today: Green forest fire notification in South Africa, Green forest fire notification in South Africa"
+      ]
+    },
+    "family_readiness": {
+      "label": "Family readiness risk",
+      "threat_level": "WATCH",
+      "score": 48,
+      "confidence": "MEDIUM",
+      "summary": "Elevated readiness warranted before 30 Jun: top up drinking water (local outages), fuel tanks, medicines, cash/backup payment options, comms charge, and paper maps. Caravan/move planning not urgent unless unrest escalates.",
+      "notes": [
+        "Water: store 3–5 days drinking water per person (Mangaung outages).",
+        "Fuel: fill vehicles; July price relief expected but queues possible near 30 Jun.",
+        "Meds/comms: refresh prescriptions; charge power banks; test radio/WhatsApp backup.",
+        "Documents/maps: keep ID copies; offline route maps for N1→N2→Mossel Bay."
+      ]
+    },
+    "route_mobility": {
+      "label": "Route / mobility risk (Bloemfontein → Mossel Bay)",
+      "threat_level": "WATCH",
+      "score": 45,
+      "confidence": "MEDIUM",
+      "summary": "Primary N1/N2 corridors Bloemfontein→Garden Route generally passable. ~70% of storm-damaged WC roads reopened (22 Jun); many scenic/secondary routes still closed (Meiringspoort, Swartberg Pass, Seven Passes sections, etc.). Verify WC Government/SANRAL status before departure; avoid closed passes.",
+      "notes": [
+        "Prefer main highways; verify N1 Beaufort West–Cape Town and N2 George–Mossel Bay status.",
+        "Avoid closed mountain passes and flooded low-water bridges.",
+        "If 30 Jun unrest blocks metros, delay travel or reroute via less-affected corridors."
+      ]
+    }
+  },
+  "category_signals": [
+    {
+      "name": "electricity_grid",
+      "level": "GREEN",
+      "score": 18,
+      "confidence": "HIGH",
+      "summary": "National grid stable: Eskom reports 406+ consecutive days without load shedding (as of 26–27 Jun 2026). Localised load reduction continues in some high-risk feeders.",
+      "sources": [
+        "Eskom official statements (eskom.co.za)",
+        "IOL reporting on winter grid stability"
+      ]
+    },
+    {
+      "name": "municipal_water",
+      "level": "AMBER",
+      "score": 62,
+      "confidence": "MEDIUM",
+      "summary": "Bloemfontein/Mangaung water network under strain: vandalism on bulk pipelines, recurring outages in southern areas, and a planned 36-hour maintenance shutdown on 23–24 Jun. Supply restoration ongoing but fragile.",
+      "sources": [
+        "Bloemfontein Courant",
+        "OFM / Mangaung Metro statements",
+        "BloemNews Express"
+      ]
+    },
+    {
+      "name": "fuel_supply",
+      "level": "WATCH",
+      "score": 38,
+      "confidence": "MEDIUM",
+      "summary": "National fuel supply reported stable by DMPR and Fuel Retailers Association. March–April saw localised dry pumps from panic buying; July 2026 price decreases expected as oil eases and rand strengthens (~R16.50/USD).",
+      "sources": [
+        "EWN / Fuel Retailers Association",
+        "Central Energy Fund projections via AutoTrader/IOL"
+      ]
+    },
+    {
+      "name": "food_supply",
+      "level": "WATCH",
+      "score": 32,
+      "confidence": "MEDIUM",
+      "summary": "Consumer food price inflation slowed to 1.6% (May 2026) with record grain harvest. El Niño developing — elevated drought risk for 2026/27 planting season; foot-and-mouth noted regionally.",
+      "sources": [
+        "Stats SA via Daily Maverick analysis",
+        "IOL / Investec El Niño outlook",
+        "ReliefWeb Southern Africa snapshot"
+      ]
+    },
+    {
+      "name": "civil_unrest",
+      "level": "AMBER",
+      "score": 58,
+      "confidence": "MEDIUM",
+      "summary": "Nationwide anti-immigration demonstrations planned 30 Jun 2026 (2 days away). Recent Free State looting: 140+ arrests in Mangaung (Bloemfontein/Botshabelo) and 15+ spaza shops looted in Thembalihle (17 Jun). Government says no indication of widespread unrest yet; R600m security deployment underway.",
+      "sources": [
+        "AP News (immigration protests, Jun 2026)",
+        "SAnews.gov.za / IOL (30 Jun declared normal working day)",
+        "EWN explainer on June 30 mobilisation",
+        "TimesLIVE / DefenceWeb on Free State arrests"
+      ]
+    },
+    {
+      "name": "banking_payments",
+      "level": "GREEN",
+      "score": 22,
+      "confidence": "MEDIUM",
+      "summary": "No national banking outage. Isolated, resolved gateway degradations in June (Standard Bank Pay By Bank ~7h, PayU 3DSecure, Payfast ~1h).",
+      "sources": [
+        "IsDown incident logs for PayU/Payfast/Standard Bank"
+      ]
+    },
+    {
+      "name": "health_disease",
+      "level": "WATCH",
+      "score": 40,
+      "confidence": "MEDIUM",
+      "summary": "Southern Africa cholera surge in neighbours (Mozambique, Zambia, Malawi); South Africa on alert after Feb floods damaged WASH infrastructure but no confirmed widespread SA cholera outbreak on health.gov.za tracker.",
+      "sources": [
+        "WHO Afro regional bulletin",
+        "ReliefWeb / Save the Children flood health note",
+        "National Department of Health cholera info page"
+      ]
+    },
+    {
+      "name": "weather_hazards",
+      "level": "WATCH",
+      "score": 35,
+      "confidence": "MEDIUM",
+      "summary": "Garden Route severe flooding early Jun (200mm rain, fatalities, many district roads closed). As of 27 Jun, George/Knysna forecast mild/partly cloudy with 0% rain; new Yellow L4 rain warning for Cape Town/Winelands from 29 Jun.",
+      "sources": [
+        "Garden Route District Municipality MACC updates",
+        "George Herald / Western Cape Government road bulletins"
+      ]
+    },
+    {
+      "name": "global_shocks",
+      "level": "WATCH",
+      "score": 42,
+      "confidence": "MEDIUM",
+      "summary": "Oil retreated to ~$73–80/bbl Brent after Middle East ceasefire framework; rand ~R16.50/USD. Venezuela M7.5 earthquake (24 Jun) — no direct SA impact. GDACS SA mentions today: Green forest fire notification in South Africa, Green forest fire notification in South Africa",
+      "sources": [
+        "IOL / Investec macro notes",
+        "GDACS RSS",
+        "USGS/GDACS earthquake feeds"
+      ]
+    },
+    {
+      "name": "route_mobility",
+      "level": "WATCH",
+      "score": 45,
+      "confidence": "MEDIUM",
+      "summary": "Primary N1/N2 corridors Bloemfontein→Garden Route generally passable. ~70% of storm-damaged WC roads reopened (22 Jun); many scenic/secondary routes still closed (Meiringspoort, Swartberg Pass, Seven Passes sections, etc.). Verify WC Government/SANRAL status before departure; avoid closed passes.",
+      "sources": [
+        "IOL / Western Cape disaster recovery update (22 Jun)",
+        "George Herald / Western Cape Government road bulletins (18 Jun)",
+        "SANRAL Western Cape advisories"
+      ]
+    },
+    {
+      "name": "family_readiness",
+      "level": "WATCH",
+      "score": 48,
+      "confidence": "MEDIUM",
+      "summary": "Elevated readiness warranted before 30 Jun: top up drinking water (local outages), fuel tanks, medicines, cash/backup payment options, comms charge, and paper maps. Caravan/move planning not urgent unless unrest escalates.",
+      "sources": [
+        "Ark-SA readiness checklist (derived from local signals above)"
+      ]
+    }
+  ],
+  "gdacs_sa_mentions": [
+    "Green forest fire notification in South Africa",
+    "Green forest fire notification in South Africa"
+  ]
+}
