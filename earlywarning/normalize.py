@@ -69,6 +69,7 @@ def _extract_keywords(text: str, domain_key: str) -> List[str]:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 def _text(value: Optional[str]) -> str:
     return (value or "").strip()
 =======
@@ -81,6 +82,11 @@ def _safe_str(value: Optional[str]) -> str:
     """Coerce optional string fields to a stripped str (None -> '')."""
     return value.strip() if value else ""
 >>>>>>> origin/cursor/biblestudy-automation-routine-2f46
+=======
+def _safe_str(value: Optional[str]) -> str:
+    """Return stripped string or empty string when value is None."""
+    return value.strip() if value else ""
+>>>>>>> origin/cursor/biblestudy-automation-routine-3269
 
 
 def _extract_entities(text: str, location: str) -> List[str]:
@@ -185,6 +191,7 @@ def normalize_signal(signal: RawSignal) -> NormalizedEvent:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         title=title,
         summary=_text(signal.summary),
         occurred_at=occurred,
@@ -265,6 +272,13 @@ def normalize_signal(signal: RawSignal) -> NormalizedEvent:
         location=location,
         url=_safe_str(signal.url),
 >>>>>>> origin/cursor/biblestudy-automation-routine-2f46
+=======
+        title=_safe_str(signal.title),
+        summary=_safe_str(signal.summary),
+        occurred_at=occurred,
+        location=_safe_str(signal.location),
+        url=_safe_str(signal.url),
+>>>>>>> origin/cursor/biblestudy-automation-routine-3269
         node_id=signal.node_id or "",
         scripture=signal.scripture or "",
         confidence=signal.confidence or "Low",
