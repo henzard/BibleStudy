@@ -82,16 +82,21 @@ def normalize_signal(signal: RawSignal) -> NormalizedEvent:
     text = f"{signal.title} {signal.summary}"
     keywords = _extract_keywords(text, domain_key)
 <<<<<<< HEAD
+<<<<<<< HEAD
     location = _text(signal.location)
     title = _text(signal.title)
     entities = _extract_entities(text, location)
 =======
     entities = _extract_entities(text, signal.location or "")
 >>>>>>> origin/cursor/biblestudy-automation-routine-d4cc
+=======
+    entities = _extract_entities(text, signal.location or "")
+>>>>>>> origin/cursor/biblestudy-automation-routine-a795
     occurred = _parse_timestamp(signal.occurred_at)
     return NormalizedEvent(
         event_id=NormalizedEvent.make_id(signal.source, title, occurred),
         source=signal.source,
+<<<<<<< HEAD
 <<<<<<< HEAD
         title=title,
         summary=_text(signal.summary),
@@ -105,6 +110,11 @@ def normalize_signal(signal: RawSignal) -> NormalizedEvent:
         title=(signal.title or "").strip(),
         summary=(signal.summary or "").strip(),
         occurred_at=occurred,
+=======
+        title=(signal.title or "").strip(),
+        summary=(signal.summary or "").strip(),
+        occurred_at=occurred,
+>>>>>>> origin/cursor/biblestudy-automation-routine-a795
         location=(signal.location or "").strip(),
         url=(signal.url or "").strip(),
         node_id=signal.node_id or "",
