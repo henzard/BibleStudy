@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-07-08 03:03 UTC",
-  "event_count": 135,
-  "cluster_count": 34,
+  "generated_at": "2026-07-09 03:02 UTC",
+  "event_count": 132,
+  "cluster_count": 35,
   "findings": [
     {
       "domain": "disaster",
-      "headline": "Earthquakes & Disasters: 124 event(s) across 28 situation(s) — escalating",
-      "assessment": "Observed 124 normalized event(s) grouped into 28 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as escalating. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Earthquakes & Disasters: 121 event(s) across 29 situation(s) — escalating",
+      "assessment": "Observed 121 normalized event(s) grouped into 29 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as escalating. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Green: M5.3 earthquake: 10 km WSW of Orotina, Costa Rica [2026-07-08, 2 source(s)]",
-        "Indonesia: M5.3 earthquake: 95 km WSW of Labuan, Indonesia [2026-07-08, 1 source(s)]",
-        "Tonga: M4.3 earthquake: 263 km WNW of Houma, Tonga [2026-07-07, 1 source(s)]",
-        "Greece: M4.4 earthquake: 24 km WNW of Palaióchora, Greece [2026-07-08, 1 source(s)]",
+        "Green: M5.8 earthquake: 91 km SSW of Isangel, Vanuatu [2026-07-08, 2 source(s)]",
+        "Indonesia: M4.7 earthquake: 134 km E of Bitung, Indonesia [2026-07-09, 1 source(s)]",
+        "Tonga: M5.4 earthquake: 245 km S of ‘Ohonua, Tonga [2026-07-08, 1 source(s)]",
+        "China: M5.0 earthquake: 1 km NNW of Xunchang, China [2026-07-09, 1 source(s)]",
         "Russia: M4.4 earthquake: 181 km ESE of Severo-Kuril’sk, Russia [2026-07-07, 1 source(s)]"
       ],
       "confidence": "Med",
@@ -47,7 +47,8 @@
         "disaster-24",
         "disaster-25",
         "disaster-26",
-        "disaster-27"
+        "disaster-27",
+        "disaster-28"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -57,7 +58,7 @@
       "headline": "Cosmic & Space Weather: 6 event(s) across 1 situation(s) — easing",
       "assessment": "Observed 6 normalized event(s) grouped into 1 corroboration cluster(s) for the Cosmic & Space Weather domain (nodes J6 Cosmic Signs). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Space: Space weather: INFO [2026-07-07 00:00, 1 source(s)]"
+        "Space: Space weather: MINOR [2026-07-08 00:00, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -97,8 +98,8 @@
       "headline": "Middle East & Temple Mount: 2 event(s) across 2 situation(s) — easing",
       "assessment": "Observed 2 normalized event(s) grouped into 2 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "How: How the US-Iran conflict is reshaping Africa’s geopolitical opportunities [2026-07-08, 1 source(s)]",
-        "They: ‘They brought me here to kill me’ says Gaza doctor in Israeli prison [2026-07-08, 1 source(s)]"
+        "Deadly: Deadly strikes in Gaza leave 5 dead, children wounded [2026-07-09, 1 source(s)]",
+        "Democrat Rahm Emanuel: Democrat Rahm Emanuel tells Israel to no longer expect unconditional US aid [2026-07-09, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -126,7 +127,7 @@
         "scripture": "Matt 24:6-8",
         "intensity": 100.0,
         "confidence": "Med",
-        "description": "126 event(s), 2 max independent source(s)",
+        "description": "123 event(s), 2 max independent source(s)",
         "contributing_domains": [
           "disaster"
         ]
@@ -256,13 +257,13 @@
           0,
           0,
           0,
-          25,
-          136,
-          135
+          47,
+          114,
+          140
         ],
-        "recent_week": 135,
+        "recent_week": 140,
         "baseline_avg": 23.0,
-        "acceleration_pct": 487.0,
+        "acceleration_pct": 508.7,
         "direction": "escalating"
       },
       "conflicts": {
@@ -289,14 +290,14 @@
           0,
           0,
           0,
-          11,
-          40,
-          44,
-          43
+          15,
+          45,
+          43,
+          41
         ],
-        "recent_week": 43,
-        "baseline_avg": 13.57,
-        "acceleration_pct": 216.8,
+        "recent_week": 41,
+        "baseline_avg": 14.71,
+        "acceleration_pct": 178.6,
         "direction": "escalating"
       },
       "worldbank_news": {
@@ -355,7 +356,7 @@
     "items": [
       {
         "source": "earthquakes",
-        "latest": "2026-07-08 02:57",
+        "latest": "2026-07-09 02:30",
         "age_days": 0.1,
         "stale": false,
         "tier": 1,
@@ -363,7 +364,7 @@
       },
       {
         "source": "disasters",
-        "latest": "2026-07-07 01:26",
+        "latest": "2026-07-08 19:07",
         "age_days": 1.1,
         "stale": false,
         "tier": 1,
@@ -396,7 +397,7 @@
       {
         "source": "space_weather",
         "latest": "2026-07-07",
-        "age_days": 1.1,
+        "age_days": 2.1,
         "stale": false,
         "tier": 1,
         "max_age_days": 7
@@ -404,14 +405,14 @@
       {
         "source": "digital_rights",
         "latest": "2026-07-07 16:17",
-        "age_days": 1.1,
+        "age_days": 2.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 21
       },
       {
         "source": "temple_mount_news",
-        "latest": "2026-07-08 00:00",
+        "latest": "2026-07-09 00:00",
         "age_days": 0.1,
         "stale": false,
         "tier": 2,
