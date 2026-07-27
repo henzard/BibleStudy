@@ -72,6 +72,7 @@ def _extract_keywords(text: str, domain_key: str) -> List[str]:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 def _text(value: Optional[str]) -> str:
     return (value or "").strip()
 =======
@@ -97,6 +98,11 @@ def _safe_str(value: Optional[str]) -> str:
 def _safe_str(value: Optional[str]) -> str:
     return (value or "").strip()
 >>>>>>> origin/cursor/biblestudy-automation-routine-6ab9
+=======
+def _safe_str(value: Optional[str]) -> str:
+    """Return stripped string or empty string when value is None."""
+    return value.strip() if value else ""
+>>>>>>> origin/cursor/biblestudy-automation-routine-c477
 
 
 def _extract_entities(text: str, location: str) -> List[str]:
@@ -140,6 +146,7 @@ def normalize_signal(signal: RawSignal) -> NormalizedEvent:
     url = _safe_str(signal.url)
     text = f"{title} {summary}"
     keywords = _extract_keywords(text, domain_key)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -203,11 +210,15 @@ def normalize_signal(signal: RawSignal) -> NormalizedEvent:
 =======
     entities = _extract_entities(text, location)
 >>>>>>> origin/cursor/biblestudy-automation-routine-3369
+=======
+    entities = _extract_entities(text, _safe_str(signal.location))
+>>>>>>> origin/cursor/biblestudy-automation-routine-c477
     occurred = _parse_timestamp(signal.occurred_at)
     title = _safe_str(signal.title)
     return NormalizedEvent(
         event_id=NormalizedEvent.make_id(signal.source, title, occurred),
         source=signal.source,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -331,6 +342,13 @@ def normalize_signal(signal: RawSignal) -> NormalizedEvent:
         location=location,
         url=url,
 >>>>>>> origin/cursor/biblestudy-automation-routine-3369
+=======
+        title=_safe_str(signal.title),
+        summary=_safe_str(signal.summary),
+        occurred_at=occurred,
+        location=_safe_str(signal.location),
+        url=_safe_str(signal.url),
+>>>>>>> origin/cursor/biblestudy-automation-routine-c477
         node_id=signal.node_id or "",
         scripture=signal.scripture or "",
         confidence=signal.confidence or "Low",
