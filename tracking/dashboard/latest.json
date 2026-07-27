@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-07-19 03:01 UTC",
-  "event_count": 143,
-  "cluster_count": 34,
+  "generated_at": "2026-07-21 03:01 UTC",
+  "event_count": 128,
+  "cluster_count": 42,
   "findings": [
     {
       "domain": "disaster",
-      "headline": "Earthquakes & Disasters: 128 event(s) across 27 situation(s) — escalating",
-      "assessment": "Observed 128 normalized event(s) grouped into 27 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as escalating. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Earthquakes & Disasters: 116 event(s) across 34 situation(s) — escalating",
+      "assessment": "Observed 116 normalized event(s) grouped into 34 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as escalating. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Green: M5.5 earthquake: 2 km WSW of Sicaya, Peru [2026-07-19, 2 source(s)]",
-        "Alaska: M4.2 earthquake: 212 km ESE of Attu Station, Alaska [2026-07-19, 1 source(s)]",
-        "Russia: M5.3 earthquake: 190 km SSE of Vilyuchinsk, Russia [2026-07-19, 1 source(s)]",
-        "China: M4.8 earthquake: 262 km SSE of Dunhuang, China [2026-07-17, 1 source(s)]",
-        "Chile: M4.5 earthquake: 106 km ESE of Ollagüe, Chile [2026-07-18, 1 source(s)]"
+        "Green: M5.6 earthquake: 208 km SW of Port McNeill, Canada [2026-07-21, 2 source(s)]",
+        "Magnitude: M4.9 earthquake: 193 km ENE of Saipan, Northern Mariana Islands [2026-07-20, 1 source(s)]",
+        "Russia: M4.6 earthquake: 203 km ESE of Ozernovskiy, Russia [2026-07-20, 1 source(s)]",
+        "Indonesia: M5.1 earthquake: 83 km W of Tobelo, Indonesia [2026-07-20, 1 source(s)]",
+        "Alaska: M5.4 earthquake: 90 km SSE of False Pass, Alaska [2026-07-20, 1 source(s)]"
       ],
       "confidence": "Med",
       "escalation": "escalating",
@@ -46,26 +46,14 @@
         "disaster-23",
         "disaster-24",
         "disaster-25",
-        "disaster-26"
-      ],
-      "source_backend": "heuristic",
-      "caveats": []
-    },
-    {
-      "domain": "middle_east",
-      "headline": "Middle East & Temple Mount: 6 event(s) across 1 situation(s) — easing",
-      "assessment": "Observed 6 normalized event(s) grouped into 1 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
-      "key_facts": [
-        "Israel: Netanyahu declares support for Argentina ahead of World Cup final [2026-07-19, 1 source(s)]"
-      ],
-      "confidence": "Low",
-      "escalation": "easing",
-      "node_ids": [
-        "J3",
-        "MS0"
-      ],
-      "cluster_ids": [
-        "middle_east-0"
+        "disaster-26",
+        "disaster-27",
+        "disaster-28",
+        "disaster-29",
+        "disaster-30",
+        "disaster-31",
+        "disaster-32",
+        "disaster-33"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -75,7 +63,7 @@
       "headline": "Cosmic & Space Weather: 3 event(s) across 1 situation(s) — easing",
       "assessment": "Observed 3 normalized event(s) grouped into 1 corroboration cluster(s) for the Cosmic & Space Weather domain (nodes J6 Cosmic Signs). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Space: Space weather: MINOR [2026-07-18 00:00, 1 source(s)]"
+        "Space: Space weather: MINOR [2026-07-20 00:00, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -90,14 +78,14 @@
     },
     {
       "domain": "digital_control",
-      "headline": "Commerce Control & Digital ID: 6 event(s) across 5 situation(s) — easing",
-      "assessment": "Observed 6 normalized event(s) grouped into 5 corroboration cluster(s) for the Commerce Control & Digital ID domain (nodes B2 Commerce Control / Mark). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Commerce Control & Digital ID: 7 event(s) across 6 situation(s) — easing",
+      "assessment": "Observed 7 normalized event(s) grouped into 6 corroboration cluster(s) for the Commerce Control & Digital ID domain (nodes B2 Commerce Control / Mark). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
         "Don: 🚫 Don't Let Congress Age-Gate the Internet | EFFector 38.13 [2026-07-15, 1 source(s)]",
+        "Protect Your Privacy: Protect Your Privacy with California's DROP Tool [2026-07-20, 1 source(s)]",
         "Victory: Victory! Flock Ends Rollout of Audio “Distress Detection” of Human Voices [2026-07-17, 1 source(s)]",
         "How: How the Watch Dogs Video Game Series Mirrored and Predicted Real-World Digital Rights Issues [2026-07-17, 1 source(s)]",
-        "California Steps Back: California Steps Back From Dangerous Expansion of its Age-Gating Law [2026-07-15, 1 source(s)]",
-        "Most Smart Watches: Most Smart Watches, Rings, and Bands Lack Basic Transparency Reports and Key Privacy Features [2026-07-15, 1 source(s)]"
+        "California Steps Back: California Steps Back From Dangerous Expansion of its Age-Gating Law [2026-07-15, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -109,14 +97,34 @@
         "digital_control-1",
         "digital_control-2",
         "digital_control-3",
-        "digital_control-4"
+        "digital_control-4",
+        "digital_control-5"
+      ],
+      "source_backend": "heuristic",
+      "caveats": []
+    },
+    {
+      "domain": "middle_east",
+      "headline": "Middle East & Temple Mount: 2 event(s) across 1 situation(s) — easing",
+      "assessment": "Observed 2 normalized event(s) grouped into 1 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "key_facts": [
+        "Israel: MSF demands Israel release detained Palestinian healthcare workers [2026-07-21, 1 source(s)]"
+      ],
+      "confidence": "Low",
+      "escalation": "easing",
+      "node_ids": [
+        "J3",
+        "MS0"
+      ],
+      "cluster_ids": [
+        "middle_east-0"
       ],
       "source_backend": "heuristic",
       "caveats": []
     }
   ],
   "threat": {
-    "overall_intensity": 39.6,
+    "overall_intensity": 40.3,
     "phase": "EARLY Beginning of Sorrows",
     "emoji": "🟡",
     "note": "Some J0 markers present",
@@ -127,7 +135,7 @@
         "scripture": "Matt 24:6-8",
         "intensity": 100.0,
         "confidence": "Med",
-        "description": "134 event(s), 2 max independent source(s)",
+        "description": "118 event(s), 2 max independent source(s)",
         "contributing_domains": [
           "disaster"
         ]
@@ -136,9 +144,9 @@
         "node_id": "B2",
         "label": "Commerce Control / Mark",
         "scripture": "Rev 13:11-18",
-        "intensity": 60.0,
+        "intensity": 67.0,
         "confidence": "Low",
-        "description": "6 event(s), 1 max independent source(s)",
+        "description": "7 event(s), 1 max independent source(s)",
         "contributing_domains": [
           "digital_control"
         ]
@@ -255,15 +263,15 @@
           0,
           0,
           0,
+          11,
+          150,
           0,
-          98,
-          63,
           0,
-          210
+          221
         ],
-        "recent_week": 210,
+        "recent_week": 221,
         "baseline_avg": 23.0,
-        "acceleration_pct": 813.0,
+        "acceleration_pct": 860.9,
         "direction": "escalating"
       },
       "conflicts": {
@@ -288,16 +296,16 @@
         "weekly_series": [
           0,
           0,
-          5,
-          23,
-          44,
-          1,
+          9,
+          32,
+          32,
           0,
-          17
+          0,
+          14
         ],
-        "recent_week": 17,
+        "recent_week": 14,
         "baseline_avg": 10.43,
-        "acceleration_pct": 63.0,
+        "acceleration_pct": 34.2,
         "direction": "escalating"
       },
       "worldbank_news": {
@@ -344,7 +352,7 @@
     "items": [
       {
         "source": "earthquakes",
-        "latest": "2026-07-19 02:56",
+        "latest": "2026-07-21 02:29",
         "age_days": 0.1,
         "stale": false,
         "tier": 1,
@@ -352,8 +360,8 @@
       },
       {
         "source": "disasters",
-        "latest": "2026-07-19 03:00",
-        "age_days": 0.1,
+        "latest": "2026-07-20 21:28",
+        "age_days": 1.1,
         "stale": false,
         "tier": 1,
         "max_age_days": 7
@@ -385,22 +393,22 @@
       {
         "source": "space_weather",
         "latest": "2026-06-29",
-        "age_days": 20.1,
+        "age_days": 22.1,
         "stale": true,
         "tier": 1,
         "max_age_days": 7
       },
       {
         "source": "digital_rights",
-        "latest": "2026-07-17 17:05",
-        "age_days": 2.1,
+        "latest": "2026-07-20 21:55",
+        "age_days": 1.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 21
       },
       {
         "source": "temple_mount_news",
-        "latest": "2026-07-19 00:00",
+        "latest": "2026-07-21 00:00",
         "age_days": 0.1,
         "stale": false,
         "tier": 2,
