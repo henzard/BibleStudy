@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-07-04 03:03 UTC",
-  "event_count": 154,
-  "cluster_count": 40,
+  "generated_at": "2026-07-05 03:04 UTC",
+  "event_count": 150,
+  "cluster_count": 37,
   "findings": [
     {
       "domain": "disaster",
-      "headline": "Earthquakes & Disasters: 138 event(s) across 33 situation(s) — steady",
-      "assessment": "Observed 138 normalized event(s) grouped into 33 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Earthquakes & Disasters: 135 event(s) across 31 situation(s) — steady",
+      "assessment": "Observed 135 normalized event(s) grouped into 31 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
         "Green: M6.2 earthquake: 58 km W of Tobelo, Indonesia [2026-07-04, 2 source(s)]",
         "Philippines: M5.2 earthquake: 24 km SW of Balangonan, Philippines [2026-07-04, 1 source(s)]",
-        "Alaska: M5.3 earthquake: 35 km SSW of Cordova, Alaska [2026-07-03, 1 source(s)]",
         "Greece: M5.2 earthquake: 23 km SSE of Karpathos, Greece [2026-07-03, 1 source(s)]",
-        "Argentina: M4.4 earthquake: 24 km NE of Capilla del Monte, Argentina [2026-07-02, 1 source(s)]"
+        "Argentina: M4.4 earthquake: 24 km NE of Capilla del Monte, Argentina [2026-07-02, 1 source(s)]",
+        "Chile: M5.0 earthquake: 43 km SW of Ovalle, Chile [2026-07-04, 1 source(s)]"
       ],
       "confidence": "Med",
       "escalation": "steady",
@@ -50,9 +50,7 @@
         "disaster-27",
         "disaster-28",
         "disaster-29",
-        "disaster-30",
-        "disaster-31",
-        "disaster-32"
+        "disaster-30"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -62,7 +60,7 @@
       "headline": "Cosmic & Space Weather: 6 event(s) across 1 situation(s) — easing",
       "assessment": "Observed 6 normalized event(s) grouped into 1 corroboration cluster(s) for the Cosmic & Space Weather domain (nodes J6 Cosmic Signs). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Space: Space weather: MODERATE [2026-07-04 00:00, 1 source(s)]"
+        "Space: Space weather: MINOR [2026-07-05 00:00, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -77,11 +75,10 @@
     },
     {
       "domain": "middle_east",
-      "headline": "Middle East & Temple Mount: 5 event(s) across 2 situation(s) — easing",
-      "assessment": "Observed 5 normalized event(s) grouped into 2 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Middle East & Temple Mount: 4 event(s) across 1 situation(s) — easing",
+      "assessment": "Observed 4 normalized event(s) grouped into 1 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Israeli: Iran war live: Millions expected in Tehran for funeral of Ali Khamenei [2026-07-04, 1 source(s)]",
-        "Lebanon: Lebanon-Israel deal betrays ‘victims of war crimes’, rights groups say [2026-07-04, 1 source(s)]"
+        "Iran: Iran war live: Huge crowds mourn Khamenei, Trump vows to hold fire [2026-07-05, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -90,8 +87,7 @@
         "MS0"
       ],
       "cluster_ids": [
-        "middle_east-0",
-        "middle_east-1"
+        "middle_east-0"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -133,7 +129,7 @@
         "scripture": "Matt 24:6-8",
         "intensity": 91.0,
         "confidence": "Med",
-        "description": "143 event(s), 2 max independent source(s)",
+        "description": "139 event(s), 2 max independent source(s)",
         "contributing_domains": [
           "disaster"
         ]
@@ -264,12 +260,12 @@
           0,
           0,
           0,
-          70,
-          195
+          98,
+          189
         ],
-        "recent_week": 195,
-        "baseline_avg": 10.0,
-        "acceleration_pct": 1850.0,
+        "recent_week": 189,
+        "baseline_avg": 14.0,
+        "acceleration_pct": 1250.0,
         "direction": "escalating"
       },
       "conflicts": {
@@ -296,14 +292,14 @@
           0,
           0,
           0,
-          4,
-          18,
-          53,
-          45
+          5,
+          23,
+          55,
+          47
         ],
-        "recent_week": 45,
-        "baseline_avg": 10.86,
-        "acceleration_pct": 314.5,
+        "recent_week": 47,
+        "baseline_avg": 12.0,
+        "acceleration_pct": 291.7,
         "direction": "escalating"
       },
       "worldbank_news": {
@@ -350,7 +346,7 @@
     "items": [
       {
         "source": "earthquakes",
-        "latest": "2026-07-04 02:57",
+        "latest": "2026-07-05 00:16",
         "age_days": 0.1,
         "stale": false,
         "tier": 1,
@@ -358,7 +354,7 @@
       },
       {
         "source": "disasters",
-        "latest": "2026-07-03 08:22",
+        "latest": "2026-07-04 00:00",
         "age_days": 1.1,
         "stale": false,
         "tier": 1,
@@ -390,7 +386,7 @@
       },
       {
         "source": "space_weather",
-        "latest": "2026-07-04",
+        "latest": "2026-07-05",
         "age_days": 0.1,
         "stale": false,
         "tier": 1,
@@ -399,14 +395,14 @@
       {
         "source": "digital_rights",
         "latest": "2026-07-02 15:52",
-        "age_days": 2.1,
+        "age_days": 3.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 21
       },
       {
         "source": "temple_mount_news",
-        "latest": "2026-07-04 00:00",
+        "latest": "2026-07-05 00:00",
         "age_days": 0.1,
         "stale": false,
         "tier": 2,
