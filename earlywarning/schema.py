@@ -211,6 +211,122 @@ CREATE TABLE IF NOT EXISTS fred_news (
 
 CREATE INDEX IF NOT EXISTS idx_fred_news_date ON fred_news(date);
 
+-- Covenant / treaty watch: Israel-involving diplomatic frameworks (node D1)
+CREATE TABLE IF NOT EXISTS covenant_watch (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id TEXT UNIQUE NOT NULL,
+    date TEXT NOT NULL,
+    title TEXT NOT NULL,
+    description TEXT,
+    parties TEXT,
+    treaty_type TEXT,
+    keywords TEXT,
+    confidence TEXT NOT NULL,
+    source_url TEXT,
+    node_id TEXT DEFAULT 'D1',
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_covenant_watch_date ON covenant_watch(date);
+
+-- CBDC / digital-ID infrastructure rollouts (node B2)
+CREATE TABLE IF NOT EXISTS cbdc_tracker (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id TEXT UNIQUE NOT NULL,
+    date TEXT NOT NULL,
+    title TEXT NOT NULL,
+    description TEXT,
+    country TEXT,
+    status TEXT,
+    category TEXT,
+    confidence TEXT NOT NULL,
+    source_url TEXT,
+    node_id TEXT DEFAULT 'B2',
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_cbdc_tracker_date ON cbdc_tracker(date);
+
+-- Ezekiel 38 coalition events: cooperation among the named nations (node E38)
+CREATE TABLE IF NOT EXISTS coalition_events (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id TEXT UNIQUE NOT NULL,
+    date TEXT NOT NULL,
+    title TEXT NOT NULL,
+    description TEXT,
+    nations TEXT NOT NULL,
+    event_type TEXT,
+    confidence TEXT NOT NULL,
+    source_url TEXT,
+    node_id TEXT DEFAULT 'E38',
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_coalition_events_date ON coalition_events(date);
+
+-- EU institutional consolidation events (node D2)
+CREATE TABLE IF NOT EXISTS eu_consolidation (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id TEXT UNIQUE NOT NULL,
+    date TEXT NOT NULL,
+    title TEXT NOT NULL,
+    description TEXT,
+    category TEXT,
+    confidence TEXT NOT NULL,
+    source_url TEXT,
+    node_id TEXT DEFAULT 'D2',
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_eu_consolidation_date ON eu_consolidation(date);
+
+-- AI coupled to compulsion: enforcement, surveillance mandates, worship (node B4)
+CREATE TABLE IF NOT EXISTS ai_enforcement (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id TEXT UNIQUE NOT NULL,
+    date TEXT NOT NULL,
+    title TEXT NOT NULL,
+    description TEXT,
+    category TEXT,
+    confidence TEXT NOT NULL,
+    source_url TEXT,
+    node_id TEXT DEFAULT 'B4',
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_ai_enforcement_date ON ai_enforcement(date);
+
+-- Gospel-reach metrics: Bible translation / access progress (node M14)
+CREATE TABLE IF NOT EXISTS gospel_reach (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TEXT NOT NULL,
+    metric_name TEXT NOT NULL,
+    value REAL NOT NULL,
+    description TEXT,
+    source_url TEXT,
+    node_id TEXT DEFAULT 'M14',
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_gospel_reach_date ON gospel_reach(date);
+
+-- WHO Disease Outbreak News (node J0 — Luke 21:11 pestilence)
+CREATE TABLE IF NOT EXISTS disease_outbreaks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id TEXT UNIQUE NOT NULL,
+    date TEXT NOT NULL,
+    disease TEXT NOT NULL,
+    country TEXT,
+    description TEXT,
+    severity TEXT,
+    confidence TEXT NOT NULL,
+    source_url TEXT,
+    node_id TEXT DEFAULT 'J0',
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_disease_outbreaks_date ON disease_outbreaks(date);
+
 -- Pipeline run history (early-warning state for change detection)
 CREATE TABLE IF NOT EXISTS pipeline_runs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -233,10 +349,10 @@ CREATE TABLE IF NOT EXISTS schema_version (
 """
 
 # Bump when SCHEMA changes in a way fresh installs should record.
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 4
 SCHEMA_VERSION_DESCRIPTION = (
-    "Add space_weather, digital_rights, temple_mount_news, fred_news, "
-    "pipeline_runs tables"
+    "Add covenant_watch, cbdc_tracker, coalition_events, eu_consolidation, "
+    "ai_enforcement, gospel_reach, disease_outbreaks tables"
 )
 
 

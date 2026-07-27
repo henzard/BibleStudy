@@ -355,6 +355,278 @@ class FredNewsCollector(Collector):
         return signals
 
 
+class CovenantCollector(Collector):
+    name = "covenant"
+    node_id = "D1"
+    scripture = "Dan 9:27"
+
+    def collect(self, ctx: CollectorContext) -> List[RawSignal]:
+        if not self.table_exists(ctx.conn, "covenant_watch"):
+            return []
+        rows = ctx.conn.execute(
+            """
+            SELECT event_id, date, title, description, parties, treaty_type,
+                   keywords, confidence, source_url, node_id
+            FROM covenant_watch
+            WHERE date >= ?
+            ORDER BY date DESC
+            """,
+            (ctx.cutoff_date,),
+        ).fetchall()
+        signals = []
+        for (event_id, date, title, desc, parties, ttype, keywords, conf,
+             url, node_id) in rows:
+            signals.append(
+                RawSignal(
+                    source=self.name,
+                    title=title,
+                    summary=desc or "",
+                    occurred_at=date,
+                    location=parties or "",
+                    url=url or "",
+                    node_id=node_id or self.node_id,
+                    scripture=self.scripture,
+                    confidence=(conf or "Low").title(),
+                    extra={"event_id": event_id, "treaty_type": ttype,
+                           "keywords": keywords},
+                )
+            )
+        return signals
+
+
+class CbdcCollector(Collector):
+    name = "cbdc"
+    node_id = "B2"
+    scripture = "Rev 13:16-17"
+
+    def collect(self, ctx: CollectorContext) -> List[RawSignal]:
+        if not self.table_exists(ctx.conn, "cbdc_tracker"):
+            return []
+        rows = ctx.conn.execute(
+            """
+            SELECT event_id, date, title, description, country, status,
+                   category, confidence, source_url
+            FROM cbdc_tracker
+            WHERE date >= ?
+            ORDER BY date DESC
+            """,
+            (ctx.cutoff_date,),
+        ).fetchall()
+        signals = []
+        for (event_id, date, title, desc, country, status, category, conf,
+             url) in rows:
+            signals.append(
+                RawSignal(
+                    source=self.name,
+                    title=title,
+                    summary=desc or "",
+                    occurred_at=date,
+                    location=country or "",
+                    url=url or "",
+                    node_id=self.node_id,
+                    scripture=self.scripture,
+                    confidence=(conf or "Low").title(),
+                    extra={"event_id": event_id, "status": status,
+                           "category": category},
+                )
+            )
+        return signals
+
+
+class CoalitionCollector(Collector):
+    name = "coalition"
+    node_id = "E38"
+    scripture = "Ezek 38:1-6"
+
+    def collect(self, ctx: CollectorContext) -> List[RawSignal]:
+        if not self.table_exists(ctx.conn, "coalition_events"):
+            return []
+        rows = ctx.conn.execute(
+            """
+            SELECT event_id, date, title, description, nations, event_type,
+                   confidence, source_url
+            FROM coalition_events
+            WHERE date >= ?
+            ORDER BY date DESC
+            """,
+            (ctx.cutoff_date,),
+        ).fetchall()
+        signals = []
+        for (event_id, date, title, desc, nations, etype, conf, url) in rows:
+            signals.append(
+                RawSignal(
+                    source=self.name,
+                    title=title,
+                    summary=desc or "",
+                    occurred_at=date,
+                    location=nations or "",
+                    url=url or "",
+                    node_id=self.node_id,
+                    scripture=self.scripture,
+                    confidence=(conf or "Low").title(),
+                    extra={"event_id": event_id, "nations": nations,
+                           "event_type": etype},
+                )
+            )
+        return signals
+
+
+class EuConsolidationCollector(Collector):
+    name = "eu"
+    node_id = "D2"
+    scripture = "Dan 2:40-43; 7:23-24"
+
+    def collect(self, ctx: CollectorContext) -> List[RawSignal]:
+        if not self.table_exists(ctx.conn, "eu_consolidation"):
+            return []
+        rows = ctx.conn.execute(
+            """
+            SELECT event_id, date, title, description, category, confidence,
+                   source_url
+            FROM eu_consolidation
+            WHERE date >= ?
+            ORDER BY date DESC
+            """,
+            (ctx.cutoff_date,),
+        ).fetchall()
+        signals = []
+        for (event_id, date, title, desc, category, conf, url) in rows:
+            signals.append(
+                RawSignal(
+                    source=self.name,
+                    title=title,
+                    summary=desc or "",
+                    occurred_at=date,
+                    location="European Union",
+                    url=url or "",
+                    node_id=self.node_id,
+                    scripture=self.scripture,
+                    confidence=(conf or "Low").title(),
+                    extra={"event_id": event_id, "category": category},
+                )
+            )
+        return signals
+
+
+class AiEnforcementCollector(Collector):
+    name = "ai_enforcement"
+    node_id = "B4"
+    scripture = "Rev 13:15"
+
+    def collect(self, ctx: CollectorContext) -> List[RawSignal]:
+        if not self.table_exists(ctx.conn, "ai_enforcement"):
+            return []
+        rows = ctx.conn.execute(
+            """
+            SELECT event_id, date, title, description, category, confidence,
+                   source_url, node_id
+            FROM ai_enforcement
+            WHERE date >= ?
+            ORDER BY date DESC
+            """,
+            (ctx.cutoff_date,),
+        ).fetchall()
+        signals = []
+        for (event_id, date, title, desc, category, conf, url,
+             node_id) in rows:
+            signals.append(
+                RawSignal(
+                    source=self.name,
+                    title=title,
+                    summary=desc or "",
+                    occurred_at=date,
+                    location="",
+                    url=url or "",
+                    node_id=node_id or self.node_id,
+                    scripture=self.scripture,
+                    confidence=(conf or "Low").title(),
+                    extra={"event_id": event_id, "category": category},
+                )
+            )
+        return signals
+
+
+class GospelReachCollector(Collector):
+    name = "gospel"
+    node_id = "M14"
+    scripture = "Matt 24:14"
+
+    def collect(self, ctx: CollectorContext) -> List[RawSignal]:
+        if not self.table_exists(ctx.conn, "gospel_reach"):
+            return []
+        # Annual-cadence metrics: read the latest snapshot per metric rather
+        # than date-windowing (a 30-day lookback would always miss them).
+        rows = ctx.conn.execute(
+            """
+            SELECT date, metric_name, value, description, source_url
+            FROM gospel_reach
+            WHERE (metric_name, date) IN (
+                SELECT metric_name, MAX(date) FROM gospel_reach
+                GROUP BY metric_name
+            )
+            ORDER BY metric_name
+            """,
+        ).fetchall()
+        signals = []
+        for date, metric, value, desc, url in rows:
+            signals.append(
+                RawSignal(
+                    source=self.name,
+                    title=f"Gospel reach: {metric} = {value:.0f}",
+                    summary=desc or metric,
+                    occurred_at=date,
+                    location="",
+                    url=url or "",
+                    node_id=self.node_id,
+                    scripture=self.scripture,
+                    confidence="High",
+                    magnitude=float(value),
+                    extra={"metric_name": metric},
+                )
+            )
+        return signals
+
+
+class OutbreakCollector(Collector):
+    name = "who_outbreaks"
+    node_id = "J0"
+    scripture = "Luke 21:11"
+
+    def collect(self, ctx: CollectorContext) -> List[RawSignal]:
+        if not self.table_exists(ctx.conn, "disease_outbreaks"):
+            return []
+        rows = ctx.conn.execute(
+            """
+            SELECT event_id, date, disease, country, description, severity,
+                   confidence, source_url
+            FROM disease_outbreaks
+            WHERE date >= ?
+            ORDER BY date DESC
+            """,
+            (ctx.cutoff_date,),
+        ).fetchall()
+        signals = []
+        for (event_id, date, disease, country, desc, severity, conf,
+             url) in rows:
+            loc = f" — {country}" if country else ""
+            signals.append(
+                RawSignal(
+                    source=self.name,
+                    title=f"Outbreak: {disease}{loc}",
+                    summary=desc or f"{disease} outbreak reported.",
+                    occurred_at=date,
+                    location=country or "",
+                    url=url or "",
+                    node_id=self.node_id,
+                    scripture=self.scripture,
+                    confidence=(conf or "Low").title(),
+                    extra={"event_id": event_id, "disease": disease,
+                           "severity": severity},
+                )
+            )
+        return signals
+
+
 ALL_DB_COLLECTORS = [
     EarthquakeCollector,
     DisasterCollector,
@@ -365,4 +637,11 @@ ALL_DB_COLLECTORS = [
     DigitalRightsCollector,
     TempleMountCollector,
     FredNewsCollector,
+    CovenantCollector,
+    CbdcCollector,
+    CoalitionCollector,
+    EuConsolidationCollector,
+    AiEnforcementCollector,
+    GospelReachCollector,
+    OutbreakCollector,
 ]

@@ -1,0 +1,14 @@
+{
+  "as_of": "2099-10-01",
+  "source_url": "https://progress.bible/statistics",
+  "metrics": [
+    {"name": "languages_full_bible", "value": 780,
+     "description": "Languages with a complete Bible"},
+    {"name": "languages_new_testament", "value": 1720,
+     "description": "Languages with a complete New Testament"},
+    {"name": "languages_no_scripture", "value": 880,
+     "description": "Languages with no Scripture at all"},
+    {"name": "languages_in_progress", "value": 3600,
+     "description": "Languages with active translation projects"}
+  ]
+}

@@ -160,6 +160,89 @@ def _p_fred_news(conn, s: RawSignal) -> int:
     return cur.rowcount or 0
 
 
+def _p_covenant(conn, s: RawSignal) -> int:
+    cur = conn.execute(
+        "INSERT OR IGNORE INTO covenant_watch "
+        "(event_id, date, title, description, parties, treaty_type, keywords, "
+        "confidence, source_url, node_id) VALUES (?,?,?,?,?,?,?,?,?,?)",
+        (_event_id(s), _date(s), s.title, s.summary, s.location,
+         s.extra.get("treaty_type"), _as_text(s.extra.get("keywords")),
+         s.confidence, s.url, s.node_id or "D1"),
+    )
+    return cur.rowcount or 0
+
+
+def _p_cbdc(conn, s: RawSignal) -> int:
+    cur = conn.execute(
+        "INSERT OR IGNORE INTO cbdc_tracker "
+        "(event_id, date, title, description, country, status, category, "
+        "confidence, source_url) VALUES (?,?,?,?,?,?,?,?,?)",
+        (_event_id(s), _date(s), s.title, s.summary,
+         s.extra.get("country") or s.location, s.extra.get("status"),
+         s.extra.get("category"), s.confidence, s.url),
+    )
+    return cur.rowcount or 0
+
+
+def _p_coalition(conn, s: RawSignal) -> int:
+    cur = conn.execute(
+        "INSERT OR IGNORE INTO coalition_events "
+        "(event_id, date, title, description, nations, event_type, "
+        "confidence, source_url) VALUES (?,?,?,?,?,?,?,?)",
+        (_event_id(s), _date(s), s.title, s.summary,
+         _as_text(s.extra.get("nations")) or s.location,
+         s.extra.get("event_type"), s.confidence, s.url),
+    )
+    return cur.rowcount or 0
+
+
+def _p_eu(conn, s: RawSignal) -> int:
+    cur = conn.execute(
+        "INSERT OR IGNORE INTO eu_consolidation "
+        "(event_id, date, title, description, category, confidence, "
+        "source_url) VALUES (?,?,?,?,?,?,?)",
+        (_event_id(s), _date(s), s.title, s.summary, s.extra.get("category"),
+         s.confidence, s.url),
+    )
+    return cur.rowcount or 0
+
+
+def _p_ai_enforcement(conn, s: RawSignal) -> int:
+    cur = conn.execute(
+        "INSERT OR IGNORE INTO ai_enforcement "
+        "(event_id, date, title, description, category, confidence, "
+        "source_url, node_id) VALUES (?,?,?,?,?,?,?,?)",
+        (_event_id(s), _date(s), s.title, s.summary, s.extra.get("category"),
+         s.confidence, s.url, s.node_id or "B4"),
+    )
+    return cur.rowcount or 0
+
+
+def _p_gospel(conn, s: RawSignal) -> int:
+    metric = s.extra.get("metric_name", s.title)
+    if _exists(conn, "gospel_reach", "date=? AND metric_name=?",
+               (_date(s), metric)):
+        return 0
+    conn.execute(
+        "INSERT INTO gospel_reach "
+        "(date, metric_name, value, description, source_url) "
+        "VALUES (?,?,?,?,?)",
+        (_date(s), metric, s.magnitude or 0.0, s.summary, s.url),
+    )
+    return 1
+
+
+def _p_who_outbreaks(conn, s: RawSignal) -> int:
+    cur = conn.execute(
+        "INSERT OR IGNORE INTO disease_outbreaks "
+        "(event_id, date, disease, country, description, severity, "
+        "confidence, source_url) VALUES (?,?,?,?,?,?,?,?)",
+        (_event_id(s), _date(s), s.extra.get("disease", "Unknown"),
+         s.location, s.summary, s.extra.get("severity"), s.confidence, s.url),
+    )
+    return cur.rowcount or 0
+
+
 _PERSISTERS = {
     "earthquakes": _p_earthquakes,
     "disasters": _p_disasters,
@@ -170,6 +253,13 @@ _PERSISTERS = {
     "eff": _p_digital_rights,
     "temple_mount": _p_temple_mount,
     "fred_news": _p_fred_news,
+    "covenant": _p_covenant,
+    "cbdc": _p_cbdc,
+    "coalition": _p_coalition,
+    "eu": _p_eu,
+    "ai_enforcement": _p_ai_enforcement,
+    "gospel": _p_gospel,
+    "who_outbreaks": _p_who_outbreaks,
 }
 
 

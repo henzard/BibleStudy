@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Sample EU Affairs Feed</title>
+    <link>https://example.com/feed</link>
+    <description>European Union news</description>
+    <item>
+      <title>European Commission Proposes Treaty Change to End Unanimity in Foreign Policy</title>
+      <link>https://example.com/news/eu-treaty-change</link>
+      <pubDate>Sun, 28 Jun 2099 12:00:00 +0000</pubDate>
+      <description>The proposal would abolish veto rights and move the European Union to qualified majority voting, a transfer of sovereignty member states have long resisted.</description>
+    </item>
+    <item>
+      <title>EU Defense Union Gains Support After Summit</title>
+      <link>https://example.com/news/eu-defense-union</link>
+      <pubDate>Sat, 27 Jun 2099 09:30:00 +0000</pubDate>
+      <description>Leaders in Brussels backed the defense union framework including a joint European army command structure.</description>
+    </item>
+    <item>
+      <title>EU Agricultural Subsidy Report Published</title>
+      <link>https://example.com/news/eu-agriculture</link>
+      <pubDate>Fri, 26 Jun 2099 15:45:00 +0000</pubDate>
+      <description>The annual report on farm subsidies across the European Union was released.</description>
+    </item>
+  </channel>
+</rss>

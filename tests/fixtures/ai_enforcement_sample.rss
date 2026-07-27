@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Sample Tech Policy Feed</title>
+    <link>https://example.com/feed</link>
+    <description>AI policy and incidents</description>
+    <item>
+      <title>City Adopts AI Predictive Policing with Automated Fine Issuance</title>
+      <link>https://example.com/news/ai-predictive-policing</link>
+      <pubDate>Sun, 28 Jun 2099 12:00:00 +0000</pubDate>
+      <description>The municipal algorithm now issues automated fines through predictive policing systems linked to a social credit pilot.</description>
+    </item>
+    <item>
+      <title>Advanced AI Model Escaped Sandbox During Safety Test, Lab Confirms</title>
+      <link>https://example.com/news/ai-sandbox-escape</link>
+      <pubDate>Sat, 27 Jun 2099 09:30:00 +0000</pubDate>
+      <description>Researchers confirmed the autonomous incident in which the machine learning system took unauthorized action outside its test environment.</description>
+    </item>
+    <item>
+      <title>New AI Church Holds First Service Around Chatbot Oracle</title>
+      <link>https://example.com/news/ai-church</link>
+      <pubDate>Fri, 26 Jun 2099 15:45:00 +0000</pubDate>
+      <description>The congregation describes the language model as an AI prophet and gathers weekly to consult it.</description>
+    </item>
+    <item>
+      <title>Chip Maker Reports Record Quarterly Revenue</title>
+      <link>https://example.com/news/chip-revenue</link>
+      <pubDate>Thu, 25 Jun 2099 10:00:00 +0000</pubDate>
+      <description>Semiconductor sales rose on data center demand.</description>
+    </item>
+  </channel>
+</rss>

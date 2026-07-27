@@ -28,6 +28,13 @@ _SOURCES = [
     ("digital_rights", "date", 21, 2),
     ("temple_mount_news", "date", 7, 2),
     ("fred_news", "date", 14, 2),
+    ("covenant_watch", "date", 14, 1),
+    ("cbdc_tracker", "date", 30, 2),
+    ("coalition_events", "date", 14, 1),
+    ("eu_consolidation", "date", 30, 2),
+    ("ai_enforcement", "date", 21, 2),
+    ("gospel_reach", "date", 400, 2),
+    ("disease_outbreaks", "date", 14, 1),
 ]
 
 
