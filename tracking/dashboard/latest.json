@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-07-14 03:01 UTC",
-  "event_count": 147,
-  "cluster_count": 49,
+  "generated_at": "2026-07-15 03:04 UTC",
+  "event_count": 149,
+  "cluster_count": 40,
   "findings": [
     {
       "domain": "disaster",
-      "headline": "Earthquakes & Disasters: 131 event(s) across 40 situation(s) — escalating",
-      "assessment": "Observed 131 normalized event(s) grouped into 40 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as escalating. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Earthquakes & Disasters: 136 event(s) across 32 situation(s) — escalating",
+      "assessment": "Observed 136 normalized event(s) grouped into 32 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as escalating. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Green: M5.4 earthquake: 24 km W of Mabiton, Philippines [2026-07-14, 2 source(s)]",
-        "Indonesia: M5.3 earthquake: 192 km WNW of Gorontalo, Indonesia [2026-07-13, 1 source(s)]",
-        "Alaska: M4.2 earthquake: 37 km WSW of Anchor Point, Alaska [2026-07-13, 1 source(s)]",
-        "Japan: M4.0 earthquake: 215 km WNW of Anamizu, Japan [2026-07-13, 1 source(s)]",
-        "China: M4.6 earthquake: 126 km NNE of Kangding, China [2026-07-12, 1 source(s)]"
+        "Green: M6.2 earthquake: 34 km WSW of Sarangani, Philippines [2026-07-15, 2 source(s)]",
+        "Indonesia: M4.4 earthquake: 191 km N of Tobelo, Indonesia [2026-07-14, 1 source(s)]",
+        "Alaska: M5.4 earthquake: 90 km SSE of False Pass, Alaska [2026-07-15, 1 source(s)]",
+        "Japan: M5.0 earthquake: 117 km E of Noda, Japan [2026-07-14, 1 source(s)]",
+        "China: M4.0 earthquake: 43 km S of Ürümqi, China [2026-07-14, 1 source(s)]"
       ],
       "confidence": "Med",
       "escalation": "escalating",
@@ -51,15 +51,7 @@
         "disaster-28",
         "disaster-29",
         "disaster-30",
-        "disaster-31",
-        "disaster-32",
-        "disaster-33",
-        "disaster-34",
-        "disaster-35",
-        "disaster-36",
-        "disaster-37",
-        "disaster-38",
-        "disaster-39"
+        "disaster-31"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -69,7 +61,7 @@
       "headline": "Cosmic & Space Weather: 4 event(s) across 1 situation(s) — easing",
       "assessment": "Observed 4 normalized event(s) grouped into 1 corroboration cluster(s) for the Cosmic & Space Weather domain (nodes J6 Cosmic Signs). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Space: Space weather: MINOR [2026-07-14 00:00, 1 source(s)]"
+        "Space: Space weather: MINOR [2026-07-15 00:00, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -83,33 +75,12 @@
       "caveats": []
     },
     {
-      "domain": "middle_east",
-      "headline": "Middle East & Temple Mount: 5 event(s) across 2 situation(s) — easing",
-      "assessment": "Observed 5 normalized event(s) grouped into 2 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
-      "key_facts": [
-        "Israel: Lindsey Graham’s legacy: Israel advocate, Trump ally, Iran war supporter [2026-07-14, 1 source(s)]",
-        "Israeli: Three Palestinians killed, 15 wounded in Israeli attacks across Gaza [2026-07-14, 1 source(s)]"
-      ],
-      "confidence": "Low",
-      "escalation": "easing",
-      "node_ids": [
-        "J3",
-        "MS0"
-      ],
-      "cluster_ids": [
-        "middle_east-0",
-        "middle_east-1"
-      ],
-      "source_backend": "heuristic",
-      "caveats": []
-    },
-    {
       "domain": "digital_control",
       "headline": "Commerce Control & Digital ID: 7 event(s) across 6 situation(s) — easing",
       "assessment": "Observed 7 normalized event(s) grouped into 6 corroboration cluster(s) for the Commerce Control & Digital ID domain (nodes B2 Commerce Control / Mark). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "In: Building Our Future Together [2026-07-10, 1 source(s)]",
-        "Automated Moderation Is: Automated Moderation Is Here to Stay—Accountability Must Keep Pace [2026-07-10, 1 source(s)]",
+        "This: Don’t Repeat NY’s 3D Printing Blunder [2026-07-14, 1 source(s)]",
+        "Building Our Future: Building Our Future Together [2026-07-10, 1 source(s)]",
         "We Want Texans: \"We Want Texans to Know Their Rights\": Q&A with Mayday Health on the Impact of Surveillance on Abortion Care [2026-07-09, 1 source(s)]",
         "The House Passed: The House Passed The KIDS Act—The Senate Should Reject It [2026-07-09, 1 source(s)]",
         "European Commission Chooses: European Commission Chooses to Keep EU Users Locked Up Behind Big Tech’s Gates [2026-07-09, 1 source(s)]"
@@ -129,6 +100,25 @@
       ],
       "source_backend": "heuristic",
       "caveats": []
+    },
+    {
+      "domain": "middle_east",
+      "headline": "Middle East & Temple Mount: 2 event(s) across 1 situation(s) — easing",
+      "assessment": "Observed 2 normalized event(s) grouped into 1 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "key_facts": [
+        "Israel: Palestine weekly: Israel attacks children, hospitals in bloody week in Gaza [2026-07-15, 1 source(s)]"
+      ],
+      "confidence": "Low",
+      "escalation": "easing",
+      "node_ids": [
+        "J3",
+        "MS0"
+      ],
+      "cluster_ids": [
+        "middle_east-0"
+      ],
+      "source_backend": "heuristic",
+      "caveats": []
     }
   ],
   "threat": {
@@ -143,7 +133,7 @@
         "scripture": "Matt 24:6-8",
         "intensity": 100.0,
         "confidence": "Med",
-        "description": "136 event(s), 2 max independent source(s)",
+        "description": "138 event(s), 2 max independent source(s)",
         "contributing_domains": [
           "disaster"
         ]
@@ -272,14 +262,14 @@
           0,
           0,
           0,
-          11,
-          150,
+          25,
+          136,
           0,
-          145
+          141
         ],
-        "recent_week": 145,
+        "recent_week": 141,
         "baseline_avg": 23.0,
-        "acceleration_pct": 530.4,
+        "acceleration_pct": 513.0,
         "direction": "escalating"
       },
       "conflicts": {
@@ -305,15 +295,15 @@
           0,
           0,
           0,
-          9,
-          32,
-          42,
-          33,
-          27
+          11,
+          39,
+          30,
+          34,
+          36
         ],
-        "recent_week": 27,
-        "baseline_avg": 16.57,
-        "acceleration_pct": 62.9,
+        "recent_week": 36,
+        "baseline_avg": 16.29,
+        "acceleration_pct": 121.1,
         "direction": "escalating"
       },
       "worldbank_news": {
@@ -360,7 +350,7 @@
     "items": [
       {
         "source": "earthquakes",
-        "latest": "2026-07-14 03:00",
+        "latest": "2026-07-15 03:03",
         "age_days": 0.1,
         "stale": false,
         "tier": 1,
@@ -368,7 +358,7 @@
       },
       {
         "source": "disasters",
-        "latest": "2026-07-13 14:45",
+        "latest": "2026-07-14 22:50",
         "age_days": 1.1,
         "stale": false,
         "tier": 1,
@@ -401,22 +391,22 @@
       {
         "source": "space_weather",
         "latest": "2026-07-12",
-        "age_days": 2.1,
+        "age_days": 3.1,
         "stale": false,
         "tier": 1,
         "max_age_days": 7
       },
       {
         "source": "digital_rights",
-        "latest": "2026-07-10 15:00",
-        "age_days": 4.1,
+        "latest": "2026-07-14 19:52",
+        "age_days": 1.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 21
       },
       {
         "source": "temple_mount_news",
-        "latest": "2026-07-14 00:00",
+        "latest": "2026-07-15 00:00",
         "age_days": 0.1,
         "stale": false,
         "tier": 2,
