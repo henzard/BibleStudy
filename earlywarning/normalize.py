@@ -27,10 +27,14 @@ _STOPWORDS = {
 
 
 def _safe_str(value: Optional[str]) -> str:
+<<<<<<< HEAD
     """Coerce optional string fields to stripped text (None -> '')."""
     if value is None:
         return ""
     return value.strip()
+=======
+    return (value or "").strip()
+>>>>>>> origin/cursor/biblestudy-automation-routine-9dd8
 
 
 def _parse_timestamp(value: Optional[str]) -> Optional[str]:
@@ -161,6 +165,7 @@ def normalize_signal(signal: RawSignal) -> NormalizedEvent:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     location = _text(signal.location)
     title = _text(signal.title)
     entities = _extract_entities(text, location)
@@ -213,11 +218,16 @@ def normalize_signal(signal: RawSignal) -> NormalizedEvent:
 =======
     entities = _extract_entities(text, _safe_str(signal.location))
 >>>>>>> origin/cursor/biblestudy-automation-routine-c477
+=======
+    location = _safe_str(signal.location)
+    entities = _extract_entities(text, location)
+>>>>>>> origin/cursor/biblestudy-automation-routine-9dd8
     occurred = _parse_timestamp(signal.occurred_at)
     title = _safe_str(signal.title)
     return NormalizedEvent(
         event_id=NormalizedEvent.make_id(signal.source, title, occurred),
         source=signal.source,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -349,6 +359,13 @@ def normalize_signal(signal: RawSignal) -> NormalizedEvent:
         location=_safe_str(signal.location),
         url=_safe_str(signal.url),
 >>>>>>> origin/cursor/biblestudy-automation-routine-c477
+=======
+        title=title,
+        summary=_safe_str(signal.summary),
+        occurred_at=occurred,
+        location=location,
+        url=_safe_str(signal.url),
+>>>>>>> origin/cursor/biblestudy-automation-routine-9dd8
         node_id=signal.node_id or "",
         scripture=signal.scripture or "",
         confidence=signal.confidence or "Low",

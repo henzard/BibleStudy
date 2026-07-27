@@ -60,7 +60,11 @@
   ],
   "local_focus": "Bloemfontein, Free State, South Africa",
   "route_focus": "Bloemfontein to Mossel Bay / Garden Route",
+<<<<<<< HEAD
   "timestamp_sast": "2026-07-24T18:36:24+0200",
+=======
+  "timestamp_sast": "2026-07-24T05:00:45+0200",
+>>>>>>> origin/cursor/biblestudy-automation-routine-9dd8
   "report_date": "2026-07-24",
   "changes_since_yesterday": "No prior report in reports/ark-sa/ — baseline established today.",
   "domains": {
@@ -91,7 +95,11 @@
         "banking_payments: No national banking outage. Isolated, resolved gateway degradations in June (Standard Bank Pay By Bank ~7h, PayU 3DSecure, Payfast ~1h).",
         "health_disease: Southern Africa cholera surge in neighbours (Mozambique, Zambia, Malawi); South Africa on alert after Feb floods damaged WASH infrastructure but no confirmed widespread SA cholera outbreak on health.gov.za tracker.",
         "weather_hazards: Garden Route severe flooding early Jun (200mm rain, fatalities, many district roads closed). As of 27 Jun, George/Knysna forecast mild/partly cloudy with 0% rain; new Yellow L4 rain warning for Cape Town/Winelands from 29 Jun.",
+<<<<<<< HEAD
         "global_shocks: Oil retreated to ~$73–80/bbl Brent after Middle East ceasefire framework; rand ~R16.50/USD. Venezuela M7.5 earthquake (24 Jun) — no direct SA impact. GDACS SA mentions today: Green forest fire notification in South Africa, Green forest fire notification in South Africa"
+=======
+        "global_shocks: Oil retreated to ~$73–80/bbl Brent after Middle East ceasefire framework; rand ~R16.50/USD. Venezuela M7.5 earthquake (24 Jun) — no direct SA impact. GDACS SA mentions today: Green forest fire notification in South Africa"
+>>>>>>> origin/cursor/biblestudy-automation-routine-9dd8
       ]
     },
     "family_readiness": {
@@ -218,7 +226,11 @@
       "level": "WATCH",
       "score": 42,
       "confidence": "MEDIUM",
+<<<<<<< HEAD
       "summary": "Oil retreated to ~$73–80/bbl Brent after Middle East ceasefire framework; rand ~R16.50/USD. Venezuela M7.5 earthquake (24 Jun) — no direct SA impact. GDACS SA mentions today: Green forest fire notification in South Africa, Green forest fire notification in South Africa",
+=======
+      "summary": "Oil retreated to ~$73–80/bbl Brent after Middle East ceasefire framework; rand ~R16.50/USD. Venezuela M7.5 earthquake (24 Jun) — no direct SA impact. GDACS SA mentions today: Green forest fire notification in South Africa",
+>>>>>>> origin/cursor/biblestudy-automation-routine-9dd8
       "sources": [
         "IOL / Investec macro notes",
         "GDACS RSS",
@@ -249,7 +261,10 @@
     }
   ],
   "gdacs_sa_mentions": [
+<<<<<<< HEAD
     "Green forest fire notification in South Africa",
+=======
+>>>>>>> origin/cursor/biblestudy-automation-routine-9dd8
     "Green forest fire notification in South Africa"
   ]
 }
