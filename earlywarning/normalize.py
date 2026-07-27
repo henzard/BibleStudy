@@ -26,21 +26,6 @@ _STOPWORDS = {
 }
 
 
-def _safe_str(value: Optional[str]) -> str:
-<<<<<<< HEAD
-<<<<<<< HEAD
-    """Coerce optional string fields to stripped text (None -> '')."""
-    if value is None:
-        return ""
-    return value.strip()
-=======
-    return (value or "").strip()
->>>>>>> origin/cursor/biblestudy-automation-routine-9dd8
-=======
-    return (value or "").strip()
->>>>>>> origin/cursor/biblestudy-automation-routine-c034
-
-
 def _parse_timestamp(value: Optional[str]) -> Optional[str]:
     """Best-effort normalisation of varied timestamp strings to ISO date."""
     if not value:
@@ -75,44 +60,6 @@ def _extract_keywords(text: str, domain_key: str) -> List[str]:
     return found[:8]
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-def _text(value: Optional[str]) -> str:
-    return (value or "").strip()
-=======
-def _safe_str(value: Optional[str]) -> str:
-    """Coerce optional string fields to a stripped str (None -> '')."""
-    return value.strip() if value else ""
->>>>>>> origin/cursor/biblestudy-automation-routine-46bc
-=======
-def _safe_str(value: Optional[str]) -> str:
-    """Coerce optional string fields to a stripped str (None -> '')."""
-    return value.strip() if value else ""
->>>>>>> origin/cursor/biblestudy-automation-routine-2f46
-=======
-def _safe_str(value: Optional[str]) -> str:
-    """Return stripped string or empty string when value is None."""
-    return value.strip() if value else ""
->>>>>>> origin/cursor/biblestudy-automation-routine-3269
-=======
-def _safe_str(value: Optional[str]) -> str:
-    return value.strip() if value else ""
->>>>>>> origin/cursor/biblestudy-automation-routine-513b
-=======
-def _safe_str(value: Optional[str]) -> str:
-    return (value or "").strip()
->>>>>>> origin/cursor/biblestudy-automation-routine-6ab9
-=======
-def _safe_str(value: Optional[str]) -> str:
-    """Return stripped string or empty string when value is None."""
-    return value.strip() if value else ""
->>>>>>> origin/cursor/biblestudy-automation-routine-c477
-
-
 def _extract_entities(text: str, location: str) -> List[str]:
     entities = []
     if location:
@@ -126,267 +73,23 @@ def _extract_entities(text: str, location: str) -> List[str]:
     return entities[:6]
 
 
-def _safe_str(value: Optional[str]) -> str:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    return value.strip() if value else ""
-=======
-    return (value or "").strip()
->>>>>>> origin/cursor/biblestudy-automation-routine-8122
-=======
-    return (value or "").strip()
->>>>>>> origin/cursor/biblestudy-automation-routine-b3e9
-=======
-    return (value or "").strip()
->>>>>>> origin/cursor/biblestudy-automation-routine-e729
-=======
-    return (value or "").strip()
->>>>>>> origin/cursor/biblestudy-automation-routine-3369
-
-
 def normalize_signal(signal: RawSignal) -> NormalizedEvent:
     domain_key = domain_for_collector(signal.source)
-    title = _safe_str(signal.title)
-    summary = _safe_str(signal.summary)
-    location = _safe_str(signal.location)
-    url = _safe_str(signal.url)
-    text = f"{title} {summary}"
+    text = f"{signal.title} {signal.summary}"
     keywords = _extract_keywords(text, domain_key)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    location = _text(signal.location)
-    title = _text(signal.title)
-    entities = _extract_entities(text, location)
-=======
-    entities = _extract_entities(text, signal.location or "")
->>>>>>> origin/cursor/biblestudy-automation-routine-d4cc
-=======
-    entities = _extract_entities(text, signal.location or "")
->>>>>>> origin/cursor/biblestudy-automation-routine-a795
-=======
-    entities = _extract_entities(text, signal.location or "")
->>>>>>> origin/cursor/biblestudy-automation-routine-1b53
-=======
-    entities = _extract_entities(text, location)
->>>>>>> origin/cursor/biblestudy-automation-routine-be27
-=======
-    entities = _extract_entities(text, location)
->>>>>>> origin/cursor/biblestudy-automation-routine-50ff
-=======
-    entities = _extract_entities(text, location)
->>>>>>> origin/cursor/biblestudy-automation-routine-8122
-=======
-    entities = _extract_entities(text, location)
->>>>>>> origin/cursor/biblestudy-automation-routine-b3e9
-=======
-    entities = _extract_entities(text, location)
->>>>>>> origin/cursor/biblestudy-automation-routine-e729
-=======
-    location = _safe_str(signal.location)
-    entities = _extract_entities(text, location)
->>>>>>> origin/cursor/biblestudy-automation-routine-3e5c
-=======
-    location = _safe_str(signal.location)
-    entities = _extract_entities(text, location)
->>>>>>> origin/cursor/biblestudy-automation-routine-46bc
-=======
-    location = _safe_str(signal.location)
-    entities = _extract_entities(text, location)
->>>>>>> origin/cursor/biblestudy-automation-routine-2f46
-=======
-    entities = _extract_entities(text, _safe_str(signal.location))
->>>>>>> origin/cursor/biblestudy-automation-routine-513b
-=======
-    location = _safe_str(signal.location)
-    entities = _extract_entities(text, location)
->>>>>>> origin/cursor/biblestudy-automation-routine-6ab9
-=======
-    entities = _extract_entities(text, location)
->>>>>>> origin/cursor/biblestudy-automation-routine-3369
-=======
-    entities = _extract_entities(text, _safe_str(signal.location))
->>>>>>> origin/cursor/biblestudy-automation-routine-c477
-=======
-    location = _safe_str(signal.location)
-    entities = _extract_entities(text, location)
->>>>>>> origin/cursor/biblestudy-automation-routine-9dd8
-=======
-    location = _safe_str(signal.location)
-    entities = _extract_entities(text, location)
->>>>>>> origin/cursor/biblestudy-automation-routine-c034
+    entities = _extract_entities(text, signal.location)
     occurred = _parse_timestamp(signal.occurred_at)
-    title = _safe_str(signal.title)
     return NormalizedEvent(
-        event_id=NormalizedEvent.make_id(signal.source, title, occurred),
+        event_id=NormalizedEvent.make_id(signal.source, signal.title, occurred),
         source=signal.source,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        title=title,
-        summary=_text(signal.summary),
+        title=signal.title.strip(),
+        summary=signal.summary.strip(),
         occurred_at=occurred,
-        location=location,
-        url=_text(signal.url),
-        node_id=_text(signal.node_id),
-        scripture=_text(signal.scripture),
-        confidence=_text(signal.confidence) or "Low",
-=======
-        title=(signal.title or "").strip(),
-        summary=(signal.summary or "").strip(),
-        occurred_at=occurred,
-=======
-        title=(signal.title or "").strip(),
-        summary=(signal.summary or "").strip(),
-        occurred_at=occurred,
->>>>>>> origin/cursor/biblestudy-automation-routine-a795
-=======
-        title=(signal.title or "").strip(),
-        summary=(signal.summary or "").strip(),
-        occurred_at=occurred,
->>>>>>> origin/cursor/biblestudy-automation-routine-1b53
-        location=(signal.location or "").strip(),
-        url=(signal.url or "").strip(),
-=======
-        title=title,
-        summary=summary,
-        occurred_at=occurred,
-        location=location,
-        url=url,
->>>>>>> origin/cursor/biblestudy-automation-routine-be27
-=======
-        title=title,
-        summary=summary,
-        occurred_at=occurred,
-        location=location,
-        url=url,
->>>>>>> origin/cursor/biblestudy-automation-routine-50ff
-=======
-        title=title,
-        summary=summary,
-        occurred_at=occurred,
-        location=location,
-        url=url,
->>>>>>> origin/cursor/biblestudy-automation-routine-8122
-=======
-        title=title,
-        summary=summary,
-        occurred_at=occurred,
-        location=location,
-        url=url,
->>>>>>> origin/cursor/biblestudy-automation-routine-b3e9
-=======
-        title=title,
-        summary=summary,
-        occurred_at=occurred,
-        location=location,
-        url=url,
->>>>>>> origin/cursor/biblestudy-automation-routine-e729
-=======
-        title=_safe_str(signal.title),
-        summary=_safe_str(signal.summary),
-        occurred_at=occurred,
-        location=location,
-        url=_safe_str(signal.url),
->>>>>>> origin/cursor/biblestudy-automation-routine-3e5c
-=======
-        title=_safe_str(signal.title),
-        summary=_safe_str(signal.summary),
-        occurred_at=occurred,
-        location=location,
-        url=_safe_str(signal.url),
->>>>>>> origin/cursor/biblestudy-automation-routine-46bc
-=======
-        title=_safe_str(signal.title),
-        summary=_safe_str(signal.summary),
-        occurred_at=occurred,
-        location=location,
-        url=_safe_str(signal.url),
->>>>>>> origin/cursor/biblestudy-automation-routine-2f46
-=======
-        title=_safe_str(signal.title),
-        summary=_safe_str(signal.summary),
-        occurred_at=occurred,
-        location=_safe_str(signal.location),
-        url=_safe_str(signal.url),
->>>>>>> origin/cursor/biblestudy-automation-routine-3269
-=======
-        title=_safe_str(signal.title),
-        summary=_safe_str(signal.summary),
-        occurred_at=occurred,
-        location=_safe_str(signal.location),
-        url=_safe_str(signal.url),
->>>>>>> origin/cursor/biblestudy-automation-routine-513b
-=======
-        title=title,
-        summary=_safe_str(signal.summary),
-        occurred_at=occurred,
-        location=location,
-        url=_safe_str(signal.url),
->>>>>>> origin/cursor/biblestudy-automation-routine-6ab9
-=======
-        title=title,
-        summary=summary,
-        occurred_at=occurred,
-        location=location,
-        url=url,
->>>>>>> origin/cursor/biblestudy-automation-routine-3369
-=======
-        title=_safe_str(signal.title),
-        summary=_safe_str(signal.summary),
-        occurred_at=occurred,
-        location=_safe_str(signal.location),
-        url=_safe_str(signal.url),
->>>>>>> origin/cursor/biblestudy-automation-routine-c477
-=======
-        title=title,
-        summary=_safe_str(signal.summary),
-        occurred_at=occurred,
-        location=location,
-        url=_safe_str(signal.url),
->>>>>>> origin/cursor/biblestudy-automation-routine-9dd8
-=======
-        title=title,
-        summary=_safe_str(signal.summary),
-        occurred_at=occurred,
-        location=location,
-        url=_safe_str(signal.url),
->>>>>>> origin/cursor/biblestudy-automation-routine-c034
+        location=signal.location.strip(),
+        url=signal.url.strip(),
         node_id=signal.node_id or "",
         scripture=signal.scripture or "",
         confidence=signal.confidence or "Low",
->>>>>>> origin/cursor/biblestudy-automation-routine-d4cc
         magnitude=signal.magnitude,
         domain=domain_key,
         keywords=keywords,
