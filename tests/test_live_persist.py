@@ -127,6 +127,24 @@ def test_persist_ignores_unknown_source(tmp_path):
     assert out == {}
 
 
+def test_pipeline_live_outage_replays_store(tmp_path, monkeypatch):
+    """A total feed outage must not report 0/100 GREEN over a stocked store."""
+    db = tmp_path / "p.db"
+    persist_signals(db, _signals())          # store has prior data
+
+    monkeypatch.setattr(pipeline_mod, "collect_live", lambda days: [])
+
+    cfg = PipelineConfig.from_env(db_path=db, lookback_days=40000)
+    cfg.llm = LLMConfig(provider="none")
+    cfg.output_dir = tmp_path / "ew"
+    cfg.outputs.dashboard_path = str(tmp_path / "d" / "latest.json")
+    cfg.outputs.dry_run = True
+
+    result = pipeline_mod.run_pipeline(cfg, live=True)
+    assert result.events                      # replayed, not empty
+    assert result.threat.overall_intensity > 0
+
+
 def test_pipeline_live_mode_persists_then_analyses(tmp_path, monkeypatch):
     # Stub the network collector so live mode runs fully offline.
     monkeypatch.setattr(pipeline_mod, "collect_live", lambda days: _signals())
