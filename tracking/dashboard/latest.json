@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-07-11 03:03 UTC",
-  "event_count": 124,
-  "cluster_count": 43,
+  "generated_at": "2026-07-12 03:02 UTC",
+  "event_count": 135,
+  "cluster_count": 45,
   "findings": [
     {
       "domain": "disaster",
-      "headline": "Earthquakes & Disasters: 110 event(s) across 35 situation(s) — steady",
-      "assessment": "Observed 110 normalized event(s) grouped into 35 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Earthquakes & Disasters: 120 event(s) across 37 situation(s) — steady",
+      "assessment": "Observed 120 normalized event(s) grouped into 37 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Green: M4.4 earthquake: 11 km N of Covelo, CA [2026-07-11, 2 source(s)]",
+        "Green: M4.4 earthquake: 11 km N of Covelo, CA [2026-07-12, 2 source(s)]",
         "Indonesia: M4.9 earthquake: 54 km NNW of Masohi, Indonesia [2026-07-11, 1 source(s)]",
-        "Tonga: M5.4 earthquake: 245 km S of ‘Ohonua, Tonga [2026-07-09, 1 source(s)]",
-        "China: M5.0 earthquake: 1 km NNW of Xunchang, China [2026-07-09, 1 source(s)]",
-        "Argentina: M5.8 earthquake: 296 km SSE of Ushuaia, Argentina [2026-07-08, 1 source(s)]"
+        "Tonga: M5.1 earthquake: 89 km NE of Hihifo, Tonga [2026-07-11, 1 source(s)]",
+        "China: M5.0 earthquake: 30 km NNW of Mianzhu, Deyang, Sichuan, China [2026-07-11, 1 source(s)]",
+        "Alaska: M4.3 earthquake: 115 km WSW of Adak, Alaska [2026-07-12, 1 source(s)]"
       ],
       "confidence": "Med",
       "escalation": "steady",
@@ -54,17 +54,19 @@
         "disaster-31",
         "disaster-32",
         "disaster-33",
-        "disaster-34"
+        "disaster-34",
+        "disaster-35",
+        "disaster-36"
       ],
       "source_backend": "heuristic",
       "caveats": []
     },
     {
       "domain": "cosmic",
-      "headline": "Cosmic & Space Weather: 6 event(s) across 1 situation(s) — easing",
-      "assessment": "Observed 6 normalized event(s) grouped into 1 corroboration cluster(s) for the Cosmic & Space Weather domain (nodes J6 Cosmic Signs). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Cosmic & Space Weather: 5 event(s) across 1 situation(s) — easing",
+      "assessment": "Observed 5 normalized event(s) grouped into 1 corroboration cluster(s) for the Cosmic & Space Weather domain (nodes J6 Cosmic Signs). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Space: Space weather: MINOR [2026-07-10 00:00, 1 source(s)]"
+        "Space: Space weather: INFO [2026-07-12 00:00, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -73,6 +75,25 @@
       ],
       "cluster_ids": [
         "cosmic-0"
+      ],
+      "source_backend": "heuristic",
+      "caveats": []
+    },
+    {
+      "domain": "middle_east",
+      "headline": "Middle East & Temple Mount: 3 event(s) across 1 situation(s) — easing",
+      "assessment": "Observed 3 normalized event(s) grouped into 1 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "key_facts": [
+        "Israeli: US Rep Ro Khanna speaks out about being harassed by Israeli settlers [2026-07-12, 1 source(s)]"
+      ],
+      "confidence": "Low",
+      "escalation": "easing",
+      "node_ids": [
+        "J3",
+        "MS0"
+      ],
+      "cluster_ids": [
+        "middle_east-0"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -103,29 +124,10 @@
       ],
       "source_backend": "heuristic",
       "caveats": []
-    },
-    {
-      "domain": "middle_east",
-      "headline": "Middle East & Temple Mount: 1 event(s) across 1 situation(s) — easing",
-      "assessment": "Observed 1 normalized event(s) grouped into 1 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
-      "key_facts": [
-        "Lebanon: Lebanon historic sites destroyed by Israeli strikes [2026-07-11, 1 source(s)]"
-      ],
-      "confidence": "Low",
-      "escalation": "easing",
-      "node_ids": [
-        "J3",
-        "MS0"
-      ],
-      "cluster_ids": [
-        "middle_east-0"
-      ],
-      "source_backend": "heuristic",
-      "caveats": []
     }
   ],
   "threat": {
-    "overall_intensity": 36.4,
+    "overall_intensity": 39.2,
     "phase": "EARLY Beginning of Sorrows",
     "emoji": "🟡",
     "note": "Some J0 markers present",
@@ -134,9 +136,9 @@
         "node_id": "J0",
         "label": "Beginning of Sorrows",
         "scripture": "Matt 24:6-8",
-        "intensity": 79.0,
+        "intensity": 91.0,
         "confidence": "Med",
-        "description": "111 event(s), 2 max independent source(s)",
+        "description": "123 event(s), 2 max independent source(s)",
         "contributing_domains": [
           "disaster"
         ]
@@ -156,9 +158,9 @@
         "node_id": "J6",
         "label": "Cosmic Signs",
         "scripture": "Matt 24:29; Luke 21:25",
-        "intensity": 60.0,
+        "intensity": 52.0,
         "confidence": "Low",
-        "description": "6 event(s), 1 max independent source(s)",
+        "description": "5 event(s), 1 max independent source(s)",
         "contributing_domains": [
           "cosmic"
         ]
@@ -266,13 +268,13 @@
           0,
           0,
           0,
-          70,
-          91,
-          130
+          98,
+          63,
+          132
         ],
-        "recent_week": 130,
+        "recent_week": 132,
         "baseline_avg": 23.0,
-        "acceleration_pct": 465.2,
+        "acceleration_pct": 473.9,
         "direction": "escalating"
       },
       "conflicts": {
@@ -298,15 +300,15 @@
           0,
           0,
           0,
-          4,
-          18,
-          50,
-          38,
-          30
+          5,
+          23,
+          49,
+          37,
+          29
         ],
-        "recent_week": 30,
-        "baseline_avg": 15.71,
-        "acceleration_pct": 90.9,
+        "recent_week": 29,
+        "baseline_avg": 16.29,
+        "acceleration_pct": 78.1,
         "direction": "escalating"
       },
       "worldbank_news": {
@@ -343,7 +345,7 @@
       {
         "kind": "node_crossing",
         "severity": "amber",
-        "message": "J6 Cosmic Signs crossed up into AMBER (36 → 60).",
+        "message": "J6 Cosmic Signs crossed up into AMBER (36 → 52).",
         "node_id": "J6"
       }
     ],
@@ -353,7 +355,7 @@
     "items": [
       {
         "source": "earthquakes",
-        "latest": "2026-07-11 02:52",
+        "latest": "2026-07-12 02:58",
         "age_days": 0.1,
         "stale": false,
         "tier": 1,
@@ -361,7 +363,7 @@
       },
       {
         "source": "disasters",
-        "latest": "2026-07-10 08:02",
+        "latest": "2026-07-11 10:26",
         "age_days": 1.1,
         "stale": false,
         "tier": 1,
@@ -393,8 +395,8 @@
       },
       {
         "source": "space_weather",
-        "latest": "2026-07-07",
-        "age_days": 4.1,
+        "latest": "2026-07-12",
+        "age_days": 0.1,
         "stale": false,
         "tier": 1,
         "max_age_days": 7
@@ -402,14 +404,14 @@
       {
         "source": "digital_rights",
         "latest": "2026-07-10 15:00",
-        "age_days": 1.1,
+        "age_days": 2.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 21
       },
       {
         "source": "temple_mount_news",
-        "latest": "2026-07-11 00:00",
+        "latest": "2026-07-12 00:00",
         "age_days": 0.1,
         "stale": false,
         "tier": 2,
@@ -433,6 +435,6 @@
     "any_stale": true
   },
   "report_title": "Prophecy Early-Warning Report",
-  "report_summary": "Overall pattern strength is 36/100 — EARLY Beginning of Sorrows. Some J0 markers present. No domain is clearly escalating. 2 metric(s) accelerating vs 8-week baseline. This is pattern observation only; timing is unknown (Matt 24:36).",
+  "report_summary": "Overall pattern strength is 39/100 — EARLY Beginning of Sorrows. Some J0 markers present. No domain is clearly escalating. 2 metric(s) accelerating vs 8-week baseline. This is pattern observation only; timing is unknown (Matt 24:36).",
   "delivered": []
 }
