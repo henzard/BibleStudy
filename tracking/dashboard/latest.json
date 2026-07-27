@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-07-05 03:04 UTC",
-  "event_count": 150,
-  "cluster_count": 37,
+  "generated_at": "2026-07-06 03:02 UTC",
+  "event_count": 134,
+  "cluster_count": 35,
   "findings": [
     {
       "domain": "disaster",
-      "headline": "Earthquakes & Disasters: 135 event(s) across 31 situation(s) — steady",
-      "assessment": "Observed 135 normalized event(s) grouped into 31 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Earthquakes & Disasters: 121 event(s) across 28 situation(s) — steady",
+      "assessment": "Observed 121 normalized event(s) grouped into 28 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Green: M6.2 earthquake: 58 km W of Tobelo, Indonesia [2026-07-04, 2 source(s)]",
+        "Green: M5.8 earthquake: 274 km SE of Levuka, Fiji [2026-07-05, 2 source(s)]",
         "Philippines: M5.2 earthquake: 24 km SW of Balangonan, Philippines [2026-07-04, 1 source(s)]",
+        "Tonga: M4.3 earthquake: 124 km WSW of Hihifo, Tonga [2026-07-04, 1 source(s)]",
         "Greece: M5.2 earthquake: 23 km SSE of Karpathos, Greece [2026-07-03, 1 source(s)]",
-        "Argentina: M4.4 earthquake: 24 km NE of Capilla del Monte, Argentina [2026-07-02, 1 source(s)]",
-        "Chile: M5.0 earthquake: 43 km SW of Ovalle, Chile [2026-07-04, 1 source(s)]"
+        "Chile: M5.0 earthquake: 106 km NW of Coquimbo, Chile [2026-07-05, 1 source(s)]"
       ],
       "confidence": "Med",
       "escalation": "steady",
@@ -47,10 +47,7 @@
         "disaster-24",
         "disaster-25",
         "disaster-26",
-        "disaster-27",
-        "disaster-28",
-        "disaster-29",
-        "disaster-30"
+        "disaster-27"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -60,7 +57,7 @@
       "headline": "Cosmic & Space Weather: 6 event(s) across 1 situation(s) — easing",
       "assessment": "Observed 6 normalized event(s) grouped into 1 corroboration cluster(s) for the Cosmic & Space Weather domain (nodes J6 Cosmic Signs). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Space: Space weather: MINOR [2026-07-05 00:00, 1 source(s)]"
+        "Space: Space weather: INFO [2026-07-05 00:00, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -69,25 +66,6 @@
       ],
       "cluster_ids": [
         "cosmic-0"
-      ],
-      "source_backend": "heuristic",
-      "caveats": []
-    },
-    {
-      "domain": "middle_east",
-      "headline": "Middle East & Temple Mount: 4 event(s) across 1 situation(s) — easing",
-      "assessment": "Observed 4 normalized event(s) grouped into 1 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
-      "key_facts": [
-        "Iran: Iran war live: Huge crowds mourn Khamenei, Trump vows to hold fire [2026-07-05, 1 source(s)]"
-      ],
-      "confidence": "Low",
-      "escalation": "easing",
-      "node_ids": [
-        "J3",
-        "MS0"
-      ],
-      "cluster_ids": [
-        "middle_east-0"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -115,6 +93,27 @@
       ],
       "source_backend": "heuristic",
       "caveats": []
+    },
+    {
+      "domain": "middle_east",
+      "headline": "Middle East & Temple Mount: 2 event(s) across 2 situation(s) — easing",
+      "assessment": "Observed 2 normalized event(s) grouped into 2 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "key_facts": [
+        "Palestinian: Palestinian baby dies in West Bank after Israel blocks urgent medical care [2026-07-06, 1 source(s)]",
+        "Sons: Sons of Iran’s leader Ali Khamenei attend funeral, but Mojtaba is absent [2026-07-06, 1 source(s)]"
+      ],
+      "confidence": "Low",
+      "escalation": "easing",
+      "node_ids": [
+        "J3",
+        "MS0"
+      ],
+      "cluster_ids": [
+        "middle_east-0",
+        "middle_east-1"
+      ],
+      "source_backend": "heuristic",
+      "caveats": []
     }
   ],
   "threat": {
@@ -129,7 +128,7 @@
         "scripture": "Matt 24:6-8",
         "intensity": 91.0,
         "confidence": "Med",
-        "description": "139 event(s), 2 max independent source(s)",
+        "description": "123 event(s), 2 max independent source(s)",
         "contributing_domains": [
           "disaster"
         ]
@@ -260,12 +259,12 @@
           0,
           0,
           0,
-          98,
-          189
+          145,
+          154
         ],
-        "recent_week": 189,
-        "baseline_avg": 14.0,
-        "acceleration_pct": 1250.0,
+        "recent_week": 154,
+        "baseline_avg": 20.71,
+        "acceleration_pct": 643.4,
         "direction": "escalating"
       },
       "conflicts": {
@@ -292,14 +291,14 @@
           0,
           0,
           0,
-          5,
-          23,
-          55,
-          47
+          7,
+          27,
+          53,
+          42
         ],
-        "recent_week": 47,
-        "baseline_avg": 12.0,
-        "acceleration_pct": 291.7,
+        "recent_week": 42,
+        "baseline_avg": 12.57,
+        "acceleration_pct": 234.1,
         "direction": "escalating"
       },
       "worldbank_news": {
@@ -346,7 +345,7 @@
     "items": [
       {
         "source": "earthquakes",
-        "latest": "2026-07-05 00:16",
+        "latest": "2026-07-06 02:58",
         "age_days": 0.1,
         "stale": false,
         "tier": 1,
@@ -354,7 +353,7 @@
       },
       {
         "source": "disasters",
-        "latest": "2026-07-04 00:00",
+        "latest": "2026-07-05 14:22",
         "age_days": 1.1,
         "stale": false,
         "tier": 1,
@@ -387,7 +386,7 @@
       {
         "source": "space_weather",
         "latest": "2026-07-05",
-        "age_days": 0.1,
+        "age_days": 1.1,
         "stale": false,
         "tier": 1,
         "max_age_days": 7
@@ -395,14 +394,14 @@
       {
         "source": "digital_rights",
         "latest": "2026-07-02 15:52",
-        "age_days": 3.1,
+        "age_days": 4.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 21
       },
       {
         "source": "temple_mount_news",
-        "latest": "2026-07-05 00:00",
+        "latest": "2026-07-06 00:00",
         "age_days": 0.1,
         "stale": false,
         "tier": 2,
