@@ -148,6 +148,89 @@ def _m_temple_mount(r: Dict) -> RawSignal:
     )
 
 
+def _m_covenant(r: Dict) -> RawSignal:
+    return RawSignal(
+        source="covenant", title=r.get("title", "Covenant/treaty report"),
+        summary=r.get("description", ""), occurred_at=_iso(r.get("date")),
+        url=r.get("url", ""), node_id=r.get("node", "D1"),
+        scripture=r.get("scripture", "Dan 9:27"),
+        confidence=_conf(r.get("confidence")),
+        extra={"treaty_type": r.get("treaty_type"),
+               "keywords": r.get("keywords"), "event_id": r.get("url")},
+    )
+
+
+def _m_cbdc(r: Dict) -> RawSignal:
+    return RawSignal(
+        source="cbdc", title=r.get("title", "CBDC/digital-ID report"),
+        summary=r.get("description", ""), occurred_at=_iso(r.get("date")),
+        url=r.get("url", ""), node_id="B2", scripture="Rev 13:16-17",
+        confidence=_conf(r.get("confidence")),
+        extra={"category": r.get("category"), "status": r.get("status"),
+               "country": r.get("country"), "event_id": r.get("url")},
+    )
+
+
+def _m_coalition(r: Dict) -> RawSignal:
+    nations = r.get("nations") or []
+    return RawSignal(
+        source="coalition", title=r.get("title", "Coalition event"),
+        summary=r.get("description", ""), occurred_at=_iso(r.get("date")),
+        location=", ".join(nations) if isinstance(nations, list) else str(nations),
+        url=r.get("url", ""), node_id="E38", scripture="Ezek 38:1-6",
+        confidence=_conf(r.get("confidence")),
+        extra={"nations": nations, "event_type": r.get("event_type"),
+               "event_id": r.get("url")},
+    )
+
+
+def _m_eu(r: Dict) -> RawSignal:
+    return RawSignal(
+        source="eu", title=r.get("title", "EU consolidation report"),
+        summary=r.get("description", ""), occurred_at=_iso(r.get("date")),
+        location="European Union", url=r.get("url", ""), node_id="D2",
+        scripture="Dan 2:40-43; 7:23-24", confidence=_conf(r.get("confidence")),
+        extra={"category": r.get("category"), "event_id": r.get("url")},
+    )
+
+
+def _m_ai_enforcement(r: Dict) -> RawSignal:
+    return RawSignal(
+        source="ai_enforcement", title=r.get("title", "AI enforcement report"),
+        summary=r.get("description", ""), occurred_at=_iso(r.get("date")),
+        url=r.get("url", ""), node_id=r.get("node", "B4"),
+        scripture=r.get("scripture", "Rev 13:15"),
+        confidence=_conf(r.get("confidence")),
+        extra={"category": r.get("category"), "event_id": r.get("url")},
+    )
+
+
+def _m_gospel(r: Dict) -> RawSignal:
+    metric = r.get("metric_name", "metric")
+    value = _safe_float(r.get("value")) or 0.0
+    return RawSignal(
+        source="gospel", title=f"Gospel reach: {metric} = {value:.0f}",
+        summary=r.get("description", ""), occurred_at=_iso(r.get("date")),
+        url=r.get("url", ""), node_id="M14", scripture="Matt 24:14",
+        confidence=_conf(r.get("confidence")), magnitude=value,
+        extra={"metric_name": metric},
+    )
+
+
+def _m_who_outbreaks(r: Dict) -> RawSignal:
+    country = r.get("country") or ""
+    loc = f" — {country}" if country else ""
+    return RawSignal(
+        source="who_outbreaks",
+        title=f"Outbreak: {r.get('disease', 'Unknown')}{loc}",
+        summary=r.get("description", ""), occurred_at=_iso(r.get("date")),
+        location=country, url=r.get("url", ""), node_id="J0",
+        scripture="Luke 21:11", confidence=_conf(r.get("confidence")),
+        extra={"disease": r.get("disease"), "severity": r.get("severity"),
+               "event_id": r.get("url")},
+    )
+
+
 def _safe_float(v):
     try:
         return float(v) if v not in (None, "") else None
@@ -173,6 +256,14 @@ _LIVE_SPECS: List[_LiveSpec] = [
     _LiveSpec("spaceweather", "scripts.fetch_spaceweather", _m_spaceweather),
     _LiveSpec("eff", "scripts.fetch_eff_news", _m_eff),
     _LiveSpec("temple_mount", "scripts.fetch_temple_mount_news", _m_temple_mount),
+    _LiveSpec("covenant", "scripts.fetch_covenant_watch", _m_covenant),
+    _LiveSpec("cbdc", "scripts.fetch_cbdc", _m_cbdc),
+    _LiveSpec("coalition", "scripts.fetch_coalition", _m_coalition),
+    _LiveSpec("eu", "scripts.fetch_eu_consolidation", _m_eu),
+    _LiveSpec("ai_enforcement", "scripts.fetch_ai_enforcement",
+              _m_ai_enforcement),
+    _LiveSpec("gospel", "scripts.fetch_gospel_reach", _m_gospel),
+    _LiveSpec("who_outbreaks", "scripts.fetch_who_outbreaks", _m_who_outbreaks),
 ]
 
 

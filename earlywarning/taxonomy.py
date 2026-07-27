@@ -39,6 +39,13 @@ NODES: Dict[str, Node] = {
     "MS0": Node("MS0", "Man of Sin", "2 Thess 2:3-4", 0.05),
     "MS1": Node("MS1", "Lying Signs & Wonders", "2 Thess 2:9-12", 0.03),
     "AC0": Node("AC0", "Antichrist Spirit", "1 John 2:18, 2:22, 4:3", 0.02),
+    # Specific-trigger layer. Unlike the diffuse J0 "birth pains" sensors,
+    # these fire on discrete named events and stay at zero until they do.
+    "D1": Node("D1", "Covenant Confirmation", "Dan 9:27", 0.12),
+    "D2": Node("D2", "Fourth Kingdom Consolidation", "Dan 2:40-43; 7:23-24", 0.04),
+    "E38": Node("E38", "Gog Coalition Alignment", "Ezek 38:1-6", 0.08),
+    "B4": Node("B4", "Image of the Beast", "Rev 13:15", 0.06),
+    "M14": Node("M14", "Gospel to All Nations", "Matt 24:14", 0.02),
 }
 
 
@@ -89,15 +96,51 @@ DOMAINS: Dict[str, Domain] = {
     ),
     "digital_control": Domain(
         "digital_control", "Commerce Control & Digital ID", ["B2"],
-        collectors=["eff"],
+        collectors=["eff", "cbdc"],
         keywords=["biometric", "facial recognition", "digital id",
-                  "surveillance", "cashless", "cbdc", "age verification"],
+                  "surveillance", "cashless", "cbdc", "age verification",
+                  "digital currency", "programmable money", "digital wallet"],
     ),
     "middle_east": Domain(
         "middle_east", "Middle East & Temple Mount", ["J3", "MS0"],
         collectors=["temple_mount"],
         keywords=["temple mount", "jerusalem", "israel", "third temple",
-                  "sanctuary", "al-aqsa"],
+                  "sanctuary", "al-aqsa", "red heifer", "priesthood",
+                  "altar", "sacrifice", "temple institute", "sanhedrin"],
+    ),
+    "covenant": Domain(
+        "covenant", "Covenant & Treaty Watch", ["D1", "J3"],
+        collectors=["covenant"],
+        keywords=["covenant", "treaty", "accord", "normalization",
+                  "peace deal", "peace agreement", "security guarantee",
+                  "seven-year", "abraham accords", "defense pact"],
+    ),
+    "coalition": Domain(
+        "coalition", "Gog Coalition Alignment", ["E38"],
+        collectors=["coalition"],
+        keywords=["russia", "iran", "turkey", "sudan", "libya",
+                  "joint exercise", "military pact", "alliance",
+                  "defense agreement", "axis"],
+    ),
+    "eu_power": Domain(
+        "eu_power", "European Consolidation", ["D2"],
+        collectors=["eu"],
+        keywords=["treaty change", "defense union", "fiscal union",
+                  "eu army", "qualified majority", "centralization",
+                  "european commission", "federal europe"],
+    ),
+    "ai_enforcement": Domain(
+        "ai_enforcement", "AI Enforcement & Image", ["B4", "MS1"],
+        collectors=["ai_enforcement"],
+        keywords=["ai surveillance", "facial recognition", "algorithmic",
+                  "ai mandate", "deepfake", "autonomous enforcement",
+                  "ai worship", "social credit", "predictive policing"],
+    ),
+    "gospel": Domain(
+        "gospel", "Gospel Reach", ["M14"],
+        collectors=["gospel"],
+        keywords=["bible translation", "unreached", "scripture access",
+                  "language", "evangelism", "missions"],
     ),
     "antichrist": Domain(
         "antichrist", "Antichrist Patterns", ["MS0", "MS1", "AC0", "B1"],
@@ -112,9 +155,9 @@ DOMAINS: Dict[str, Domain] = {
     ),
     "health": Domain(
         "health", "Pestilence & Health", ["J0"],
-        collectors=["health"],
+        collectors=["health", "who_outbreaks"],
         keywords=["pandemic", "outbreak", "virus", "pestilence", "disease",
-                  "epidemic"],
+                  "epidemic", "cholera", "ebola", "influenza", "plague"],
     ),
 }
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Sample Diplomacy Feed</title>
+    <link>https://example.com/feed</link>
+    <description>Israel diplomacy news</description>
+    <item>
+      <title>Israel and Saudi Arabia Sign Normalization Accord with US Security Guarantee</title>
+      <link>https://example.com/news/israel-saudi-accord</link>
+      <pubDate>Sun, 28 Jun 2099 12:00:00 +0000</pubDate>
+      <description>The multi-party framework agreement was signed in Washington, with regional guarantors confirming a seven-year implementation timeline for the peace deal.</description>
+    </item>
+    <item>
+      <title>Israeli Tech Sector Grows in Second Quarter</title>
+      <link>https://example.com/news/israel-tech</link>
+      <pubDate>Sat, 27 Jun 2099 09:30:00 +0000</pubDate>
+      <description>Startup funding rose across Tel Aviv software companies this quarter.</description>
+    </item>
+    <item>
+      <title>Jordan Considers Water Treaty Extension with Israel</title>
+      <link>https://example.com/news/jordan-water</link>
+      <pubDate>Fri, 26 Jun 2099 15:45:00 +0000</pubDate>
+      <description>Officials discussed extending the bilateral water-sharing treaty between Jordan and Israel.</description>
+    </item>
+  </channel>
+</rss>

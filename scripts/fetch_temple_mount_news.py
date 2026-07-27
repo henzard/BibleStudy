@@ -74,6 +74,16 @@ PROPHECY_RELEVANT_KEYWORDS = [
     'covenant', 'peace treaty', 'jerusalem', 'israel', 'middle east conflict'
 ]
 
+# Temple-preparation markers: discrete steps toward a functioning altar.
+# Every major framework requires sacrifice to resume before it can be halted
+# (Dan 9:27 "he shall bring an end to sacrifice and offering").
+TEMPLE_PREPARATION_KEYWORDS = [
+    'red heifer', 'red heifers', 'priesthood', 'kohanim', 'priestly garments',
+    'altar', 'temple vessels', 'temple institute', 'sanhedrin',
+    'animal sacrifice', 'korban', 'cornerstone', 'temple service',
+    'levitical', 'consecration'
+]
+
 
 def fetch_feed(feed_url: str) -> str:
     """Fetch a single RSS feed (network I/O only)."""
@@ -144,13 +154,20 @@ def classify_article(title: str, description: str, source: str) -> Dict[str, any
     
     # Check for prophecy-relevant keywords
     prophecy_matches = [kw for kw in PROPHECY_RELEVANT_KEYWORDS if kw in combined]
-    
+
+    # Check for temple-preparation markers (highest-specificity J3 signals)
+    prep_matches = [kw for kw in TEMPLE_PREPARATION_KEYWORDS if kw in combined]
+
     # Determine primary node mapping
     node = None
     scripture = None
     category = None
-    
-    if 'temple mount' in combined or 'al-aqsa' in combined or 'al aqsa' in combined:
+
+    if prep_matches:
+        node = 'J3'  # Concrete preparation step toward a functioning altar
+        scripture = 'Dan 9:27; Matt 24:15'
+        category = 'Temple Preparation'
+    elif 'temple mount' in combined or 'al-aqsa' in combined or 'al aqsa' in combined:
         node = 'J3'  # Abomination of desolation (Matt 24:15; Dan 9:27)
         scripture = 'Matt 24:15; Dan 9:27'
         category = 'Temple Mount'
@@ -176,7 +193,10 @@ def classify_article(title: str, description: str, source: str) -> Dict[str, any
         category = 'Middle East News'
     
     # Determine confidence
-    if len(temple_matches) >= 2 and node == 'J3':
+    if category == 'Temple Preparation':
+        # Named, discrete preparation steps are the most specific J3 signal.
+        confidence = 'High' if len(prep_matches) >= 2 else 'Med'
+    elif len(temple_matches) >= 2 and node == 'J3':
         confidence = 'High'  # Multiple Temple Mount keywords
     elif len(prophecy_matches) >= 2:
         confidence = 'Med'  # Multiple prophecy-relevant keywords
@@ -184,16 +204,16 @@ def classify_article(title: str, description: str, source: str) -> Dict[str, any
         confidence = 'Med'
     else:
         confidence = 'Low'
-    
-    relevant = len(temple_matches) > 0 or len(prophecy_matches) > 0 or (len(me_matches) > 0 and node in ['J3', 'MS0', 'MS1'])
-    
+
+    relevant = len(prep_matches) > 0 or len(temple_matches) > 0 or len(prophecy_matches) > 0 or (len(me_matches) > 0 and node in ['J3', 'MS0', 'MS1'])
+
     return {
         'node': node,
         'scripture': scripture,
         'category': category,
         'confidence': confidence,
         'relevant': relevant,
-        'keywords': (temple_matches + prophecy_matches[:2])[:3]
+        'keywords': (prep_matches + temple_matches + prophecy_matches[:2])[:3]
     }
 
 

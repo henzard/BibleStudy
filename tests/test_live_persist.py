@@ -45,6 +45,36 @@ SAMPLES = {
                         "url": "http://u/t1", "source": "Times of Israel",
                         "node": "J3", "scripture": "Dan 9:27",
                         "category": "Temple Mount", "confidence": "High"},
+    "_m_covenant": {"title": "Regional accord signed with Israel",
+                    "description": "multi-party framework",
+                    "date": "2099-06-18", "url": "http://u/cv1",
+                    "treaty_type": "accord", "confidence": "High"},
+    "_m_cbdc": {"title": "Digital euro made mandatory",
+                "description": "CBDC required for payments",
+                "date": "2099-06-17", "url": "http://u/cb1",
+                "category": "CBDC", "status": "mandatory",
+                "country": "Eurozone", "confidence": "High"},
+    "_m_coalition": {"title": "Russia-Iran joint exercise",
+                     "description": "naval drill", "date": "2099-06-16",
+                     "url": "http://u/co1", "nations": ["Russia", "Iran"],
+                     "event_type": "joint exercise", "confidence": "Med"},
+    "_m_eu": {"title": "EU treaty change proposed",
+              "description": "end unanimity", "date": "2099-06-15",
+              "url": "http://u/eu1", "category": "treaty change",
+              "confidence": "High"},
+    "_m_ai_enforcement": {"title": "AI fines drivers automatically",
+                          "description": "algorithmic enforcement",
+                          "date": "2099-06-14", "url": "http://u/ai1",
+                          "category": "enforcement", "node": "B4",
+                          "confidence": "Med"},
+    "_m_gospel": {"metric_name": "languages_no_scripture", "value": 880,
+                  "description": "Languages with no Scripture",
+                  "date": "2099-06-13", "url": "http://u/g2",
+                  "confidence": "High"},
+    "_m_who_outbreaks": {"disease": "Cholera", "country": "Sudan",
+                         "description": "outbreak reported",
+                         "date": "2099-06-12", "url": "http://u/wo1",
+                         "severity": "Severe", "confidence": "Med"},
 }
 
 
@@ -52,13 +82,18 @@ def _signals():
     return [getattr(live, fn)(rec) for fn, rec in SAMPLES.items()]
 
 
+ALL_SOURCES = {
+    "earthquakes", "disasters", "conflicts", "worldbank", "economic",
+    "fred_news", "spaceweather", "eff", "temple_mount",
+    "covenant", "cbdc", "coalition", "eu", "ai_enforcement", "gospel",
+    "who_outbreaks",
+}
+
+
 def test_build_live_collectors_count():
     cols = build_live_collectors()
-    assert len(cols) == 9
-    assert {c.name for c in cols} == {
-        "earthquakes", "disasters", "conflicts", "worldbank", "economic",
-        "fred_news", "spaceweather", "eff", "temple_mount",
-    }
+    assert len(cols) == 16
+    assert {c.name for c in cols} == ALL_SOURCES
 
 
 def test_mappers_normalize_dates_to_iso():
@@ -71,20 +106,17 @@ def test_mappers_normalize_dates_to_iso():
 def test_persist_round_trip_activates_all_sources(tmp_path):
     db = tmp_path / "live.db"
     inserted = persist_signals(db, _signals())
-    assert sum(inserted.values()) == 9
+    assert sum(inserted.values()) == 16
 
     raw = collect_all(db, lookback_days=40000)
-    assert {s.source for s in raw} == {
-        "earthquakes", "disasters", "conflicts", "economic", "worldbank",
-        "spaceweather", "eff", "fred_news", "temple_mount",
-    }
+    assert {s.source for s in raw} == ALL_SOURCES
 
 
 def test_persist_is_idempotent(tmp_path):
     db = tmp_path / "live.db"
     first = persist_signals(db, _signals())
     second = persist_signals(db, _signals())
-    assert sum(first.values()) == 9
+    assert sum(first.values()) == 16
     assert sum(second.values()) == 0  # nothing new on re-run
 
 
@@ -108,7 +140,8 @@ def test_pipeline_live_mode_persists_then_analyses(tmp_path, monkeypatch):
     result = run = pipeline_mod.run_pipeline(cfg, live=True)
     domains = {f.domain for f in result.findings}
     assert {"war", "famine", "financial", "cosmic", "digital_control",
-            "middle_east", "disaster"} <= domains
+            "middle_east", "disaster", "covenant", "coalition", "eu_power",
+            "ai_enforcement", "gospel", "health"} <= domains
     # Data was persisted -> an offline replay sees the same sources.
     raw = collect_all(tmp_path / "p.db", lookback_days=40000)
-    assert len(raw) == 9
+    assert len(raw) == 16

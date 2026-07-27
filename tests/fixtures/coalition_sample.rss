@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Sample World News Feed</title>
+    <link>https://example.com/feed</link>
+    <description>International security news</description>
+    <item>
+      <title>Russia, Iran and Turkey Hold Joint Naval Exercise in Caspian Sea</title>
+      <link>https://example.com/news/joint-naval-exercise</link>
+      <pubDate>Sun, 28 Jun 2099 12:00:00 +0000</pubDate>
+      <description>Moscow, Tehran and Ankara conducted a trilateral joint exercise involving warships and aircraft, deepening military cooperation among the three governments.</description>
+    </item>
+    <item>
+      <title>Iran and Sudan Sign Defense Agreement on Red Sea Access</title>
+      <link>https://example.com/news/iran-sudan-defense</link>
+      <pubDate>Sat, 27 Jun 2099 09:30:00 +0000</pubDate>
+      <description>Tehran and Khartoum concluded a defense agreement covering port access and arms deal provisions.</description>
+    </item>
+    <item>
+      <title>Russia Announces Domestic Grain Harvest Results</title>
+      <link>https://example.com/news/russia-grain</link>
+      <pubDate>Fri, 26 Jun 2099 15:45:00 +0000</pubDate>
+      <description>Russian agriculture officials reported the seasonal wheat harvest figures.</description>
+    </item>
+  </channel>
+</rss>

@@ -159,6 +159,41 @@ The guardrail block is appended to every report by `report.GUARDRAILS`.
 
 ---
 
+## 4b. The specific-trigger layer
+
+The original nine sources are mostly **J0 "birth pains" sensors** — diffuse
+background indicators (earthquakes, conflicts, economic stress). The trigger
+layer adds sensors for the *discrete named events* the prophetic texts
+anchor on. Birth pains indicate the phase; triggers indicate a transition.
+
+| Source | Table | Node | Scripture | What fires it |
+|---|---|---|---|---|
+| `covenant` | `covenant_watch` | D1 | Dan 9:27 | Israel-involving treaties, normalization deals, security guarantees |
+| `temple_mount` (extended) | `temple_mount_news` | J3 | Dan 9:27; Matt 24:15 | Temple-preparation markers: red heifer, priesthood, altar, vessels |
+| `cbdc` | `cbdc_tracker` | B2 | Rev 13:16-17 | CBDC/digital-ID rollouts, with status staging (research → pilot → launched → mandatory) |
+| `coalition` | `coalition_events` | E38 | Ezek 38:1-6 | ≥2 of the named nations (Russia/Iran/Turkey/Sudan/Libya) acting together militarily |
+| `eu` | `eu_consolidation` | D2 | Dan 2:40-43; 7:23-24 | EU centralization: treaty change, defense/fiscal union, veto abolition |
+| `ai_enforcement` | `ai_enforcement` | B4/MS1 | Rev 13:15 | AI coupled to *compulsion*: algorithmic enforcement, surveillance mandates, incidents, veneration |
+| `gospel` | `gospel_reach` | M14 | Matt 24:14 | Bible-translation statistics (the one positive precondition) |
+| `who_outbreaks` | `disease_outbreaks` | J0 | Luke 21:11 | WHO Disease Outbreak News — completes the wars/famines/pestilences/earthquakes quartet |
+
+Design rules for this layer:
+
+* **Framework-agnostic sensors first.** Covenant, temple, and commerce-control
+  fire under *every* major Antichrist framework (European, Middle-Eastern, or
+  hybrid). The coalition and EU trackers are *discriminators* — their relative
+  activity indicates which geographic reading is tracking toward reality.
+  The pipeline observes; it does not pick a theory (2 Thess 2:3 — the man is
+  *revealed*, not deduced in advance).
+* **Compulsion, not capability.** The AI tracker deliberately ignores model
+  releases and vendor claims. Rev 13:15's shape is an image that speaks *and
+  causes* — so only AI-coupled-to-enforcement events count.
+* **Infrastructure is not identification.** A CBDC is capacity, not "the
+  mark"; a treaty is diplomacy until it isn't. Confidence staging encodes
+  this (mandatory/compulsion events score High; research/reports score Low).
+* **New nodes start at zero.** D1/D2/E38/B4/M14 contribute nothing to the
+  overall score until their collectors actually produce corroborated data.
+
 ## 5. Extending the pipeline
 
 * **New data source:** add a `Collector` subclass in
@@ -181,11 +216,19 @@ python -m pytest
 
 ## 6. Status / honest limitations
 
-* **All nine sources now persist and activate** their domains (war, disaster,
-  famine, financial, cosmic, digital-control, middle-east). Run with `--live`
+* **All sixteen sources now persist and activate** their domains (war,
+  disaster, famine, financial, cosmic, digital-control, middle-east, covenant,
+  coalition, eu-power, ai-enforcement, gospel, health). Run with `--live`
   (or `ingest_data.py`) once to populate, then offline runs replay them. The
   `antichrist_patterns` monitor remains a framework with no live feed and is
   intentionally not wired to a collector.
+* The trigger-layer news sources (covenant, coalition, CBDC, EU, AI) rely on
+  keyword classifiers over RSS feeds — precision over recall. They will miss
+  paraphrased events and are meant to surface candidates for human review,
+  not to be exhaustive.
+* `gospel_reach` depends on a published-statistics endpoint that may not be
+  reachable; it degrades to empty and is flagged by freshness (400-day
+  allowance for its annual cadence).
 * Live collection depends on the external feeds being reachable and on the
   relevant API keys (`FRED_API_KEY`, `EINNEWS_RSS_KEY`); a source that errors or
   is unkeyed simply contributes nothing that cycle (it never breaks the run).
