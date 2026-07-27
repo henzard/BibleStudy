@@ -29,11 +29,11 @@ def seeded_db(tmp_path) -> Path:
         "INSERT INTO earthquakes (event_id,date_utc,magnitude,location,source_url) "
         "VALUES (?,?,?,?,?)",
         [
-            ("eq1", "2026-06-27 10:00 UTC", 6.5,
+            ("eq1", "2026-07-27 10:00 UTC", 6.5,
              "10 km S of Antofagasta, Chile", "http://u/eq1"),
-            ("eq2", "2026-06-26 10:00 UTC", 5.1,
+            ("eq2", "2026-07-26 10:00 UTC", 5.1,
              "Off coast of Honshu, Japan", "http://u/eq2"),
-            ("eq3", "2026-06-25 10:00 UTC", 4.4,
+            ("eq3", "2026-07-25 10:00 UTC", 4.4,
              "Antofagasta, Chile", "http://u/eq3"),
         ],
     )
@@ -41,9 +41,9 @@ def seeded_db(tmp_path) -> Path:
         "INSERT INTO conflicts (date,location,conflict_type,casualties,"
         "description,source_url,confidence) VALUES (?,?,?,?,?,?,?)",
         [
-            ("2026-06-27", "Sudan", "Active Conflict", 140,
+            ("2026-07-27", "Sudan", "Active Conflict", 140,
              "Heavy fighting in Sudan offensive", "http://u/c1", "High"),
-            ("2026-06-26", "Sudan", "Casualties", 5,
+            ("2026-07-26", "Sudan", "Casualties", 5,
              "Casualties reported in Sudan offensive", "http://u/c2", "Med"),
         ],
     )
@@ -52,7 +52,7 @@ def seeded_db(tmp_path) -> Path:
         "indicator_category,value,yoy_change,status,confidence) "
         "VALUES (?,?,?,?,?,?,?)",
         [
-            ("2026-06-20", "Consumer Price Index", "Inflation", 312.5, 7.2,
+            ("2026-07-20", "Consumer Price Index", "Inflation", 312.5, 7.2,
              "Crisis", "High"),
         ],
     )
