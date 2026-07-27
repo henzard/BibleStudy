@@ -45,12 +45,17 @@ def run_pipeline(config: Optional[PipelineConfig] = None,
 
     # 1. Collect raw signals.
     if live:
-        # Hybrid mode: fetch from the network, persist for offline replay,
-        # then analyse the fresh data.
-        raw = collect_live(cfg.lookback_days)
-        inserted = persist_signals(cfg.db_path, raw)
-        emit(f"Live-collected {len(raw)} signal(s); persisted "
+        # Hybrid mode: fetch from the network, persist, then analyse the
+        # *store* window (fresh rows + prior context). Analysing only the
+        # live batch would let a feed outage masquerade as a quiet world —
+        # 0/100 GREEN — and poison the change-detection state. The
+        # freshness stage still surfaces sources that delivered nothing.
+        fetched = collect_live(cfg.lookback_days)
+        inserted = persist_signals(cfg.db_path, fetched)
+        emit(f"Live-collected {len(fetched)} signal(s); persisted "
              f"{sum(inserted.values())} new row(s)")
+        raw = collect_all(cfg.db_path, cfg.lookback_days)
+        emit(f"Analysing {len(raw)} signal(s) from store (fresh + replay)")
     else:
         # Offline mode: replay from the SQLite store.
         raw = collect_all(cfg.db_path, cfg.lookback_days)
