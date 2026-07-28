@@ -134,6 +134,31 @@ def test_who_parse_extracts_disease_and_country():
     assert cholera["node"] == "J0"
 
 
+def test_who_classify_news_style_title():
+    # Google News style: publisher suffix + "in <Country>" phrase.
+    cls = fetch_who_outbreaks.classify(
+        "Cholera outbreak kills 30 in South Sudan - Reuters",
+        "Health officials confirmed the outbreak is spreading.")
+    assert cls["relevant"] is True
+    assert cls["disease"] == "Cholera"
+    assert cls["country"] == "South Sudan"
+    assert cls["severity"] == "Severe"
+
+
+def test_eu_classify_self_framing_terms_need_no_eu_cue():
+    # "Von der Leyen pushes defence union" has no literal "EU"/"Brussels".
+    cls = fetch_eu_consolidation.classify(
+        "Von der Leyen pushes for defence union after summit",
+        "The proposal outlines a joint command structure.")
+    assert cls["relevant"] is True
+    assert cls["node"] == "D2"
+    # But generic centralization language without any EU frame stays out.
+    generic = fetch_eu_consolidation.classify(
+        "City council approves emergency powers for mayor",
+        "The measure centralizes local authority.")
+    assert generic["relevant"] is False
+
+
 # --- gospel reach ----------------------------------------------------------
 
 def test_gospel_parse_metrics():
@@ -151,6 +176,22 @@ def test_gospel_parse_tolerates_garbage():
     assert fetch_gospel_reach.parse("") == []
     assert fetch_gospel_reach.parse("not json") == []
     assert fetch_gospel_reach.parse('{"metrics": []}') == []  # no as_of
+
+
+def test_gospel_parse_html_wycliffe_page():
+    records = fetch_gospel_reach.parse_html(
+        _load("gospel_reach_sample.html"), url="https://example.org/stats")
+    by_name = {r["metric_name"]: r["value"] for r in records}
+    assert by_name["languages_full_bible"] == 776
+    assert by_name["languages_new_testament"] == 1798
+    assert by_name["languages_portions"] == 1433
+    assert by_name["languages_waiting"] == 544
+    assert all(r["date"] == "2099-08-01" for r in records)
+
+
+def test_gospel_parse_html_tolerates_garbage():
+    assert fetch_gospel_reach.parse_html("") == []
+    assert fetch_gospel_reach.parse_html("<html><p>nothing here</p></html>") == []
 
 
 # --- temple preparation markers -------------------------------------------

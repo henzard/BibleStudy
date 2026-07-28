@@ -34,14 +34,17 @@ SOURCES = {
     "google_news_eu": {
         "url": ("https://news.google.com/rss/search?"
                 "q=EU+(%22treaty+change%22+OR+%22defense+union%22"
-                "+OR+%22fiscal+union%22+OR+%22EU+army%22"
-                "+OR+%22qualified+majority%22)&hl=en-US&gl=US&ceid=US:en"),
+                "+OR+%22defence+union%22+OR+%22fiscal+union%22"
+                "+OR+%22EU+army%22+OR+%22european+army%22"
+                "+OR+%22qualified+majority%22+OR+%22banking+union%22)"
+                "&hl=en-US&gl=US&ceid=US:en"),
         "name": "Google News (EU consolidation)",
     },
 }
 
 EU_TERMS = ["eu ", "european union", "brussels", "european commission",
-            "eurozone", "european council", "european parliament"]
+            "eurozone", "european council", "european parliament",
+            "von der leyen"]
 
 CONSOLIDATION_TERMS = [
     "treaty change", "treaty reform", "defense union", "defence union",
@@ -51,14 +54,24 @@ CONSOLIDATION_TERMS = [
     "political union", "transfer of sovereignty", "emergency powers",
 ]
 
+# Terms that only ever occur in an EU context — no separate EU cue needed.
+# Without this, "Von der Leyen pushes for defence union" (no literal "EU")
+# was rejected by the EU-frame requirement.
+EU_SPECIFIC_TERMS = {
+    "defense union", "defence union", "fiscal union", "eu army",
+    "european army", "qualified majority", "federal europe", "banking union",
+    "abolish veto", "end unanimity",
+}
+
 
 def classify(title: str, description: str) -> Dict:
     """Relevant only for EU-frame articles about centralization of power."""
     combined = f"{title} {description}".lower()
     eu = [t for t in EU_TERMS if t in combined]
     consolidation = [t for t in CONSOLIDATION_TERMS if t in combined]
+    self_framing = any(t in EU_SPECIFIC_TERMS for t in consolidation)
 
-    if not eu or not consolidation:
+    if not consolidation or not (eu or self_framing):
         return {"relevant": False}
 
     category = consolidation[0]

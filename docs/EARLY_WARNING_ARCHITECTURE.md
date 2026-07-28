@@ -226,9 +226,13 @@ python -m pytest
   keyword classifiers over RSS feeds — precision over recall. They will miss
   paraphrased events and are meant to surface candidates for human review,
   not to be exhaustive.
-* `gospel_reach` depends on a published-statistics endpoint that may not be
-  reachable; it degrades to empty and is flagged by freshness (400-day
-  allowance for its annual cadence).
+* `gospel_reach` tries a JSON endpoint (override with `GOSPEL_STATS_URL`),
+  then falls back to parsing the Wycliffe statistics pages (annual HTML).
+  If nothing is reachable it degrades to empty and is flagged by freshness
+  (400-day allowance for its annual cadence).
+* `who_outbreaks` uses Google News aggregation as its primary path because
+  who.int serves 403 to non-browser clients; the direct WHO feeds are kept
+  as best-effort extras.
 * Live collection depends on the external feeds being reachable and on the
   relevant API keys (`FRED_API_KEY`, `EINNEWS_RSS_KEY`); a source that errors or
   is unkeyed simply contributes nothing that cycle (it never breaks the run).
