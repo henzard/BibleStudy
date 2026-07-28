@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Sample Europe Affairs Feed</title>
+    <link>https://example.com/feed</link>
+    <description>European political news</description>
+    <item>
+      <title>Dutch Court Recognizes Religious Tribunal Rulings in Family Law Cases</title>
+      <link>https://example.com/news/religious-tribunal-family-law</link>
+      <pubDate>Sun, 28 Jun 2099 12:00:00 +0000</pubDate>
+      <description>The Netherlands ruling grants formal standing to religious court decisions, with a sharia council among the recognized religious tribunals.</description>
+    </item>
+    <item>
+      <title>New Islamic Party Enters Parliament After Belgian Elections</title>
+      <link>https://example.com/news/islamic-party-belgium</link>
+      <pubDate>Sat, 27 Jun 2099 09:30:00 +0000</pubDate>
+      <description>The confessional bloc won seats in Belgium's federal parliament for the first time.</description>
+    </item>
+    <item>
+      <title>EU Opens Accession Talks Framework with Turkey</title>
+      <link>https://example.com/news/eu-turkey-accession</link>
+      <pubDate>Fri, 26 Jun 2099 15:45:00 +0000</pubDate>
+      <description>Brussels agreed to revisit EU membership discussions with Ankara under a new political integration roadmap.</description>
+    </item>
+    <item>
+      <title>Government Collapses in Austria as Coalition Splits</title>
+      <link>https://example.com/news/austria-coalition</link>
+      <pubDate>Thu, 25 Jun 2099 10:00:00 +0000</pubDate>
+      <description>The Austrian coalition collapses after months of deadlock, forcing new elections.</description>
+    </item>
+    <item>
+      <title>Sharia Court Expansion Debated in Jakarta</title>
+      <link>https://example.com/news/jakarta-courts</link>
+      <pubDate>Wed, 24 Jun 2099 10:00:00 +0000</pubDate>
+      <description>Indonesian lawmakers discussed the role of religious courts in the provinces.</description>
+    </item>
+  </channel>
+</rss>

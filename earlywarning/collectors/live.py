@@ -231,6 +231,30 @@ def _m_who_outbreaks(r: Dict) -> RawSignal:
     )
 
 
+def _m_europe_mixture(r: Dict) -> RawSignal:
+    return RawSignal(
+        source="europe_mixture", title=r.get("title", "Mixture event"),
+        summary=r.get("description", ""), occurred_at=_iso(r.get("date")),
+        location=r.get("country") or "Europe", url=r.get("url", ""),
+        node_id="D3", scripture="Dan 2:41-43",
+        confidence=_conf(r.get("confidence")),
+        extra={"category": r.get("category"), "event_id": r.get("url")},
+    )
+
+
+def _m_europe_demographics(r: Dict) -> RawSignal:
+    metric = r.get("metric_name", "metric")
+    value = _safe_float(r.get("value")) or 0.0
+    return RawSignal(
+        source="europe_demographics",
+        title=f"Europe demographics: {metric} = {value:g}",
+        summary=r.get("description", ""), occurred_at=_iso(r.get("date")),
+        location="Europe", url=r.get("url", ""), node_id="D3",
+        scripture="Dan 2:41-43", confidence=_conf(r.get("confidence")),
+        magnitude=value, extra={"metric_name": metric},
+    )
+
+
 def _safe_float(v):
     try:
         return float(v) if v not in (None, "") else None
@@ -264,6 +288,10 @@ _LIVE_SPECS: List[_LiveSpec] = [
               _m_ai_enforcement),
     _LiveSpec("gospel", "scripts.fetch_gospel_reach", _m_gospel),
     _LiveSpec("who_outbreaks", "scripts.fetch_who_outbreaks", _m_who_outbreaks),
+    _LiveSpec("europe_mixture", "scripts.fetch_europe_mixture",
+              _m_europe_mixture),
+    _LiveSpec("europe_demographics", "scripts.fetch_europe_demographics",
+              _m_europe_demographics),
 ]
 
 

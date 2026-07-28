@@ -627,6 +627,84 @@ class OutbreakCollector(Collector):
         return signals
 
 
+class EuropeMixtureCollector(Collector):
+    name = "europe_mixture"
+    node_id = "D3"
+    scripture = "Dan 2:41-43"
+
+    def collect(self, ctx: CollectorContext) -> List[RawSignal]:
+        if not self.table_exists(ctx.conn, "europe_mixture_events"):
+            return []
+        rows = ctx.conn.execute(
+            """
+            SELECT event_id, date, title, description, category, country,
+                   confidence, source_url
+            FROM europe_mixture_events
+            WHERE date >= ?
+            ORDER BY date DESC
+            """,
+            (ctx.cutoff_date,),
+        ).fetchall()
+        signals = []
+        for (event_id, date, title, desc, category, country, conf,
+             url) in rows:
+            signals.append(
+                RawSignal(
+                    source=self.name,
+                    title=title,
+                    summary=desc or "",
+                    occurred_at=date,
+                    location=country or "Europe",
+                    url=url or "",
+                    node_id=self.node_id,
+                    scripture=self.scripture,
+                    confidence=(conf or "Low").title(),
+                    extra={"event_id": event_id, "category": category},
+                )
+            )
+        return signals
+
+
+class EuropeDemographicsCollector(Collector):
+    name = "europe_demographics"
+    node_id = "D3"
+    scripture = "Dan 2:41-43"
+
+    def collect(self, ctx: CollectorContext) -> List[RawSignal]:
+        if not self.table_exists(ctx.conn, "europe_demographics"):
+            return []
+        # Annual-cadence metrics: latest snapshot per metric, not windowed.
+        rows = ctx.conn.execute(
+            """
+            SELECT date, metric_name, value, description, source_url
+            FROM europe_demographics
+            WHERE (metric_name, date) IN (
+                SELECT metric_name, MAX(date) FROM europe_demographics
+                GROUP BY metric_name
+            )
+            ORDER BY metric_name
+            """,
+        ).fetchall()
+        signals = []
+        for date, metric, value, desc, url in rows:
+            signals.append(
+                RawSignal(
+                    source=self.name,
+                    title=f"Europe demographics: {metric} = {value:g}",
+                    summary=desc or metric,
+                    occurred_at=date,
+                    location="Europe",
+                    url=url or "",
+                    node_id=self.node_id,
+                    scripture=self.scripture,
+                    confidence="High",
+                    magnitude=float(value),
+                    extra={"metric_name": metric},
+                )
+            )
+        return signals
+
+
 ALL_DB_COLLECTORS = [
     EarthquakeCollector,
     DisasterCollector,
@@ -644,4 +722,6 @@ ALL_DB_COLLECTORS = [
     AiEnforcementCollector,
     GospelReachCollector,
     OutbreakCollector,
+    EuropeMixtureCollector,
+    EuropeDemographicsCollector,
 ]

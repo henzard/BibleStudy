@@ -21,6 +21,8 @@ from scripts import (  # noqa: E402
     fetch_coalition,
     fetch_covenant_watch,
     fetch_eu_consolidation,
+    fetch_europe_demographics,
+    fetch_europe_mixture,
     fetch_gospel_reach,
     fetch_temple_mount_news,
     fetch_who_outbreaks,
@@ -192,6 +194,54 @@ def test_gospel_parse_html_wycliffe_page():
 def test_gospel_parse_html_tolerates_garbage():
     assert fetch_gospel_reach.parse_html("") == []
     assert fetch_gospel_reach.parse_html("<html><p>nothing here</p></html>") == []
+
+
+# --- europe mixture (D3) ---------------------------------------------------
+
+def test_europe_mixture_categories():
+    articles = fetch_europe_mixture.parse(
+        _load("europe_mixture_sample.rss"), source="Sample", days=365000)
+    by_cat = {a["category"]: a for a in articles}
+    assert "legal_recognition" in by_cat
+    assert "confessional_politics" in by_cat
+    assert "integration_pact" in by_cat
+    assert "non_adherence" in by_cat
+    # Non-European religious-court story is excluded: Europe frame required.
+    assert not any("Jakarta" in a["title"] for a in articles)
+    legal = by_cat["legal_recognition"]
+    assert legal["node"] == "D3"
+    assert legal["confidence"] == "High"     # court + tribunal + council
+    assert by_cat["non_adherence"]["confidence"] == "Low"   # noisy category
+
+
+def test_europe_mixture_integration_needs_mena_counterparty():
+    cls = fetch_europe_mixture.classify(
+        "EU opens accession talks with Norway",
+        "Membership discussions resume in Brussels.")
+    assert cls["relevant"] is False          # accession, but no MENA party
+
+
+# --- europe demographics (D3) ----------------------------------------------
+
+def test_europe_demographics_parse_html():
+    records = fetch_europe_demographics.parse_html(
+        _load("europe_demographics_sample.html"), url="https://example.org/x")
+    by_name = {r["metric_name"]: r["value"] for r in records}
+    assert by_name["muslim_share_pct"] == 4.9
+    assert by_name["muslim_share_2050_high_pct"] == 14.0
+    assert by_name["muslim_population_millions"] == 25.8
+    assert all(r["node"] == "D3" for r in records)
+    assert all(r["date"] == "2016-01-01" for r in records)
+
+
+def test_europe_demographics_parse_json_and_garbage():
+    doc = ('{"as_of": "2099-01-01", "metrics": '
+           '[{"name": "muslim_share_pct", "value": 5.2}]}')
+    records = fetch_europe_demographics.parse(doc)
+    assert len(records) == 1
+    assert records[0]["value"] == 5.2
+    assert fetch_europe_demographics.parse("not json") == []
+    assert fetch_europe_demographics.parse_html("<p>no data</p>") == []
 
 
 # --- temple preparation markers -------------------------------------------

@@ -327,6 +327,41 @@ CREATE TABLE IF NOT EXISTS disease_outbreaks (
 
 CREATE INDEX IF NOT EXISTS idx_disease_outbreaks_date ON disease_outbreaks(date);
 
+-- Iron/clay mixture events: political mingling-without-adhering in the
+-- old Roman space (node D3, Dan 2:41-43). Watches structures, not people.
+CREATE TABLE IF NOT EXISTS europe_mixture_events (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id TEXT UNIQUE NOT NULL,
+    date TEXT NOT NULL,
+    title TEXT NOT NULL,
+    description TEXT,
+    category TEXT,
+    country TEXT,
+    confidence TEXT NOT NULL,
+    source_url TEXT,
+    node_id TEXT DEFAULT 'D3',
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_europe_mixture_events_date
+    ON europe_mixture_events(date);
+
+-- Annual religious-demography metrics for Europe (node D3): composition
+-- numbers only — the data reports change, never intent.
+CREATE TABLE IF NOT EXISTS europe_demographics (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date TEXT NOT NULL,
+    metric_name TEXT NOT NULL,
+    value REAL NOT NULL,
+    description TEXT,
+    source_url TEXT,
+    node_id TEXT DEFAULT 'D3',
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_europe_demographics_date
+    ON europe_demographics(date);
+
 -- Pipeline run history (early-warning state for change detection)
 CREATE TABLE IF NOT EXISTS pipeline_runs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -349,10 +384,9 @@ CREATE TABLE IF NOT EXISTS schema_version (
 """
 
 # Bump when SCHEMA changes in a way fresh installs should record.
-SCHEMA_VERSION = 4
+SCHEMA_VERSION = 5
 SCHEMA_VERSION_DESCRIPTION = (
-    "Add covenant_watch, cbdc_tracker, coalition_events, eu_consolidation, "
-    "ai_enforcement, gospel_reach, disease_outbreaks tables"
+    "Add europe_mixture_events, europe_demographics tables (D3 iron/clay)"
 )
 
 

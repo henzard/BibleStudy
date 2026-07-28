@@ -35,6 +35,8 @@ _SOURCES = [
     ("ai_enforcement", "date", 21, 2),
     ("gospel_reach", "date", 400, 2),
     ("disease_outbreaks", "date", 14, 1),
+    ("europe_mixture_events", "date", 30, 2),
+    ("europe_demographics", "date", 400, 2),
 ]
 
 
