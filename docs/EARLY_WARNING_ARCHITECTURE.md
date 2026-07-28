@@ -176,6 +176,8 @@ anchor on. Birth pains indicate the phase; triggers indicate a transition.
 | `ai_enforcement` | `ai_enforcement` | B4/MS1 | Rev 13:15 | AI coupled to *compulsion*: algorithmic enforcement, surveillance mandates, incidents, veneration |
 | `gospel` | `gospel_reach` | M14 | Matt 24:14 | Bible-translation statistics (the one positive precondition) |
 | `who_outbreaks` | `disease_outbreaks` | J0 | Luke 21:11 | WHO Disease Outbreak News — completes the wars/famines/pestilences/earthquakes quartet |
+| `europe_mixture` | `europe_mixture_events` | D3 | Dan 2:41-43 | Political mingling-without-adhering in Europe: religious-law recognition, confessional blocs, EU-MENA integration, fragmentation. Structures, not people |
+| `europe_demographics` | `europe_demographics` | D3 | Dan 2:41-43 | Annual religious-composition figures (Pew-style surveys). Numbers only — composition is measurable, intent is not |
 
 Design rules for this layer:
 

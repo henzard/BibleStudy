@@ -43,6 +43,7 @@ NODES: Dict[str, Node] = {
     # these fire on discrete named events and stay at zero until they do.
     "D1": Node("D1", "Covenant Confirmation", "Dan 9:27", 0.12),
     "D2": Node("D2", "Fourth Kingdom Consolidation", "Dan 2:40-43; 7:23-24", 0.04),
+    "D3": Node("D3", "Iron and Clay Mixture", "Dan 2:41-43", 0.04),
     "E38": Node("E38", "Gog Coalition Alignment", "Ezek 38:1-6", 0.08),
     "B4": Node("B4", "Image of the Beast", "Rev 13:15", 0.06),
     "M14": Node("M14", "Gospel to All Nations", "Matt 24:14", 0.02),
@@ -141,6 +142,13 @@ DOMAINS: Dict[str, Domain] = {
         collectors=["gospel"],
         keywords=["bible translation", "unreached", "scripture access",
                   "language", "evangelism", "missions"],
+    ),
+    "mixture": Domain(
+        "mixture", "Iron & Clay Mixture", ["D3"],
+        collectors=["europe_mixture", "europe_demographics"],
+        keywords=["religious party", "sharia", "religious law", "accession",
+                  "secession", "coalition collapse", "integration",
+                  "demography", "referendum"],
     ),
     "antichrist": Domain(
         "antichrist", "Antichrist Patterns", ["MS0", "MS1", "AC0", "B1"],

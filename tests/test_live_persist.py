@@ -75,6 +75,16 @@ SAMPLES = {
                          "description": "outbreak reported",
                          "date": "2099-06-12", "url": "http://u/wo1",
                          "severity": "Severe", "confidence": "Med"},
+    "_m_europe_mixture": {"title": "Religious tribunal recognized",
+                          "description": "formal standing granted",
+                          "date": "2099-06-11", "url": "http://u/em1",
+                          "category": "legal_recognition",
+                          "country": "Netherlands", "confidence": "High"},
+    "_m_europe_demographics": {"metric_name": "muslim_share_pct",
+                               "value": 4.9,
+                               "description": "share of population",
+                               "date": "2099-06-10", "url": "http://u/ed1",
+                               "confidence": "High"},
 }
 
 
@@ -86,13 +96,13 @@ ALL_SOURCES = {
     "earthquakes", "disasters", "conflicts", "worldbank", "economic",
     "fred_news", "spaceweather", "eff", "temple_mount",
     "covenant", "cbdc", "coalition", "eu", "ai_enforcement", "gospel",
-    "who_outbreaks",
+    "who_outbreaks", "europe_mixture", "europe_demographics",
 }
 
 
 def test_build_live_collectors_count():
     cols = build_live_collectors()
-    assert len(cols) == 16
+    assert len(cols) == 18
     assert {c.name for c in cols} == ALL_SOURCES
 
 
@@ -106,7 +116,7 @@ def test_mappers_normalize_dates_to_iso():
 def test_persist_round_trip_activates_all_sources(tmp_path):
     db = tmp_path / "live.db"
     inserted = persist_signals(db, _signals())
-    assert sum(inserted.values()) == 16
+    assert sum(inserted.values()) == 18
 
     raw = collect_all(db, lookback_days=40000)
     assert {s.source for s in raw} == ALL_SOURCES
@@ -116,7 +126,7 @@ def test_persist_is_idempotent(tmp_path):
     db = tmp_path / "live.db"
     first = persist_signals(db, _signals())
     second = persist_signals(db, _signals())
-    assert sum(first.values()) == 16
+    assert sum(first.values()) == 18
     assert sum(second.values()) == 0  # nothing new on re-run
 
 
@@ -159,7 +169,7 @@ def test_pipeline_live_mode_persists_then_analyses(tmp_path, monkeypatch):
     domains = {f.domain for f in result.findings}
     assert {"war", "famine", "financial", "cosmic", "digital_control",
             "middle_east", "disaster", "covenant", "coalition", "eu_power",
-            "ai_enforcement", "gospel", "health"} <= domains
+            "ai_enforcement", "gospel", "health", "mixture"} <= domains
     # Data was persisted -> an offline replay sees the same sources.
     raw = collect_all(tmp_path / "p.db", lookback_days=40000)
-    assert len(raw) == 16
+    assert len(raw) == 18
