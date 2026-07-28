@@ -28,7 +28,23 @@ try:
 except ImportError:
     from newswatch import fetch_feed, parse_rss_items, dedupe_items
 
+# who.int serves 403 to non-browser clients, so Google News queries are the
+# primary path (they aggregate WHO DON items and outlet coverage of them);
+# the direct WHO feeds are kept as best-effort extras in case access returns.
 SOURCES = {
+    "google_news_outbreaks": {
+        "url": ("https://news.google.com/rss/search?"
+                "q=%22disease+outbreak%22+(WHO+OR+cholera+OR+ebola+OR+measles"
+                "+OR+dengue+OR+mpox+OR+epidemic)&hl=en-US&gl=US&ceid=US:en"),
+        "name": "Google News (disease outbreaks)",
+    },
+    "google_news_who_don": {
+        "url": ("https://news.google.com/rss/search?"
+                "q=%22outbreak%22+(%22World+Health+Organization%22+OR"
+                "+%22health+ministry%22)+(confirmed+OR+declared+OR+spreads)"
+                "&hl=en-US&gl=US&ceid=US:en"),
+        "name": "Google News (WHO/ministry outbreaks)",
+    },
     "who_don": {
         "url": "https://www.who.int/feeds/entity/csr/don/en/rss.xml",
         "name": "WHO Disease Outbreak News",
@@ -52,17 +68,23 @@ DISEASE_TERMS = SEVERE_DISEASES + [
     "diphtheria", "zika", "chikungunya",
 ]
 
-# WHO DON titles usually look like "Cholera – Sudan" or
-# "Disease Outbreak News: Ebola virus disease – Democratic Republic of the Congo"
-_TITLE_SPLIT = re.compile(r"\s+[–—-]\s+")
+# WHO DON titles look like "Cholera – Sudan" (en/em dash); news-aggregator
+# titles look like "Cholera outbreak kills 30 in Sudan - Reuters" (a
+# hyphenated publisher suffix and an "in <Country>" phrase).
+_WHO_SPLIT = re.compile(r"\s+[–—]\s+")
+_PUBLISHER_SUFFIX = re.compile(r"\s+-\s+[^-]+$")
+_IN_COUNTRY = re.compile(
+    r"\bin\s+(?:the\s+)?([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,3})")
 
 
-def _extract_disease_country(title: str) -> (str, Optional[str]):
+def _extract_disease_country(title: str) -> (Optional[str], Optional[str]):
     text = re.sub(r"(?i)^disease outbreak news[:\s]*", "", title).strip()
-    parts = _TITLE_SPLIT.split(text)
-    if len(parts) >= 2:
+    parts = _WHO_SPLIT.split(text)
+    if len(parts) >= 2:                      # WHO style: Disease – Country
         return parts[0].strip(), parts[-1].strip()
-    return text, None
+    text = _PUBLISHER_SUFFIX.sub("", text)   # news style: drop " - Outlet"
+    m = _IN_COUNTRY.search(text)
+    return None, (m.group(1).strip() if m else None)
 
 
 def classify(title: str, description: str) -> Dict:
@@ -73,6 +95,8 @@ def classify(title: str, description: str) -> Dict:
         return {"relevant": False}
 
     disease, country = _extract_disease_country(title)
+    if not disease:                      # news style: use the matched term
+        disease = hits[0].title()
     severe = any(t in combined for t in SEVERE_DISEASES)
     spreading = any(t in combined for t in
                     ("pandemic", "spread to", "multiple countries", "region"))
