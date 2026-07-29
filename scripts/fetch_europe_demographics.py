@@ -91,8 +91,30 @@ _SHARE_2050 = re.compile(
     re.IGNORECASE)
 _POP_MILLIONS = re.compile(
     r"([\d.]+)\s+million\s+Muslims?", re.IGNORECASE)
-_AS_OF_YEAR = re.compile(r"\bin\s+(20\d\d)\b")
-_YEAR = re.compile(r"\b(20\d\d)\b")
+_IN_YEAR = re.compile(r"\bin\s+(20\d\d)\b")
+
+
+def _best_year(text: str):
+    """Most recent plausible survey year: max 'in <year>' not in the future.
+    'First year mentioned' once dated 2016 survey figures to a 2010
+    comparison sentence earlier in the same article."""
+    from datetime import datetime
+    limit = datetime.utcnow().year + 1
+    years = [int(y) for y in _IN_YEAR.findall(text) if int(y) <= limit]
+    return str(max(years)) if years else None
+
+
+def _first_in_bounds(pattern, text: str, lo: float, hi: float):
+    """First match whose value is inside sanity bounds — skips country-level
+    sub-figures (e.g. '3.7 million Muslims in Germany' on a Europe page)."""
+    for hit in pattern.finditer(text):
+        try:
+            value = float(hit.group(1))
+        except ValueError:
+            continue
+        if lo <= value <= hi:
+            return value
+    return None
 
 
 def parse_html(raw: str, source: str = "Pew Research",
@@ -103,24 +125,24 @@ def parse_html(raw: str, source: str = "Pew Research",
     text = clean_html(raw)
     if "Muslim" not in text or "Europe" not in text:
         return []
-    m = _AS_OF_YEAR.search(text) or _YEAR.search(text)
-    if not m:
+    year = _best_year(text)
+    if not year:
         return []
-    as_of = f"{m.group(1)}-01-01"
+    as_of = f"{year}-01-01"
 
     records = []
-    hit = _SHARE_NOW.search(text)
-    if hit:
-        records.append(_record(as_of, "muslim_share_pct",
-                               float(hit.group(1)), None, url, source))
-    hit = _SHARE_2050.search(text)
-    if hit:
-        records.append(_record(as_of, "muslim_share_2050_high_pct",
-                               float(hit.group(1)), None, url, source))
-    hit = _POP_MILLIONS.search(text)
-    if hit:
-        records.append(_record(as_of, "muslim_population_millions",
-                               float(hit.group(1)), None, url, source))
+    value = _first_in_bounds(_SHARE_NOW, text, 0.5, 50)
+    if value is not None:
+        records.append(_record(as_of, "muslim_share_pct", value,
+                               None, url, source))
+    value = _first_in_bounds(_SHARE_2050, text, 1, 50)
+    if value is not None:
+        records.append(_record(as_of, "muslim_share_2050_high_pct", value,
+                               None, url, source))
+    value = _first_in_bounds(_POP_MILLIONS, text, 10, 200)
+    if value is not None:
+        records.append(_record(as_of, "muslim_population_millions", value,
+                               None, url, source))
     return records
 
 

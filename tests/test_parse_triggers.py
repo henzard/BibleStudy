@@ -187,8 +187,11 @@ def test_gospel_parse_html_wycliffe_page():
     assert by_name["languages_full_bible"] == 776
     assert by_name["languages_new_testament"] == 1798
     assert by_name["languages_portions"] == 1433
+    # The ~7,393 total-living-languages decoy must NOT win the waiting slot
+    # (that exact mismatch shipped in the 2026-07-29 run), and the stray
+    # "since 2000" must not date the page.
     assert by_name["languages_waiting"] == 544
-    assert all(r["date"] == "2099-08-01" for r in records)
+    assert all(r["date"] == "2026-08-01" for r in records)
 
 
 def test_gospel_parse_html_tolerates_garbage():
@@ -229,6 +232,9 @@ def test_europe_demographics_parse_html():
     by_name = {r["metric_name"]: r["value"] for r in records}
     assert by_name["muslim_share_pct"] == 4.9
     assert by_name["muslim_share_2050_high_pct"] == 14.0
+    # The "3.7 million Muslims in Germany" country decoy must not win the
+    # Europe-wide slot, and the 2010 comparison sentence must not date the
+    # figures (both mismatches shipped in the 2026-07-29 run).
     assert by_name["muslim_population_millions"] == 25.8
     assert all(r["node"] == "D3" for r in records)
     assert all(r["date"] == "2016-01-01" for r in records)
