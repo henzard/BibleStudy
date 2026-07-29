@@ -104,29 +104,33 @@ def parse(raw: str, source: str = "progress.bible") -> List[Dict]:
 # --- HTML fallback: Wycliffe statistics pages ------------------------------
 # Headline sentences look like "The full Bible is now available in 776
 # languages" / "544 languages remain on the waiting list". Both word orders
-# (number-first and phrase-first) are matched.
+# (number-first and phrase-first) are matched. Every metric carries sanity
+# bounds because these pages also quote the ~7,400 total-living-languages
+# figure in similar sentences — an unbounded match once recorded that total
+# as the waiting-list count.
 
 _NUM = r"([\d][\d,]{1,9})"
 
+# (metric, [patterns], (min_value, max_value))
 _HTML_METRICS = [
     ("languages_full_bible",
      [rf"(?:full|complete|whole)\s+Bible[^.]{{0,90}}?{_NUM}\s+languages?",
-      rf"{_NUM}\s+languages?[^.]{{0,90}}?(?:full|complete|whole)\s+Bible"]),
+      rf"{_NUM}\s+languages?[^.]{{0,90}}?(?:full|complete|whole)\s+Bible"],
+     (200, 3000)),
     ("languages_new_testament",
      [rf"New\s+Testament[^.]{{0,90}}?{_NUM}\s+languages?",
-      rf"{_NUM}\s+languages?[^.]{{0,90}}?New\s+Testament"]),
+      rf"{_NUM}\s+languages?[^.]{{0,90}}?New\s+Testament"],
+     (500, 4000)),
     ("languages_portions",
      [rf"(?:portions?|some\s+Scripture|selections?)[^.]{{0,90}}?{_NUM}\s+(?:more\s+)?languages?",
-      rf"{_NUM}\s+(?:more\s+)?languages?[^.]{{0,90}}?(?:portions?|some\s+(?:translated\s+)?Scripture)"]),
+      rf"{_NUM}\s+(?:more\s+)?languages?[^.]{{0,90}}?(?:portions?|some\s+(?:translated\s+)?Scripture)"],
+     (300, 4000)),
     ("languages_waiting",
      [rf"{_NUM}\s+(?:of\s+the\s+world[^.]{{0,40}}?)?(?:living\s+)?languages?[^.]{{0,90}}?"
       r"(?:waiting\s+list|no\s+Scripture|translation\s+to\s+begin|remain)",
-      rf"(?:waiting\s+list|no\s+Scripture)[^.]{{0,90}}?{_NUM}\s+languages?"]),
+      rf"(?:waiting\s+list|no\s+Scripture)[^.]{{0,90}}?{_NUM}\s+languages?"],
+     (100, 3000)),
 ]
-
-_AS_OF = re.compile(
-    r"(?:[Aa]s\s+of|[Ss]eptember|[Aa]ugust|[Oo]ctober)\s*[^.]{0,30}?(20\d\d)")
-_YEAR = re.compile(r"\b(20\d\d)\b")
 
 
 def _to_number(text: str) -> Optional[float]:
@@ -134,6 +138,29 @@ def _to_number(text: str) -> Optional[float]:
         return float(text.replace(",", ""))
     except (ValueError, AttributeError):
         return None
+
+
+def _best_year(text: str) -> Optional[str]:
+    """Most recent plausible statistics year on the page.
+
+    'First year mentioned' once dated a current statistics page to a stray
+    'since 2000'; instead take the max year that is not in the future
+    (which also skips projection years like 2050)."""
+    from datetime import datetime
+    limit = datetime.utcnow().year + 1
+    years = [int(y) for y in re.findall(r"\b(20\d\d)\b", text)
+             if int(y) <= limit]
+    return str(max(years)) if years else None
+
+
+def _first_in_bounds(patterns, text: str, lo: float, hi: float):
+    """First regex capture across patterns whose value is inside bounds."""
+    for pat in patterns:
+        for hit in re.finditer(pat, text, re.IGNORECASE):
+            value = _to_number(hit.group(1))
+            if value is not None and lo <= value <= hi:
+                return value
+    return None
 
 
 def parse_html(raw: str, source: str = "Wycliffe statistics",
@@ -145,19 +172,14 @@ def parse_html(raw: str, source: str = "Wycliffe statistics",
     if "Bible" not in text or "language" not in text.lower():
         return []
 
-    m = _AS_OF.search(text) or _YEAR.search(text)
-    if not m:
+    year = _best_year(text)
+    if not year:
         return []
-    as_of = f"{m.group(1)}-08-01"   # stats are refreshed each August/September
+    as_of = f"{year}-08-01"   # stats are refreshed each August/September
 
     records = []
-    for name, patterns in _HTML_METRICS:
-        value = None
-        for pat in patterns:
-            hit = re.search(pat, text, re.IGNORECASE)
-            if hit:
-                value = _to_number(hit.group(1))
-                break
+    for name, patterns, (lo, hi) in _HTML_METRICS:
+        value = _first_in_bounds(patterns, text, lo, hi)
         if value is None:
             continue
         records.append({
