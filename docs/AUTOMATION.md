@@ -27,7 +27,7 @@ in the platform UI (see [Secrets](#secrets--env) below).
 
 ```text
 Run the existing BibleStudy automation stack. Do not recreate the Ark-SA monitor
-or the early-warning pipeline from scratch. Extend, do not replace.
+or the early-warning pipeline from scratch. DO NOT MODIFY CODE (see RULES).
 
 Repository: https://github.com/henzard/BibleStudy
 Schedule: daily at 06:00 South Africa time (SAST). The monitor uses SAST
@@ -35,6 +35,14 @@ internally, so no --date is needed in production.
 
 Read and obey the existing repo rules in .cursor/rules/ (Bible-only, news
 methodology, source credibility, AI honesty). Then:
+
+========================= STEP 0: SYNC & IDEMPOTENCY =========================
+1. git fetch origin && git switch -c automation/daily-<YYYY-MM-DD> origin/main
+   The branch MUST be cut from up-to-date origin/main — a stale base makes
+   every PR conflict and the sweep useless.
+2. If branch automation/daily-<YYYY-MM-DD> or a PR titled
+   "Automated daily run <YYYY-MM-DD>" already exists, do NOT create a second
+   one: reuse/update the existing branch and PR instead.
 
 ========================= DAILY — CHANNEL 1: SA OPERATIONAL =========================
 1. Run the existing daily monitor (writes files AND prints JSON to stdout):
@@ -57,6 +65,8 @@ methodology, source credibility, AI honesty). Then:
 Keep this SEPARATE from the SA operational message above (separate Slack post).
 6. Run the global prophecy early-warning pipeline:
      python scripts/run_pipeline.py --days 7 --live
+   Note: on a total feed outage the pipeline replays the store instead of
+   reporting a false GREEN; stale sources appear in freshness.stale_sources.
 7. Send a SECOND Slack message from tracking/dashboard/latest.json:
    Title:
      alert_level in (GREEN, WATCH, AMBER) -> "Prophecy Early-Warning — <alert_level>"
@@ -67,10 +77,7 @@ Keep this SEPARATE from the SA operational message above (separate Slack post).
    Send every day. Pattern observation only.
 
 ========================= WEEKLY — MONDAY ONLY =========================
-On Mondays, after the daily channels, also run weekly_update.py.
-Before running, scan scripts/weekly_update.py and scripts/generate_newsletter.py
-for merge-conflict markers (<<<<<<<, =======, >>>>>>>). They are already fixed
-on the working branch; if you find any (e.g. on main), fix them first.
+On Mondays, after the daily channels, also run:
      python scripts/weekly_update.py --days 7
 Confirm it produced:
      tracking/weekly-reviews/<YYYY-MM-DD>_weekly_review.md
@@ -78,37 +85,38 @@ Confirm it produced:
 
 ========================= COMMIT, PR & AUTO-MERGE =========================
 Only if the run SUCCEEDED (daily monitor exit 0 and the pipeline did not error):
-1. Create a dated branch for this run:
-     git switch -c automation/daily-<YYYY-MM-DD>
-2. Stage state + outputs (state MUST be committed so the next run can compute
+1. Stage state + outputs (state MUST be committed so the next run can compute
    "changes since yesterday"):
      git add reports/ark-sa/*.md reports/ark-sa/*.json data/prophecy_tracking.db
-     git add -f tracking/dashboard/latest.json tracking/early-warning/*.html
+     git add -f tracking/dashboard/latest.json
+     git add -f tracking/early-warning/*.html tracking/early-warning/*.md
      # On Mondays also: git add tracking/weekly-reviews/*.md tracking/newsletters/*.md
-3. Commit and push:
+2. Commit and push:
      git commit -m "chore(daily): <YYYY-MM-DD> — Ark-SA <threat_level> / EW <alert_level>"
      git push -u origin automation/daily-<YYYY-MM-DD>
-4. Open a PR to main and AUTO-MERGE it (do NOT leave it open):
+3. Open a PR to main and AUTO-MERGE it (do NOT leave it open, do NOT leave it
+   as a draft):
      - Use the platform GitHub integration (gh CLI or GitHub MCP).
      - Title: "Automated daily run <YYYY-MM-DD>"
      - Squash-merge as soon as it is mergeable (enable auto-merge if checks are
        pending; merge immediately if already green). Delete the head branch
        after merge.
-5. Sweep: merge any OTHER open PRs created by this automation that are mergeable,
-   so PRs do not accumulate. Squash-merge + delete the branch.
-     - Scope to automation-authored PRs only.
-     - If a PR has conflicts or failing checks, do NOT force it — leave it open
-       and report it in the Slack message.
+4. Sweep (cap: 5 PRs, then stop and report the rest): squash-merge any OTHER
+   open automation-authored PRs that are mergeable; delete their branches.
+     - If a PR has conflicts or failing checks, do NOT force it and do NOT try
+       to resolve conflicts yourself — leave it open and list it in the Slack
+       message.
 
-========================= MAINTENANCE (INCREMENTAL) =========================
-If scripts/ark_sa_daily_monitor.py still uses static category signals, improve it
-incrementally by reusing the EXISTING refactored collectors — each fetch script
-now exposes collect(days=...) (and earlywarning/collectors wraps them), so import
-and call those instead of scraping stdout:
-   fetch_earthquakes, fetch_gdacs, fetch_worldbank_news, fetch_un_peacekeeping,
-   fetch_fred_news, fetch_economic, fetch_spaceweather, fetch_eff_news,
-   fetch_temple_mount_news (and monitor_antichrist_patterns — framework only).
-One small, reviewable change per PR. Do not replace the architecture.
+========================= BUDGET & RATE LIMITS =========================
+- This is a report-and-publish routine, not a project: the whole run should be
+  a bounded, linear pass. Run each step ONCE; on transient failure retry ONCE;
+  then follow FAILURE HANDLING. Never loop.
+- If the platform or model rate-limits you mid-run: stop cleanly, send ONE
+  short Slack message ("Daily run aborted: rate-limited at step <n>"), and
+  exit. Do not wait-and-retry in a loop; tomorrow's run will catch up — the
+  pipeline's change detection tolerates a missed day.
+- Do not re-read the whole repo, re-review architecture docs, or explore code
+  beyond what the steps above require.
 
 ========================= FAILURE HANDLING =========================
 If the daily monitor exits non-zero OR the pipeline raises:
@@ -122,6 +130,9 @@ If the daily monitor exits non-zero OR the pipeline raises:
 5. Do not silently fail.
 
 ========================= RULES =========================
+- DO NOT MODIFY CODE. No maintenance, no refactors, no bug fixes — if a bug
+  blocks the run, report it via FAILURE HANDLING and stop. Code changes happen
+  in interactive sessions, not in the daily routine.
 - Do not claim prophecy fulfillment. Do not set dates (Matt 24:36).
 - Keep Bible/prophecy review SEPARATE from SA operational, family-readiness, and
   route/mobility risk (two distinct Slack messages, as above).
@@ -149,6 +160,14 @@ JSON, so keep the pipeline's own dispatch off: ALERTS_DRY_RUN=true.
 
 Without committing both, "changes since yesterday" / alert change-detection
 resets to a baseline on every run.
+
+### Why the routine may not modify code
+An earlier version of this prompt had a standing "incremental maintenance"
+clause. Combined with branches cut from a stale base (pre-fetch), it caused the
+agent to re-diagnose and re-apply the same one-line fix for ~2 weeks straight
+while its PRs sat unmergeable — the single largest source of wasted tokens in
+the automation's history. The routine now reports bugs and stops; fixes happen
+in interactive sessions.
 
 ### Auto-merge caveats
 1. **Branch protection.** If `main` requires reviews or status checks, auto-merge
