@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-08-08 03:02 UTC",
-  "event_count": 178,
-  "cluster_count": 43,
+  "generated_at": "2026-08-09 03:02 UTC",
+  "event_count": 190,
+  "cluster_count": 46,
   "findings": [
     {
       "domain": "disaster",
-      "headline": "Earthquakes & Disasters: 127 event(s) across 25 situation(s) — escalating",
-      "assessment": "Observed 127 normalized event(s) grouped into 25 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as escalating. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Earthquakes & Disasters: 136 event(s) across 29 situation(s) — escalating",
+      "assessment": "Observed 136 normalized event(s) grouped into 29 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as escalating. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Green: M5.1 earthquake: 6 km NNE of Xunchang, China [2026-08-08, 2 source(s)]",
-        "Russia: M4.6 earthquake: 149 km SE of Petropavlovsk-Kamchatsky, Russia [2026-08-06, 1 source(s)]",
-        "Chile: M4.4 earthquake: 66 km NNW of Camiña, Chile [2026-08-07, 1 source(s)]",
-        "Tonga: M4.4 earthquake: 27 km NW of Hihifo, Tonga [2026-08-07, 1 source(s)]",
-        "Mexico: M4.3 earthquake: 94 km WSW of Aquiles Serdán, Mexico [2026-08-04, 1 source(s)]"
+        "Green: M5.6 earthquake: 42 km E of Noda, Japan [2026-08-09, 2 source(s)]",
+        "Magnitude: M4.9 earthquake: 237 km E of Levuka, Fiji [2026-08-09, 1 source(s)]",
+        "Indonesia: M4.5 earthquake: 122 km WSW of Gorontalo, Indonesia [2026-08-08, 1 source(s)]",
+        "Peru: M4.7 earthquake: 17 km WNW of Yanacancha, Peru [2026-08-08, 1 source(s)]",
+        "Alaska: M5.6 earthquake: 57 km WNW of Skwentna, Alaska [2026-08-09, 1 source(s)]"
       ],
       "confidence": "Med",
       "escalation": "steady",
@@ -44,43 +44,11 @@
         "disaster-21",
         "disaster-22",
         "disaster-23",
-        "disaster-24"
-      ],
-      "source_backend": "heuristic",
-      "caveats": []
-    },
-    {
-      "domain": "health",
-      "headline": "Pestilence & Health: 16 event(s) across 1 situation(s) — steady",
-      "assessment": "Observed 16 normalized event(s) grouped into 1 corroboration cluster(s) for the Pestilence & Health domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
-      "key_facts": [
-        "Outbreak: Outbreak: Ebola [2026-08-08, 1 source(s)]"
-      ],
-      "confidence": "Med",
-      "escalation": "steady",
-      "node_ids": [
-        "J0"
-      ],
-      "cluster_ids": [
-        "health-0"
-      ],
-      "source_backend": "heuristic",
-      "caveats": []
-    },
-    {
-      "domain": "mixture",
-      "headline": "Iron & Clay Mixture: 3 event(s) across 1 situation(s) — steady",
-      "assessment": "Observed 3 normalized event(s) grouped into 1 corroboration cluster(s) for the Iron & Clay Mixture domain (nodes D3 Iron and Clay Mixture). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
-      "key_facts": [
-        "Europe: Europe demographics: muslim_population_millions = 25.8 [2016-01-01, 1 source(s)]"
-      ],
-      "confidence": "Med",
-      "escalation": "steady",
-      "node_ids": [
-        "D3"
-      ],
-      "cluster_ids": [
-        "mixture-0"
+        "disaster-24",
+        "disaster-25",
+        "disaster-26",
+        "disaster-27",
+        "disaster-28"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -122,11 +90,30 @@
       "caveats": []
     },
     {
-      "domain": "covenant",
-      "headline": "Covenant & Treaty Watch: 9 event(s) across 2 situation(s) — easing",
-      "assessment": "Observed 9 normalized event(s) grouped into 2 corroboration cluster(s) for the Covenant & Treaty Watch domain (nodes D1 Covenant Confirmation, J3 Abomination of Desolation). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "domain": "health",
+      "headline": "Pestilence & Health: 16 event(s) across 1 situation(s) — easing",
+      "assessment": "Observed 16 normalized event(s) grouped into 1 corroboration cluster(s) for the Pestilence & Health domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Hormuz: Iran wants to bar US, Israeli ships from Strait of Hormuz in peace accord - Business Standard [2026-08-07, 1 source(s)]",
+        "Outbreak: Outbreak: Ebola [2026-08-08, 1 source(s)]"
+      ],
+      "confidence": "Low",
+      "escalation": "easing",
+      "node_ids": [
+        "J0"
+      ],
+      "cluster_ids": [
+        "health-0"
+      ],
+      "source_backend": "heuristic",
+      "caveats": []
+    },
+    {
+      "domain": "covenant",
+      "headline": "Covenant & Treaty Watch: 11 event(s) across 3 situation(s) — easing",
+      "assessment": "Observed 11 normalized event(s) grouped into 3 corroboration cluster(s) for the Covenant & Treaty Watch domain (nodes D1 Covenant Confirmation, J3 Abomination of Desolation). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "key_facts": [
+        "Israel: From Normalization To Regional Architecture: Morocco, Israel, And The Future Of The Abraham Accords In A Turbulent Middle East - Analysis - Eurasia Review [2026-08-09, 1 source(s)]",
+        "No Benefit In: 'No Benefit In Normalization': Pakistan Calls For 'Islamic NATO' To 'Counter' India, Israel - News18 [2026-08-08, 1 source(s)]",
         "Why Trump: Why Trump’s Israel Normalization Demand May Kill the Saudi Nuclear Deal - War on the Rocks [2026-08-05, 1 source(s)]"
       ],
       "confidence": "Low",
@@ -137,52 +124,37 @@
       ],
       "cluster_ids": [
         "covenant-0",
-        "covenant-1"
+        "covenant-1",
+        "covenant-2"
       ],
       "source_backend": "heuristic",
       "caveats": []
     },
     {
       "domain": "coalition",
-      "headline": "Gog Coalition Alignment: 5 event(s) across 1 situation(s) — easing",
-      "assessment": "Observed 5 normalized event(s) grouped into 1 corroboration cluster(s) for the Gog Coalition Alignment domain (nodes E38 Gog Coalition Alignment). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Gog Coalition Alignment: 8 event(s) across 1 situation(s) — easing",
+      "assessment": "Observed 8 normalized event(s) grouped into 1 corroboration cluster(s) for the Gog Coalition Alignment domain (nodes E38 Gog Coalition Alignment). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Turkey: Iran war live: Trilateral Mecca defence pact signed, as Hormuz deal looms [2026-08-08, 1 source(s)]"
+        "Turkey: Egypt may join Turkey-Pakistan-Saudi defence pact, alliance not against Iran - India Today [2026-08-08, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
       "node_ids": [
-        "E38"
+        "J3",
+        "MS0"
       ],
       "cluster_ids": [
-        "coalition-0",
-        "coalition-1"
-      ],
-      "source_backend": "heuristic",
-      "caveats": []
-    },
-    {
-      "domain": "cosmic",
-      "headline": "Cosmic & Space Weather: 3 event(s) across 1 situation(s) — easing",
-      "assessment": "Observed 3 normalized event(s) grouped into 1 corroboration cluster(s) for the Cosmic & Space Weather domain (nodes J6 Cosmic Signs). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
-      "key_facts": [
-        "Space: Space weather: INFO [2026-08-02 00:00, 1 source(s)]"
-      ],
-      "confidence": "Low",
-      "escalation": "easing",
-      "node_ids": [
-        "J6"
-      ],
-      "cluster_ids": [
-        "cosmic-0"
+        "middle_east-0",
+        "middle_east-1",
+        "middle_east-2"
       ],
       "source_backend": "heuristic",
       "caveats": []
     },
     {
       "domain": "digital_control",
-      "headline": "Commerce Control & Digital ID: 9 event(s) across 5 situation(s) — easing",
-      "assessment": "Observed 9 normalized event(s) grouped into 5 corroboration cluster(s) for the Commerce Control & Digital ID domain (nodes B2 Commerce Control / Mark). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Commerce Control & Digital ID: 10 event(s) across 5 situation(s) — easing",
+      "assessment": "Observed 10 normalized event(s) grouped into 5 corroboration cluster(s) for the Commerce Control & Digital ID domain (nodes B2 Commerce Control / Mark). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
         "Biometric Update: Russia expands state-backed Max digital ID to hotels and teenagers - Biometric Update [2026-08-06, 1 source(s)]",
         "The Senate Commerce: Tomorrow’s U.S. Senate Vote: Four Internet Bills, One Wrong Direction [2026-08-05, 1 source(s)]",
@@ -206,13 +178,30 @@
       "caveats": []
     },
     {
-      "domain": "middle_east",
-      "headline": "Middle East & Temple Mount: 3 event(s) across 3 situation(s) — easing",
-      "assessment": "Observed 3 normalized event(s) grouped into 3 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "domain": "cosmic",
+      "headline": "Cosmic & Space Weather: 2 event(s) across 1 situation(s) — easing",
+      "assessment": "Observed 2 normalized event(s) grouped into 1 corroboration cluster(s) for the Cosmic & Space Weather domain (nodes J6 Cosmic Signs). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Lebanon: Lebanon points to ‘positive progress’ on borders, prisoners in Israel talks [2026-08-08, 1 source(s)]",
-        "Medics: Medics among six Palestinians injured in Israeli attacks across West Bank [2026-08-08, 1 source(s)]",
-        "Will Pakistan: Will Pakistan-Saudi-Turkiye alliance actually create a new regional order? [2026-08-08, 1 source(s)]"
+        "Space: Space weather: MODERATE [2026-08-08 00:00, 1 source(s)]"
+      ],
+      "confidence": "Low",
+      "escalation": "easing",
+      "node_ids": [
+        "J6"
+      ],
+      "cluster_ids": [
+        "cosmic-0"
+      ],
+      "source_backend": "heuristic",
+      "caveats": []
+    },
+    {
+      "domain": "middle_east",
+      "headline": "Middle East & Temple Mount: 3 event(s) across 2 situation(s) — easing",
+      "assessment": "Observed 3 normalized event(s) grouped into 2 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "key_facts": [
+        "Israeli: Lebanese soldiers injured while Israeli troops intrude on southern town [2026-08-09, 1 source(s)]",
+        "Gaza: Gaza health chief urges action to ‘save’ Dr Abu Safia before it’s too late [2026-08-09, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -222,8 +211,7 @@
       ],
       "cluster_ids": [
         "middle_east-0",
-        "middle_east-1",
-        "middle_east-2"
+        "middle_east-1"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -253,7 +241,7 @@
     }
   ],
   "threat": {
-    "overall_intensity": 56.9,
+    "overall_intensity": 55.7,
     "phase": "ACTIVE Beginning of Sorrows",
     "emoji": "🟠",
     "note": "Clear J0 patterns observed",
@@ -264,7 +252,7 @@
         "scripture": "Matt 24:6-8",
         "intensity": 91.0,
         "confidence": "Med",
-        "description": "146 event(s), 2 max independent source(s)",
+        "description": "155 event(s), 2 max independent source(s)",
         "contributing_domains": [
           "disaster",
           "health"
@@ -276,7 +264,7 @@
         "scripture": "Rev 13:11-18",
         "intensity": 67.0,
         "confidence": "Low",
-        "description": "9 event(s), 1 max independent source(s)",
+        "description": "10 event(s), 1 max independent source(s)",
         "contributing_domains": [
           "digital_control"
         ]
@@ -287,7 +275,7 @@
         "scripture": "Dan 9:27",
         "intensity": 67.0,
         "confidence": "Low",
-        "description": "9 event(s), 1 max independent source(s)",
+        "description": "11 event(s), 1 max independent source(s)",
         "contributing_domains": [
           "covenant"
         ]
@@ -296,33 +284,11 @@
         "node_id": "E38",
         "label": "Gog Coalition Alignment",
         "scripture": "Ezek 38:1-6",
-        "intensity": 52.0,
+        "intensity": 67.0,
         "confidence": "Low",
-        "description": "5 event(s), 1 max independent source(s)",
+        "description": "8 event(s), 1 max independent source(s)",
         "contributing_domains": [
           "coalition"
-        ]
-      },
-      {
-        "node_id": "D3",
-        "label": "Iron and Clay Mixture",
-        "scripture": "Dan 2:41-43",
-        "intensity": 60.0,
-        "confidence": "Med",
-        "description": "3 event(s), 2 max independent source(s)",
-        "contributing_domains": [
-          "mixture"
-        ]
-      },
-      {
-        "node_id": "J6",
-        "label": "Cosmic Signs",
-        "scripture": "Matt 24:29; Luke 21:25",
-        "intensity": 36.0,
-        "confidence": "Low",
-        "description": "3 event(s), 1 max independent source(s)",
-        "contributing_domains": [
-          "cosmic"
         ]
       },
       {
@@ -333,7 +299,7 @@
         "confidence": "Low",
         "description": "3 event(s), 1 max independent source(s)",
         "contributing_domains": [
-          "ai_enforcement"
+          "coalition"
         ]
       },
       {
@@ -345,6 +311,17 @@
         "description": "1 event(s), 1 max independent source(s)",
         "contributing_domains": [
           "gospel"
+        ]
+      },
+      {
+        "node_id": "J6",
+        "label": "Cosmic Signs",
+        "scripture": "Matt 24:29; Luke 21:25",
+        "intensity": 28.0,
+        "confidence": "Low",
+        "description": "2 event(s), 1 max independent source(s)",
+        "contributing_domains": [
+          "cosmic"
         ]
       },
       {
@@ -434,6 +411,15 @@
         "confidence": "Low",
         "description": "No qualifying signals in window",
         "contributing_domains": []
+      },
+      {
+        "node_id": "D3",
+        "label": "Iron and Clay Mixture",
+        "scripture": "Dan 2:41-43",
+        "intensity": 0.0,
+        "confidence": "Low",
+        "description": "No qualifying signals in window",
+        "contributing_domains": []
       }
     ],
     "cross_validation": {
@@ -450,7 +436,7 @@
       "AC0": 0,
       "D1": 1,
       "D2": 0,
-      "D3": 1,
+      "D3": 0,
       "E38": 1,
       "B4": 1,
       "M14": 1
@@ -464,17 +450,17 @@
         "available": true,
         "weekly_series": [
           0,
-          70,
-          91,
+          98,
+          63,
           0,
-          0,
-          215,
-          147,
-          162
+          30,
+          210,
+          122,
+          158
         ],
-        "recent_week": 162,
+        "recent_week": 158,
         "baseline_avg": 74.71,
-        "acceleration_pct": 116.8,
+        "acceleration_pct": 111.5,
         "direction": "escalating"
       },
       "conflicts": {
@@ -497,18 +483,18 @@
       "disasters": {
         "available": true,
         "weekly_series": [
-          18,
-          45,
-          6,
+          23,
+          44,
+          1,
           0,
-          0,
-          106,
-          62,
-          56
+          17,
+          99,
+          58,
+          53
         ],
-        "recent_week": 56,
-        "baseline_avg": 33.86,
-        "acceleration_pct": 65.4,
+        "recent_week": 53,
+        "baseline_avg": 34.57,
+        "acceleration_pct": 53.3,
         "direction": "escalating"
       },
       "worldbank_news": {
@@ -545,20 +531,20 @@
       {
         "kind": "node_crossing",
         "severity": "amber",
-        "message": "E38 Gog Coalition Alignment crossed up into AMBER (20 → 52).",
+        "message": "E38 Gog Coalition Alignment crossed up into AMBER (20 → 67).",
         "node_id": "E38"
-      },
-      {
-        "kind": "node_crossing",
-        "severity": "watch",
-        "message": "J6 Cosmic Signs crossed up into WATCH (28 → 36).",
-        "node_id": "J6"
       },
       {
         "kind": "node_crossing",
         "severity": "info",
         "message": "B4 Image of the Beast eased to WATCH (67 → 36).",
         "node_id": "B4"
+      },
+      {
+        "kind": "node_crossing",
+        "severity": "info",
+        "message": "D3 Iron and Clay Mixture eased to GREEN (40 → 0).",
+        "node_id": "D3"
       }
     ],
     "summary": "Update: AMBER (3 change(s))."
@@ -567,7 +553,7 @@
     "items": [
       {
         "source": "earthquakes",
-        "latest": "2026-08-08 03:01",
+        "latest": "2026-08-09 02:59",
         "age_days": 0.1,
         "stale": false,
         "tier": 1,
@@ -575,7 +561,7 @@
       },
       {
         "source": "disasters",
-        "latest": "2026-08-07 00:00",
+        "latest": "2026-08-08 17:58",
         "age_days": 1.1,
         "stale": false,
         "tier": 1,
@@ -607,8 +593,8 @@
       },
       {
         "source": "space_weather",
-        "latest": "2026-08-02",
-        "age_days": 6.1,
+        "latest": "2026-08-08",
+        "age_days": 1.1,
         "stale": false,
         "tier": 1,
         "max_age_days": 7
@@ -616,14 +602,14 @@
       {
         "source": "digital_rights",
         "latest": "2026-08-05 00:15",
-        "age_days": 3.1,
+        "age_days": 4.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 21
       },
       {
         "source": "temple_mount_news",
-        "latest": "2026-08-08 00:00",
+        "latest": "2026-08-09 00:00",
         "age_days": 0.1,
         "stale": false,
         "tier": 2,
@@ -632,15 +618,15 @@
       {
         "source": "fred_news",
         "latest": "2026-07-24 00:00",
-        "age_days": 15.1,
+        "age_days": 16.1,
         "stale": true,
         "tier": 2,
         "max_age_days": 14
       },
       {
         "source": "covenant_watch",
-        "latest": "2026-08-07 00:00",
-        "age_days": 1.1,
+        "latest": "2026-08-09 00:00",
+        "age_days": 0.1,
         "stale": false,
         "tier": 1,
         "max_age_days": 14
@@ -648,7 +634,7 @@
       {
         "source": "cbdc_tracker",
         "latest": "2026-08-06 00:00",
-        "age_days": 2.1,
+        "age_days": 3.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 30
@@ -656,7 +642,7 @@
       {
         "source": "coalition_events",
         "latest": "2026-08-08 00:00",
-        "age_days": 0.1,
+        "age_days": 1.1,
         "stale": false,
         "tier": 1,
         "max_age_days": 14
@@ -664,7 +650,7 @@
       {
         "source": "eu_consolidation",
         "latest": "2026-07-24 00:00",
-        "age_days": 15.1,
+        "age_days": 16.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 30
@@ -672,7 +658,7 @@
       {
         "source": "ai_enforcement",
         "latest": "2026-08-06 00:00",
-        "age_days": 2.1,
+        "age_days": 3.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 21
@@ -680,7 +666,7 @@
       {
         "source": "gospel_reach",
         "latest": "2026-08-01 00:00",
-        "age_days": 7.1,
+        "age_days": 8.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 400
@@ -688,7 +674,7 @@
       {
         "source": "disease_outbreaks",
         "latest": "2026-08-08 00:00",
-        "age_days": 0.1,
+        "age_days": 1.1,
         "stale": false,
         "tier": 1,
         "max_age_days": 14
@@ -703,8 +689,8 @@
       },
       {
         "source": "europe_demographics",
-        "latest": "2016-01-01 00:00",
-        "age_days": 3872.1,
+        "latest": null,
+        "age_days": null,
         "stale": true,
         "tier": 2,
         "reason": "no data"
@@ -721,6 +707,6 @@
     "any_stale": true
   },
   "report_title": "Prophecy Early-Warning Report",
-  "report_summary": "Overall pattern strength is 57/100 — ACTIVE Beginning of Sorrows. Clear J0 patterns observed. Escalating domains: disaster. 2 metric(s) accelerating vs 8-week baseline. This is pattern observation only; timing is unknown (Matt 24:36).",
+  "report_summary": "Overall pattern strength is 56/100 — ACTIVE Beginning of Sorrows. Clear J0 patterns observed. Escalating domains: disaster. 2 metric(s) accelerating vs 8-week baseline. This is pattern observation only; timing is unknown (Matt 24:36).",
   "delivered": []
 }
