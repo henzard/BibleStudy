@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-08-21 03:01 UTC",
-  "event_count": 168,
-  "cluster_count": 43,
+  "generated_at": "2026-08-22 03:02 UTC",
+  "event_count": 165,
+  "cluster_count": 44,
   "findings": [
     {
       "domain": "disaster",
-      "headline": "Earthquakes & Disasters: 128 event(s) across 29 situation(s) — escalating",
-      "assessment": "Observed 128 normalized event(s) grouped into 29 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as escalating. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Earthquakes & Disasters: 123 event(s) across 29 situation(s) — escalating",
+      "assessment": "Observed 123 normalized event(s) grouped into 29 corroboration cluster(s) for the Earthquakes & Disasters domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as escalating. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
         "Green: M6.7 earthquake: 31 km NW of Aniso, Peru [2026-08-21, 2 source(s)]",
+        "Russia: M4.4 earthquake: 112 km S of Vilyuchinsk, Russia [2026-08-22, 1 source(s)]",
+        "Tonga Magnitude: M5.1 earthquake: south of Tonga [2026-08-21, 1 source(s)]",
         "Alaska: M4.3 earthquake: 73 km SSE of Akutan, Alaska [2026-08-21, 1 source(s)]",
-        "Russia: M5.8 earthquake: 72 km E of Petropavlovsk-Kamchatsky, Russia [2026-08-18, 1 source(s)]",
-        "Vanuatu: M5.0 earthquake: 87 km S of Isangel, Vanuatu [2026-08-20, 1 source(s)]",
-        "Spain: M5.2 earthquake: 1 km SW of Otura, Spain [2026-08-19, 1 source(s)]"
+        "Chile: M4.7 earthquake: 147 km NE of Diego de Almagro, Chile [2026-08-21, 1 source(s)]"
       ],
       "confidence": "Med",
       "escalation": "steady",
@@ -87,7 +87,7 @@
       "confidence": "Med",
       "escalation": "escalating",
       "node_ids": [
-        "D3"
+        "B2"
       ],
       "cluster_ids": [
         "mixture-0",
@@ -97,33 +97,15 @@
       "caveats": []
     },
     {
-      "domain": "health",
-      "headline": "Pestilence & Health: 12 event(s) across 1 situation(s) — steady",
-      "assessment": "Observed 12 normalized event(s) grouped into 1 corroboration cluster(s) for the Pestilence & Health domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
-      "key_facts": [
-        "Outbreak: Outbreak: The Ebola Escalation Is A Global Health Emergency — OpEd - Eurasia Review [2026-08-20, 1 source(s)]"
-      ],
-      "confidence": "Med",
-      "escalation": "steady",
-      "node_ids": [
-        "B2"
-      ],
-      "cluster_ids": [
-        "health-0"
-      ],
-      "source_backend": "heuristic",
-      "caveats": []
-    },
-    {
       "domain": "digital_control",
-      "headline": "Commerce Control & Digital ID: 8 event(s) across 7 situation(s) — steady",
-      "assessment": "Observed 8 normalized event(s) grouped into 7 corroboration cluster(s) for the Commerce Control & Digital ID domain (nodes B2 Commerce Control / Mark). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "headline": "Commerce Control & Digital ID: 10 event(s) across 8 situation(s) — steady",
+      "assessment": "Observed 10 normalized event(s) grouped into 8 corroboration cluster(s) for the Commerce Control & Digital ID domain (nodes B2 Commerce Control / Mark). Cross-source confidence is Med; trend reads as steady. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Biometric Update: Liberia advances PPP-backed digital ID rollout with OSD - Biometric Update [2026-08-18, 1 source(s)]",
+        "Biometric Update: OfDIA guidance limits alcohol age checks to certified UK digital ID providers - Biometric Update [2026-08-18, 1 source(s)]",
+        "Civil Society Groups: EFF and Civil Society Groups Call on Nottinghamshire Police to Halt Live Face Recognition [2026-08-21, 1 source(s)]",
+        "Intermediary Liability: Intermediary Liability in Brazil: The Intricate Path Ahead [2026-08-20, 1 source(s)]",
         "Some Tech Companies: Some Tech Companies Have Privately Pushed Back on ICE Subpoenas. They Should All Do More. [2026-08-19, 1 source(s)]",
-        "The Sneaky Code: 📍 The Sneaky Code Tracking App Users | EFFector 38.15 [2026-08-19, 1 source(s)]",
-        "Zero: Zero-Knowledge Proofs Aren’t Age Verification Silver Bullets [2026-08-18, 1 source(s)]",
-        "Korea: S. Korea digital currency trial sparks fear, misinformation online - Fact Check AFP [2026-08-20, 1 source(s)]"
+        "The Sneaky Code: 📍 The Sneaky Code Tracking App Users | EFFector 38.15 [2026-08-19, 1 source(s)]"
       ],
       "confidence": "Med",
       "escalation": "steady",
@@ -137,7 +119,8 @@
         "digital_control-3",
         "digital_control-4",
         "digital_control-5",
-        "digital_control-6"
+        "digital_control-6",
+        "digital_control-7"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -161,20 +144,19 @@
       "caveats": []
     },
     {
-      "domain": "covenant",
-      "headline": "Covenant & Treaty Watch: 4 event(s) across 1 situation(s) — easing",
-      "assessment": "Observed 4 normalized event(s) grouped into 1 corroboration cluster(s) for the Covenant & Treaty Watch domain (nodes D1 Covenant Confirmation, J3 Abomination of Desolation). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "domain": "health",
+      "headline": "Pestilence & Health: 14 event(s) across 1 situation(s) — easing",
+      "assessment": "Observed 14 normalized event(s) grouped into 1 corroboration cluster(s) for the Pestilence & Health domain (nodes J0 Beginning of Sorrows). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Israel: Hamas affirms commitment to Gaza peace deal following Kushner’s Israel talks - The Sun Malaysia [2026-08-18, 1 source(s)]"
+        "Outbreak: Outbreak: Ebola [2026-08-21, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
       "node_ids": [
-        "D1",
-        "J3"
+        "J0"
       ],
       "cluster_ids": [
-        "covenant-0"
+        "health-0"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -184,7 +166,7 @@
       "headline": "Middle East & Temple Mount: 2 event(s) across 1 situation(s) — easing",
       "assessment": "Observed 2 normalized event(s) grouped into 1 corroboration cluster(s) for the Middle East & Temple Mount domain (nodes J3 Abomination of Desolation, MS0 Man of Sin). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
       "key_facts": [
-        "Israel: Could US sanctions destroy the International Criminal Court? [2026-08-21, 1 source(s)]"
+        "Israel: Western allies slam Israel for ending World Central Kitchen strike probe [2026-08-22, 1 source(s)]"
       ],
       "confidence": "Low",
       "escalation": "easing",
@@ -194,6 +176,25 @@
       ],
       "cluster_ids": [
         "middle_east-0"
+      ],
+      "source_backend": "heuristic",
+      "caveats": []
+    },
+    {
+      "domain": "covenant",
+      "headline": "Covenant & Treaty Watch: 2 event(s) across 1 situation(s) — easing",
+      "assessment": "Observed 2 normalized event(s) grouped into 1 corroboration cluster(s) for the Covenant & Treaty Watch domain (nodes D1 Covenant Confirmation, J3 Abomination of Desolation). Cross-source confidence is Low; trend reads as easing. This is pattern observation, not a claim of prophetic fulfilment or timing (Matt 24:36).",
+      "key_facts": [
+        "Israel: Analysis: Lebanese more open to peace -- less to normalization -- to end war with Israel - upi.com [2026-08-18, 1 source(s)]"
+      ],
+      "confidence": "Low",
+      "escalation": "easing",
+      "node_ids": [
+        "D1",
+        "J3"
+      ],
+      "cluster_ids": [
+        "covenant-0"
       ],
       "source_backend": "heuristic",
       "caveats": []
@@ -218,7 +219,7 @@
     }
   ],
   "threat": {
-    "overall_intensity": 49.3,
+    "overall_intensity": 47.4,
     "phase": "EARLY Beginning of Sorrows",
     "emoji": "🟡",
     "note": "Some J0 markers present",
@@ -229,7 +230,7 @@
         "scripture": "Matt 24:6-8",
         "intensity": 91.0,
         "confidence": "Med",
-        "description": "142 event(s), 2 max independent source(s)",
+        "description": "139 event(s), 2 max independent source(s)",
         "contributing_domains": [
           "disaster",
           "health"
@@ -252,20 +253,9 @@
         "scripture": "Rev 13:11-18",
         "intensity": 79.0,
         "confidence": "Med",
-        "description": "8 event(s), 1 max independent source(s)",
+        "description": "10 event(s), 1 max independent source(s)",
         "contributing_domains": [
           "digital_control"
-        ]
-      },
-      {
-        "node_id": "D1",
-        "label": "Covenant Confirmation",
-        "scripture": "Dan 9:27",
-        "intensity": 44.0,
-        "confidence": "Low",
-        "description": "4 event(s), 1 max independent source(s)",
-        "contributing_domains": [
-          "covenant"
         ]
       },
       {
@@ -277,6 +267,17 @@
         "description": "1 event(s), 1 max independent source(s)",
         "contributing_domains": [
           "gospel"
+        ]
+      },
+      {
+        "node_id": "D1",
+        "label": "Covenant Confirmation",
+        "scripture": "Dan 9:27",
+        "intensity": 28.0,
+        "confidence": "Low",
+        "description": "1 event(s), 1 max independent source(s)",
+        "contributing_domains": [
+          "covenant"
         ]
       },
       {
@@ -431,18 +432,18 @@
       "earthquakes": {
         "available": true,
         "weekly_series": [
-          102,
+          91,
           0,
           0,
-          179,
-          183,
+          215,
+          147,
           0,
           0,
-          211
+          216
         ],
-        "recent_week": 211,
-        "baseline_avg": 66.29,
-        "acceleration_pct": 218.3,
+        "recent_week": 216,
+        "baseline_avg": 64.71,
+        "acceleration_pct": 233.8,
         "direction": "escalating"
       },
       "conflicts": {
@@ -465,18 +466,18 @@
       "disasters": {
         "available": true,
         "weekly_series": [
-          11,
+          6,
           0,
           0,
-          91,
-          42,
-          20,
-          49,
-          67
+          104,
+          29,
+          21,
+          61,
+          50
         ],
-        "recent_week": 67,
-        "baseline_avg": 30.43,
-        "acceleration_pct": 120.2,
+        "recent_week": 50,
+        "baseline_avg": 31.57,
+        "acceleration_pct": 58.4,
         "direction": "escalating"
       },
       "worldbank_news": {
@@ -519,7 +520,7 @@
       {
         "kind": "overall_delta",
         "severity": "info",
-        "message": "Overall -10 (59 → 49/100).",
+        "message": "Overall -12 (59 → 47/100).",
         "node_id": ""
       },
       {
@@ -537,7 +538,7 @@
       {
         "kind": "node_crossing",
         "severity": "info",
-        "message": "D1 Covenant Confirmation eased to WATCH (67 → 44).",
+        "message": "D1 Covenant Confirmation eased to GREEN (67 → 28).",
         "node_id": "D1"
       },
       {
@@ -559,7 +560,7 @@
     "items": [
       {
         "source": "earthquakes",
-        "latest": "2026-08-21 03:00",
+        "latest": "2026-08-22 02:20",
         "age_days": 0.1,
         "stale": false,
         "tier": 1,
@@ -567,7 +568,7 @@
       },
       {
         "source": "disasters",
-        "latest": "2026-08-20 18:12",
+        "latest": "2026-08-21 17:41",
         "age_days": 1.1,
         "stale": false,
         "tier": 1,
@@ -600,22 +601,22 @@
       {
         "source": "space_weather",
         "latest": "2026-08-20",
-        "age_days": 1.1,
+        "age_days": 2.1,
         "stale": false,
         "tier": 1,
         "max_age_days": 7
       },
       {
         "source": "digital_rights",
-        "latest": "2026-08-19 22:23",
-        "age_days": 2.1,
+        "latest": "2026-08-21 16:03",
+        "age_days": 1.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 21
       },
       {
         "source": "temple_mount_news",
-        "latest": "2026-08-21 00:00",
+        "latest": "2026-08-22 00:00",
         "age_days": 0.1,
         "stale": false,
         "tier": 2,
@@ -624,7 +625,7 @@
       {
         "source": "fred_news",
         "latest": "2026-07-24 00:00",
-        "age_days": 28.1,
+        "age_days": 29.1,
         "stale": true,
         "tier": 2,
         "max_age_days": 14
@@ -632,7 +633,7 @@
       {
         "source": "covenant_watch",
         "latest": "2026-08-18 00:00",
-        "age_days": 3.1,
+        "age_days": 4.1,
         "stale": false,
         "tier": 1,
         "max_age_days": 14
@@ -640,7 +641,7 @@
       {
         "source": "cbdc_tracker",
         "latest": "2026-08-20 00:00",
-        "age_days": 1.1,
+        "age_days": 2.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 30
@@ -648,7 +649,7 @@
       {
         "source": "coalition_events",
         "latest": "2026-07-27 00:00",
-        "age_days": 25.1,
+        "age_days": 26.1,
         "stale": true,
         "tier": 1,
         "max_age_days": 14
@@ -656,7 +657,7 @@
       {
         "source": "eu_consolidation",
         "latest": "2026-07-24 00:00",
-        "age_days": 28.1,
+        "age_days": 29.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 30
@@ -664,7 +665,7 @@
       {
         "source": "ai_enforcement",
         "latest": "2026-07-24 00:00",
-        "age_days": 28.1,
+        "age_days": 29.1,
         "stale": true,
         "tier": 2,
         "max_age_days": 21
@@ -672,14 +673,14 @@
       {
         "source": "gospel_reach",
         "latest": "2026-08-01 00:00",
-        "age_days": 20.1,
+        "age_days": 21.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 400
       },
       {
         "source": "disease_outbreaks",
-        "latest": "2026-08-20 00:00",
+        "latest": "2026-08-21 00:00",
         "age_days": 1.1,
         "stale": false,
         "tier": 1,
@@ -688,7 +689,7 @@
       {
         "source": "europe_mixture_events",
         "latest": "2026-08-18 00:00",
-        "age_days": 3.1,
+        "age_days": 4.1,
         "stale": false,
         "tier": 2,
         "max_age_days": 30
@@ -696,7 +697,7 @@
       {
         "source": "europe_demographics",
         "latest": "2016-01-01 00:00",
-        "age_days": 3885.1,
+        "age_days": 3886.1,
         "stale": true,
         "tier": 2,
         "max_age_days": 400
@@ -714,6 +715,6 @@
     "any_stale": true
   },
   "report_title": "Prophecy Early-Warning Report",
-  "report_summary": "Overall pattern strength is 49/100 — EARLY Beginning of Sorrows. Some J0 markers present. Escalating domains: disaster, mixture. 2 metric(s) accelerating vs 8-week baseline. This is pattern observation only; timing is unknown (Matt 24:36).",
+  "report_summary": "Overall pattern strength is 47/100 — EARLY Beginning of Sorrows. Some J0 markers present. Escalating domains: disaster, mixture. 2 metric(s) accelerating vs 8-week baseline. This is pattern observation only; timing is unknown (Matt 24:36).",
   "delivered": []
 }
