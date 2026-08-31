@@ -1,0 +1,22 @@
+# The daily Cursor automation opens "Automated daily run <date>" and, despite
+# docs/AUTOMATION.md saying it auto-merges, nothing ever merged it: nine PRs
+# sat open for nine days and the findings sat with them. This merges the
+# daily PR the moment it opens, and only that PR — title and branch both have
+# to match, so a human PR is never swept up.
+name: Merge the daily run
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [main]
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  merge:
+    if: startsWith(github.event.pull_request.title, 'Automated daily run') && startsWith(github.head_ref, 'automation/daily-')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Squash-merge the daily run
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}" --squash --delete-branch
