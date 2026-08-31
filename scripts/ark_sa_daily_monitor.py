@@ -139,177 +139,118 @@ def recommendation_for(level: str, score: int) -> str:
     return "STAY"
 
 
-def build_category_signals(gdacs_hits: list[str]) -> list[CategorySignal]:
-    """Curated daily intelligence — update via automation research each run."""
-    return [
-        CategorySignal(
-            name="electricity_grid",
-            level="GREEN",
-            score=18,
-            confidence="HIGH",
-            summary=(
-                "National grid stable: Eskom reports 406+ consecutive days without load shedding "
-                "(as of 26–27 Jun 2026). Localised load reduction continues in some high-risk feeders."
-            ),
-            sources=[
-                "Eskom official statements (eskom.co.za)",
-                "IOL reporting on winter grid stability",
-            ],
-        ),
-        CategorySignal(
-            name="municipal_water",
-            level="AMBER",
-            score=62,
-            confidence="MEDIUM",
-            summary=(
-                "Bloemfontein/Mangaung water network under strain: vandalism on bulk pipelines, "
-                "recurring outages in southern areas, and a planned 36-hour maintenance shutdown "
-                "on 23–24 Jun. Supply restoration ongoing but fragile."
-            ),
-            sources=[
-                "Bloemfontein Courant",
-                "OFM / Mangaung Metro statements",
-                "BloemNews Express",
-            ],
-        ),
-        CategorySignal(
-            name="fuel_supply",
-            level="WATCH",
-            score=38,
-            confidence="MEDIUM",
-            summary=(
-                "National fuel supply reported stable by DMPR and Fuel Retailers Association. "
-                "March–April saw localised dry pumps from panic buying; July 2026 price decreases "
-                "expected as oil eases and rand strengthens (~R16.50/USD)."
-            ),
-            sources=[
-                "EWN / Fuel Retailers Association",
-                "Central Energy Fund projections via AutoTrader/IOL",
-            ],
-        ),
-        CategorySignal(
-            name="food_supply",
-            level="WATCH",
-            score=32,
-            confidence="MEDIUM",
-            summary=(
-                "Consumer food price inflation slowed to 1.6% (May 2026) with record grain harvest. "
-                "El Niño developing — elevated drought risk for 2026/27 planting season; "
-                "foot-and-mouth noted regionally."
-            ),
-            sources=[
-                "Stats SA via Daily Maverick analysis",
-                "IOL / Investec El Niño outlook",
-                "ReliefWeb Southern Africa snapshot",
-            ],
-        ),
-        CategorySignal(
-            name="civil_unrest",
-            level="AMBER",
-            score=58,
-            confidence="MEDIUM",
-            summary=(
-                "Nationwide anti-immigration demonstrations planned 30 Jun 2026 (2 days away). "
-                "Recent Free State looting: 140+ arrests in Mangaung (Bloemfontein/Botshabelo) and "
-                "15+ spaza shops looted in Thembalihle (17 Jun). Government says no indication of "
-                "widespread unrest yet; R600m security deployment underway."
-            ),
-            sources=[
-                "AP News (immigration protests, Jun 2026)",
-                "SAnews.gov.za / IOL (30 Jun declared normal working day)",
-                "EWN explainer on June 30 mobilisation",
-                "TimesLIVE / DefenceWeb on Free State arrests",
-            ],
-        ),
-        CategorySignal(
-            name="banking_payments",
-            level="GREEN",
-            score=22,
-            confidence="MEDIUM",
-            summary=(
-                "No national banking outage. Isolated, resolved gateway degradations in June "
-                "(Standard Bank Pay By Bank ~7h, PayU 3DSecure, Payfast ~1h)."
-            ),
-            sources=["IsDown incident logs for PayU/Payfast/Standard Bank"],
-        ),
-        CategorySignal(
-            name="health_disease",
-            level="WATCH",
-            score=40,
-            confidence="MEDIUM",
-            summary=(
-                "Southern Africa cholera surge in neighbours (Mozambique, Zambia, Malawi); "
-                "South Africa on alert after Feb floods damaged WASH infrastructure but no "
-                "confirmed widespread SA cholera outbreak on health.gov.za tracker."
-            ),
-            sources=[
-                "WHO Afro regional bulletin",
-                "ReliefWeb / Save the Children flood health note",
-                "National Department of Health cholera info page",
-            ],
-        ),
-        CategorySignal(
-            name="weather_hazards",
-            level="WATCH",
-            score=35,
-            confidence="MEDIUM",
-            summary=(
-                "Garden Route severe flooding early Jun (200mm rain, fatalities, many district roads closed). "
-                "As of 27 Jun, George/Knysna forecast mild/partly cloudy with 0% rain; "
-                "new Yellow L4 rain warning for Cape Town/Winelands from 29 Jun."
-            ),
-            sources=[
-                "Garden Route District Municipality MACC updates",
-                "George Herald / Western Cape Government road bulletins",
-            ],
-        ),
-        CategorySignal(
-            name="global_shocks",
-            level="WATCH",
-            score=42,
-            confidence="MEDIUM",
-            summary=(
-                "Oil retreated to ~$73–80/bbl Brent after Middle East ceasefire framework; "
-                "rand ~R16.50/USD. Venezuela M7.5 earthquake (24 Jun) — no direct SA impact. "
-                "GDACS SA mentions today: "
-                + (", ".join(gdacs_hits) if gdacs_hits else "none in current feed window.")
-            ),
-            sources=[
-                "IOL / Investec macro notes",
-                "GDACS RSS",
-                "USGS/GDACS earthquake feeds",
-            ],
-        ),
-        CategorySignal(
-            name="route_mobility",
-            level="WATCH",
-            score=45,
-            confidence="MEDIUM",
-            summary=(
-                "Primary N1/N2 corridors Bloemfontein→Garden Route generally passable. "
-                "~70% of storm-damaged WC roads reopened (22 Jun); many scenic/secondary routes "
-                "still closed (Meiringspoort, Swartberg Pass, Seven Passes sections, etc.). "
-                "Verify WC Government/SANRAL status before departure; avoid closed passes."
-            ),
-            sources=[
-                "IOL / Western Cape disaster recovery update (22 Jun)",
-                "George Herald / Western Cape Government road bulletins (18 Jun)",
-                "SANRAL Western Cape advisories",
-            ],
-        ),
-        CategorySignal(
-            name="family_readiness",
-            level="WATCH",
-            score=48,
-            confidence="MEDIUM",
-            summary=(
-                "Elevated readiness warranted before 30 Jun: top up drinking water (local outages), "
-                "fuel tanks, medicines, cash/backup payment options, comms charge, and paper maps. "
-                "Caravan/move planning not urgent unless unrest escalates."
-            ),
-            sources=["Ark-SA readiness checklist (derived from local signals above)"],
-        ),
-    ]
+SIGNALS_FILE = REPO_ROOT / "data" / "ark_sa_signals.json"
+USGS_SA_URL = (
+    "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=4"
+    "&minlatitude=-35&maxlatitude=-22&minlongitude=16&maxlongitude=33&limit=5&orderby=time"
+)
+
+
+def load_signal_data() -> dict[str, Any]:
+    """The curated snapshot lives in data/, dated, so the monitor can tell how old it is."""
+    return json.loads(SIGNALS_FILE.read_text(encoding="utf-8"))
+
+
+def days_old(as_of: str, today: datetime) -> int:
+    try:
+        d = datetime.strptime(as_of, "%Y-%m-%d").date()
+    except (TypeError, ValueError):
+        return 10_000
+    return max(0, (today.date() - d).days)
+
+
+def still_current(item: dict[str, Any], today: datetime) -> bool:
+    """A reason or action bound to a date is gone the day after it."""
+    until = item.get("until")
+    if not until:
+        return True
+    try:
+        return datetime.strptime(until, "%Y-%m-%d").date() >= today.date()
+    except ValueError:
+        return True
+
+
+def check_usgs_sa_quakes(now: datetime) -> list[str]:
+    """M4+ earthquakes inside a southern-Africa box in the last 7 days — a live signal that needs no key."""
+    since = (now - timedelta(days=7)).strftime("%Y-%m-%d")
+    body = fetch_url(f"{USGS_SA_URL}&starttime={since}")
+    if not body:
+        return []
+    try:
+        feats = json.loads(body).get("features", [])
+    except json.JSONDecodeError:
+        return []
+    out: list[str] = []
+    for f in feats[:5]:
+        props = f.get("properties", {})
+        mag = props.get("mag")
+        place = props.get("place", "unknown location")
+        if mag is not None:
+            out.append(f"M{mag} {place}")
+    return out
+
+
+def build_category_signals(
+    gdacs_hits: list[str],
+    now: datetime,
+    data: dict[str, Any] | None = None,
+) -> tuple[list[CategorySignal], list[str], list[dict[str, Any]], list[dict[str, Any]]]:
+    """
+    The curated signals, with their age made visible.
+
+    For two months this function was a hardcoded snapshot of 27–28 June
+    replayed every morning with the day's date on it — "Nationwide protests
+    scheduled 30 Jun" led the top reasons on 31 August, and every day said
+    "unchanged". The ai-honesty rule forbids exactly that: reporting a current
+    state nobody read. So the snapshot is now data with an as_of date, and:
+
+      - a signal older than stale_after_days keeps its last-known level but
+        drops to LOW confidence and says, in its own summary, how old it is;
+      - a reason or action bound to a date disappears the day after it;
+      - the only live facts are the ones actually fetched — GDACS and USGS.
+
+    Returns the signals, the names of the stale ones, and the reasons and
+    actions that are still current, ordered by the signal's score.
+    """
+    data = data or load_signal_data()
+    stale_after = int(data.get("stale_after_days", 7))
+    signals: list[CategorySignal] = []
+    stale: list[str] = []
+    reasons: list[dict[str, Any]] = []
+    actions: list[dict[str, Any]] = []
+    quake_hits = check_usgs_sa_quakes(now)
+
+    for raw in data["signals"]:
+        age = days_old(raw.get("as_of", ""), now)
+        is_stale = age > stale_after
+        summary = raw["summary"]
+        confidence = raw["confidence"]
+        if is_stale:
+            stale.append(raw["name"])
+            confidence = "LOW"
+            summary = (
+                f"STALE — last researched {raw.get('as_of', 'unknown')} ({age} days ago); "
+                f"current state unknown. Last known: {summary}"
+            )
+        if raw["name"] == "global_shocks":
+            summary += (
+                " GDACS SA mentions today: " + (", ".join(gdacs_hits) if gdacs_hits else "none in current feed window.")
+                + " USGS M4+ southern Africa, 7 days: " + (", ".join(quake_hits) if quake_hits else "none.")
+            )
+        signals.append(CategorySignal(
+            name=raw["name"], level=raw["level"], score=int(raw["score"]),
+            confidence=confidence, summary=summary, sources=list(raw.get("sources", [])),
+        ))
+        for r in raw.get("reasons", []):
+            if still_current(r, now):
+                reasons.append({"text": r["text"], "score": int(raw["score"]), "stale": is_stale})
+        for a in raw.get("actions", []):
+            if still_current(a, now):
+                actions.append({"text": a["text"], "score": int(raw["score"]), "stale": is_stale})
+
+    reasons.sort(key=lambda r: -r["score"])
+    actions.sort(key=lambda a: -a["score"])
+    return signals, stale, reasons, actions
 
 
 def build_domain_assessments(signals: list[CategorySignal]) -> dict[str, DomainAssessment]:
@@ -354,8 +295,8 @@ def build_domain_assessments(signals: list[CategorySignal]) -> dict[str, DomainA
         score=op_score,
         confidence="MEDIUM",
         summary=(
-            "Grid and banking stable nationally; Bloemfontein water fragile; "
-            "civil tension elevated ahead of 30 Jun with recent Free State looting contained by SAPS."
+            "Composite of the operational signals below; each carries its own as-of date, "
+            "and a stale one says so."
         ),
         notes=[f"{s.name}: {s.summary}" for s in signals if s.name != "family_readiness" and s.name != "route_mobility"],
     )
@@ -368,7 +309,7 @@ def build_domain_assessments(signals: list[CategorySignal]) -> dict[str, DomainA
         summary=by_name["family_readiness"].summary,
         notes=[
             "Water: store 3–5 days drinking water per person (Mangaung outages).",
-            "Fuel: fill vehicles; July price relief expected but queues possible near 30 Jun.",
+            "Fuel: keep vehicles above half; carry cash and a backup payment method.",
             "Meds/comms: refresh prescriptions; charge power banks; test radio/WhatsApp backup.",
             "Documents/maps: keep ID copies; offline route maps for N1→N2→Mossel Bay.",
         ],
@@ -383,7 +324,7 @@ def build_domain_assessments(signals: list[CategorySignal]) -> dict[str, DomainA
         notes=[
             "Prefer main highways; verify N1 Beaufort West–Cape Town and N2 George–Mossel Bay status.",
             "Avoid closed mountain passes and flooded low-water bridges.",
-            "If 30 Jun unrest blocks metros, delay travel or reroute via less-affected corridors.",
+            "If unrest blocks a metro on the day, delay travel or reroute via less-affected corridors.",
         ],
     )
 
@@ -419,8 +360,14 @@ def changes_since_yesterday(current: dict[str, Any], previous: dict[str, Any] | 
         old, new = previous.get(field), current.get(field)
         if old != new:
             parts.append(f"{field}: {old} → {new}")
+    stale_now = len(current.get("stale_signals", []) or [])
+    stale_before = len(previous.get("stale_signals", []) or [])
+    if stale_now != stale_before:
+        parts.append(f"stale signals: {stale_before} → {stale_now}")
 
     if not parts:
+        if stale_now:
+            return f"Unchanged overall — same level, score and decision; {stale_now} signal(s) still stale."
         return "Unchanged overall — same threat level, score, and decision as yesterday."
 
     return "; ".join(parts)
@@ -436,7 +383,7 @@ def save_json_snapshot(assessment: dict[str, Any]) -> Path:
 def build_assessment(now: datetime | None = None) -> dict[str, Any]:
     now = now or datetime.now(SAST)
     gdacs_hits = check_gdacs_sa_mentions()
-    signals = build_category_signals(gdacs_hits)
+    signals, stale_signals, reasons, actions = build_category_signals(gdacs_hits, now)
     domains = build_domain_assessments(signals)
 
     # Composite score weights operational + route + family (not bible prophecy)
@@ -446,29 +393,25 @@ def build_assessment(now: datetime | None = None) -> dict[str, Any]:
         + domains["family_readiness"].score * 0.25
     )
     threat_level = score_to_level(threat_score)
-    confidence = "MEDIUM"
+    # Confidence is only as good as the freshest half of the evidence. With most
+    # of the signals stale, the number above is a memory, and it is labelled one.
+    confidence = "LOW" if len(stale_signals) * 2 > len(signals) else "MEDIUM"
     unsafe = compute_unsafe(threat_level, threat_score, signals)
     action = recommendation_for(threat_level, threat_score)
 
-    top_reasons = [
-        "Nationwide anti-immigration protests scheduled 30 Jun 2026 with major SAPS deployment (R600m).",
-        "Recent looting in Mangaung (Bloemfontein metro) and Thembalihle, Free State — situation contained but tension persists.",
-        "Bloemfontein/Mangaung water supply disrupted by vandalism, ageing pipes, and planned maintenance outages.",
-        "Garden Route secondary roads still closed after early-June flood damage; primary highways need pre-trip verification.",
-        "National electricity grid stable (406+ days no load shedding) — positive offset.",
-        "Food inflation easing and expected July fuel price decreases — positive offset.",
-        "Southern Africa cholera surge in neighbours; SA on alert but no confirmed widespread local outbreak.",
-    ]
+    def _label(item: dict[str, Any]) -> str:
+        return ("[stale] " if item["stale"] else "") + item["text"]
 
-    recommended_actions = [
-        "Fill drinking-water containers and check household filters before 30 Jun.",
-        "Top up vehicle fuel and keep cash plus a backup card/payment method.",
-        "Avoid non-essential travel through protest hotspots on 30 Jun; monitor SAPS/WC Gov road feeds if driving to Mossel Bay.",
-        "Refresh medicine stocks and charge power banks / two-way radios.",
-        "Secure home: lock gates, park vehicles off-street where possible during protest week.",
-        "If unrest spreads near Bloemfontein, limit movement to daylight hours on main roads only.",
-        "Re-check route status via Western Cape Government and SANRAL before any Garden Route departure.",
-    ]
+    top_reasons = [_label(r) for r in reasons]
+    if stale_signals:
+        top_reasons.insert(
+            0,
+            f"{len(stale_signals)} of {len(signals)} signals have not been re-researched in over "
+            f"{load_signal_data().get('stale_after_days', 7)} days — treat this assessment as last-known, not current.",
+        )
+    recommended_actions = [_label(a) for a in actions]
+    if stale_signals:
+        recommended_actions.insert(0, "Re-research data/ark_sa_signals.json before acting on any stale item.")
 
     sources_checked = sorted(
         {src for s in signals for src in s.sources}
@@ -495,6 +438,8 @@ def build_assessment(now: datetime | None = None) -> dict[str, Any]:
         "recommendation": action,
         "top_reasons": top_reasons[:7],
         "recommended_actions": recommended_actions[:7],
+        "stale_signals": stale_signals,
+        "signals_as_of": {sig["name"]: sig.get("as_of") for sig in load_signal_data()["signals"]},
         "sources_checked": sources_checked,
         "local_focus": "Bloemfontein, Free State, South Africa",
         "route_focus": "Bloemfontein to Mossel Bay / Garden Route",
@@ -506,6 +451,7 @@ def build_assessment(now: datetime | None = None) -> dict[str, Any]:
                 "threat_score": threat_score,
                 "decision": action,
                 "unsafe": unsafe,
+                "stale_signals": stale_signals,
             },
             previous,
         ),
@@ -531,6 +477,9 @@ def write_markdown_report(assessment: dict[str, Any]) -> Path:
         f"**Decision:** {assessment['decision']}",
         "",
         f"**Changes since yesterday:** {assessment.get('changes_since_yesterday', 'unknown')}",
+        "",
+        (f"**Stale signals ({len(assessment['stale_signals'])}):** " + ", ".join(assessment["stale_signals"]))
+        if assessment.get("stale_signals") else "**Stale signals:** none",
         "",
         "---",
         "",

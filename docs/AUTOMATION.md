@@ -12,8 +12,9 @@ It runs three things off a **single daily 06:00 SAST trigger**:
 | Prophecy early-warning report | `scripts/run_pipeline.py --days 7 --live` | every day |
 | Weekly review + newsletter | `scripts/weekly_update.py --days 7` | Mondays only (conditional in-run) |
 
-After a successful run it commits the run-state, opens a PR to `main`, and
-**auto-merges** it so PRs don't accumulate.
+After a successful run it commits the run-state and opens a PR to `main`.
+`.github/workflows/merge-daily-run.yml` marks that PR ready and squash-merges
+it the moment it opens — so a draft is fine, and PRs cannot accumulate.
 
 > Prefer two schedules? Split the prompt into a daily block (ark + prophecy) and
 > a separate Monday-only block that runs `weekly_update.py`.
@@ -45,6 +46,14 @@ methodology, source credibility, AI honesty). Then:
    one: reuse/update the existing branch and PR instead.
 
 ========================= DAILY — CHANNEL 1: SA OPERATIONAL =========================
+0. RESEARCH FIRST, then run. The monitor's signals live in
+     data/ark_sa_signals.json   (DATA — editing it is required, not a code change)
+   For each signal, search current South African news (news-methodology: at
+   least 3 independent sources, cross-spectrum where political) and update
+   level, score, confidence, summary, sources and `as_of` = today. Set `until`
+   on any reason or action tied to a date. If you cannot verify a signal today,
+   LEAVE IT — the monitor will mark it STALE after 7 days and lower confidence.
+   Never refresh `as_of` without having actually read current sources.
 1. Run the existing daily monitor (writes files AND prints JSON to stdout):
      python scripts/ark_sa_daily_monitor.py
 2. Capture exit code. On non-zero exit, go to FAILURE HANDLING below.
@@ -57,8 +66,8 @@ methodology, source credibility, AI honesty). Then:
      unsafe=false -> "Ark-SA Daily Threat Report"
      unsafe=true  -> "URGENT: Ark-SA Threat Alert"
    Include: threat_level, threat_score, confidence, decision, unsafe,
-     changes_since_yesterday, top_reasons, recommended_actions, local_focus,
-     route_focus, and a sources_checked summary (count + a few names).
+     changes_since_yesterday, stale_signals, top_reasons, recommended_actions,
+     local_focus, route_focus, and a sources_checked summary (count + names).
    Send EVERY day, not only on unsafe days.
 
 ========================= DAILY — CHANNEL 2: PROPHECY EARLY-WARNING =========================
@@ -87,7 +96,7 @@ Confirm it produced:
 Only if the run SUCCEEDED (daily monitor exit 0 and the pipeline did not error):
 1. Stage state + outputs (state MUST be committed so the next run can compute
    "changes since yesterday"):
-     git add reports/ark-sa/*.md reports/ark-sa/*.json data/prophecy_tracking.db
+     git add reports/ark-sa/*.md reports/ark-sa/*.json data/prophecy_tracking.db data/ark_sa_signals.json
      git add -f tracking/dashboard/latest.json
      git add -f tracking/early-warning/*.html tracking/early-warning/*.md
      # On Mondays also: git add tracking/weekly-reviews/*.md tracking/newsletters/*.md
@@ -133,6 +142,7 @@ If the daily monitor exits non-zero OR the pipeline raises:
 - DO NOT MODIFY CODE. No maintenance, no refactors, no bug fixes — if a bug
   blocks the run, report it via FAILURE HANDLING and stop. Code changes happen
   in interactive sessions, not in the daily routine.
+  data/ark_sa_signals.json is data, not code: updating it IS the run (step 0).
 - Do not claim prophecy fulfillment. Do not set dates (Matt 24:36).
 - Keep Bible/prophecy review SEPARATE from SA operational, family-readiness, and
   route/mobility risk (two distinct Slack messages, as above).

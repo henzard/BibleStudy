@@ -1,28 +1,50 @@
 {
   "threat_score": 42,
   "threat_level": "WATCH",
-  "confidence": "MEDIUM",
+  "confidence": "LOW",
   "unsafe": false,
   "decision": "PREPARE",
   "recommendation": "PREPARE",
   "top_reasons": [
-    "Nationwide anti-immigration protests scheduled 30 Jun 2026 with major SAPS deployment (R600m).",
-    "Recent looting in Mangaung (Bloemfontein metro) and Thembalihle, Free State — situation contained but tension persists.",
-    "Bloemfontein/Mangaung water supply disrupted by vandalism, ageing pipes, and planned maintenance outages.",
-    "Garden Route secondary roads still closed after early-June flood damage; primary highways need pre-trip verification.",
-    "National electricity grid stable (406+ days no load shedding) — positive offset.",
-    "Food inflation easing and expected July fuel price decreases — positive offset.",
-    "Southern Africa cholera surge in neighbours; SA on alert but no confirmed widespread local outbreak."
+    "11 of 11 signals have not been re-researched in over 7 days — treat this assessment as last-known, not current.",
+    "[stale] Bloemfontein/Mangaung water supply disrupted by vandalism, ageing pipes, and planned maintenance outages.",
+    "[stale] Garden Route secondary roads still closed after early-June flood damage; primary highways need pre-trip verification.",
+    "[stale] Southern Africa cholera surge in neighbours; SA on alert but no confirmed widespread local outbreak.",
+    "[stale] National electricity grid stable (406+ days no load shedding) — positive offset."
   ],
   "recommended_actions": [
-    "Fill drinking-water containers and check household filters before 30 Jun.",
-    "Top up vehicle fuel and keep cash plus a backup card/payment method.",
-    "Avoid non-essential travel through protest hotspots on 30 Jun; monitor SAPS/WC Gov road feeds if driving to Mossel Bay.",
-    "Refresh medicine stocks and charge power banks / two-way radios.",
-    "Secure home: lock gates, park vehicles off-street where possible during protest week.",
-    "If unrest spreads near Bloemfontein, limit movement to daylight hours on main roads only.",
-    "Re-check route status via Western Cape Government and SANRAL before any Garden Route departure."
+    "Re-research data/ark_sa_signals.json before acting on any stale item.",
+    "[stale] Fill drinking-water containers and check household filters.",
+    "[stale] Re-check route status via Western Cape Government and SANRAL before any Garden Route departure.",
+    "[stale] Refresh medicine stocks and charge power banks / two-way radios.",
+    "[stale] Top up vehicle fuel and keep cash plus a backup card/payment method."
   ],
+  "stale_signals": [
+    "electricity_grid",
+    "municipal_water",
+    "fuel_supply",
+    "food_supply",
+    "civil_unrest",
+    "banking_payments",
+    "health_disease",
+    "weather_hazards",
+    "global_shocks",
+    "route_mobility",
+    "family_readiness"
+  ],
+  "signals_as_of": {
+    "electricity_grid": "2026-06-27",
+    "municipal_water": "2026-06-27",
+    "fuel_supply": "2026-06-27",
+    "food_supply": "2026-06-27",
+    "civil_unrest": "2026-06-28",
+    "banking_payments": "2026-06-27",
+    "health_disease": "2026-06-27",
+    "weather_hazards": "2026-06-27",
+    "global_shocks": "2026-06-27",
+    "route_mobility": "2026-06-22",
+    "family_readiness": "2026-06-28"
+  },
   "sources_checked": [
     "AP News",
     "AP News (immigration protests, Jun 2026)",
@@ -60,9 +82,9 @@
   ],
   "local_focus": "Bloemfontein, Free State, South Africa",
   "route_focus": "Bloemfontein to Mossel Bay / Garden Route",
-  "timestamp_sast": "2026-08-31T05:03:20+0200",
+  "timestamp_sast": "2026-08-31T15:23:07+0200",
   "report_date": "2026-08-31",
-  "changes_since_yesterday": "Unchanged overall — same threat level, score, and decision as yesterday.",
+  "changes_since_yesterday": "stale signals: 0 → 11",
   "domains": {
     "bible_prophecy": {
       "label": "Bible / prophecy review",
@@ -81,28 +103,28 @@
       "threat_level": "WATCH",
       "score": 39,
       "confidence": "MEDIUM",
-      "summary": "Grid and banking stable nationally; Bloemfontein water fragile; civil tension elevated ahead of 30 Jun with recent Free State looting contained by SAPS.",
+      "summary": "Composite of the operational signals below; each carries its own as-of date, and a stale one says so.",
       "notes": [
-        "electricity_grid: National grid stable: Eskom reports 406+ consecutive days without load shedding (as of 26–27 Jun 2026). Localised load reduction continues in some high-risk feeders.",
-        "municipal_water: Bloemfontein/Mangaung water network under strain: vandalism on bulk pipelines, recurring outages in southern areas, and a planned 36-hour maintenance shutdown on 23–24 Jun. Supply restoration ongoing but fragile.",
-        "fuel_supply: National fuel supply reported stable by DMPR and Fuel Retailers Association. March–April saw localised dry pumps from panic buying; July 2026 price decreases expected as oil eases and rand strengthens (~R16.50/USD).",
-        "food_supply: Consumer food price inflation slowed to 1.6% (May 2026) with record grain harvest. El Niño developing — elevated drought risk for 2026/27 planting season; foot-and-mouth noted regionally.",
-        "civil_unrest: Nationwide anti-immigration demonstrations planned 30 Jun 2026 (2 days away). Recent Free State looting: 140+ arrests in Mangaung (Bloemfontein/Botshabelo) and 15+ spaza shops looted in Thembalihle (17 Jun). Government says no indication of widespread unrest yet; R600m security deployment underway.",
-        "banking_payments: No national banking outage. Isolated, resolved gateway degradations in June (Standard Bank Pay By Bank ~7h, PayU 3DSecure, Payfast ~1h).",
-        "health_disease: Southern Africa cholera surge in neighbours (Mozambique, Zambia, Malawi); South Africa on alert after Feb floods damaged WASH infrastructure but no confirmed widespread SA cholera outbreak on health.gov.za tracker.",
-        "weather_hazards: Garden Route severe flooding early Jun (200mm rain, fatalities, many district roads closed). As of 27 Jun, George/Knysna forecast mild/partly cloudy with 0% rain; new Yellow L4 rain warning for Cape Town/Winelands from 29 Jun.",
-        "global_shocks: Oil retreated to ~$73–80/bbl Brent after Middle East ceasefire framework; rand ~R16.50/USD. Venezuela M7.5 earthquake (24 Jun) — no direct SA impact. GDACS SA mentions today: none in current feed window."
+        "electricity_grid: STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: National grid stable: Eskom reports 406+ consecutive days without load shedding (as of 26–27 Jun 2026). Localised load reduction continues in some high-risk feeders.",
+        "municipal_water: STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: Bloemfontein/Mangaung water network under strain: vandalism on bulk pipelines, recurring outages in southern areas, and a planned 36-hour maintenance shutdown on 23–24 Jun. Supply restoration ongoing but fragile.",
+        "fuel_supply: STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: National fuel supply reported stable by DMPR and Fuel Retailers Association. March–April saw localised dry pumps from panic buying; July 2026 price decreases expected as oil eases and rand strengthens (~R16.50/USD).",
+        "food_supply: STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: Consumer food price inflation slowed to 1.6% (May 2026) with record grain harvest. El Niño developing — elevated drought risk for 2026/27 planting season; foot-and-mouth noted regionally.",
+        "civil_unrest: STALE — last researched 2026-06-28 (64 days ago); current state unknown. Last known: Nationwide anti-immigration demonstrations planned 30 Jun 2026. Recent Free State looting: 140+ arrests in Mangaung (Bloemfontein/Botshabelo) and 15+ spaza shops looted in Thembalihle (17 Jun). Government says no indication of widespread unrest yet; R600m security deployment underway.",
+        "banking_payments: STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: No national banking outage. Isolated, resolved gateway degradations in June (Standard Bank Pay By Bank ~7h, PayU 3DSecure, Payfast ~1h).",
+        "health_disease: STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: Southern Africa cholera surge in neighbours (Mozambique, Zambia, Malawi); South Africa on alert after Feb floods damaged WASH infrastructure but no confirmed widespread SA cholera outbreak on health.gov.za tracker.",
+        "weather_hazards: STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: Garden Route severe flooding early Jun (200mm rain, fatalities, many district roads closed). As of 27 Jun, George/Knysna forecast mild/partly cloudy with 0% rain; new Yellow L4 rain warning for Cape Town/Winelands from 29 Jun.",
+        "global_shocks: STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: Oil retreated to ~$73–80/bbl Brent after Middle East ceasefire framework; rand ~R16.50/USD. Venezuela M7.5 earthquake (24 Jun) — no direct SA impact. GDACS SA mentions today: none in current feed window. USGS M4+ southern Africa, 7 days: none."
       ]
     },
     "family_readiness": {
       "label": "Family readiness risk",
       "threat_level": "WATCH",
       "score": 48,
-      "confidence": "MEDIUM",
-      "summary": "Elevated readiness warranted before 30 Jun: top up drinking water (local outages), fuel tanks, medicines, cash/backup payment options, comms charge, and paper maps. Caravan/move planning not urgent unless unrest escalates.",
+      "confidence": "LOW",
+      "summary": "STALE — last researched 2026-06-28 (64 days ago); current state unknown. Last known: Elevated readiness warranted: top up drinking water (local outages), fuel tanks, medicines, cash/backup payment options, comms charge, and paper maps. Caravan/move planning not urgent unless unrest escalates.",
       "notes": [
         "Water: store 3–5 days drinking water per person (Mangaung outages).",
-        "Fuel: fill vehicles; July price relief expected but queues possible near 30 Jun.",
+        "Fuel: keep vehicles above half; carry cash and a backup payment method.",
         "Meds/comms: refresh prescriptions; charge power banks; test radio/WhatsApp backup.",
         "Documents/maps: keep ID copies; offline route maps for N1→N2→Mossel Bay."
       ]
@@ -111,12 +133,12 @@
       "label": "Route / mobility risk (Bloemfontein → Mossel Bay)",
       "threat_level": "WATCH",
       "score": 45,
-      "confidence": "MEDIUM",
-      "summary": "Primary N1/N2 corridors Bloemfontein→Garden Route generally passable. ~70% of storm-damaged WC roads reopened (22 Jun); many scenic/secondary routes still closed (Meiringspoort, Swartberg Pass, Seven Passes sections, etc.). Verify WC Government/SANRAL status before departure; avoid closed passes.",
+      "confidence": "LOW",
+      "summary": "STALE — last researched 2026-06-22 (70 days ago); current state unknown. Last known: Primary N1/N2 corridors Bloemfontein→Garden Route generally passable. ~70% of storm-damaged WC roads reopened (22 Jun); many scenic/secondary routes still closed (Meiringspoort, Swartberg Pass, Seven Passes sections, etc.). Verify WC Government/SANRAL status before departure; avoid closed passes.",
       "notes": [
         "Prefer main highways; verify N1 Beaufort West–Cape Town and N2 George–Mossel Bay status.",
         "Avoid closed mountain passes and flooded low-water bridges.",
-        "If 30 Jun unrest blocks metros, delay travel or reroute via less-affected corridors."
+        "If unrest blocks a metro on the day, delay travel or reroute via less-affected corridors."
       ]
     }
   },
@@ -125,8 +147,8 @@
       "name": "electricity_grid",
       "level": "GREEN",
       "score": 18,
-      "confidence": "HIGH",
-      "summary": "National grid stable: Eskom reports 406+ consecutive days without load shedding (as of 26–27 Jun 2026). Localised load reduction continues in some high-risk feeders.",
+      "confidence": "LOW",
+      "summary": "STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: National grid stable: Eskom reports 406+ consecutive days without load shedding (as of 26–27 Jun 2026). Localised load reduction continues in some high-risk feeders.",
       "sources": [
         "Eskom official statements (eskom.co.za)",
         "IOL reporting on winter grid stability"
@@ -136,8 +158,8 @@
       "name": "municipal_water",
       "level": "AMBER",
       "score": 62,
-      "confidence": "MEDIUM",
-      "summary": "Bloemfontein/Mangaung water network under strain: vandalism on bulk pipelines, recurring outages in southern areas, and a planned 36-hour maintenance shutdown on 23–24 Jun. Supply restoration ongoing but fragile.",
+      "confidence": "LOW",
+      "summary": "STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: Bloemfontein/Mangaung water network under strain: vandalism on bulk pipelines, recurring outages in southern areas, and a planned 36-hour maintenance shutdown on 23–24 Jun. Supply restoration ongoing but fragile.",
       "sources": [
         "Bloemfontein Courant",
         "OFM / Mangaung Metro statements",
@@ -148,8 +170,8 @@
       "name": "fuel_supply",
       "level": "WATCH",
       "score": 38,
-      "confidence": "MEDIUM",
-      "summary": "National fuel supply reported stable by DMPR and Fuel Retailers Association. March–April saw localised dry pumps from panic buying; July 2026 price decreases expected as oil eases and rand strengthens (~R16.50/USD).",
+      "confidence": "LOW",
+      "summary": "STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: National fuel supply reported stable by DMPR and Fuel Retailers Association. March–April saw localised dry pumps from panic buying; July 2026 price decreases expected as oil eases and rand strengthens (~R16.50/USD).",
       "sources": [
         "EWN / Fuel Retailers Association",
         "Central Energy Fund projections via AutoTrader/IOL"
@@ -159,8 +181,8 @@
       "name": "food_supply",
       "level": "WATCH",
       "score": 32,
-      "confidence": "MEDIUM",
-      "summary": "Consumer food price inflation slowed to 1.6% (May 2026) with record grain harvest. El Niño developing — elevated drought risk for 2026/27 planting season; foot-and-mouth noted regionally.",
+      "confidence": "LOW",
+      "summary": "STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: Consumer food price inflation slowed to 1.6% (May 2026) with record grain harvest. El Niño developing — elevated drought risk for 2026/27 planting season; foot-and-mouth noted regionally.",
       "sources": [
         "Stats SA via Daily Maverick analysis",
         "IOL / Investec El Niño outlook",
@@ -171,8 +193,8 @@
       "name": "civil_unrest",
       "level": "AMBER",
       "score": 58,
-      "confidence": "MEDIUM",
-      "summary": "Nationwide anti-immigration demonstrations planned 30 Jun 2026 (2 days away). Recent Free State looting: 140+ arrests in Mangaung (Bloemfontein/Botshabelo) and 15+ spaza shops looted in Thembalihle (17 Jun). Government says no indication of widespread unrest yet; R600m security deployment underway.",
+      "confidence": "LOW",
+      "summary": "STALE — last researched 2026-06-28 (64 days ago); current state unknown. Last known: Nationwide anti-immigration demonstrations planned 30 Jun 2026. Recent Free State looting: 140+ arrests in Mangaung (Bloemfontein/Botshabelo) and 15+ spaza shops looted in Thembalihle (17 Jun). Government says no indication of widespread unrest yet; R600m security deployment underway.",
       "sources": [
         "AP News (immigration protests, Jun 2026)",
         "SAnews.gov.za / IOL (30 Jun declared normal working day)",
@@ -184,8 +206,8 @@
       "name": "banking_payments",
       "level": "GREEN",
       "score": 22,
-      "confidence": "MEDIUM",
-      "summary": "No national banking outage. Isolated, resolved gateway degradations in June (Standard Bank Pay By Bank ~7h, PayU 3DSecure, Payfast ~1h).",
+      "confidence": "LOW",
+      "summary": "STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: No national banking outage. Isolated, resolved gateway degradations in June (Standard Bank Pay By Bank ~7h, PayU 3DSecure, Payfast ~1h).",
       "sources": [
         "IsDown incident logs for PayU/Payfast/Standard Bank"
       ]
@@ -194,8 +216,8 @@
       "name": "health_disease",
       "level": "WATCH",
       "score": 40,
-      "confidence": "MEDIUM",
-      "summary": "Southern Africa cholera surge in neighbours (Mozambique, Zambia, Malawi); South Africa on alert after Feb floods damaged WASH infrastructure but no confirmed widespread SA cholera outbreak on health.gov.za tracker.",
+      "confidence": "LOW",
+      "summary": "STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: Southern Africa cholera surge in neighbours (Mozambique, Zambia, Malawi); South Africa on alert after Feb floods damaged WASH infrastructure but no confirmed widespread SA cholera outbreak on health.gov.za tracker.",
       "sources": [
         "WHO Afro regional bulletin",
         "ReliefWeb / Save the Children flood health note",
@@ -206,8 +228,8 @@
       "name": "weather_hazards",
       "level": "WATCH",
       "score": 35,
-      "confidence": "MEDIUM",
-      "summary": "Garden Route severe flooding early Jun (200mm rain, fatalities, many district roads closed). As of 27 Jun, George/Knysna forecast mild/partly cloudy with 0% rain; new Yellow L4 rain warning for Cape Town/Winelands from 29 Jun.",
+      "confidence": "LOW",
+      "summary": "STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: Garden Route severe flooding early Jun (200mm rain, fatalities, many district roads closed). As of 27 Jun, George/Knysna forecast mild/partly cloudy with 0% rain; new Yellow L4 rain warning for Cape Town/Winelands from 29 Jun.",
       "sources": [
         "Garden Route District Municipality MACC updates",
         "George Herald / Western Cape Government road bulletins"
@@ -217,8 +239,8 @@
       "name": "global_shocks",
       "level": "WATCH",
       "score": 42,
-      "confidence": "MEDIUM",
-      "summary": "Oil retreated to ~$73–80/bbl Brent after Middle East ceasefire framework; rand ~R16.50/USD. Venezuela M7.5 earthquake (24 Jun) — no direct SA impact. GDACS SA mentions today: none in current feed window.",
+      "confidence": "LOW",
+      "summary": "STALE — last researched 2026-06-27 (65 days ago); current state unknown. Last known: Oil retreated to ~$73–80/bbl Brent after Middle East ceasefire framework; rand ~R16.50/USD. Venezuela M7.5 earthquake (24 Jun) — no direct SA impact. GDACS SA mentions today: none in current feed window. USGS M4+ southern Africa, 7 days: none.",
       "sources": [
         "IOL / Investec macro notes",
         "GDACS RSS",
@@ -229,8 +251,8 @@
       "name": "route_mobility",
       "level": "WATCH",
       "score": 45,
-      "confidence": "MEDIUM",
-      "summary": "Primary N1/N2 corridors Bloemfontein→Garden Route generally passable. ~70% of storm-damaged WC roads reopened (22 Jun); many scenic/secondary routes still closed (Meiringspoort, Swartberg Pass, Seven Passes sections, etc.). Verify WC Government/SANRAL status before departure; avoid closed passes.",
+      "confidence": "LOW",
+      "summary": "STALE — last researched 2026-06-22 (70 days ago); current state unknown. Last known: Primary N1/N2 corridors Bloemfontein→Garden Route generally passable. ~70% of storm-damaged WC roads reopened (22 Jun); many scenic/secondary routes still closed (Meiringspoort, Swartberg Pass, Seven Passes sections, etc.). Verify WC Government/SANRAL status before departure; avoid closed passes.",
       "sources": [
         "IOL / Western Cape disaster recovery update (22 Jun)",
         "George Herald / Western Cape Government road bulletins (18 Jun)",
@@ -241,8 +263,8 @@
       "name": "family_readiness",
       "level": "WATCH",
       "score": 48,
-      "confidence": "MEDIUM",
-      "summary": "Elevated readiness warranted before 30 Jun: top up drinking water (local outages), fuel tanks, medicines, cash/backup payment options, comms charge, and paper maps. Caravan/move planning not urgent unless unrest escalates.",
+      "confidence": "LOW",
+      "summary": "STALE — last researched 2026-06-28 (64 days ago); current state unknown. Last known: Elevated readiness warranted: top up drinking water (local outages), fuel tanks, medicines, cash/backup payment options, comms charge, and paper maps. Caravan/move planning not urgent unless unrest escalates.",
       "sources": [
         "Ark-SA readiness checklist (derived from local signals above)"
       ]
