@@ -13,7 +13,23 @@ def test_reflection_block_is_text_plus_questions_only():
         assert banned.lower() not in block.lower()
 
 
+def test_shareable_quote_block_is_verse_only():
+    block = gn.shareable_quote_block()
+    assert "Matthew 24:33" in block
+    assert "When you see all these things, know that it is near." in block
+    # No generated framing combining the verse with this week's data (the old
+    # "Task 4: Shareable quote" prompt and its fallback string both did this).
+    for banned in ("we're watching", "we're observing", "not predicting", "not date-setting", "fig tree pattern strength"):
+        assert banned.lower() not in block.lower()
+
+
 def test_enhance_with_openai_no_longer_returns_a_reflection(monkeypatch):
     monkeypatch.setattr(gn, "HAS_OPENAI", False)
     out = gn.enhance_with_openai({"overall_intensity": 0, "wars_intensity": 0}, {"total": 0}, {}, {})
     assert "scripture_reflection" not in out
+
+
+def test_enhance_with_openai_no_longer_returns_a_shareable_quote(monkeypatch):
+    monkeypatch.setattr(gn, "HAS_OPENAI", False)
+    out = gn.enhance_with_openai({"overall_intensity": 0, "wars_intensity": 0}, {"total": 0}, {}, {})
+    assert "shareable_quote" not in out

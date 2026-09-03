@@ -268,6 +268,17 @@ def reflection_block() -> str:
     )
 
 
+def shareable_quote_block() -> str:
+    """Decision 16: quote the verse, apply nothing. No model call, no generated framing.
+
+    The wording is the same Matthew 24:33 quote already used elsewhere in this file (the
+    Fig Tree Pattern Analysis section) and in past newsletters — not a new reference, and
+    not combined with this week's data. Combining a verse with the week's figures is the
+    interpretation Decision 16 forbids; that combination is not made here or anywhere else.
+    """
+    return "\"When you see all these things, know that it is near.\" — Matthew 24:33\n"
+
+
 def enhance_with_openai(fig_tree: dict, earthquakes: dict, conflicts: dict, economics: dict) -> dict:
     """Use OpenAI to enhance newsletter with narrative polish (20% augmentation)."""
 
@@ -276,7 +287,6 @@ def enhance_with_openai(fig_tree: dict, earthquakes: dict, conflicts: dict, econ
         return {
             'enhanced_headline': None,
             'surprise_finding': None,
-            'shareable_quote': "\"When you see all these things, know that it is near.\" — Matthew 24:33\n\nWe're watching, not predicting. We're observing, not date-setting."
         }
     
     try:
@@ -330,23 +340,10 @@ Your task: Provide brief, honest, Bible-grounded enhancements."""
                 temperature=0.7
             )
             surprise_finding = surprise_response.choices[0].message.content.strip()
-        
-        # Task 4: Shareable quote for social media
-        quote_response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": context},
-                {"role": "user", "content": "Create a shareable quote (2-3 lines) combining Matthew 24:33 with this week's fig tree pattern strength. Format for social media. Include emoji. Must include Matt 24:36 reminder (no date-setting). Biblical, hopeful tone."}
-            ],
-            max_tokens=80,
-            temperature=0.7
-        )
-        shareable_quote = quote_response.choices[0].message.content.strip()
-        
+
         return {
             'enhanced_headline': enhanced_headline,
             'surprise_finding': surprise_finding,
-            'shareable_quote': shareable_quote
         }
 
     except Exception as e:
@@ -356,7 +353,6 @@ Your task: Provide brief, honest, Bible-grounded enhancements."""
         return {
             'enhanced_headline': None,
             'surprise_finding': None,
-            'shareable_quote': "\"When you see all these things, know that it is near.\" — Matthew 24:33\n\nWe're watching, not predicting. We're observing, not date-setting."
         }
 
 
@@ -573,9 +569,9 @@ def generate_newsletter(days: int = 7) -> str:
         content.append("5. **Live Ready** — 'Be ye also ready' (Matt 24:44)\n")
         content.append("---\n")
         
-        # ⭐ Shareable Quote (AI-enhanced)
+        # Shareable Quote
         content.append("## 📱 Shareable Quote\n")
-        content.append(f"{ai_enhancements['shareable_quote']}\n")
+        content.append(shareable_quote_block())
         content.append("---\n")
         
         # Disclaimers
