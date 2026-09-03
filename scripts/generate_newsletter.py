@@ -251,16 +251,42 @@ def get_last_week_comparison(conn: sqlite3.Connection) -> dict:
     }
 
 
+def reflection_block() -> str:
+    """Decision 16: deliver the text, ask the question. Never explain, harmonise, date or apply.
+
+    The verse is quoted verbatim (KJV, public domain). The three prompts are structural and
+    contain no content. Whatever is concluded is Henzard's, written in his own notes, not here.
+    """
+    return (
+        "> **Matthew 24:7-8** — 'For nation shall rise against nation, and kingdom against kingdom: "
+        "and there shall be famines, and pestilences, and earthquakes, in divers places. "
+        "**All these are the beginning of sorrows.**'\n\n"
+        "### Questions for your own reading\n"
+        "- **Observation** — what does the text say? Who, what, where, when; repeated words; contrasts.\n"
+        "- **Interpretation** — what did it mean to the first readers?\n"
+        "- **Application** — what will you do, or stop doing, because of it? One thing.\n"
+    )
+
+
+def shareable_quote_block() -> str:
+    """Decision 16: quote the verse, apply nothing. No model call, no generated framing.
+
+    The wording is the same Matthew 24:33 quote already used elsewhere in this file (the
+    Fig Tree Pattern Analysis section) and in past newsletters — not a new reference, and
+    not combined with this week's data. Combining a verse with the week's figures is the
+    interpretation Decision 16 forbids; that combination is not made here or anywhere else.
+    """
+    return "\"When you see all these things, know that it is near.\" — Matthew 24:33\n"
+
+
 def enhance_with_openai(fig_tree: dict, earthquakes: dict, conflicts: dict, economics: dict) -> dict:
     """Use OpenAI to enhance newsletter with narrative polish (20% augmentation)."""
-    
+
     if not HAS_OPENAI or not OPENAI_API_KEY:
         # Fallback to template-based content
         return {
             'enhanced_headline': None,
-            'scripture_reflection': "This week's data confirms Jesus' description of the 'beginning of sorrows.' We observe these patterns with sobriety, knowing 'the end is not yet' (Matt 24:6).",
             'surprise_finding': None,
-            'shareable_quote': "\"When you see all these things, know that it is near.\" — Matthew 24:33\n\nWe're watching, not predicting. We're observing, not date-setting."
         }
     
     try:
@@ -300,19 +326,7 @@ Your task: Provide brief, honest, Bible-grounded enhancements."""
                 temperature=0.7
             )
             enhanced_headline = headline_response.choices[0].message.content.strip()
-        
-        # Task 2: Scripture reflection (2-3 sentences)
-        reflection_response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": context},
-                {"role": "user", "content": "Write a 2-3 sentence reflection on Matthew 24:7-8 ('beginning of sorrows') based on this week's data. Be specific (mention earthquakes/conflicts/famines intensities). End with reminder that 'the end is not yet' (Matt 24:6). Biblical tone, no speculation."}
-            ],
-            max_tokens=100,
-            temperature=0.7
-        )
-        scripture_reflection = reflection_response.choices[0].message.content.strip()
-        
+
         # Task 3: Surprise finding (optional - only if there's a notable pattern)
         surprise_finding = None
         if fig_tree['overall_intensity'] >= 30:
@@ -326,35 +340,19 @@ Your task: Provide brief, honest, Bible-grounded enhancements."""
                 temperature=0.7
             )
             surprise_finding = surprise_response.choices[0].message.content.strip()
-        
-        # Task 4: Shareable quote for social media
-        quote_response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": context},
-                {"role": "user", "content": "Create a shareable quote (2-3 lines) combining Matthew 24:33 with this week's fig tree pattern strength. Format for social media. Include emoji. Must include Matt 24:36 reminder (no date-setting). Biblical, hopeful tone."}
-            ],
-            max_tokens=80,
-            temperature=0.7
-        )
-        shareable_quote = quote_response.choices[0].message.content.strip()
-        
+
         return {
             'enhanced_headline': enhanced_headline,
-            'scripture_reflection': scripture_reflection,
             'surprise_finding': surprise_finding,
-            'shareable_quote': shareable_quote
         }
-        
+
     except Exception as e:
         print(f"⚠️  OpenAI enhancement failed: {e}")
         print("   Using template-based content instead.\n")
         # Fallback to templates
         return {
             'enhanced_headline': None,
-            'scripture_reflection': "This week's data confirms Jesus' description of the 'beginning of sorrows.' We observe these patterns with sobriety, knowing 'the end is not yet' (Matt 24:6).",
             'surprise_finding': None,
-            'shareable_quote': "\"When you see all these things, know that it is near.\" — Matthew 24:33\n\nWe're watching, not predicting. We're observing, not date-setting."
         }
 
 
@@ -530,12 +528,8 @@ def generate_newsletter(days: int = 7) -> str:
         
         # Scripture Focus
         content.append("## 📖 This Week's Scripture Focus\n")
-        content.append("> **Matthew 24:7-8** — 'For nation shall rise against nation, and kingdom against kingdom: and there shall be famines, and pestilences, and earthquakes, in divers places. **All these are the beginning of sorrows.**'\n")
-        content.append("### Reflection:\n")
-        
-        # ⭐ Use AI-enhanced reflection if available
-        content.append(f"{ai_enhancements['scripture_reflection']}\n")
-        
+        content.append(reflection_block())
+
         content.append("\nThis week's data breakdown:\n")
         content.append(f"- {'✅' if fig_tree['wars_intensity'] > 30 else '⏸️'} **Wars** — Intensity {fig_tree['wars_intensity']:.0f}/100")
         content.append(f"- {'✅' if fig_tree['quakes_intensity'] > 30 else '⏸️'} **Earthquakes** — Intensity {fig_tree['quakes_intensity']:.0f}/100")
@@ -575,9 +569,9 @@ def generate_newsletter(days: int = 7) -> str:
         content.append("5. **Live Ready** — 'Be ye also ready' (Matt 24:44)\n")
         content.append("---\n")
         
-        # ⭐ Shareable Quote (AI-enhanced)
+        # Shareable Quote
         content.append("## 📱 Shareable Quote\n")
-        content.append(f"{ai_enhancements['shareable_quote']}\n")
+        content.append(shareable_quote_block())
         content.append("---\n")
         
         # Disclaimers
